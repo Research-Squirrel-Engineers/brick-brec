@@ -52,6 +52,28 @@ def main(strict: bool) -> int:
             r.warn(f"class {name} is in the ontology but not in the class diagram (py/figures/draw_classes.py)")
     r.ok(f"{len(classes)} LREC classes checked for labels and for presence in the class diagram")
 
+    # 2b. curated Wikidata mappings: only for nodes of the ontology, only wd:Q ids, one per node, each with a label
+    from lrec_utils import WIKIDATA_MAP
+    cands = {str(s_) for s_ in g.subjects(LREC.wikidataSearchTerm, None)}
+    if WIKIDATA_MAP.exists():
+        wg = rdflib.Graph()
+        wg.parse(WIKIDATA_MAP, format="turtle")
+        SK = rdflib.Namespace("http://www.w3.org/2004/02/skos/core#")
+        pairs = list(wg.subject_objects(SK.closeMatch))
+        for s_, o_ in pairs:
+            if (s_, None, None) not in g:
+                r.fail(f"wikidata_mapping.ttl: {s_} is not a node of the ontology")
+            if not re.fullmatch(r"http://www\.wikidata\.org/entity/Q\d+", str(o_)):
+                r.fail(f"wikidata_mapping.ttl: {o_} is not a wd:Q... item")
+            if (o_, RDFS.label, None) not in wg:
+                r.warn(f"wikidata_mapping.ttl: {o_} has no label")
+        if len({s_ for s_, _ in pairs}) != len(pairs):
+            r.fail("wikidata_mapping.ttl: a node has two closeMatch items")
+        open_ = sorted(c.split("/")[-1] for c in cands - {str(s_) for s_, _ in pairs})
+        r.ok(f"{len(pairs)} Wikidata mappings checked" + (f"; still open: {', '.join(open_)}" if open_ else "; all candidates mapped"))
+    else:
+        r.ok(f"no data/wikidata_mapping.ttl yet: {len(cands)} candidates without Wikidata item (python py/wikidata/match.py)")
+
     # 3. FDOx: the four bundle TTLs (source of truth for identity, title, people, relations) vs registry pins vs lrec.ttl
     pins = read_pins()
     concept = [x["concept_doi"] for x in pins]

@@ -12,7 +12,7 @@ import shutil
 import sys
 
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
-from lrec_utils import DIST, IMG, ONTOLOGY, PY, Report, ensure_dirs, run_script, write_text  # noqa: E402
+from lrec_utils import DIST, IMG, ONTOLOGY, PY, WIKIDATA_MAP, Report, ensure_dirs, run_script, write_text  # noqa: E402
 
 
 def to_png(svg, png) -> str:
@@ -52,7 +52,7 @@ def main(strict: bool, png: bool) -> int:
     jobs = [
         ("draw.py", [], "ontologie_planar.svg", "overview.svg"),
         ("draw_classes.py", ["en", str(ONTOLOGY)], "lrec_klassen_en.svg", "classes.svg"),
-        ("draw_ident.py", [str(ONTOLOGY), "en"], "identifikation_en.svg", "identification.svg"),
+        ("draw_ident.py", [str(ONTOLOGY), "en", *([str(WIKIDATA_MAP)] if WIKIDATA_MAP.exists() else [])], "identifikation_en.svg", "identification.svg"),
     ]
     made = []
     for script, args, produced, final in jobs:

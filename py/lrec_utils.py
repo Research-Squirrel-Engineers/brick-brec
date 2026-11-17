@@ -18,6 +18,7 @@ DATA = ROOT / "data"
 RAW = DATA / "raw"
 FDOX_BUNDLES = DATA / "fdox" / "bundles"
 FDOX_PINS = DATA / "fdox" / "registry_pins.csv"
+WIKIDATA_MAP = DATA / "wikidata_mapping.ttl"   # curated by py/wikidata/match.py
 DIST = ROOT / "dist"
 DOCS = ROOT / "docs"
 IMG = DOCS / "visuals" / "img"
@@ -97,6 +98,8 @@ def load_graph(with_fdox: bool = True):
 
     g = rdflib.Graph()
     g.parse(ONTOLOGY, format="turtle")
+    if WIKIDATA_MAP.exists():
+        g.parse(WIKIDATA_MAP, format="turtle")
     if with_fdox:
         for f in sorted(FDOX_BUNDLES.glob("*.ttl")):
             g.parse(f, format="turtle")

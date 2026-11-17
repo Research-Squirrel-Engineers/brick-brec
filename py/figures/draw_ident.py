@@ -8,7 +8,7 @@ LANG = [a for a in sys.argv[1:] if a in ('de', 'en')] or ['de']; LANG = LANG[0];
 TX = {'de': dict(t='LREC v0.3: Was stellt das Objekt dar? (Beobachtung → Identifikation → Hypothese → Kandidat)', st='Konfidenz = subjektive Einschätzung des KI-Assistenten (0 bis 1), keine Messung; Hypothesen überlappen und summieren sich nicht zu 1', j1='J1 Prämisse', j2='J2 schließt auf', sup='stützt', wk='schwächt', main='Hauptannahme', spec='Spezialfall von', alt='Alternative zu', id='Kennung', status='Status', search='Suche', pr='proposesReferent', l1='Beobachtung (crminf:I4)', l2='Identifikation (E17 + I5)', l3='Hypothese (crminf:I2)', l4='Kandidat / Wikidata', s1='Modell 1: Stufenpyramide mit Säule und Figur', s2='Figur auf Modell 1', s3='Modell 2: Stufenpyramide mit grauen Treppen und Tempel', open='offen'),
  'en': dict(t='LREC v0.3: What does the object represent? (observation → identification → hypothesis → candidate)', st='Confidence = subjective estimate by the AI assistant (0 to 1), not a measurement; hypotheses overlap and do not sum to 1', j1='J1 premise', j2='J2 concluded that', sup='supports', wk='weakens', main='main assumption', spec='special case of', alt='alternative to', id='id', status='Status', search='search', pr='proposesReferent', l1='Observation (crminf:I4)', l2='Identification (E17 + I5)', l3='Hypothesis (crminf:I2)', l4='Candidate / Wikidata', s1='Model 1: stepped pyramid with column and figure', s2='Figure on model 1', s3='Model 2: stepped pyramid with grey stairs and temple', open='open'), }[LANG]
 g = rdflib.Graph(); g.parse(ttl, format='turtle')
-if os.path.exists('wikidata_mapping.ttl'): g.parse('wikidata_mapping.ttl', format='turtle')
+for _m in [a for a in sys.argv[1:] if a.endswith('.ttl')][1:]: g.parse(_m, format='turtle')   # optional 2nd TTL: data/wikidata_mapping.ttl
 L = Namespace('https://example.org/lego-reconstruction#'); EX = Namespace('https://example.org/lego-reconstruction/id/')
 CI = Namespace('http://www.ics.forth.gr/isl/CRMinf/'); SK = Namespace('http://www.w3.org/2004/02/skos/core#')
 def lab(u): return next((str(l) for l in g.objects(u, RDFS.label) if l.language == LANG), next((str(l) for l in g.objects(u, RDFS.label)), ''))
@@ -68,9 +68,10 @@ for iid, title in sections:
         if cand:
             o.append(f'<path d="M{XH+WH} {c:.0f} L{XC} {c:.0f}" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>')
             qid = g.value(cand, SK.closeMatch); q = str(qid).split('/')[-1] if qid else TX['open']
+            wl = next((str(l) for l in g.objects(qid, RDFS.label)), '') if qid else ""
             o.append(f'<rect x="{XC}" y="{c-32:.0f}" width="{WC}" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>')
             for k, ln in enumerate(textwrap.wrap(lab(cand), 40)[:2]): o.append(f'<text x="{XC+10}" y="{c-12+k*16:.0f}" font-size="13" font-weight="500" fill="#fff">{esc(ln)}</text>')
-            o.append(f'<text x="{XC+10}" y="{c+24:.0f}" font-size="12" fill="#fff">Wikidata: {q}  ({TX["search"]}: {esc(str(g.value(cand, L.wikidataSearchTerm)))})</text>')
+            o.append(f'<text x="{XC+10}" y="{c+24:.0f}" font-size="12" fill="#fff">Wikidata: {q}  ({esc(wl) if qid else TX["search"] + ": " + esc(str(g.value(cand, L.wikidataSearchTerm)))})</text>')
             o.append(chip((XH + WH + XC) / 2, c, TX["pr"]))
     y = top + total_h + 60
 W = XC + WC + 40; H = y + 70

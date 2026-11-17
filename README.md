@@ -30,6 +30,8 @@ python main.py --no-png
 
 `--strict` turns warnings into errors; a complete run is expected to pass it. `--no-png` skips the PNG that is rendered next to each SVG figure.
 
+Wikidata mappings of the identification candidates are curated by hand: `python py/wikidata/match.py` (needs the network, not part of `main.py`) lists the Wikidata hits per search term and writes your picks to `data/wikidata_mapping.ttl`; `python main.py` reads that file (check, figure, pages). `--list` only writes `dist/wikidata_candidates.md`.
+
 The figures are set in Fira Sans (SIL Open Font Licence, `py/figures/fonts/`); the SVG names the font, the PNG is rendered with the font files, and the docs pages carry the font files in `docs/assets/fonts/`.
 
 ## Layout
