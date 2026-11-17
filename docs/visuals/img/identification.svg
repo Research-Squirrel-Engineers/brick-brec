@@ -27,7 +27,7 @@
 <path d="M1470 118 L1650 118" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>
 <rect x="1650" y="86" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
 <text x="1660" y="106" font-size="13" font-weight="500" fill="#fff">Soldier / warrior</text>
-<text x="1660" y="142" font-size="12" fill="#fff">Wikidata: open  (search: soldier)</text>
+<text x="1660" y="142" font-size="12" fill="#fff">Wikidata: Q4991371  (soldier)</text>
 <rect x="1502" y="107" width="116" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1560" y="122" font-size="12" text-anchor="middle">proposesReferent</text>
 <path d="M970 248 L1040 248" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
 <rect x="1040" y="190" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
@@ -90,7 +90,7 @@
 <path d="M1470 464 L1650 464" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>
 <rect x="1650" y="432" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
 <text x="1660" y="452" font-size="13" font-weight="500" fill="#fff">Monument / memorial column</text>
-<text x="1660" y="488" font-size="12" fill="#fff">Wikidata: open  (search: memorial column)</text>
+<text x="1660" y="488" font-size="12" fill="#fff">Wikidata: Q51845395  (memorial column)</text>
 <rect x="1502" y="453" width="116" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1560" y="468" font-size="12" text-anchor="middle">proposesReferent</text>
 <path d="M970 594 L1040 594" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
 <rect x="1040" y="536" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
@@ -112,7 +112,7 @@
 <path d="M1470 724 L1650 724" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>
 <rect x="1650" y="692" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
 <text x="1660" y="712" font-size="13" font-weight="500" fill="#fff">Watchtower</text>
-<text x="1660" y="748" font-size="12" fill="#fff">Wikidata: open  (search: watchtower)</text>
+<text x="1660" y="748" font-size="12" fill="#fff">Wikidata: Q947103  (watchtower)</text>
 <rect x="1502" y="713" width="116" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1560" y="728" font-size="12" text-anchor="middle">proposesReferent</text>
 <path d="M970 854 L1040 854" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
 <rect x="1040" y="796" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
@@ -210,7 +210,7 @@
 <path d="M1470 1460 L1650 1460" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>
 <rect x="1650" y="1428" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
 <text x="1660" y="1448" font-size="13" font-weight="500" fill="#fff">Angkor temple mountain (e.g. Bakong)</text>
-<text x="1660" y="1484" font-size="12" fill="#fff">Wikidata: open  (search: Bakong)</text>
+<text x="1660" y="1484" font-size="12" fill="#fff">Wikidata: Q788982  (Bakong)</text>
 <rect x="1502" y="1449" width="116" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1560" y="1464" font-size="12" text-anchor="middle">proposesReferent</text>
 <path d="M970 1590 L1040 1590" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
 <rect x="1040" y="1532" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
@@ -223,7 +223,7 @@
 <path d="M1470 1590 L1650 1590" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>
 <rect x="1650" y="1558" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
 <text x="1660" y="1578" font-size="13" font-weight="500" fill="#fff">Ziggurat</text>
-<text x="1660" y="1614" font-size="12" fill="#fff">Wikidata: open  (search: ziggurat)</text>
+<text x="1660" y="1614" font-size="12" fill="#fff">Wikidata: Q170153  (ziggurat)</text>
 <rect x="1502" y="1579" width="116" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1560" y="1594" font-size="12" text-anchor="middle">proposesReferent</text>
 <rect x="40" y="1738" width="26" height="16" fill="#fff" stroke="#000"/><text x="74" y="1751" font-size="13">Observation (crminf:I4)</text>
 <rect x="245.8" y="1738" width="26" height="16" fill="#9a3412" stroke="#000"/><text x="279.8" y="1751" font-size="13">Identification (E17 + I5)</text>

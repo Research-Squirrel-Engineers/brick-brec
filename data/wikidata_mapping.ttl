@@ -1,0 +1,16 @@
+# Curated Wikidata mappings (written by py/wikidata/match.py, checked by hand). Each line: node, skos:closeMatch, label | description from Wikidata.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix ex: <https://example.org/lego-reconstruction/id/> .
+
+ex:c_angkor skos:closeMatch wd:Q788982 .  # Bakong | Temple mountain of sandstone near Siem Reap, Cambodia
+wd:Q788982 rdfs:label "Bakong"@en .
+ex:c_denkmal skos:closeMatch wd:Q51845395 .  # memorial column | freestanding column; erected as a memorial
+wd:Q51845395 rdfs:label "memorial column"@en .
+ex:c_soldier skos:closeMatch wd:Q4991371 .  # soldier | member of an armed force
+wd:Q4991371 rdfs:label "soldier"@en .
+ex:c_wachturm skos:closeMatch wd:Q947103 .  # watchtower | tower used for the military surveillance of the surrounding area
+wd:Q947103 rdfs:label "watchtower"@en .
+ex:c_ziggurat skos:closeMatch wd:Q170153 .  # ziggurat | massive structure built in the ancient Mesopotamian valley and western Iranian plateau, having the form of a terraced step pyramid
+wd:Q170153 rdfs:label "ziggurat"@en .

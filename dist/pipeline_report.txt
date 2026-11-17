@@ -1,7 +1,7 @@
 [check] OK    lrec.ttl parses: 711 triples
 [check] OK    overview drawing agrees with the graph (Knoten 23 Kanten 29 Fehler 0)
 [check] OK    23 LREC classes checked for labels and for presence in the class diagram
-[check] OK    no data/wikidata_mapping.ttl yet: 8 candidates without Wikidata item (python py/wikidata/match.py)
+[check] OK    5 Wikidata mappings checked; still open: c_cobi, c_elcastillo, c_maya
 [check] OK    lego-pyramid-kiri-original: bundle TTL = pins = lrec.ttl (concept 10.5281/zenodo.24305240, pinned 10.5281/zenodo.24305241 v1; contributors: none with an IRI)
 [check] OK    lego-pyramid-reconstruction-claudeai: bundle TTL = pins = lrec.ttl (concept 10.5281/zenodo.24305343, pinned 10.5281/zenodo.24305344 v1; contributors: none with an IRI)
 [check] OK    lego-pyramid-maya-kiri-original: bundle TTL = pins = lrec.ttl (concept 10.5281/zenodo.24305428, pinned 10.5281/zenodo.24310015 v3; contributors: Daria Stefan)
