@@ -51,9 +51,9 @@ The figures are set in Fira Sans (SIL Open Font Licence, `py/figures/fonts/`); t
 
 ## Documentation site
 
-`docs/index.html` (open locally or publish with GitHub Pages from `/docs`) has ten pages, all generated from `ontology/lrec.ttl`, the FDOx bundle TTLs and the Wikidata mapping:
+`docs/index.html` (open locally or publish with GitHub Pages from `/docs`) has nine pages, all generated from `ontology/lrec.ttl`, the FDOx bundle TTLs and the Wikidata mapping:
 overview, **data model** (three modules with class and property tables), **CRM coverage** (chain from every LREC class to its CIDOC CRM / CRMdig / CRMinf ancestor), **crosswalk** (direct parents per vocabulary),
-**instance models** (the two pyramids with builder, scan, FDOx and hypotheses), a **SPARQL page** (rdflib under Pyodide, no endpoint; the queries are in `data/queries.json`, each is executed at build time and must return rows; the graph it queries is `docs/graph.nt`), a **3D viewer** (three.js, the two GLB reconstructions copied to `docs/models/`), figures (twelve, as PNG with SVG download), FDOx and interpretations. Pyodide 0.26.4, rdflib 7.1.1 (in the browser) and three.js 0.160.0 are loaded from jsDelivr and pinned in `py/pages_web.py`; both interactive pages need to be served over HTTP.
+**instance models** (the two pyramids with builder, scan, FDOx and hypotheses), a **SPARQL page** (rdflib under Pyodide, no endpoint; the queries are in `data/queries.json`, each is executed at build time and must return rows; the graph it queries is `docs/graph.nt`), a **3D viewer** (three.js, the two GLB reconstructions copied to `docs/models/`), figures (twelve, as PNG with SVG download), FDOx. Pyodide 0.26.4, rdflib 7.1.1 (in the browser) and three.js 0.160.0 are loaded from jsDelivr and pinned in `py/pages_web.py`; both interactive pages need to be served over HTTP.
 Every LREC class is anchored in the CRM family; `check` fails if one is not, or if a class belongs to no module of the data model page (`MODULES` in `py/pages_more.py`).
 
 ## Links

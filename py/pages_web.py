@@ -50,8 +50,8 @@ def sparql_page(gm, report) -> str:
         rows = max(5, q["sparql"].count("\n") + 2)
         blocks.append(f'<section class=q id="q-{q["id"]}"><h2>{i}. {esc(q["title"])}</h2><p>{esc(q["intro"])}</p>'
                       f'<textarea class=sparql id="src-{q["id"]}" spellcheck=false rows={rows}>{esc(q["sparql"])}</textarea>'
-                      f'<p><button type=button class=run data-q="{q["id"]}" disabled>Run</button> <button type=button class=reset data-q="{q["id"]}">Reset</button> '
-                      f'<a class=muted href="downloads/queries/{q["id"]}.rq">.rq file</a> <span class=muted id="time-{q["id"]}"></span></p><div id="out-{q["id"]}"></div></section>')
+                      f'<div style="overflow:hidden;margin-top:6px"><button type=button class=run data-q="{q["id"]}" disabled>Run</button> <button type=button class=reset data-q="{q["id"]}">Reset</button> '
+                      f'<a class=muted href="downloads/queries/{q["id"]}.rq">.rq file</a> <span class=muted id="time-{q["id"]}"></span></div><div id="out-{q["id"]}"></div></section>')
     report.ok("SPARQL queries (rows): " + ", ".join(counts))
     js = (JS.replace("__PREFIXES__", json.dumps(pre)).replace("__QUERIES__", json.dumps(qjs)).replace("__MAX__", str(MAX_ROWS))
           .replace("__RDFLIB__", RDFLIB))
@@ -69,12 +69,16 @@ const st = document.getElementById('status-text'), dot = document.getElementById
 let pyodide = null;
 function setStatus(t, s) { st.textContent = t; dot.className = 'dot ' + (s || ''); }
 function esc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+const NS = [];
+(PREFIXES + '\nPREFIX wd: <http://www.wikidata.org/entity/>\nPREFIX doi: <https://doi.org/>').replace(/PREFIX\s+(\w*):\s*<([^>]+)>/g, (m, p, u) => NS.push([p, u]));
+NS.sort((a, b) => b[1].length - a[1].length);
+function short(s) { for (const [p, u] of NS) if (s.startsWith(u) && s.length > u.length) return p + ':' + s.slice(u.length); return s; }
 function table(cols, rows, id, total) {
   const out = document.getElementById(id);
   if (!rows.length) { out.innerHTML = '<p class="muted">No results. The query is valid but matched nothing.</p>'; return; }
   let h = '<div style="overflow-x:auto"><table><tr>' + cols.map(c => '<th>' + esc(c) + '</th>').join('') + '</tr>';
   for (const r of rows) h += '<tr>' + cols.map(c => { const v = r[c]; if (v === null || v === undefined) return '<td class="muted">&mdash;</td>';
-    const s = String(v); return /^https?:\/\//.test(s) ? '<td><a href="' + esc(s) + '" target="_blank" rel="noopener">' + esc(s) + '</a></td>' : '<td>' + esc(s) + '</td>'; }).join('') + '</tr>';
+    const s = String(v); return /^https?:\/\//.test(s) ? '<td><a href="' + esc(s) + '" target="_blank" rel="noopener" title="' + esc(s) + '">' + esc(short(s)) + '</a></td>' : '<td>' + esc(s) + '</td>'; }).join('') + '</tr>';
   out.innerHTML = h + '</table></div><p class="muted">' + (total > rows.length ? 'Showing the first ' + rows.length + ' of ' + total + ' rows.' : rows.length + ' row' + (rows.length === 1 ? '' : 's') + '.') + '</p>';
 }
 async function boot() {

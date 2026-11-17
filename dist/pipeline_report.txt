@@ -24,4 +24,4 @@
 [figures] OK    crosswalk.svg
 [figures] OK    PNG written with resvg_py
 [pages] OK    SPARQL queries (rows): classes-anchored 24, hypotheses-ranked 11, evidence 12, scans 2, fdox 4, models 4, properties 16
-[pages] OK    10 pages, 23 classes, 16 properties, 4 FDOx, docs/lrec.ttl
+[pages] OK    9 pages, 23 classes, 16 properties, 4 FDOx, docs/lrec.ttl

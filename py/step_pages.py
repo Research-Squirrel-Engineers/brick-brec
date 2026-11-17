@@ -1,7 +1,7 @@
 """pages: build the documentation site under docs/ from the ontology and the figures (static HTML, house style).
 
 Pages: index, data model (modules, classes, properties), CRM coverage, crosswalk, instance models, figures, fdox (the four FDOx, relations),
-interpretations (identification hypotheses with status). Everything is generated; docs/ is committed.
+Everything is generated; docs/ is committed.
 """
 from __future__ import annotations
 
@@ -46,10 +46,10 @@ table{border-collapse:collapse;width:100%;font-size:15px}th,td{text-align:left;p
 code{font-size:14px;background:#f1efe8;padding:1px 4px;border-radius:4px}.muted{color:var(--muted);font-size:14px}
 img{max-width:100%;height:auto}.n{color:var(--accent);font-weight:500;margin-right:8px}.cap{font-size:20px;font-weight:500}
 blockquote{background:#fff7e0;border-left:4px solid #fbbf24;margin:12px 0;padding:8px 12px}
-textarea.sparql{width:100%;font:13px/1.4 ui-monospace,Consolas,monospace;border:1px solid var(--rim);border-radius:6px;padding:8px;background:#fbfbf9}\n.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:#bbb}.dot.ok{background:#166534}.dot.busy{background:#fbbf24}.dot.err{background:#9a3412}\n.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:700px){.grid{grid-template-columns:1fr}}
+textarea.sparql{display:block;width:100%;min-width:100%;box-sizing:border-box;resize:vertical;font:13px/1.4 ui-monospace,Consolas,monospace;border:1px solid var(--rim);border-radius:6px;padding:8px;background:#fbfbf9}\n.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:#bbb}.dot.ok{background:#166534}.dot.busy{background:#fbbf24}.dot.err{background:#9a3412}\n.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:700px){.grid{grid-template-columns:1fr}}
 """
 PAGES = [("index.html", "Overview"), ("ontology.html", "Data model"), ("coverage.html", "CRM coverage"), ("crosswalk.html", "Crosswalk"), ("instances.html", "Instance models"),
-         ("sparql.html", "SPARQL"), ("viewer.html", "3D viewer"), ("visuals.html", "Figures"), ("fdox.html", "FDOx"), ("interpretations.html", "Interpretations")]
+         ("sparql.html", "SPARQL"), ("viewer.html", "3D viewer"), ("visuals.html", "Figures"), ("fdox.html", "FDOx")]
 FIGPAGES = FIG_NAV
 JS_COPY = """<script>document.querySelectorAll("button[data-c]").forEach(function(b){b.addEventListener("click",function(){var ok=function(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy"},1200)};if(navigator.clipboard){navigator.clipboard.writeText(b.dataset.c).then(ok).catch(function(){})}})});</script>"""
 
@@ -58,12 +58,15 @@ def esc(x) -> str:
     return html.escape(str(x))
 
 
+CSSV = __import__("hashlib").sha256(CSS.encode("utf-8")).hexdigest()[:8]   # cache buster: a browser must not keep an old stylesheet after a change
+
+
 def page(name: str, title: str, body: str, head: str = "") -> None:
     def row(lab, items):
         return f'<div class=grp><span class=lab>{lab}</span><span class=lnk>' + "".join(f'<a href="{f}"{" class=on" if f == name else ""}>{t}</a>' for f, t in items) + "</span></div>"
     nav = row("Documentation", PAGES) + row("Figures", FIGPAGES)
     write_text(DOCS / name, f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-               f'<title>{esc(title)} | LREC</title><link rel="stylesheet" href="assets/site.css">{head}</head><body><nav>{nav}</nav><main>{body}</main>{JS_COPY}</body></html>')
+               f'<title>{esc(title)} | LREC</title><link rel="stylesheet" href="assets/site.css?v={CSSV}">{head}</head><body><nav>{nav}</nav><main>{body}</main>{JS_COPY}</body></html>')
 
 
 def label(g, s, lang="en") -> str:
@@ -145,14 +148,6 @@ def main(strict: bool) -> int:
          "the version DOI is the registry pin (<code>data/fdox/registry_pins.csv</code>). Check both against the Zenodo page before entering them.</blockquote></section>"
          f"<section><h2>Relations between the FDOx</h2><table><tr><th>From (concept DOI suffix)</th><th>Role</th><th>To</th><th>Note</th></tr>{rel}</table></section>")
 
-    # --- interpretations
-    hrows = ""
-    for ident in sorted(g.subjects(RDF.type, LREC.Identification), key=str):
-        for h in sorted(g.objects(ident, CRMINF.J2_concluded_that), key=str):
-            c = g.value(h, LREC.confidence); st = g.value(h, LREC.verificationStatus); sp = g.value(h, LREC.specializes)
-            hrows += (f"<tr><td>{esc(q(g, ident))}</td><td>{esc(label(g, h, 'en'))}</td><td>{esc(c)}</td><td>{esc(q(g, sp)) if sp else ''}</td><td>{esc(st)}</td></tr>")
-    page("interpretations.html", "Interpretations", "<h1>Identification hypotheses</h1><section><p>Confidence is a subjective estimate by the AI assistant, not a measurement. Hypotheses overlap and do not sum to 1.</p>"
-         f"<table><tr><th>Identification</th><th>Hypothesis</th><th>Confidence</th><th>Specialises</th><th>Status</th></tr>{hrows}</table></section>")
     r.ok(f"{len(PAGES)} pages, {len(classes)} classes, {len(props)} properties, {len(fdox)} FDOx, docs/lrec.ttl")
     return r.exit_code()
 
