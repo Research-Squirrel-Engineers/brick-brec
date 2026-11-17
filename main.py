@@ -8,7 +8,7 @@
     python main.py --skip pages     everything but this
     python main.py --dry-run        print the plan, run nothing
     python main.py --strict         warnings become errors (what CI runs)
-    python main.py --png            also render PNG next to the SVG figures (needs resvg_py or playwright)
+    python main.py --no-png         skip the PNG next to each SVG figure (PNG is what the docs pages show)
 
 Each step is also runnable on its own: python py/step_check.py [--strict]
 No step touches the network; there is no fetching step.
@@ -43,7 +43,7 @@ def main() -> int:
     ap.add_argument("--skip", action="append", default=[])
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--strict", action="store_true")
-    ap.add_argument("--png", action="store_true")
+    ap.add_argument("--no-png", action="store_true")
     a = ap.parse_args()
     names = [s[0] for s in STEPS]
     if a.list:
@@ -63,7 +63,7 @@ def main() -> int:
     env = dict(os.environ, PYTHONIOENCODING="utf-8", PYTHONHASHSEED="0")
     report, timings, rc = [], [], 0
     for n, f, d in plan:
-        cmd = [sys.executable, str(ROOT / f)] + (["--strict"] if a.strict else []) + (["--png"] if a.png and n == "figures" else [])
+        cmd = [sys.executable, str(ROOT / f)] + (["--strict"] if a.strict else []) + (["--no-png"] if a.no_png and n == "figures" else [])
         print(f"\n=== {n}: {d}")
         t0 = time.time()
         p = subprocess.Popen(cmd, cwd=str(ROOT), env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8")

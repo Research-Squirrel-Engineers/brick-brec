@@ -195,7 +195,7 @@ Siehe Teil B. Diese Schritte werden beschrieben, sobald sie an der Reihe sind.
 # Teil D: Offene Punkte
 
 - Ist Daria Stefan Ersteller oder Beitragende der Maya-FDOx (Zenodo-Record gegen Bundle)? Als Formular im nächsten Chat fragen.
-- Fira Sans ist in den SVG-Zeichnungen nicht eingebettet (Arial/Helvetica); für die Veröffentlichung entscheiden, ob PNG mit eingebetteter Schrift nötig ist.
+- Erledigt 2026-11-17: Abbildungen in Fira Sans nach dem Muster von GeoScience-FAIRification-LOD (Schrift im SVG benannt, nicht eingebettet; Textbreiten mit Pillow-BASIC gemessen, `py/figures/fira.py`; PNG mit resvg-py und den Fontdateien aus `py/figures/fonts/`; Docs-Seiten zeigen das PNG, SVG als Download).
 - Die Mermaid-Übersicht fehlt in den FDOx-Bundles (`mmdc … unknown option '-w'`); gehört zu fdo-squirrel, nicht hierher.
 - Der Registry-Pin auf `fdo-squirrel` v1.3.0 ist noch zu heben (anderes Repo).
 - Wikidata-IDs der Kandidaten (Maya-Pyramide, El Castillo, Kriegerfigur …) fehlen noch.

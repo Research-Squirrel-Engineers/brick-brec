@@ -1,3 +1,5 @@
+import sys as _s, pathlib as _p; _s.path.insert(0,str(_p.Path(__file__).resolve().parent))
+from fira import tw, chip_w
 import rdflib, itertools, sys
 LANG=sys.argv[1] if len(sys.argv)>1 else 'de'; SUF='' if LANG=='de' else '_'+LANG
 TX={'de':dict(title='LREC v0.4: Klassendiagramm',sub='Pfeile mit hohlem Dreieck = rdfs:subClassOf (Elternklassen stehen pro Klasse einzeln, damit sich nichts kreuzt)',lrec='LREC-Klasse',crm='CRM / CRMdig / CRMinf / Time / GeoSPARQL',hdt='Heritage Digital Twin (hdt)',prov='PROV-O',par='LREC-Oberklasse',dcat='DCAT / DQV / SKOS / schema.org',foot='Gelb = Attribut (Datatype-Property); Pfeil mit Vollspitze = Object-Property. Quelle: ontology/lrec.ttl',inh='(erbt confidence)'),
@@ -35,7 +37,7 @@ H=y+60
 def chip(x,yc,t,v):
     fill=SW[v]; fg='#fff' if v in('dcat','skos') else '#000'; st='#1d4ed8' if v=='hdt' else '#000'; sw=3.5 if v=='hdt' else 1.2
     return f'<rect x="{x}" y="{yc-CH/2}" width="{CW}" height="{CH}" rx="5" fill="{fill}" stroke="{st}" stroke-width="{sw}"/><text x="{x+CW/2}" y="{yc+5}" font-size="12.5" text-anchor="middle" fill="{fg}">{t}</text>'
-o=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" font-family="Arial,Helvetica,sans-serif">',
+o=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" font-family="Fira Sans">',
 '<defs><marker id="s" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="11" markerHeight="11" orient="auto"><path d="M1 1L11 6L1 11z" fill="#fff" stroke="#111" stroke-width="1.3"/></marker><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#111"/></marker></defs>',
 f'<rect width="{W}" height="{H}" fill="#fff"/>']
 segs=[]
@@ -49,20 +51,21 @@ for n,r in rows.items():
             o.append(chip(x_chip,yc,pretty(t),vocab(t))); segs.append((x_edge_box,yc,x_edge_chip,yc))
     place(r['left'],XL,XB,XL+CW,'L'); place(r['right'],XR,XB+BW,XR,'R')
     o.append(f'<rect x="{XB}" y="{top}" width="{BW}" height="{h}" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>')
-    o.append(f'<text x="{XB+BW/2}" y="{top+h/2-(9*len(attrs.get(n,[])))-4:.0f}" font-size="15" font-weight="700" text-anchor="middle" fill="#fff">lrec:{n}</text>')
+    o.append(f'<text x="{XB+BW/2}" y="{top+h/2-(9*len(attrs.get(n,[])))-4:.0f}" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:{n}</text>')
     o.append(f'<text x="{XB+BW/2}" y="{top+h/2-(9*len(attrs.get(n,[])))+15:.0f}" font-size="12.5" text-anchor="middle" fill="#fff">{cls[n]["label"]}</text>')
     for i,a in enumerate(attrs.get(n,[])):
-        o.append(f'<text x="{XB+BW/2}" y="{top+h/2+(9*len(attrs.get(n,[])))+8+i*18:.0f}" font-size="12.5" text-anchor="middle" fill="#fbbf24" font-weight="700">{a}</text>')
+        o.append(f'<text x="{XB+BW/2}" y="{top+h/2+(9*len(attrs.get(n,[])))+8+i*18:.0f}" font-size="12.5" text-anchor="middle" fill="#fbbf24" font-weight="500">{a}</text>')
 # property edge: ProceduralReconstruction -> Assumption (adjacent rows)
 a=rows['Assumption']; b=rows['ProceduralReconstruction']; xm=XB+BW/2
 y1=b['y']; y2=a['y']+a['h']
 o.append(f'<path d="M{xm} {y1} L{xm} {y2}" stroke="#111" stroke-width="2" fill="none" marker-end="url(#a)"/>')
-o.append(f'<rect x="{xm-107}" y="{(y1+y2)/2-11}" width="214" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="{xm}" y="{(y1+y2)/2+4}" font-size="12.5" text-anchor="middle">lrec:usesAssumption (⊑ prov:used)</text>')
+UA='lrec:usesAssumption (sub-property of prov:used)'; UW=chip_w(UA,12.5)
+o.append(f'<rect x="{xm-UW/2}" y="{(y1+y2)/2-11}" width="{UW}" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="{xm}" y="{(y1+y2)/2+4}" font-size="12.5" text-anchor="middle">{UA}</text>')
 ly=H-56; x=50
 items=[('#9a3412','#000',TX["lrec"]),('#fff','#000',TX["crm"]),('#fff','#1d4ed8',TX["hdt"]),('#e2e8f0','#000',TX["prov"]),('#d6a58a','#000',TX["par"]),('#4c1d95','#000',TX["dcat"]),('#fbbf24','#000','attribute (datatype property)')]
 for f,s,t in items:
     sw=3.5 if s=='#1d4ed8' else 1.2
-    o.append(f'<rect x="{x}" y="{ly}" width="26" height="16" fill="{f}" stroke="{s}" stroke-width="{sw}"/><text x="{x+34}" y="{ly+13}" font-size="13">{t}</text>'); x+=58+len(t)*6.3
+    o.append(f'<rect x="{x}" y="{ly}" width="26" height="16" fill="{f}" stroke="{s}" stroke-width="{sw}"/><text x="{x+34}" y="{ly+13}" font-size="13">{t}</text>'); x+=58+tw(t,13)
     if f=='#fff' and s=='#1d4ed8': x=50; ly+=26
 o.append('</svg>')
 open('lrec_klassen'+SUF+'.svg','w',encoding='utf-8',newline='\n').write('\n'.join(o))

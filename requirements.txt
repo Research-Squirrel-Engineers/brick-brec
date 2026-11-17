@@ -11,5 +11,5 @@ trimesh==5.2.1
 Pillow==12.3.0
 rdflib==7.6.0
 jsonschema==4.26.0
-# optional: PNG next to the SVG figures (python main.py --png)
-# resvg_py
+# PNG next to the SVG figures, rendered with the Fira Sans files in py/figures/fonts (python main.py --no-png skips it)
+resvg-py==0.5.0

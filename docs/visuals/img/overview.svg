@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1990" height="1050" viewBox="0 0 1990 1050" font-family="Arial,Helvetica,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1990" height="1050" viewBox="0 0 1990 1050" font-family="Fira Sans">
 <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#111"/></marker></defs>
 <rect width="1990" height="1050" fill="#fff"/>
 <path d="M335 80 L995 80" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
@@ -28,121 +28,121 @@
 <path d="M1495 938 L1725 938" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
 <path d="M1390 878 L1390 632" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
 <path d="M1160 462 L1160 518 L1680 518 L1680 548" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
-<g><rect x="588" y="69" width="154" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="665" y="84" font-size="12" text-anchor="middle" fill="#000">hdt: has digital twin</text></g>
-<g><rect x="554" y="171" width="239" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="673" y="187" font-size="12" text-anchor="middle" fill="#000">hdt: includes visual documentation</text></g>
-<g><rect x="815" y="161" width="213" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="921" y="176" font-size="12" text-anchor="middle" fill="#000">hdt: includes 3D documentation</text></g>
-<g><rect x="1158" y="154" width="213" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1265" y="170" font-size="12" text-anchor="middle" fill="#000">hdt: includes 3D documentation</text></g>
-<g><rect x="1330" y="69" width="161" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1410" y="84" font-size="12" text-anchor="middle" fill="#000">hdt: includes document</text></g>
-<g><rect x="182" y="239" width="96" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="230" y="254" font-size="12" text-anchor="middle" fill="#000">L1 digitized</text></g>
-<g><rect x="498" y="330" width="109" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="552" y="346" font-size="12" text-anchor="middle" fill="#000">L11 had output</text></g>
-<g><rect x="909" y="324" width="102" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="960" y="340" font-size="12" text-anchor="middle" fill="#000">L10 had input</text></g>
-<g><rect x="1196" y="324" width="109" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1250" y="340" font-size="12" text-anchor="middle" fill="#000">L11 had output</text></g>
-<g><rect x="997" y="239" width="206" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1100" y="254" font-size="12" text-anchor="middle" fill="#000">L21 used as derivation source</text></g>
-<g><rect x="1510" y="239" width="90" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1555" y="254" font-size="12" text-anchor="middle" fill="#000">P2 has type</text></g>
-<g><rect x="1496" y="379" width="102" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1548" y="394" font-size="12" text-anchor="middle" fill="#000">P70 documents</text></g>
-<g><rect x="667" y="409" width="96" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="715" y="424" font-size="12" text-anchor="middle" fill="#000">P39 measured</text></g>
-<g><rect x="440" y="664" width="161" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="520" y="680" font-size="12" text-anchor="middle" fill="#000">P40 observed dimension</text></g>
-<g><rect x="472" y="829" width="96" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="520" y="844" font-size="12" text-anchor="middle" fill="#000">P91 has unit</text></g>
-<g><rect x="602" y="664" width="135" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="670" y="680" font-size="12" text-anchor="middle" fill="#000">J1 used as premise</text></g>
-<g><rect x="891" y="664" width="128" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="955" y="680" font-size="12" text-anchor="middle" fill="#000">J2 concluded that</text></g>
-<g><rect x="1026" y="579" width="148" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1100" y="594" font-size="12" text-anchor="middle" fill="#000">lrec: usesAssumption</text></g>
-<g><rect x="150" y="494" width="161" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="230" y="510" font-size="12" text-anchor="middle" fill="#000">L12 happened on device</text></g>
-<g transform="rotate(-90 60 592)"><rect x="-4" y="581" width="128" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="60" y="596" font-size="12" text-anchor="middle" fill="#000">L23 used software</text></g>
-<g><rect x="1172" y="524" width="135" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1240" y="540" font-size="12" text-anchor="middle" fill="#000">P14 carried out by</text></g>
-<g><rect x="354" y="429" width="122" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="415" y="444" font-size="12" text-anchor="middle" fill="#000">P7 took place at</text></g>
-<g><rect x="1413" y="329" width="187" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1506" y="344" font-size="12" text-anchor="middle" fill="#000">dqv: hasQualityMeasurement</text></g>
-<g><rect x="1539" y="893" width="142" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1610" y="908" font-size="12" text-anchor="middle" fill="#000">dct: isReferencedBy</text></g>
-<g><rect x="1536" y="927" width="148" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1610" y="942" font-size="12" text-anchor="middle" fill="#000">prov: wasDerivedFrom</text></g>
-<g><rect x="1313" y="744" width="154" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1390" y="760" font-size="12" text-anchor="middle" fill="#000">prov: wasAttributedTo</text></g>
-<g><rect x="1356" y="507" width="128" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1420" y="522" font-size="12" text-anchor="middle" fill="#000">L23 used software</text></g>
+<g><rect x="602" y="69" width="126" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="665" y="84" font-size="12" text-anchor="middle" fill="#000">hdt: has digital twin</text></g>
+<g><rect x="609" y="164" width="210" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="714" y="180" font-size="12" text-anchor="middle" fill="#000">hdt: includes visual documentation</text></g>
+<g><rect x="836" y="157" width="192" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="932" y="173" font-size="12" text-anchor="middle" fill="#000">hdt: includes 3D documentation</text></g>
+<g><rect x="1169" y="154" width="192" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1265" y="170" font-size="12" text-anchor="middle" fill="#000">hdt: includes 3D documentation</text></g>
+<g><rect x="1336" y="69" width="147" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1410" y="84" font-size="12" text-anchor="middle" fill="#000">hdt: includes document</text></g>
+<g><rect x="190" y="239" width="79" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="230" y="254" font-size="12" text-anchor="middle" fill="#000">L1 digitized</text></g>
+<g><rect x="504" y="330" width="98" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="552" y="346" font-size="12" text-anchor="middle" fill="#000">L11 had output</text></g>
+<g><rect x="914" y="324" width="92" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="960" y="340" font-size="12" text-anchor="middle" fill="#000">L10 had input</text></g>
+<g><rect x="1201" y="324" width="98" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1250" y="340" font-size="12" text-anchor="middle" fill="#000">L11 had output</text></g>
+<g><rect x="1010" y="239" width="179" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1100" y="254" font-size="12" text-anchor="middle" fill="#000">L21 used as derivation source</text></g>
+<g><rect x="1515" y="239" width="80" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1555" y="254" font-size="12" text-anchor="middle" fill="#000">P2 has type</text></g>
+<g><rect x="1497" y="379" width="101" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1548" y="394" font-size="12" text-anchor="middle" fill="#000">P70 documents</text></g>
+<g><rect x="668" y="409" width="95" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="715" y="424" font-size="12" text-anchor="middle" fill="#000">P39 measured</text></g>
+<g><rect x="444" y="664" width="153" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="520" y="680" font-size="12" text-anchor="middle" fill="#000">P40 observed dimension</text></g>
+<g><rect x="478" y="829" width="84" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="520" y="844" font-size="12" text-anchor="middle" fill="#000">P91 has unit</text></g>
+<g><rect x="610" y="664" width="119" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="670" y="680" font-size="12" text-anchor="middle" fill="#000">J1 used as premise</text></g>
+<g><rect x="898" y="664" width="113" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="955" y="680" font-size="12" text-anchor="middle" fill="#000">J2 concluded that</text></g>
+<g><rect x="1033" y="579" width="134" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1100" y="594" font-size="12" text-anchor="middle" fill="#000">lrec: usesAssumption</text></g>
+<g><rect x="155" y="494" width="150" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="230" y="510" font-size="12" text-anchor="middle" fill="#000">L12 happened on device</text></g>
+<g transform="rotate(-90 60 592)"><rect x="2" y="581" width="116" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="60" y="596" font-size="12" text-anchor="middle" fill="#000">L23 used software</text></g>
+<g><rect x="1182" y="524" width="116" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1240" y="540" font-size="12" text-anchor="middle" fill="#000">P14 carried out by</text></g>
+<g><rect x="363" y="429" width="104" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="415" y="444" font-size="12" text-anchor="middle" fill="#000">P7 took place at</text></g>
+<g><rect x="1424" y="329" width="177" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1513" y="344" font-size="12" text-anchor="middle" fill="#000">dqv: hasQualityMeasurement</text></g>
+<g><rect x="1547" y="893" width="126" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1610" y="908" font-size="12" text-anchor="middle" fill="#000">dct: isReferencedBy</text></g>
+<g><rect x="1540" y="927" width="139" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1610" y="942" font-size="12" text-anchor="middle" fill="#000">prov: wasDerivedFrom</text></g>
+<g><rect x="1321" y="744" width="138" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1390" y="760" font-size="12" text-anchor="middle" fill="#000">prov: wasAttributedTo</text></g>
+<g><rect x="1362" y="507" width="116" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1420" y="522" font-size="12" text-anchor="middle" fill="#000">L23 used software</text></g>
 <rect x="125.0" y="38.0" width="210" height="84" rx="6" fill="#166534" stroke="#1d4ed8" stroke-width="4"/>
-<text x="230" y="66" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">HC16 Tangible Asset</text>
+<text x="230" y="66" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">HC16 Tangible Asset</text>
 <text x="230" y="84" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">E22 Human-Made Object</text>
 <text x="230" y="102" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">LEGO model (physical)</text>
 <rect x="995.0" y="38.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#1d4ed8" stroke-width="4"/>
-<text x="1100" y="66" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">HC3 Heritage Digital Twin</text>
+<text x="1100" y="66" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">HC3 Heritage Digital Twin</text>
 <text x="1100" y="84" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">D1 Digital Object</text>
 <text x="1100" y="102" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Digital twin</text>
 <rect x="1615.0" y="38.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#1d4ed8" stroke-width="4"/>
-<text x="1720" y="66" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">HC4 Heritage Document</text>
+<text x="1720" y="66" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">HC4 Heritage Document</text>
 <text x="1720" y="84" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">E31 Document</text>
 <text x="1720" y="102" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Change docs md + json</text>
 <rect x="415.0" y="208.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#1d4ed8" stroke-width="4"/>
-<text x="520" y="236" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">HC6 Imagery</text>
+<text x="520" y="236" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">HC6 Imagery</text>
 <text x="520" y="254" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">D1 Digital Object</text>
 <text x="520" y="272" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Photos (reference)</text>
 <rect x="705.0" y="208.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#1d4ed8" stroke-width="4"/>
-<text x="810" y="236" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">HC7 3D Model</text>
+<text x="810" y="236" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">HC7 3D Model</text>
 <text x="810" y="254" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">D1 · prov:Entity</text>
 <text x="810" y="272" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">SfM raw scan OBJ + JPG</text>
 <rect x="1285.0" y="208.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#1d4ed8" stroke-width="4"/>
-<text x="1390" y="227" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">HC7 3D Model</text>
+<text x="1390" y="227" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">HC7 3D Model</text>
 <text x="1390" y="245" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">D1 · prov:Entity</text>
 <text x="1390" y="263" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">dcat:Distribution (DCAT-AP)</text>
 <text x="1390" y="281" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Reconstruction (GLB)</text>
 <rect x="1615.0" y="208.0" width="210" height="84" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
-<text x="1720" y="227" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">E55 Type · skos:Concept</text>
+<text x="1720" y="227" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">E55 Type · skos:Concept</text>
 <text x="1720" y="245" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">skos:inScheme</text>
 <text x="1720" y="263" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">closeMatch wd: (Wikidata)</text>
 <text x="1720" y="281" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Brick type, colour</text>
 <rect x="125.0" y="378.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#1d4ed8" stroke-width="4"/>
-<text x="230" y="406" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">D2 Digitization Process</text>
+<text x="230" y="406" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">D2 Digitization Process</text>
 <text x="230" y="424" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">HC5 · prov:Activity</text>
 <text x="230" y="442" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">KIRI scan (SfM)</text>
 <rect x="995.0" y="378.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
-<text x="1100" y="397" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">D7 Digital Machine Event</text>
+<text x="1100" y="397" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">D7 Digital Machine Event</text>
 <text x="1100" y="415" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">prov:Activity</text>
 <text x="1100" y="433" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Procedural reconstruction</text>
 <text x="1100" y="451" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">P4 time: time:ProperInterval</text>
 <rect x="1615.0" y="315.0" width="210" height="50" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
-<text x="1720" y="335" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">dqv:QualityMeasurement</text>
+<text x="1720" y="335" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">dqv:QualityMeasurement</text>
 <text x="1720" y="353" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">e.g. number of levels = 7</text>
 <rect x="495.0" y="378.0" width="170" height="84" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
-<text x="580" y="406" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">E53 Place · geo:Feature</text>
+<text x="580" y="406" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">E53 Place · geo:Feature</text>
 <text x="580" y="424" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Capture location</text>
 <text x="580" y="442" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">geo:hasGeometry (open)</text>
 <rect x="125.0" y="548.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
-<text x="230" y="585" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">D8 Digital Device</text>
+<text x="230" y="585" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">D8 Digital Device</text>
 <text x="230" y="603" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Smartphone</text>
 <rect x="415.0" y="548.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
-<text x="520" y="576" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">E16 Measurement</text>
+<text x="520" y="576" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">E16 Measurement</text>
 <text x="520" y="594" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Alignment, grid,</text>
 <text x="520" y="612" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">brick height</text>
 <rect x="705.0" y="548.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
-<text x="810" y="585" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">I5 Inference Making</text>
+<text x="810" y="585" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">I5 Inference Making</text>
 <text x="810" y="603" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Structure inference</text>
 <rect x="1285.0" y="548.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
-<text x="1390" y="567" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">E39 Actor · prov:Agent</text>
+<text x="1390" y="567" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">E39 Actor · prov:Agent</text>
 <text x="1390" y="585" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Flo (person) and</text>
 <text x="1390" y="603" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Claude Sonnet 5.5 (AI)</text>
 <text x="1390" y="621" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">closeMatch wd: (Wikidata)</text>
 <rect x="1615.0" y="548.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
-<text x="1720" y="576" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">D14 Software</text>
+<text x="1720" y="576" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">D14 Software</text>
 <text x="1720" y="594" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">schema:SoftwareSourceCode</text>
 <text x="1720" y="612" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Python + trimesh (CodeMeta)</text>
 <rect x="125.0" y="718.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
-<text x="230" y="755" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">D14 Software</text>
+<text x="230" y="755" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">D14 Software</text>
 <text x="230" y="773" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">KIRI Engine</text>
 <rect x="415.0" y="718.0" width="210" height="84" rx="6" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
-<text x="520" y="755" font-size="14" font-weight="700" text-anchor="middle" fill="#000">E54 Dimension</text>
+<text x="520" y="755" font-size="14" font-weight="500" text-anchor="middle" fill="#000">E54 Dimension</text>
 <text x="520" y="773" font-size="12.5" font-weight="400" text-anchor="middle" fill="#000">Value + accuracy</text>
 <rect x="995.0" y="718.0" width="210" height="84" rx="6" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
-<text x="1100" y="755" font-size="14" font-weight="700" text-anchor="middle" fill="#000">I2 Belief</text>
+<text x="1100" y="755" font-size="14" font-weight="500" text-anchor="middle" fill="#000">I2 Belief</text>
 <text x="1100" y="773" font-size="12.5" font-weight="400" text-anchor="middle" fill="#000">Assumption, e.g. 7 levels</text>
 <rect x="1285.0" y="878.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
-<text x="1390" y="906" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">lrec:FDOx · dcat:Dataset</text>
+<text x="1390" y="906" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">lrec:FDOx · dcat:Dataset</text>
 <text x="1390" y="924" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">FDOx reconstruction (Zenodo)</text>
 <text x="1390" y="942" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Concept DOI ...24305436</text>
 <rect x="1725.0" y="878.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
-<text x="1830" y="906" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">lrec:FDOx · dcat:Dataset</text>
+<text x="1830" y="906" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">lrec:FDOx · dcat:Dataset</text>
 <text x="1830" y="924" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">FDOx scan (Zenodo)</text>
 <text x="1830" y="942" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Concept DOI ...24305428</text>
 <rect x="415.0" y="878.0" width="210" height="84" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
-<text x="520" y="915" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">E58 Measurement Unit</text>
+<text x="520" y="915" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">E58 Measurement Unit</text>
 <text x="520" y="933" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">qudt:Unit</text>
 <rect x="60" y="1010" width="26" height="16" fill="#166534" stroke="#000"/><text x="94" y="1023" font-size="13">physical object</text>
-<rect x="225" y="1010" width="26" height="16" fill="#9a3412" stroke="#000"/><text x="259" y="1023" font-size="13">class (CRM / CRMdig / CRMinf / HDT)</text>
-<rect x="530" y="1010" width="26" height="16" fill="#fbbf24" stroke="#000"/><text x="564" y="1023" font-size="13">value / assumption</text>
-<rect x="716" y="1010" width="26" height="16" fill="#4c1d95" stroke="#000"/><text x="750" y="1023" font-size="13">type / unit</text>
-<rect x="853" y="1010" width="26" height="16" fill="#fff" stroke="#1d4ed8" stroke-width="4"/><text x="887" y="1023" font-size="13">Heritage Digital Twin class (hdt)</text>
+<rect x="208.9" y="1010" width="26" height="16" fill="#9a3412" stroke="#000"/><text x="242.9" y="1023" font-size="13">class (CRM / CRMdig / CRMinf / HDT)</text>
+<rect x="486.0" y="1010" width="26" height="16" fill="#fbbf24" stroke="#000"/><text x="520.0" y="1023" font-size="13">value / assumption</text>
+<rect x="660.8" y="1010" width="26" height="16" fill="#4c1d95" stroke="#000"/><text x="694.8" y="1023" font-size="13">type / unit</text>
+<rect x="784.0" y="1010" width="26" height="16" fill="#fff" stroke="#1d4ed8" stroke-width="4"/><text x="818.0" y="1023" font-size="13">Heritage Digital Twin class (hdt)</text>
 </svg>

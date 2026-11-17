@@ -1,11 +1,12 @@
 """figures: draw the overview, the class diagram and the identification figure (SVG, English only, no header or footer).
 
 The figure scripts in py/figures/ are hand-laid-out drawings with crossing and overlap checks; the labels on the arrows are amber
-chips centred on the arrows. SVG is the product; PNG is optional (--png) and
-needs resvg_py or playwright. Nothing here reads the clock.
+chips centred on the arrows. SVG (Fira Sans named, not embedded) is the product; the PNG next to it (resvg_py, Fira Sans from py/figures/fonts)
+is what the docs pages show, because an SVG used as <img> cannot load fonts. --no-png skips it. Nothing here reads the clock.
 """
 from __future__ import annotations
 
+import pathlib
 import re
 import shutil
 import sys
@@ -15,18 +16,23 @@ from lrec_utils import DIST, IMG, ONTOLOGY, PY, Report, ensure_dirs, run_script,
 
 
 def to_png(svg, png) -> str:
+    """PNG with Fira Sans: resvg_py gets the font files and ignores system fonts, so the result is the same on every machine."""
+    fonts = [str(PY / "figures" / "fonts" / n) for n in ("FiraSans-Regular.ttf", "FiraSans-Medium.ttf")]
     try:
         import resvg_py  # type: ignore
-        png.write_bytes(bytes(resvg_py.svg_to_bytes(svg_path=str(svg), zoom=2.0)))
+        png.write_bytes(bytes(resvg_py.svg_to_bytes(svg_path=str(svg), background="#ffffff", skip_system_fonts=True, font_files=fonts, zoom=2.0)))
         return "resvg_py"
     except Exception:
         pass
-    try:
+    try:   # fallback: Chromium; Fira Sans is loaded from the font files through @font-face
         from playwright.sync_api import sync_playwright  # type: ignore
+        faces = "".join(f'@font-face{{font-family:"Fira Sans";font-weight:{w};src:url({pathlib.Path(f).as_uri()})}}' for f, w in zip(fonts, (400, 500)))
+        html = f"<style>{faces}body{{margin:0}}</style>" + svg.read_text(encoding="utf-8")
         with sync_playwright() as p:
             b = p.chromium.launch()
             pg = b.new_page(device_scale_factor=2)
-            pg.goto(svg.resolve().as_uri())
+            pg.set_content(html)
+            pg.evaluate("document.fonts.ready")
             pg.locator("svg").screenshot(path=str(png))
             b.close()
         return "playwright"
@@ -72,4 +78,4 @@ def main(strict: bool, png: bool) -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main("--strict" in sys.argv, "--png" in sys.argv))
+    sys.exit(main("--strict" in sys.argv, "--no-png" not in sys.argv))

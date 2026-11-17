@@ -1,3 +1,5 @@
+@font-face{font-family:"Fira Sans";font-weight:400;src:url(fonts/FiraSans-Regular.ttf) format("truetype")}
+@font-face{font-family:"Fira Sans";font-weight:500;src:url(fonts/FiraSans-Medium.ttf) format("truetype")}
 :root{--bg:#f6f6f3;--card:#fff;--ink:#1f1f1d;--muted:#55544f;--rim:#d8d6ce;--accent:#9a3412}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 "Fira Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
 main{max-width:1040px;margin:0 auto;padding:16px}h1{font-size:28px;font-weight:500;margin:.4em 0}h2{font-size:21px;font-weight:500;margin:1.2em 0 .4em}

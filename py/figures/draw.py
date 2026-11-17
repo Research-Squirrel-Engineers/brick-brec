@@ -1,3 +1,5 @@
+import sys as _s, pathlib as _p; _s.path.insert(0,str(_p.Path(__file__).resolve().parent))
+from fira import tw, chip_w
 import itertools, json
 C=[None,230,520,810,1100,1390,1720,580,1830]; R=[80,250,420,590,760,920,340]
 W,H=210,84
@@ -83,7 +85,7 @@ for i,a,b in segs:
 def rects_overlap(a,b,m=2): return a[0]<b[0]+b[2]+m and b[0]<a[0]+a[2]+m and a[1]<b[1]+b[3]+m and b[1]<a[1]+a[3]+m
 def inrect(pt,r,m=0): return r[0]-m<=pt[0]<=r[0]+r[2]+m and r[1]-m<=pt[1]<=r[1]+r[3]+m
 ROT=('L23 used software',(60,592))          # the one vertical label on the left margin is set by hand (rotated)
-def chip_wh(l): return len(l)*6.5+18,22
+def chip_wh(l): return chip_w(l),22
 def samples(a,b,step=3):
     n=max(2,int(((b[0]-a[0])**2+(b[1]-a[1])**2)**.5/step))
     return [(a[0]+(b[0]-a[0])*k/n,a[1]+(b[1]-a[1])*k/n) for k in range(n+1)]
@@ -93,7 +95,7 @@ def longest(pts): return max(((b_[0]-a_[0])**2+(b_[1]-a_[1])**2)**.5 for a_,b_ i
 CHIPS=[]
 for i,(l,pts,lp) in sorted(enumerate(E),key=lambda e_:longest(e_[1][1])):
     if (l,lp)==ROT:
-        c_=(l,lp[0],lp[1],(lp[0]-11,lp[1]-(len(l)*6.5+18)/2,22,len(l)*6.5+18)); CHIPS.append(c_); PLACED[i]=c_; continue
+        c_=(l,lp[0],lp[1],(lp[0]-11,lp[1]-chip_w(l)/2,22,chip_w(l))); CHIPS.append(c_); PLACED[i]=c_; continue
     w,h=chip_wh(l); chosen=None
     for a_,b_ in sorted(zip(pts,pts[1:]),key=lambda s_:-((s_[1][0]-s_[0][0])**2+(s_[1][1]-s_[0][1])**2)):
         for t in (.5,.46,.54,.42,.58,.38,.62,.34,.66,.3,.7,.26,.74,.22,.78):       # the middle of the arrow first, then close to the middle
@@ -115,7 +117,7 @@ for (l1,_,_,r1),(l2,_,_,r2) in itertools.combinations(CHIPS,2):
 print('crossings/overlaps:',sorted(set(map(str,bad))))
 # svg
 w=1990; h=1050
-o=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" font-family="Arial,Helvetica,sans-serif">',
+o=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" font-family="Fira Sans">',
 '<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#111"/></marker></defs>',
 f'<rect width="{w}" height="{h}" fill="#fff"/>']
 for l,pts,lp in E:
@@ -123,18 +125,19 @@ for l,pts,lp in E:
     o.append(f'<path d="{d}" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>')
 for l,cx,cy,r in CHIPS:
     rot=' transform="rotate(-90 %d %d)"'%(cx,cy) if (l,(cx,cy))==ROT else ''
-    tw=len(l)*6.5+18
-    o.append(f'<g{rot}><rect x="{cx-tw/2:.0f}" y="{cy-11:.0f}" width="{tw:.0f}" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="{cx:.0f}" y="{cy+4.5:.0f}" font-size="12" text-anchor="middle" fill="#000">{l}</text></g>')
+    tw_=chip_w(l)
+    o.append(f'<g{rot}><rect x="{cx-tw_/2:.0f}" y="{cy-11:.0f}" width="{tw_:.0f}" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="{cx:.0f}" y="{cy+4.5:.0f}" font-size="12" text-anchor="middle" fill="#000">{l}</text></g>')
 for n,(c,r,(fill,fg),hdt,lines) in N.items():
     x,y=box(n); st='#1d4ed8' if hdt else '#000'; sw=4 if hdt else 1.2
     o.append(f'<rect x="{x-ww(n)/2}" y="{y-hh(n)/2}" width="{ww(n)}" height="{hh(n)}" rx="6" fill="{fill}" stroke="{st}" stroke-width="{sw}"/>')
     n0=len(lines); y0=y-(n0-1)*9
     for k,t in enumerate(lines):
-        o.append(f'<text x="{x}" y="{y0+k*18+4:.0f}" font-size="{14 if k==0 else 12.5}" font-weight="{700 if k==0 else 400}" text-anchor="middle" fill="{fg}">{t}</text>')
+        if tw(t,14 if k==0 else 12.5,k==0)>ww(n)-10: bad.append(('text-too-wide',n,t))
+        o.append(f'<text x="{x}" y="{y0+k*18+4:.0f}" font-size="{14 if k==0 else 12.5}" font-weight="{500 if k==0 else 400}" text-anchor="middle" fill="{fg}">{t}</text>')
 ly=1010
 items=[('#166534','physical object'),('#9a3412','class (CRM / CRMdig / CRMinf / HDT)'),('#fbbf24','value / assumption'),('#4c1d95','type / unit')]
 x=60
 for col,t in items:
-    o.append(f'<rect x="{x}" y="{ly}" width="26" height="16" fill="{col}" stroke="#000"/><text x="{x+34}" y="{ly+13}" font-size="13">{t}</text>'); x+=60+len(t)*7
+    o.append(f'<rect x="{x}" y="{ly}" width="26" height="16" fill="{col}" stroke="#000"/><text x="{x+34}" y="{ly+13}" font-size="13">{t}</text>'); x+=60+tw(t,13)
 o.append(f'<rect x="{x}" y="{ly}" width="26" height="16" fill="#fff" stroke="#1d4ed8" stroke-width="4"/><text x="{x+34}" y="{ly+13}" font-size="13">Heritage Digital Twin class (hdt)</text>')
 o.append('</svg>'); open('ontologie_planar.svg','w',encoding='utf-8',newline='\n').write('\n'.join(o))

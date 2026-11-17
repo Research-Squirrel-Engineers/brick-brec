@@ -6,6 +6,7 @@ before anything is uploaded, not by the registry afterwards.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -29,7 +30,7 @@ def main(strict: bool) -> int:
     r.ok(f"{ONTOLOGY.name} parses: {len(g)} triples")
 
     # 1. overview drawing vs graph (nodes and edges)
-    p = run_script(PY / "figures" / "check_diagram.py", [str(ONTOLOGY)], cwd=PY / "figures")
+    p = run_script(PY / "figures" / "check_diagram.py", [str(ONTOLOGY), *map(str, sorted(FDOX_BUNDLES.glob("*.ttl")))], cwd=PY / "figures")
     m = re.search(r"Fehler\s+(\d+)", p.stdout)
     if p.returncode or not m:
         r.fail("check_diagram.py did not run: " + (p.stderr.strip().splitlines() or ["?"])[-1])
@@ -68,7 +69,7 @@ def main(strict: bool) -> int:
         if not f.exists():
             r.fail(f"{x['slug']}: bundle TTL missing ({f.relative_to(ROOT)})")
             continue
-        if sums.get(x["slug"]) and sha256_file(f) != sums[x["slug"]]:
+        if sums.get(x["slug"]) and hashlib.sha256(f.read_bytes().replace(b"\r\n", b"\n")).hexdigest() != sums[x["slug"]]:  # line endings do not count (Git may convert them)
             r.warn(f"{x['slug']}: bundle TTL differs from the recorded checksum (new Zenodo version? update original_bundles.json)")
         b = rdflib.Graph()
         b.parse(f, format="turtle")

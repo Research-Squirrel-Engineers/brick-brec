@@ -25,11 +25,12 @@ python main.py --only figures
 python main.py --from figures
 python main.py --dry-run
 python main.py --strict
-python main.py --png
+python main.py --no-png
 ```
 
-`--strict` turns warnings into errors. At the moment it reports one known gap: the class `lrec:FDOx` is not yet drawn in the
-class diagram (PRIMER step S2).
+`--strict` turns warnings into errors; a complete run is expected to pass it. `--no-png` skips the PNG that is rendered next to each SVG figure.
+
+The figures are set in Fira Sans (SIL Open Font Licence, `py/figures/fonts/`); the SVG names the font, the PNG is rendered with the font files, and the docs pages carry the font files in `docs/assets/fonts/`.
 
 ## Layout
 

@@ -1,8 +1,9 @@
 # Prueft, dass jeder Knoten und jede Kante der Gesamtzeichnung (draw.py) in der Turtle-Datei steht.
 import sys, rdflib
 from rdflib import RDF, RDFS, URIRef
-ttl = sys.argv[1] if len(sys.argv) > 1 else 'ontology/lrec.ttl'
-g = rdflib.Graph(); g.parse(ttl, format='turtle')
+ttls = sys.argv[1:] or ['ontology/lrec.ttl']   # ontology first, then optional FDOx bundle TTLs
+g = rdflib.Graph()
+for ttl in ttls: g.parse(ttl, format='turtle')
 def U(s):
     p, l = s.split(':', 1)
     return URIRef({'ex': 'https://example.org/lego-reconstruction/id/', 'crm': 'http://www.cidoc-crm.org/cidoc-crm/',
@@ -10,7 +11,8 @@ def U(s):
                    'hdt': 'https://example.org/placeholder/hdt#', 'prov': 'http://www.w3.org/ns/prov#',
                    'lrec': 'https://example.org/lego-reconstruction#', 'dqv': 'http://www.w3.org/ns/dqv#',
                    'unit': 'http://qudt.org/vocab/unit/', 'skos': 'http://www.w3.org/2004/02/skos/core#',
-                   'geo': 'http://www.opengis.net/ont/geosparql#', 'dcat': 'http://www.w3.org/ns/dcat#'}[p] + l)
+                   'geo': 'http://www.opengis.net/ont/geosparql#', 'dcat': 'http://www.w3.org/ns/dcat#', 'dct': 'http://purl.org/dc/terms/',
+                   'zenodo': 'https://doi.org/10.5281/zenodo.'}[p] + l)
 def sup(c, seen=None):
     seen = seen or set()
     for o in g.objects(c, RDFS.subClassOf):
@@ -30,6 +32,7 @@ NODES = {  # Knoten: (Instanz, erwartete Klassenteile)
  'SW2': ('ex:build_m3', ['D14', 'SoftwareSourceCode']), 'SW1': ('ex:kiri_engine', ['D14']), 'DIM': ('ex:model2_yaw', ['E54']),
  'BEL': ('ex:assume_7_levels', ['I2']), 'UNIT': ('unit:DEG', ['E58']), 'QM': ('ex:quality_levels', ['QualityMeasurement']),
  'PL': ('ex:scan_place', ['E53', 'Feature']),
+ 'FR': ('zenodo:24305436', ['FDOx', 'ReconstructionDataset', 'Dataset']), 'FS': ('zenodo:24305428', ['FDOx', 'Dataset']),
 }
 EDGES = [  # (Subjekt, Praedikat, Objekt) wie in der Zeichnung
  ('TA','hdt:has_digital_twin','TW'), ('TW','hdt:includes_visual_documentation','IMG'), ('TW','hdt:includes_3D_documentation','RAW'),
@@ -40,6 +43,7 @@ EDGES = [  # (Subjekt, Praedikat, Objekt) wie in der Zeichnung
  ('INF','crminf:J1_used_as_premise','DIM'), ('INF','crminf:J2_concluded_that','BEL'), ('REC','lrec:usesAssumption','BEL'),
  ('DIG','crmdig:L12_happened_on_device','DEV'), ('DIG','crmdig:L23_used_software_or_firmware','SW1'),
  ('REC','crm:P14_carried_out_by','AGT1'), ('REC','crm:P14_carried_out_by','AGT2'), ('REC','crmdig:L23_used_software_or_firmware','SW2'),
+ ('FS','dct:isReferencedBy','FR'), ('FR','prov:wasDerivedFrom','FS'), ('FR','prov:wasAttributedTo','AGT2'),
  ('DIG','crm:P7_took_place_at','PL'), ('OUT','dqv:hasQualityMeasurement','QM'), ('REC','crm:P4_has_time-span','TIME'),
 ]
 inst = {k: v[0] for k, v in NODES.items()}; inst['TIME'] = 'ex:model2_time'
