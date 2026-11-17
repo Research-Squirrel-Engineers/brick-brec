@@ -12,11 +12,14 @@ CI = Namespace('http://www.ics.forth.gr/isl/CRMinf/'); SK = Namespace('http://ww
 def lab(u): return next((str(l) for l in g.objects(u, RDFS.label) if l.language == LANG), next((str(l) for l in g.objects(u, RDFS.label)), ''))
 def val(u, p): return next((str(l) for l in g.objects(u, p) if getattr(l, 'language', None) == LANG), next((str(l) for l in g.objects(u, p)), ''))
 def loc(u): return str(u).split('/')[-1]
-X0, XE, XI, XH, XC = 40, 40, 540, 940, 1470
+X0, XE, XI, XH, XC = 40, 40, 560, 1040, 1650
 WE, WI, WH, WC = 340, 240, 430, 330
-y = 90; o = []; known = {'ident_m1': TX['s1'], 'ident_fig': TX['s2'], 'ident_m2': TX['s3']}
+y = 20; o = []; known = {'ident_m1': TX['s1'], 'ident_fig': TX['s2'], 'ident_m2': TX['s3']}
 sections = [(loc(i), known.get(loc(i)) or lab(i)) for i in sorted(g.subjects(RDF.type, L.Identification), key=lambda i: (loc(i) not in known, loc(i)))]
 def esc(t): return t.replace('&', '&amp;').replace('<', '&lt;')
+def chip(cx, cy, t):
+    w = len(t) * 6.5 + 18
+    return f'<rect x="{cx-w/2:.0f}" y="{cy-11:.0f}" width="{w:.0f}" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="{cx:.0f}" y="{cy+4.5:.0f}" font-size="12" text-anchor="middle">{esc(t)}</text>'
 for iid, title in sections:
     I = URIRef(str(EX) + iid)
     evs = sorted(g.objects(I, CI.J1_used_as_premise)); hs = sorted(g.objects(I, CI.J2_concluded_that), key=lambda h: -float(g.value(h, L.confidence)))
@@ -35,14 +38,14 @@ for iid, title in sections:
     for yy in ys: o.append(f'<path d="M{XE+WE} {yy:.0f} L{busx} {yy:.0f}" stroke="#111" stroke-width="1.3" fill="none"/>')
     o.append(f'<path d="M{busx} {min(ys):.0f} L{busx} {max(ys):.0f}" stroke="#111" stroke-width="1.3"/>')
     o.append(f'<path d="M{busx} {cy:.0f} L{XI} {cy:.0f}" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>')
-    o.append(f'<rect x="{busx+6}" y="{cy-22:.0f}" width="62" height="15" fill="#fff"/><text x="{busx+8}" y="{cy-10:.0f}" font-size="11">{TX["j1"]}</text>')
+    o.append(chip((busx + XI) / 2, cy, TX["j1"]))
     # identification node
     o.append(f'<rect x="{XI}" y="{cy-40:.0f}" width="{WI}" height="80" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>')
     o.append(f'<text x="{XI+WI/2}" y="{cy-12:.0f}" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">lrec:Identification</text>')
     o.append(f'<text x="{XI+WI/2}" y="{cy+6:.0f}" font-size="12" text-anchor="middle" fill="#fff">E17 Type Assignment</text><text x="{XI+WI/2}" y="{cy+22:.0f}" font-size="12" text-anchor="middle" fill="#fff">I5 Inference Making</text>')
-    bus2 = XI + WI + 100; hy = [top + (total_h - (len(hs) * (HH + GH) - GH)) / 2 + i * (HH + GH) for i in range(len(hs))]
+    bus2 = XI + WI + 170; hy = [top + (total_h - (len(hs) * (HH + GH) - GH)) / 2 + i * (HH + GH) for i in range(len(hs))]
     o.append(f'<path d="M{XI+WI} {cy:.0f} L{bus2} {cy:.0f}" stroke="#111" stroke-width="1.6"/>')
-    o.append(f'<rect x="{XI+WI+4}" y="{cy-22:.0f}" width="88" height="15" fill="#fff"/><text x="{XI+WI+6}" y="{cy-10:.0f}" font-size="11">{TX["j2"]}</text>')
+    o.append(chip((XI + WI + bus2) / 2, cy, TX["j2"]))
     centers = [h + HH / 2 for h in hy]
     o.append(f'<path d="M{bus2} {min(centers+[cy]):.0f} L{bus2} {max(centers+[cy]):.0f}" stroke="#111" stroke-width="1.6"/>')
     for hh, c in zip(hs, centers):
@@ -66,13 +69,12 @@ for iid, title in sections:
             o.append(f'<rect x="{XC}" y="{c-32:.0f}" width="{WC}" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>')
             for k, ln in enumerate(textwrap.wrap(lab(cand), 40)[:2]): o.append(f'<text x="{XC+10}" y="{c-12+k*16:.0f}" font-size="13" font-weight="700" fill="#fff">{esc(ln)}</text>')
             o.append(f'<text x="{XC+10}" y="{c+24:.0f}" font-size="12" fill="#fff">Wikidata: {q}  ({TX["search"]}: {esc(str(g.value(cand, L.wikidataSearchTerm)))})</text>')
-            o.append(f'<text x="{XH+WH+8}" y="{c-6:.0f}" font-size="11">proposesReferent</text>')
+            o.append(chip((XH + WH + XC) / 2, c, TX["pr"]))
     y = top + total_h + 60
 W = XC + WC + 40; H = y + 70
 hd = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H:.0f}" viewBox="0 0 {W} {H:.0f}" font-family="Arial,Helvetica,sans-serif">',
  '<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#111"/></marker></defs>',
- f'<rect width="{W}" height="{H:.0f}" fill="#fff"/>', f'<text x="{W/2}" y="34" font-size="22" font-weight="700" text-anchor="middle">{TX["t"]}</text>',
- f'<text x="{W/2}" y="58" font-size="13" text-anchor="middle" fill="#444">{TX["st"]}</text>']
+ f'<rect width="{W}" height="{H:.0f}" fill="#fff"/>']
 leg = H - 40; x = 40
 for col, st, t in [('#fff', '#000', TX["l1"]), ('#9a3412', '#000', TX["l2"]), ('#fbbf24', '#000', TX["l3"]), ('#4c1d95', '#000', TX["l4"])]:
     o.append(f'<rect x="{x}" y="{leg:.0f}" width="26" height="16" fill="{col}" stroke="{st}"/><text x="{x+34}" y="{leg+13:.0f}" font-size="13">{t}</text>'); x += 70 + len(t) * 7

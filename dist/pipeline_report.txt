@@ -1,6 +1,5 @@
 [check] OK    lrec.ttl parses: 711 triples
 [check] OK    overview drawing agrees with the graph (Knoten 21 Kanten 26 Fehler 0)
-[check] WARN  class FDOx is in the ontology but not in the class diagram (py/figures/draw_classes.py)
 [check] OK    23 LREC classes checked for labels and for presence in the class diagram
 [check] OK    lego-pyramid-kiri-original: bundle TTL = pins = lrec.ttl (concept 10.5281/zenodo.24305240, pinned 10.5281/zenodo.24305241 v1; contributors: none with an IRI)
 [check] OK    lego-pyramid-reconstruction-claudeai: bundle TTL = pins = lrec.ttl (concept 10.5281/zenodo.24305343, pinned 10.5281/zenodo.24305344 v1; contributors: none with an IRI)
@@ -9,10 +8,7 @@
 [check] OK    no raw inputs present (optional, see data/raw/README.md)
 [reconstruct] OK    p1_reconstruction.glb: byte-identical to the recorded build for Windows, Python 3.10.2 (numpy 2.2.6, scipy 1.15.3), checked 2026-11-17 (402ba68b80d2...)
 [reconstruct] OK    p2_reconstruction.glb: byte-identical to the recorded build (543a744f2ec2...)
-[figures] OK    overview_de.svg
-[figures] OK    classes_de.svg
-[figures] OK    classes_en.svg
-[figures] OK    identification_de.svg
-[figures] OK    identification_en.svg
-[figures] OK    overview_en.svg (German drawing, 26 labels replaced)
+[figures] OK    overview.svg
+[figures] OK    classes.svg
+[figures] OK    identification.svg
 [pages] OK    5 pages, 23 classes, 16 properties, 4 FDOx, docs/lrec.ttl

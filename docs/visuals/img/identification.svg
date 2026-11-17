@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2020" height="1778" viewBox="0 0 2020 1778" font-family="Arial,Helvetica,sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#111"/></marker></defs>
+<rect width="2020" height="1778" fill="#fff"/>
+<text x="40" y="36" font-size="19" font-weight="700">Figure on model 1</text>
+<rect x="40" y="155" width="340" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="50" y="173" font-size="12.5" font-weight="700">E1</text>
+<text x="76" y="173" font-size="12">Figure with a pointed helmet, chain mail,</text>
+<text x="76" y="188" font-size="12">moustache and cloak (photo)</text>
+<path d="M380 183 L410 183" stroke="#111" stroke-width="1.3" fill="none"/>
+<path d="M410 183 L410 183" stroke="#111" stroke-width="1.3"/>
+<path d="M410 183 L560 183" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="444" y="172" width="83" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="485" y="188" font-size="12" text-anchor="middle">J1 premise</text>
+<rect x="560" y="143" width="240" height="80" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
+<text x="680.0" y="171" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">lrec:Identification</text>
+<text x="680.0" y="189" font-size="12" text-anchor="middle" fill="#fff">E17 Type Assignment</text><text x="680.0" y="205" font-size="12" text-anchor="middle" fill="#fff">I5 Inference Making</text>
+<path d="M800 183 L970 183" stroke="#111" stroke-width="1.6"/>
+<rect x="821" y="172" width="128" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="885" y="188" font-size="12" text-anchor="middle">J2 concluded that</text>
+<path d="M970 118 L970 248" stroke="#111" stroke-width="1.6"/>
+<path d="M970 118 L1040 118" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="1040" y="60" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
+<text x="1050" y="79" font-size="13.5" font-weight="700">Medieval warrior / soldier</text>
+<rect x="1050" y="106" width="260" height="11" fill="#fff" stroke="#000"/><rect x="1050" y="106" width="195" height="11" fill="#9a3412"/>
+<text x="1318" y="116" font-size="12.5" font-weight="700">0.75</text>
+<text x="1050" y="138" font-size="12">supports: E1    weakens: –</text>
+<text x="1050" y="155" font-size="11.5" fill="#222">main assumption · id f_a</text>
+<text x="1050" y="170" font-size="11" fill="#222">Status: open: confirmation by Flo needed</text>
+<path d="M1470 118 L1650 118" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="1650" y="86" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1660" y="106" font-size="13" font-weight="700" fill="#fff">Soldier / warrior</text>
+<text x="1660" y="142" font-size="12" fill="#fff">Wikidata: open  (search: soldier)</text>
+<rect x="1499" y="107" width="122" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1560" y="122" font-size="12" text-anchor="middle">proposesReferent</text>
+<path d="M970 248 L1040 248" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="1040" y="190" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
+<text x="1050" y="209" font-size="13.5" font-weight="700">Figure comes from a Cobi series (style-based guess only)</text>
+<rect x="1050" y="236" width="260" height="11" fill="#fff" stroke="#000"/><rect x="1050" y="236" width="104" height="11" fill="#9a3412"/>
+<text x="1318" y="246" font-size="12.5" font-weight="700">0.40</text>
+<text x="1050" y="268" font-size="12">supports: E1    weakens: –</text>
+<text x="1050" y="285" font-size="11.5" fill="#222">main assumption · id f_b</text>
+<text x="1050" y="300" font-size="11" fill="#222">Status: open: confirmation by Flo needed</text>
+<path d="M1470 248 L1650 248" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="1650" y="216" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1660" y="236" font-size="13" font-weight="700" fill="#fff">Cobi (toy manufacturer, historical</text>
+<text x="1660" y="252" font-size="13" font-weight="700" fill="#fff">figures)</text>
+<text x="1660" y="272" font-size="12" fill="#fff">Wikidata: open  (search: Cobi)</text>
+<rect x="1499" y="237" width="122" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1560" y="252" font-size="12" text-anchor="middle">proposesReferent</text>
+<text x="40" y="382" font-size="19" font-weight="700">Model 1: stepped pyramid with column and figure</text>
+<rect x="40" y="499" width="340" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="50" y="517" font-size="12.5" font-weight="700">E1</text>
+<text x="76" y="517" font-size="12">Nine equally high white steps, square</text>
+<text x="76" y="532" font-size="12">footprint (scan)</text>
+<rect x="40" y="565" width="340" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="50" y="583" font-size="12.5" font-weight="700">E2</text>
+<text x="76" y="583" font-size="12">Central column of 5 bricks (1x1) on the top</text>
+<text x="76" y="598" font-size="12">step (scan)</text>
+<rect x="40" y="631" width="340" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="50" y="649" font-size="12.5" font-weight="700">E3</text>
+<text x="76" y="649" font-size="12">Figure with a pointed helmet, chain mail,</text>
+<text x="76" y="664" font-size="12">moustache and cloak (photo)</text>
+<rect x="40" y="697" width="340" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="50" y="715" font-size="12.5" font-weight="700">E4</text>
+<text x="76" y="715" font-size="12">Figure stands alone and exposed on top of the</text>
+<text x="76" y="730" font-size="12">column (photo/scan)</text>
+<rect x="40" y="763" width="340" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="50" y="781" font-size="12.5" font-weight="700">E5</text>
+<text x="76" y="781" font-size="12">Surroundings: white brick architecture models</text>
+<text x="76" y="796" font-size="12">(photo, weak)</text>
+<path d="M380 527 L410 527" stroke="#111" stroke-width="1.3" fill="none"/>
+<path d="M380 593 L410 593" stroke="#111" stroke-width="1.3" fill="none"/>
+<path d="M380 659 L410 659" stroke="#111" stroke-width="1.3" fill="none"/>
+<path d="M380 725 L410 725" stroke="#111" stroke-width="1.3" fill="none"/>
+<path d="M380 791 L410 791" stroke="#111" stroke-width="1.3" fill="none"/>
+<path d="M410 527 L410 791" stroke="#111" stroke-width="1.3"/>
+<path d="M410 659 L560 659" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="444" y="648" width="83" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="485" y="664" font-size="12" text-anchor="middle">J1 premise</text>
+<rect x="560" y="619" width="240" height="80" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
+<text x="680.0" y="647" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">lrec:Identification</text>
+<text x="680.0" y="665" font-size="12" text-anchor="middle" fill="#fff">E17 Type Assignment</text><text x="680.0" y="681" font-size="12" text-anchor="middle" fill="#fff">I5 Inference Making</text>
+<path d="M800 659 L970 659" stroke="#111" stroke-width="1.6"/>
+<rect x="821" y="648" width="128" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="885" y="664" font-size="12" text-anchor="middle">J2 concluded that</text>
+<path d="M970 464 L970 854" stroke="#111" stroke-width="1.6"/>
+<path d="M970 464 L1040 464" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="1040" y="406" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
+<text x="1050" y="425" font-size="13.5" font-weight="700">Monument: statue of a warrior on a column above a stepped</text>
+<text x="1050" y="441" font-size="13.5" font-weight="700">base</text>
+<rect x="1050" y="452" width="260" height="11" fill="#fff" stroke="#000"/><rect x="1050" y="452" width="143" height="11" fill="#9a3412"/>
+<text x="1318" y="462" font-size="12.5" font-weight="700">0.55</text>
+<text x="1050" y="484" font-size="12">supports: E1 E2 E3 E4    weakens: –</text>
+<text x="1050" y="501" font-size="11.5" fill="#222">main assumption · id m1_a</text>
+<text x="1050" y="516" font-size="11" fill="#222">Status: open: confirmation by Flo needed</text>
+<path d="M1470 464 L1650 464" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="1650" y="432" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1660" y="452" font-size="13" font-weight="700" fill="#fff">Monument / memorial column</text>
+<text x="1660" y="488" font-size="12" fill="#fff">Wikidata: open  (search: memorial column)</text>
+<rect x="1499" y="453" width="122" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1560" y="468" font-size="12" text-anchor="middle">proposesReferent</text>
+<path d="M970 594 L1040 594" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="1040" y="536" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
+<text x="1050" y="555" font-size="13.5" font-weight="700">Stepped pyramid with a figure as a free play or fantasy</text>
+<text x="1050" y="571" font-size="13.5" font-weight="700">scene</text>
+<rect x="1050" y="582" width="260" height="11" fill="#fff" stroke="#000"/><rect x="1050" y="582" width="52" height="11" fill="#9a3412"/>
+<text x="1318" y="592" font-size="12.5" font-weight="700">0.20</text>
+<text x="1050" y="614" font-size="12">supports: E1 E5    weakens: –</text>
+<text x="1050" y="631" font-size="11.5" fill="#222">alternative to a · id m1_c</text>
+<text x="1050" y="646" font-size="11" fill="#222">Status: open: confirmation by Flo needed</text>
+<path d="M970 724 L1040 724" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="1040" y="666" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
+<text x="1050" y="685" font-size="13.5" font-weight="700">Abstracted watchtower or lookout with a sentry</text>
+<rect x="1050" y="712" width="260" height="11" fill="#fff" stroke="#000"/><rect x="1050" y="712" width="39" height="11" fill="#9a3412"/>
+<text x="1318" y="722" font-size="12.5" font-weight="700">0.15</text>
+<text x="1050" y="744" font-size="12">supports: E2 E4    weakens: E1</text>
+<text x="1050" y="761" font-size="11.5" fill="#222">alternative to a · id m1_d</text>
+<text x="1050" y="776" font-size="11" fill="#222">Status: open: confirmation by Flo needed</text>
+<path d="M1470 724 L1650 724" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="1650" y="692" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1660" y="712" font-size="13" font-weight="700" fill="#fff">Watchtower</text>
+<text x="1660" y="748" font-size="12" fill="#fff">Wikidata: open  (search: watchtower)</text>
+<rect x="1499" y="713" width="122" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1560" y="728" font-size="12" text-anchor="middle">proposesReferent</text>
+<path d="M970 854 L1040 854" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="1040" y="796" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
+<text x="1050" y="815" font-size="13.5" font-weight="700">Specific historical monument (special case of a, cannot be</text>
+<text x="1050" y="831" font-size="13.5" font-weight="700">determined)</text>
+<rect x="1050" y="842" width="260" height="11" fill="#fff" stroke="#000"/><rect x="1050" y="842" width="26" height="11" fill="#9a3412"/>
+<text x="1318" y="852" font-size="12.5" font-weight="700">0.10</text>
+<text x="1050" y="874" font-size="12">supports: E3    weakens: –</text>
+<text x="1050" y="891" font-size="11.5" fill="#222">special case of a · id m1_b</text>
+<text x="1050" y="906" font-size="11" fill="#222">Status: open: confirmation by Flo needed</text>
+<text x="40" y="988" font-size="19" font-weight="700">Model 2: stepped pyramid with grey stairs and temple</text>
+<rect x="40" y="1137" width="340" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="50" y="1155" font-size="12.5" font-weight="700">E1</text>
+<text x="76" y="1155" font-size="12">Stepped, centred pyramid profile, 7 levels</text>
+<text x="76" y="1170" font-size="12">(photo)</text>
+<rect x="40" y="1203" width="340" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="50" y="1221" font-size="12.5" font-weight="700">E2</text>
+<text x="76" y="1221" font-size="12">Four stair arms of grey bricks, each 4 studs</text>
+<text x="76" y="1236" font-size="12">wide, on all four sides (photo)</text>
+<rect x="40" y="1269" width="340" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="50" y="1287" font-size="12.5" font-weight="700">E3</text>
+<text x="76" y="1287" font-size="12">Superstructure with four corner pillars and a</text>
+<text x="76" y="1302" font-size="12">roof, hollow inside: temple/shrine (photo)</text>
+<rect x="40" y="1335" width="340" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="50" y="1353" font-size="12.5" font-weight="700">E4</text>
+<text x="76" y="1353" font-size="12">Surroundings: white brick architecture models</text>
+<text x="76" y="1368" font-size="12">on a baseplate (photo, weak)</text>
+<rect x="40" y="1401" width="340" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="50" y="1419" font-size="12.5" font-weight="700">E5</text>
+<text x="76" y="1419" font-size="12">Only 7 instead of 9 levels, stair steps not</text>
+<text x="76" y="1434" font-size="12">modelled individually: strongly abstracted</text>
+<rect x="40" y="1467" width="340" height="56" rx="6" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<text x="50" y="1485" font-size="12.5" font-weight="700">E6</text>
+<text x="76" y="1485" font-size="12">Builder confirms: Maya step pyramid (El</text>
+<text x="76" y="1500" font-size="12">Castillo not confirmed), 2026-11-17</text>
+<path d="M380 1165 L410 1165" stroke="#111" stroke-width="1.3" fill="none"/>
+<path d="M380 1231 L410 1231" stroke="#111" stroke-width="1.3" fill="none"/>
+<path d="M380 1297 L410 1297" stroke="#111" stroke-width="1.3" fill="none"/>
+<path d="M380 1363 L410 1363" stroke="#111" stroke-width="1.3" fill="none"/>
+<path d="M380 1429 L410 1429" stroke="#111" stroke-width="1.3" fill="none"/>
+<path d="M380 1495 L410 1495" stroke="#111" stroke-width="1.3" fill="none"/>
+<path d="M410 1165 L410 1495" stroke="#111" stroke-width="1.3"/>
+<path d="M410 1330 L560 1330" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="444" y="1319" width="83" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="485" y="1334" font-size="12" text-anchor="middle">J1 premise</text>
+<rect x="560" y="1290" width="240" height="80" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
+<text x="680.0" y="1318" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">lrec:Identification</text>
+<text x="680.0" y="1336" font-size="12" text-anchor="middle" fill="#fff">E17 Type Assignment</text><text x="680.0" y="1352" font-size="12" text-anchor="middle" fill="#fff">I5 Inference Making</text>
+<path d="M800 1330 L970 1330" stroke="#111" stroke-width="1.6"/>
+<rect x="821" y="1319" width="128" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="885" y="1334" font-size="12" text-anchor="middle">J2 concluded that</text>
+<path d="M970 1070 L970 1590" stroke="#111" stroke-width="1.6"/>
+<path d="M970 1070 L1040 1070" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="1040" y="1012" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
+<text x="1050" y="1031" font-size="13.5" font-weight="700">Mesoamerican (Maya) step pyramid with a temple on top,</text>
+<text x="1050" y="1047" font-size="13.5" font-weight="700">generic</text>
+<rect x="1050" y="1058" width="260" height="11" fill="#fff" stroke="#000"/><rect x="1050" y="1058" width="182" height="11" fill="#9a3412"/>
+<text x="1318" y="1068" font-size="12.5" font-weight="700">0.70</text>
+<text x="1050" y="1090" font-size="12">supports: E1 E2 E3 E6    weakens: –</text>
+<text x="1050" y="1107" font-size="11.5" fill="#222">main assumption · id m2_a</text>
+<text x="1050" y="1122" font-size="11" fill="#222">Status: open: confirmation by Flo needed</text>
+<path d="M1470 1070 L1650 1070" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="1650" y="1038" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1660" y="1058" font-size="13" font-weight="700" fill="#fff">Mesoamerican step pyramid with temple</text>
+<text x="1660" y="1094" font-size="12" fill="#fff">Wikidata: open  (search: Mesoamerican pyramids)</text>
+<rect x="1499" y="1059" width="122" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1560" y="1074" font-size="12" text-anchor="middle">proposesReferent</text>
+<path d="M970 1200 L1040 1200" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="1040" y="1142" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
+<text x="1050" y="1161" font-size="13.5" font-weight="700">El Castillo at Chichén Itzá (special case of a)</text>
+<rect x="1050" y="1188" width="260" height="11" fill="#fff" stroke="#000"/><rect x="1050" y="1188" width="91" height="11" fill="#9a3412"/>
+<text x="1318" y="1198" font-size="12.5" font-weight="700">0.35</text>
+<text x="1050" y="1220" font-size="12">supports: E2 E3    weakens: E5</text>
+<text x="1050" y="1237" font-size="11.5" fill="#222">special case of a · id m2_b</text>
+<text x="1050" y="1252" font-size="11" fill="#222">Status: open: confirmation by Flo needed</text>
+<path d="M1470 1200 L1650 1200" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="1650" y="1168" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1660" y="1188" font-size="13" font-weight="700" fill="#fff">El Castillo (Pyramid of Kukulcán,</text>
+<text x="1660" y="1204" font-size="13" font-weight="700" fill="#fff">Chichén Itzá)</text>
+<text x="1660" y="1224" font-size="12" fill="#fff">Wikidata: open  (search: El Castillo Chichen Itza)</text>
+<rect x="1499" y="1189" width="122" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1560" y="1204" font-size="12" text-anchor="middle">proposesReferent</text>
+<path d="M970 1330 L1040 1330" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="1040" y="1272" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
+<text x="1050" y="1291" font-size="13.5" font-weight="700">Free design without a specific model</text>
+<rect x="1050" y="1318" width="260" height="11" fill="#fff" stroke="#000"/><rect x="1050" y="1318" width="39" height="11" fill="#9a3412"/>
+<text x="1318" y="1328" font-size="12.5" font-weight="700">0.15</text>
+<text x="1050" y="1350" font-size="12">supports: E5    weakens: –</text>
+<text x="1050" y="1367" font-size="11.5" fill="#222">alternative to a · id m2_e</text>
+<text x="1050" y="1382" font-size="11" fill="#222">Status: open: confirmation by Flo needed</text>
+<path d="M970 1460 L1040 1460" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="1040" y="1402" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
+<text x="1050" y="1421" font-size="13.5" font-weight="700">Angkor temple mountain with sanctuary</text>
+<rect x="1050" y="1448" width="260" height="11" fill="#fff" stroke="#000"/><rect x="1050" y="1448" width="26" height="11" fill="#9a3412"/>
+<text x="1318" y="1458" font-size="12.5" font-weight="700">0.10</text>
+<text x="1050" y="1480" font-size="12">supports: E1 E2    weakens: E3</text>
+<text x="1050" y="1497" font-size="11.5" fill="#222">alternative to a · id m2_c</text>
+<text x="1050" y="1512" font-size="11" fill="#222">Status: open: confirmation by Flo needed</text>
+<path d="M1470 1460 L1650 1460" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="1650" y="1428" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1660" y="1448" font-size="13" font-weight="700" fill="#fff">Angkor temple mountain (e.g. Bakong)</text>
+<text x="1660" y="1484" font-size="12" fill="#fff">Wikidata: open  (search: Bakong)</text>
+<rect x="1499" y="1449" width="122" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1560" y="1464" font-size="12" text-anchor="middle">proposesReferent</text>
+<path d="M970 1590 L1040 1590" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="1040" y="1532" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
+<text x="1050" y="1551" font-size="13.5" font-weight="700">Ziggurat with temple</text>
+<rect x="1050" y="1578" width="260" height="11" fill="#fff" stroke="#000"/><rect x="1050" y="1578" width="21" height="11" fill="#9a3412"/>
+<text x="1318" y="1588" font-size="12.5" font-weight="700">0.08</text>
+<text x="1050" y="1610" font-size="12">supports: E1 E3    weakens: E2</text>
+<text x="1050" y="1627" font-size="11.5" fill="#222">alternative to a · id m2_d</text>
+<text x="1050" y="1642" font-size="11" fill="#222">Status: open: confirmation by Flo needed</text>
+<path d="M1470 1590 L1650 1590" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="1650" y="1558" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1660" y="1578" font-size="13" font-weight="700" fill="#fff">Ziggurat</text>
+<text x="1660" y="1614" font-size="12" fill="#fff">Wikidata: open  (search: ziggurat)</text>
+<rect x="1499" y="1579" width="122" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1560" y="1594" font-size="12" text-anchor="middle">proposesReferent</text>
+<rect x="40" y="1738" width="26" height="16" fill="#fff" stroke="#000"/><text x="74" y="1751" font-size="13">Observation (crminf:I4)</text>
+<rect x="271" y="1738" width="26" height="16" fill="#9a3412" stroke="#000"/><text x="305" y="1751" font-size="13">Identification (E17 + I5)</text>
+<rect x="516" y="1738" width="26" height="16" fill="#fbbf24" stroke="#000"/><text x="550" y="1751" font-size="13">Hypothesis (crminf:I2)</text>
+<rect x="740" y="1738" width="26" height="16" fill="#4c1d95" stroke="#000"/><text x="774" y="1751" font-size="13">Candidate / Wikidata</text>
+</svg>

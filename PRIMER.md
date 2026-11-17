@@ -13,7 +13,7 @@ Intern und deutsch; alles andere im Repo ist britisches Englisch. Stand: 2026-11
 |---|---|---|
 | Ontologie LREC v0.4 (23 Klassen, 16 eigene Properties, 711 Tripel; vor der Umstellung auf die Bundle-TTLs 832 Tripel) | `ontology/lrec.ttl` | Quelle der Wahrheit |
 | Rekonstruktionsskripte P1, P2 | `py/reconstruct/` | seeded, lesen keine Scandateien |
-| Zeichnungen (Gesamtmodell, Klassen, Identifikation; de/en) | `py/figures/` | handgesetzt, kreuzungsfrei |
+| Zeichnungen (Gesamtmodell, Klassen, Identifikation; nur englisch) | `py/figures/` | handgesetzt, kreuzungsfrei |
 | Interpretations-Toolkit (Schema 1.1) | `py/interpret/` | Messen → Prompt → frischer Chat → Konverter |
 | Vier FDOx auf Zenodo und Sketchfab | `data/fdox/bundles/*.ttl` (Quelle), `registry_pins.csv` | veröffentlicht 2026-11-17 |
 | Memo und Original-Bundles aus dem FDOx-Chat | `notes/`, `data/fdox/original_bundles.json` | Quelle der DOIs |
@@ -87,6 +87,7 @@ Eigenschaften des Ergebnisses (jeweils prüfbar):
 | Quelle für FDOx-Metadaten | die `fdo-metadata.ttl` der veröffentlichten Bundles (`data/fdox/bundles/`), unverändert abgelegt; `lrec.ttl` führt die FDOx-Knoten unter derselben IRI und ergänzt nur LREC-eigene Aussagen (Typ, Scan-Aktivität, Modell, KI-Zuschreibung); die Versions-DOI steht nur in `data/fdox/registry_pins.csv`. Die Overrides `MD.cff`/`CITATION.cff` bleiben Eingabe des Packagers (S3) | 2026-11-17 |
 | Rolle von Daria Stefan | Beitragende (`dct:contributor`) bei den Maya-FDOx, Ersteller bleibt Flo; Daria allein als Erbauerin des Objekts (`lrec:builtBy`) | 2026-11-17 |
 | Figuren | SVG ist das Produkt; PNG optional (`--png`, resvg_py oder Playwright) | Vorschlag |
+| Figuren: Sprache und Aufbau | nur englisch, ohne Kopf- und Fußzeile (Titel, Quelle und Erläuterungen stehen auf der Seite bzw. der Folie, nicht im Bild); Beschriftungen der Pfeile als gelbe Chips (`#fbbf24`) mittig auf dem Pfeil, nie daneben; `check`/`figures` melden Überlappungen von Chips mit Kästen, Chips und fremden Linien | 2026-11-17 |
 | `dist/`, `docs/` | werden committet, nicht ignoriert | 2026-11-17 |
 
 ## A5 Was in welchem Chat hochgeladen wird
@@ -116,7 +117,7 @@ Nicht hochladen: `.git/`, `.venv/`, `dist/`, `docs/` (alles erzeugt), die Scanda
 |---|---|---|---|---|
 | S0 | Festlegungen: Namespace (w3id), HDT-Namespace (Rest); `FDOx` vs. `ReconstructionDataset` und Rolle Daria Stefan entschieden 2026-11-17 (A4) | lego-lrec | – | teilweise erledigt 2026-11-17 |
 | S1 | Skelett und Pipeline (`check`, `reconstruct`, `figures`, `pages`) | lego-lrec | – | erledigt 2026-11-17 |
-| S2 | FDOx-Ebene in alle Zeichnungen (Gesamtmodell, Klassen, Identifikation) | lego-lrec | S0 | offen |
+| S2 | FDOx-Ebene in alle Zeichnungen (Gesamtmodell, Klassen; Identifikation braucht sie nicht) | lego-lrec | S0 | erledigt 2026-11-17 |
 | S3 | Bundle-TTLs als einzige Quelle der FDOx-Metadaten: Umstellung von `check` und Seite erledigt 2026-11-17; offen: Overrides `MD.cff`/`CITATION.cff` gegen die erzeugte TTL prüfen | lego-lrec | S0 | teilweise erledigt 2026-11-17 |
 | S4 | LREC-Graph als Datei in die FDOx; Versionsmodell (Modell vs. Record); Konversion als Aktivität | lego-lrec | S3 | offen |
 | S5 | Interpretationen t4/t5 in den Graphen mergen; Wikidata-IDs mit `wikidata_match.py` | lego-lrec | – | offen |
@@ -137,13 +138,13 @@ Unabhängig voneinander: S5, S8 und S2 (nach S0) können in beliebiger Reihenfol
 
 **Uploads:** keine.
 
-Schritte: `check` (Ontologie, Zeichnungs-Abgleich, FDOx-Tabelle gegen Graph), `reconstruct` (beide GLB, Byte-Vergleich), `figures` (SVG de/en), `pages` (`docs/`).
+Schritte: `check` (Ontologie, Zeichnungs-Abgleich, FDOx-Tabelle gegen Graph), `reconstruct` (beide GLB, Byte-Vergleich), `figures` (SVG, englisch), `pages` (`docs/`).
 
 **Abnahme:** `python main.py` läuft zweimal durch, `git status` bleibt danach sauber, beide Rekonstruktionen „byte-identical", ein WARN (FDOx fehlt im Klassendiagramm, Schritt S2).
 
 ### Erledigt 2026-11-17
 
-Alle vier Schritte laufen (ca. 5 Sekunden, davon 4 für die Rekonstruktion). Die frühere Einzelskript-Welt (Ordner `out4`, `out6`, relative Pfade) ist in einen Arbeitsordner unter `dist/` gekapselt. Der englische Überblick entsteht aus dem deutschen durch Ersetzen von 26 Beschriftungen (`data/overview_labels_en.json`), vorher von Hand.
+Alle vier Schritte laufen (ca. 5 Sekunden, davon 4 für die Rekonstruktion). Die frühere Einzelskript-Welt (Ordner `out4`, `out6`, relative Pfade) ist in einen Arbeitsordner unter `dist/` gekapselt. Die Zeichnungen sind seit dem Folgeschritt (siehe A4, Figuren) nur noch englisch; die Ersetzungstabelle `data/overview_labels_en.json` ist entfallen.
 
 ## S2 FDOx-Ebene in alle Zeichnungen
 
@@ -154,6 +155,16 @@ Alle vier Schritte laufen (ca. 5 Sekunden, davon 4 für die Rekonstruktion). Die
 Die Zeichnungen sind handgesetzt; neue Knoten brauchen Platz, ohne Kanten zu kreuzen. Die Prüfungen in `check_diagram.py` müssen mit erweitert werden (heute 21 Knoten, 26 Kanten).
 
 **Abnahme:** `python main.py --strict` grün, Sichtprüfung beider Sprachen, keine Kreuzung und keine Überlappung.
+
+### Erledigt 2026-11-17
+
+- **Gesamtzeichnung:** zwei neue Knoten `lrec:FDOx` (Scan, Rekonstruktion von Pyramide 2, Concept-DOI `...24305428` und `...24305436`) unten rechts, mit den Kanten `dct:isReferencedBy` (Scan → Rekonstruktion), `prov:wasDerivedFrom` (Rekonstruktion → Scan) und `prov:wasAttributedTo` (Rekonstruktion → KI-Agent). Pyramide 1 steht als Fußnote (`...24305240`, `...24305343`), weil die Zeichnung nur Pyramide 2 zeigt. 23 Knoten, 29 Kanten, keine Kreuzung.
+- **Nicht gezeichnet:** die Kanten `hdt:has_3D_model` von den FDOx zu den Modellknoten (RAW, OUT). Der Bereich dazwischen ist so dicht belegt, dass sie nicht kreuzungsfrei gehen; die Zuordnung steht im Graphen. Wer sie zeichnen will, muss QM und SW2 umsetzen (offen).
+- **`check_diagram.py`** liest jetzt `lrec.ttl` **und** die Bundle-TTLs, weil `dct:isReferencedBy` und `prov:wasDerivedFrom` zwischen den FDOx nur dort stehen.
+- **Klassendiagramm:** `lrec:FDOx` (Eltern `crmdig:D1`, `prov:Entity`, `dcat:Dataset`); Legende auf zwei Zeilen umgebrochen (die Einträge überlappten), Fußzeile nennt `ontology/lrec.ttl` statt `lrec_v0.3.ttl`.
+- **Identifikation:** unverändert. Die Hypothesen hängen nicht an den FDOx.
+- **Ergebnis:** `python main.py --strict` endet mit Exit 0, es gibt keine bekannte Lücke mehr.
+- **Nachtrag (Darstellung):** Zeichnungen nur englisch (`overview.svg`, `classes.svg`, `identification.svg`), keine Kopf- und Fußzeilen; die Erläuterungen (Pyramide 1, Konfidenz, Pfeile) stehen jetzt in den Bildunterschriften von `docs/visuals.html`. Pfeilbeschriftungen sind gelbe Chips; `draw.py` setzt sie automatisch auf die Mitte des Pfeils (kurze Pfeile zuerst, mit Prüfung gegen Kästen, andere Chips und fremde Linien); die Pyramide-2-Ortsbox ist dafür schmaler (170 statt 190) und ein Stück nach rechts gerückt, damit der Pfeil P7 lang genug ist. Im Klassendiagramm ist der Abstand zwischen `Assumption` und `ProceduralReconstruction` größer, in der Identifikationsgrafik sind die Pfeile zwischen den Spalten länger. `figures` schlägt fehl, wenn `draw.py` Überlappungen meldet.
 
 ## S3 Bundle-TTLs als einzige Quelle der FDOx-Metadaten
 
