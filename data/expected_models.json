@@ -13,6 +13,7 @@
   "script": "build_lego3.py",
   "sha256": "cf51067881aef419856a403725c1352c7c7d14715f286018066991afbc1e9569",
   "sha256_alt": {
+   "402ba68b80d2058a6a14b852a8b6c553e73504e7990e8f5a98779f71ff6c9407": "Windows, Python 3.10.2 (numpy 2.2.6, scipy 1.15.3), checked 2026-11-17",
    "8762d79b2851684d3f57b599139f05c59008e25842aba6f23ff5306c54ebc952": "Python 3.10/3.11 pins (numpy 2.2.6, scipy 1.15.3), checked 2026-11-17"
   }
  },

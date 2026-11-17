@@ -25,3 +25,5 @@ data/raw/**/*.zip
 
 # --- Note ---
 # dist/ and docs/ hold the versioned, citable products and are NOT ignored.
+
+PATCH-README.md

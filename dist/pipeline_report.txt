@@ -7,7 +7,7 @@
 [check] OK    lego-pyramid-maya-kiri-original: bundle TTL = pins = lrec.ttl (concept 10.5281/zenodo.24305428, pinned 10.5281/zenodo.24310015 v3; contributors: Daria Stefan)
 [check] OK    lego-pyramid-maya-reconstruction-claudeai: bundle TTL = pins = lrec.ttl (concept 10.5281/zenodo.24305436, pinned 10.5281/zenodo.24310030 v2; contributors: Daria Stefan)
 [check] OK    no raw inputs present (optional, see data/raw/README.md)
-[reconstruct] WARN  p1_reconstruction.glb: bytes differ from the recorded build; geometry matches (49964 faces vs 49964). Library versions differ from requirements.txt?
+[reconstruct] OK    p1_reconstruction.glb: byte-identical to the recorded build for Windows, Python 3.10.2 (numpy 2.2.6, scipy 1.15.3), checked 2026-11-17 (402ba68b80d2...)
 [reconstruct] OK    p2_reconstruction.glb: byte-identical to the recorded build (543a744f2ec2...)
 [figures] OK    overview_de.svg
 [figures] OK    classes_de.svg
