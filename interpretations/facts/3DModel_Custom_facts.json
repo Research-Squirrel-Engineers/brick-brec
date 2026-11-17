@@ -1,0 +1,240 @@
+{
+  "schema": "lrec-model-facts/1.0",
+  "model_id": "3DModel_Custom",
+  "file": {
+    "name": "3DModel_Custom.glb",
+    "format": "glb",
+    "bytes": 12021164
+  },
+  "counts": {
+    "vertices": 271547,
+    "vertices_after_merge": 68248,
+    "faces": 135616,
+    "geometries": 1,
+    "connected_components": 4,
+    "watertight": false,
+    "boundary_edges": 911
+  },
+  "bounding_box": {
+    "min": [
+      -0.02804,
+      -0.13814,
+      -0.05817
+    ],
+    "max": [
+      0.05281,
+      -0.00461,
+      0.04794
+    ],
+    "extents": [
+      0.08085,
+      0.13353,
+      0.10611
+    ],
+    "diagonal": 0.18874,
+    "axes_original": "x,y,z as in file"
+  },
+  "up_axis_estimate": {
+    "axis": "y",
+    "sign": "+",
+    "method": "glTF specification (Y up)",
+    "confidence": 0.9,
+    "scores": null
+  },
+  "units_hint": "metres (glTF specification)",
+  "frame_used_for_analysis": "a,b = the two horizontal axes, z = up (derived from up_axis_estimate; views use this frame). Front view looks along +b.",
+  "extents_in_analysis_frame": {
+    "a": 0.10611,
+    "b": 0.08085,
+    "up": 0.13353
+  },
+  "footprint_profile": {
+    "slices": 48,
+    "plateaus_detected": 11,
+    "type": "irregular",
+    "base_footprint_ratio": 0.473,
+    "top_footprint_ratio": 0.002,
+    "note": "plateaus = distinct footprint sizes along the height (robust 0.5-99.5 percentile widths)",
+    "data": [
+      {
+        "z_rel": 0.0,
+        "width_a": 0.0977,
+        "width_b": 0.0389
+      },
+      {
+        "z_rel": 0.083,
+        "width_a": 0.1005,
+        "width_b": 0.0776
+      },
+      {
+        "z_rel": 0.167,
+        "width_a": 0.0853,
+        "width_b": 0.062
+      },
+      {
+        "z_rel": 0.25,
+        "width_a": 0.065,
+        "width_b": 0.0429
+      },
+      {
+        "z_rel": 0.333,
+        "width_a": 0.0459,
+        "width_b": 0.0262
+      },
+      {
+        "z_rel": 0.417,
+        "width_a": 0.0295,
+        "width_b": 0.0113
+      },
+      {
+        "z_rel": 0.5,
+        "width_a": 0.0115,
+        "width_b": 0.0117
+      },
+      {
+        "z_rel": 0.583,
+        "width_a": 0.0062,
+        "width_b": 0.0066
+      },
+      {
+        "z_rel": 0.667,
+        "width_a": 0.0067,
+        "width_b": 0.0066
+      },
+      {
+        "z_rel": 0.75,
+        "width_a": 0.0098,
+        "width_b": 0.0055
+      },
+      {
+        "z_rel": 0.833,
+        "width_a": 0.0157,
+        "width_b": 0.0137
+      },
+      {
+        "z_rel": 0.917,
+        "width_a": 0.0084,
+        "width_b": 0.0069
+      }
+    ]
+  },
+  "horizontal_surface_levels": {
+    "count_raw": 9,
+    "count_without_stud_tops": 9,
+    "levels": [
+      {
+        "height_rel": 0.013,
+        "area_share": 0.086
+      },
+      {
+        "height_rel": 0.042,
+        "area_share": 0.077
+      },
+      {
+        "height_rel": 0.122,
+        "area_share": 0.021
+      },
+      {
+        "height_rel": 0.15,
+        "area_share": 0.169
+      },
+      {
+        "height_rel": 0.19,
+        "area_share": 0.103
+      },
+      {
+        "height_rel": 0.235,
+        "area_share": 0.123
+      },
+      {
+        "height_rel": 0.272,
+        "area_share": 0.155
+      },
+      {
+        "height_rel": 0.32,
+        "area_share": 0.121
+      },
+      {
+        "height_rel": 0.37,
+        "area_share": 0.074
+      }
+    ],
+    "regular_steps": {
+      "count": 4,
+      "spacing_rel": 0.077
+    },
+    "note": "height_rel = 0 base .. 1 top; area_share = share of upward-facing flat area. count_raw INCLUDES small stud-top levels and is NOT a number of steps. count_without_stud_tops drops small levels just above a larger one. regular_steps = longest run of equally spaced levels (heuristic; may include a base plate or exclude a top element). The views decide the real step count."
+  },
+  "symmetry": {
+    "mirror_a": {
+      "permille_of_diagonal": 6.73,
+      "rating": "medium"
+    },
+    "mirror_b": {
+      "permille_of_diagonal": 18.79,
+      "rating": "low"
+    },
+    "mirror_up": {
+      "permille_of_diagonal": 147.67,
+      "rating": "low"
+    },
+    "rot90_about_up": {
+      "permille_of_diagonal": 36.82,
+      "rating": "low"
+    }
+  },
+  "periodic_pattern": {
+    "detected": false,
+    "strength": 0.073,
+    "pitch_cells": null,
+    "pitch_rel_to_extent_a": null,
+    "note": "heuristic: strongest repeat distance of the top-down height map (relative to bbox, grid 256, high-pass filtered)"
+  },
+  "appearance": {
+    "dominant_colours": [
+      {
+        "hex": "#656565",
+        "share": 1.0
+      },
+      {
+        "hex": "#656565",
+        "share": 0.0
+      },
+      {
+        "hex": "#656565",
+        "share": 0.0
+      },
+      {
+        "hex": "#656565",
+        "share": 0.0
+      },
+      {
+        "hex": "#656565",
+        "share": 0.0
+      },
+      {
+        "hex": "#656565",
+        "share": 0.0
+      }
+    ],
+    "mean_saturation": 0.0,
+    "grayscale_like": true,
+    "visual_kind": "texture",
+    "materials": [
+      {
+        "visual_kind": "texture",
+        "material_name": "3DModel_Custom",
+        "texture_size": [
+          4096,
+          4096
+        ]
+      }
+    ]
+  },
+  "mesh_quality": {
+    "edge_length_median": 0.000547,
+    "edge_length_p95_over_median": 1.44,
+    "degenerate_faces": 2
+  },
+  "heuristics_note": "Fields marked heuristic are computed by simple rules and can be wrong; the images are authoritative for shape."
+}

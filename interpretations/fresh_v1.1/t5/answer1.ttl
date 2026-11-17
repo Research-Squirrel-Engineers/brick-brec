@@ -1,0 +1,297 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix crminf: <http://www.ics.forth.gr/isl/CRMinf/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <https://example.org/lego-reconstruction/id/> .
+@prefix lrec: <https://example.org/lego-reconstruction#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+lrec:evidenceStrength a owl:DatatypeProperty ;
+    rdfs:domain lrec:Evidence ;
+    rdfs:range xsd:string .
+
+lrec:interpretationJson a owl:DatatypeProperty ;
+    rdfs:domain lrec:Identification ;
+    rdfs:range rdf:JSON .
+
+lrec:strongestCounterargument a owl:DatatypeProperty ;
+    rdfs:domain lrec:IdentityHypothesis ;
+    rdfs:range xsd:string .
+
+ex:lego_C1 a lrec:CandidateReferent ;
+    rdfs:label "commemorative column on stepped base"@en ;
+    rdfs:comment "candidate kind: type"@en ;
+    lrec:wikidataSearchTerm "memorial column" .
+
+ex:lego_C2 a lrec:CandidateReferent ;
+    rdfs:label "Roman victory column (for example Trajan's Column)"@en ;
+    rdfs:comment "candidate kind: individual"@en ;
+    lrec:wikidataSearchTerm "Trajan's Column" .
+
+ex:lego_C3 a lrec:CandidateReferent ;
+    rdfs:label "step pyramid"@en ;
+    rdfs:comment "candidate kind: type"@en ;
+    lrec:wikidataSearchTerm "step pyramid" .
+
+ex:lego_C4 a lrec:CandidateReferent ;
+    rdfs:label "toy minifigure"@en ;
+    rdfs:comment "candidate kind: type"@en ;
+    lrec:wikidataSearchTerm "Lego minifigure" .
+
+ex:lego_C5 a lrec:CandidateReferent ;
+    rdfs:label "Nelson's Column"@en ;
+    rdfs:comment "candidate kind: individual"@en ;
+    lrec:wikidataSearchTerm "Nelson's Column" .
+
+ex:lego_C7 a lrec:CandidateReferent ;
+    rdfs:label "display plinth"@en ;
+    rdfs:comment "candidate kind: type"@en ;
+    lrec:wikidataSearchTerm "plinth" .
+
+ex:lego_E1 a lrec:Evidence ;
+    rdfs:label "Six receding rectangular levels with exposed studs on the treads are visible in the front, right, back and left views; the 3/4 view shows all four sides stepped."@en ;
+    prov:wasDerivedFrom ex:lego_views ;
+    lrec:evidenceStrength "strong" ;
+    lrec:supports ex:lego_H1,
+        ex:lego_H3,
+        ex:lego_H7 .
+
+ex:lego_E2 a lrec:Evidence ;
+    rdfs:label "A slender square column rises from the top step and carries a small figure; the figure is about as tall as the column."@en ;
+    prov:wasDerivedFrom ex:lego_views ;
+    lrec:evidenceStrength "strong" ;
+    lrec:supports ex:lego_H1,
+        ex:lego_H2,
+        ex:lego_H5 ;
+    lrec:weakens ex:lego_H7 .
+
+ex:lego_E3 a lrec:Evidence ;
+    rdfs:label "The figure wears a domed silver-grey helmet with a small spike or knob, a tan torso and blue legs with brown feet; one arm is stretched sideways in the right and left views."@en ;
+    prov:wasDerivedFrom ex:lego_views ;
+    lrec:evidenceStrength "moderate" ;
+    lrec:supports ex:lego_H2,
+        ex:lego_H4 .
+
+ex:lego_E4 a lrec:Evidence ;
+    rdfs:label "Facts report a stepped_taper footprint profile, 6 regular steps, mirror symmetry about both horizontal axes (rated high) and 380 connected components, which fits a model built from separate bricks."@en ;
+    prov:wasDerivedFrom ex:lego_facts ;
+    lrec:evidenceStrength "strong" ;
+    lrec:supports ex:lego_H1,
+        ex:lego_H3 .
+
+ex:lego_E5 a lrec:Evidence ;
+    rdfs:label "Studs are visible on the treads and a periodic pattern of about 5.5 % of the extent is detected; the dominant colour is light grey (98.9 %)."@en ;
+    prov:wasDerivedFrom ex:lego_facts ;
+    lrec:evidenceStrength "moderate" ;
+    lrec:supports ex:lego_H6,
+        ex:lego_H7 .
+
+ex:lego_E6 a lrec:Evidence ;
+    rdfs:label "The footprint is rectangular, not square (0.0959 x 0.0746 m), and the four sides are not identical; no stair arms or openings are visible."@en ;
+    prov:wasDerivedFrom ex:lego_views ;
+    lrec:evidenceStrength "moderate" ;
+    lrec:supports ex:lego_H6 ;
+    lrec:weakens ex:lego_H3,
+        ex:lego_H5 .
+
+ex:lego_E7 a lrec:Evidence ;
+    rdfs:label "Bounding box height is 0.123 m; the pyramid body takes about 0.31 of the height, the column and figure the rest (surface levels at height_rel up to 0.312)."@en ;
+    prov:wasDerivedFrom ex:lego_facts ;
+    lrec:evidenceStrength "moderate" ;
+    lrec:supports ex:lego_H3,
+        ex:lego_H5 .
+
+ex:lego_E8 a lrec:Evidence ;
+    rdfs:label "No inscription, door, sign or other attribute is visible that would identify a specific real building or person."@en ;
+    prov:wasDerivedFrom ex:lego_views ;
+    lrec:evidenceStrength "weak" ;
+    lrec:supports ex:lego_H6 ;
+    lrec:weakens ex:lego_H1,
+        ex:lego_H2,
+        ex:lego_H4 .
+
+ex:lego_P2 a crm:E18_Physical_Thing ;
+    rdfs:label "column or pedestal"@en ;
+    dct:description "slender square shaft of light bricks rising from the top step, roughly one stud wide, about a quarter of the total height"@en ;
+    rdfs:comment "count: 1"@en .
+
+ex:lego_P4 a crm:E18_Physical_Thing ;
+    rdfs:label "helmet"@en ;
+    dct:description "domed grey helmet with a small finial on top, covering the head"@en ;
+    rdfs:comment "count: 1"@en .
+
+ex:lego_levels a crm:E54_Dimension ;
+    rdfs:label "Number of levels"@en ;
+    crm:P90_has_value 6 .
+
+ex:lego_size a crm:E54_Dimension ;
+    rdfs:label "Estimated real size (largest extent)"@en ;
+    dct:description "unit m; bounding box height 0.123 m in glTF metres; studs visible, so a toy-scale model"@en ;
+    crm:P90_has_value 1.23e-01 ;
+    lrec:confidence 0.6 .
+
+ex:lego_P1 a crm:E18_Physical_Thing ;
+    rdfs:label "stepped pyramid body"@en ;
+    dct:description "six receding rectangular levels of light grey bricks with exposed studs on each tread; the base is a flat plate-like course"@en ;
+    rdfs:comment "count: 1"@en .
+
+ex:lego_P3 a crm:E18_Physical_Thing ;
+    rdfs:label "minifigure on top"@en ;
+    dct:description "small figure with a silver-grey domed helmet with a small spike or knob, tan torso and arms, blue legs and brown feet; seen from the right it has one arm stretched out to the side"@en ;
+    rdfs:comment "count: 1"@en .
+
+ex:lego_model a crmdig:D1_Digital_Object ;
+    rdfs:label "3D model lego"@en .
+
+ex:lego_H4 a lrec:IdentityHypothesis ;
+    rdfs:label "Minifigure with a helmet and extended arm (a character, possibly a guard or soldier)"@en ;
+    rdfs:comment "feature check: domed helmet with a small finial -> yes (E3)"@en,
+        "feature check: one arm held away from the body -> partly (E3)"@en,
+        "feature check: tan torso and blue legs -> yes (E3)"@en ;
+    prov:wasAttributedTo ex:lego_interpreter ;
+    prov:wasGeneratedBy ex:lego_ident ;
+    lrec:confidence 0.5 ;
+    lrec:confidenceBasis "subjective estimate by the AI assistant from views and facts, not a measurement"@en ;
+    lrec:hypothesisAbout ex:lego_P3 ;
+    lrec:proposesReferent ex:lego_C4 ;
+    lrec:strongestCounterargument "The figure is very small in the views, so the helmet shape and the outstretched arm are only partly reliable."@en ;
+    lrec:verificationStatus "open: confirmation by the owner needed"@en .
+
+ex:lego_facts a crmdig:D1_Digital_Object ;
+    rdfs:label "Measured facts (JSON)"@en ;
+    prov:wasDerivedFrom ex:lego_model .
+
+ex:lego_H2 a lrec:IdentityHypothesis ;
+    rdfs:label "Honouring column with a soldier or historical figure on top (Roman or medieval style helmet)"@en ;
+    rdfs:comment "feature check: helmeted figure on top -> yes (E3)"@en,
+        "feature check: pedestal with steps -> yes (E1)"@en,
+        "feature check: relief frieze on shaft -> no (E8)"@en ;
+    prov:wasAttributedTo ex:lego_interpreter ;
+    prov:wasGeneratedBy ex:lego_ident ;
+    lrec:confidence 0.25 ;
+    lrec:confidenceBasis "subjective estimate by the AI assistant from views and facts, not a measurement"@en ;
+    lrec:hypothesisAbout ex:lego_object ;
+    lrec:proposesReferent ex:lego_C2 ;
+    lrec:specializes ex:lego_H1 ;
+    lrec:strongestCounterargument "Trajan's Column has a long relief frieze and a statue, and none of that is visible here; a helmet with a spike is also typical of other periods."@en ;
+    lrec:verificationStatus "open: confirmation by the owner needed"@en .
+
+ex:lego_H5 a lrec:IdentityHypothesis ;
+    rdfs:label "Landmark with a person on top that reuses the pyramid-plus-pillar form (for example a stylised column monument)"@en ;
+    rdfs:comment "feature check: lions at the base -> no (E8)"@en,
+        "feature check: statue on very tall column -> partly (E2)"@en ;
+    prov:wasAttributedTo ex:lego_interpreter ;
+    prov:wasGeneratedBy ex:lego_ident ;
+    lrec:confidence 0.15 ;
+    lrec:confidenceBasis "subjective estimate by the AI assistant from views and facts, not a measurement"@en ;
+    lrec:hypothesisAbout ex:lego_object ;
+    lrec:proposesReferent ex:lego_C5 ;
+    lrec:specializes ex:lego_H1 ;
+    lrec:strongestCounterargument "The helmet looks like a spiked or domed helmet and not an admiral's hat, and the base is a many-step pyramid and not a square plinth with lions."@en ;
+    lrec:verificationStatus "open: confirmation by the owner needed"@en .
+
+ex:lego_H6 a lrec:IdentityHypothesis ;
+    rdfs:label "Free design without a real-world model (a generic display or demonstration build)"@en ;
+    rdfs:comment "feature check: no distinctive identifying attributes -> yes (E8)"@en ;
+    prov:wasAttributedTo ex:lego_interpreter ;
+    prov:wasGeneratedBy ex:lego_ident ;
+    lrec:alternativeTo ex:lego_H1,
+        ex:lego_H3 ;
+    lrec:confidence 0.3 ;
+    lrec:confidenceBasis "subjective estimate by the AI assistant from views and facts, not a measurement"@en ;
+    lrec:hypothesisAbout ex:lego_object ;
+    lrec:strongestCounterargument "The clear central column with a figure suggests deliberate reference to a monument or a ceremonial structure."@en ;
+    lrec:verificationStatus "open: confirmation by the owner needed"@en .
+
+ex:lego_H7 a lrec:IdentityHypothesis ;
+    rdfs:label "Pyramid body made as a stepped mound of rectangular bricks used as a base or display podium for the figure"@en ;
+    rdfs:comment "feature check: figure stands on a larger base -> yes (E2)"@en ;
+    prov:wasAttributedTo ex:lego_interpreter ;
+    prov:wasGeneratedBy ex:lego_ident ;
+    lrec:alternativeTo ex:lego_H1 ;
+    lrec:confidence 0.2 ;
+    lrec:confidenceBasis "subjective estimate by the AI assistant from views and facts, not a measurement"@en ;
+    lrec:hypothesisAbout ex:lego_P1 ;
+    lrec:proposesReferent ex:lego_C7 ;
+    lrec:strongestCounterargument "A podium for display would normally be wider at the top; the tall slender column is a deliberate vertical emphasis."@en ;
+    lrec:verificationStatus "open: confirmation by the owner needed"@en .
+
+ex:lego_views a crmdig:D1_Digital_Object ;
+    rdfs:label "Standard views (contact sheet)"@en ;
+    prov:wasDerivedFrom ex:lego_model .
+
+ex:lego_object a crm:E18_Physical_Thing ;
+    rdfs:label "Object shown by lego"@en ;
+    dct:description "Rectangular stepped pyramid of light grey studded bricks with six receding levels, a narrow square column on top and a small minifigure with a domed, spiked grey helmet, tan torso and blue legs standing on the column."@en ;
+    dct:format "brick_built_toy" ;
+    dct:medium "plastic building bricks (studs visible)"@en ;
+    dct:type "scene_or_assembly" ;
+    crm:P43_has_dimension ex:lego_levels,
+        ex:lego_size ;
+    crm:P46_is_composed_of ex:lego_P1,
+        ex:lego_P2,
+        ex:lego_P3,
+        ex:lego_P4 ;
+    rdfs:comment "Overall shape: stepped taper with rectangular footprint (about 0.096 x 0.075 m), narrow column and a small figure on top. Mirror axes: a, b; rotational fold: None."@en .
+
+ex:lego_H3 a lrec:IdentityHypothesis ;
+    rdfs:label "Stepped pyramid or ziggurat-like structure with a figure at the apex"@en ;
+    rdfs:comment "feature check: six receding levels -> yes (E1, E4)"@en,
+        "feature check: stairs or ramp on one or more sides -> no (E6)"@en,
+        "feature check: temple or shrine at the top -> no (E2)"@en ;
+    prov:wasAttributedTo ex:lego_interpreter ;
+    prov:wasGeneratedBy ex:lego_ident ;
+    lrec:alternativeTo ex:lego_H1 ;
+    lrec:confidence 0.35 ;
+    lrec:confidenceBasis "subjective estimate by the AI assistant from views and facts, not a measurement"@en ;
+    lrec:hypothesisAbout ex:lego_object ;
+    lrec:proposesReferent ex:lego_C3 ;
+    lrec:strongestCounterargument "The steps have no stair arms or temple on top, and the pillar plus figure is not typical of a pyramid."@en ;
+    lrec:verificationStatus "open: confirmation by the owner needed"@en .
+
+ex:lego_ident a lrec:Identification ;
+    rdfs:label "Identification of lego"@en ;
+    crm:P41_classified ex:lego_object ;
+    crminf:J1_used_as_premise ex:lego_E1,
+        ex:lego_E2,
+        ex:lego_E3,
+        ex:lego_E4,
+        ex:lego_E5,
+        ex:lego_E6,
+        ex:lego_E7,
+        ex:lego_E8 ;
+    crminf:J2_concluded_that ex:lego_H1,
+        ex:lego_H2,
+        ex:lego_H3,
+        ex:lego_H4,
+        ex:lego_H5,
+        ex:lego_H6,
+        ex:lego_H7 ;
+    prov:wasAssociatedWith ex:lego_interpreter ;
+    lrec:interpretationJson "{\"schema\": \"lrec-model-interpretation/1.1\", \"model_id\": \"lego\", \"interpreter\": {\"name\": \"Claude\", \"model_id_self_reported\": \"claude-sonnet-5-5\", \"context\": \"fresh session, no prior knowledge; contact sheet and facts only\"}, \"object\": {\"short_description\": \"Rectangular stepped pyramid of light grey studded bricks with six receding levels, a narrow square column on top and a small minifigure with a domed, spiked grey helmet, tan torso and blue legs standing on the column.\", \"category\": \"scene_or_assembly\", \"construction_technique\": \"brick_built_toy\", \"construction_material\": \"plastic building bricks (studs visible)\", \"estimated_real_size\": {\"value\": 0.123, \"unit\": \"m\", \"confidence\": 0.6, \"basis\": \"bounding box height 0.123 m in glTF metres; studs visible, so a toy-scale model\"}, \"up_axis\": {\"axis\": \"y\", \"sign\": \"+\", \"confidence\": 0.9}}, \"structure\": {\"overall_shape\": \"stepped taper with rectangular footprint (about 0.096 x 0.075 m), narrow column and a small figure on top\", \"levels\": 6, \"symmetry\": {\"mirror_axes\": [\"a\", \"b\"], \"rotational_fold\": null}, \"components\": [{\"id\": \"P1\", \"name\": \"stepped pyramid body\", \"description\": \"six receding rectangular levels of light grey bricks with exposed studs on each tread; the base is a flat plate-like course\", \"count\": 1}, {\"id\": \"P2\", \"name\": \"column or pedestal\", \"description\": \"slender square shaft of light bricks rising from the top step, roughly one stud wide, about a quarter of the total height\", \"count\": 1}, {\"id\": \"P3\", \"name\": \"minifigure on top\", \"description\": \"small figure with a silver-grey domed helmet with a small spike or knob, tan torso and arms, blue legs and brown feet; seen from the right it has one arm stretched out to the side\", \"count\": 1}, {\"id\": \"P4\", \"name\": \"helmet\", \"description\": \"domed grey helmet with a small finial on top, covering the head\", \"count\": 1}], \"repeated_elements\": [{\"what\": \"round studs on the treads of the steps\", \"pitch_relative_to_largest_extent\": 0.0547, \"count\": null}]}, \"capture\": {\"likely_origin\": \"cad_or_procedural\", \"defects\": [\"mesh is not watertight (464 boundary edges)\", \"diagonal triangulation lines visible on flat brick faces\", \"380 separate connected components (individual bricks)\"], \"floor_or_background_included\": false}, \"evidence\": [{\"id\": \"E1\", \"statement\": \"Six receding rectangular levels with exposed studs on the treads are visible in the front, right, back and left views; the 3/4 view shows all four sides stepped.\", \"source\": \"views\", \"strength\": \"strong\"}, {\"id\": \"E2\", \"statement\": \"A slender square column rises from the top step and carries a small figure; the figure is about as tall as the column.\", \"source\": \"views\", \"strength\": \"strong\"}, {\"id\": \"E3\", \"statement\": \"The figure wears a domed silver-grey helmet with a small spike or knob, a tan torso and blue legs with brown feet; one arm is stretched sideways in the right and left views.\", \"source\": \"views\", \"strength\": \"moderate\"}, {\"id\": \"E4\", \"statement\": \"Facts report a stepped_taper footprint profile, 6 regular steps, mirror symmetry about both horizontal axes (rated high) and 380 connected components, which fits a model built from separate bricks.\", \"source\": \"facts\", \"strength\": \"strong\"}, {\"id\": \"E5\", \"statement\": \"Studs are visible on the treads and a periodic pattern of about 5.5 % of the extent is detected; the dominant colour is light grey (98.9 %).\", \"source\": \"facts\", \"strength\": \"moderate\"}, {\"id\": \"E6\", \"statement\": \"The footprint is rectangular, not square (0.0959 x 0.0746 m), and the four sides are not identical; no stair arms or openings are visible.\", \"source\": \"views\", \"strength\": \"moderate\"}, {\"id\": \"E7\", \"statement\": \"Bounding box height is 0.123 m; the pyramid body takes about 0.31 of the height, the column and figure the rest (surface levels at height_rel up to 0.312).\", \"source\": \"facts\", \"strength\": \"moderate\"}, {\"id\": \"E8\", \"statement\": \"No inscription, door, sign or other attribute is visible that would identify a specific real building or person.\", \"source\": \"views\", \"strength\": \"weak\"}], \"hypotheses\": [{\"id\": \"H1\", \"label\": \"Brick-built monument: stepped plinth with a column and a statue-like figure on top\", \"confidence\": 0.55, \"supports\": [\"E1\", \"E2\", \"E4\"], \"weakens\": [\"E8\"], \"alternative_to\": [\"H3\"], \"specializes\": null, \"candidate\": {\"label\": \"commemorative column on stepped base\", \"kind\": \"type\", \"wikidata_search_term\": \"memorial column\"}, \"strongest_counterargument\": \"The figure is a normal small minifigure, not a statue-coloured figure, so it may simply stand on a tower rather than represent a monument.\", \"about\": null, \"feature_checks\": [{\"feature\": \"stepped base\", \"observed\": \"yes\", \"evidence\": [\"E1\"]}, {\"feature\": \"single slender shaft on the base\", \"observed\": \"yes\", \"evidence\": [\"E2\"]}, {\"feature\": \"figure on top of the shaft\", \"observed\": \"yes\", \"evidence\": [\"E2\", \"E3\"]}, {\"feature\": \"inscription or relief on shaft\", \"observed\": \"no\", \"evidence\": [\"E8\"]}]}, {\"id\": \"H2\", \"label\": \"Honouring column with a soldier or historical figure on top (Roman or medieval style helmet)\", \"confidence\": 0.25, \"supports\": [\"E2\", \"E3\"], \"weakens\": [\"E8\"], \"alternative_to\": [], \"specializes\": \"H1\", \"candidate\": {\"label\": \"Roman victory column (for example Trajan's Column)\", \"kind\": \"individual\", \"wikidata_search_term\": \"Trajan's Column\"}, \"strongest_counterargument\": \"Trajan's Column has a long relief frieze and a statue, and none of that is visible here; a helmet with a spike is also typical of other periods.\", \"about\": null, \"feature_checks\": [{\"feature\": \"helmeted figure on top\", \"observed\": \"yes\", \"evidence\": [\"E3\"]}, {\"feature\": \"pedestal with steps\", \"observed\": \"yes\", \"evidence\": [\"E1\"]}, {\"feature\": \"relief frieze on shaft\", \"observed\": \"no\", \"evidence\": [\"E8\"]}]}, {\"id\": \"H3\", \"label\": \"Stepped pyramid or ziggurat-like structure with a figure at the apex\", \"confidence\": 0.35, \"supports\": [\"E1\", \"E4\", \"E7\"], \"weakens\": [\"E6\"], \"alternative_to\": [\"H1\"], \"specializes\": null, \"candidate\": {\"label\": \"step pyramid\", \"kind\": \"type\", \"wikidata_search_term\": \"step pyramid\"}, \"strongest_counterargument\": \"The steps have no stair arms or temple on top, and the pillar plus figure is not typical of a pyramid.\", \"about\": null, \"feature_checks\": [{\"feature\": \"six receding levels\", \"observed\": \"yes\", \"evidence\": [\"E1\", \"E4\"]}, {\"feature\": \"stairs or ramp on one or more sides\", \"observed\": \"no\", \"evidence\": [\"E6\"]}, {\"feature\": \"temple or shrine at the top\", \"observed\": \"no\", \"evidence\": [\"E2\"]}]}, {\"id\": \"H4\", \"label\": \"Minifigure with a helmet and extended arm (a character, possibly a guard or soldier)\", \"confidence\": 0.5, \"supports\": [\"E3\"], \"weakens\": [\"E8\"], \"alternative_to\": [], \"specializes\": null, \"candidate\": {\"label\": \"toy minifigure\", \"kind\": \"type\", \"wikidata_search_term\": \"Lego minifigure\"}, \"strongest_counterargument\": \"The figure is very small in the views, so the helmet shape and the outstretched arm are only partly reliable.\", \"about\": \"P3\", \"feature_checks\": [{\"feature\": \"domed helmet with a small finial\", \"observed\": \"yes\", \"evidence\": [\"E3\"]}, {\"feature\": \"tan torso and blue legs\", \"observed\": \"yes\", \"evidence\": [\"E3\"]}, {\"feature\": \"one arm held away from the body\", \"observed\": \"partly\", \"evidence\": [\"E3\"]}]}, {\"id\": \"H5\", \"label\": \"Landmark with a person on top that reuses the pyramid-plus-pillar form (for example a stylised column monument)\", \"confidence\": 0.15, \"supports\": [\"E2\", \"E7\"], \"weakens\": [\"E6\"], \"alternative_to\": [], \"specializes\": \"H1\", \"candidate\": {\"label\": \"Nelson's Column\", \"kind\": \"individual\", \"wikidata_search_term\": \"Nelson's Column\"}, \"strongest_counterargument\": \"The helmet looks like a spiked or domed helmet and not an admiral's hat, and the base is a many-step pyramid and not a square plinth with lions.\", \"about\": null, \"feature_checks\": [{\"feature\": \"statue on very tall column\", \"observed\": \"partly\", \"evidence\": [\"E2\"]}, {\"feature\": \"lions at the base\", \"observed\": \"no\", \"evidence\": [\"E8\"]}]}, {\"id\": \"H6\", \"label\": \"Free design without a real-world model (a generic display or demonstration build)\", \"confidence\": 0.3, \"supports\": [\"E5\", \"E6\", \"E8\"], \"weakens\": [], \"alternative_to\": [\"H1\", \"H3\"], \"specializes\": null, \"candidate\": {\"label\": null, \"kind\": \"none\", \"wikidata_search_term\": null}, \"strongest_counterargument\": \"The clear central column with a figure suggests deliberate reference to a monument or a ceremonial structure.\", \"about\": null, \"feature_checks\": [{\"feature\": \"no distinctive identifying attributes\", \"observed\": \"yes\", \"evidence\": [\"E8\"]}]}, {\"id\": \"H7\", \"label\": \"Pyramid body made as a stepped mound of rectangular bricks used as a base or display podium for the figure\", \"confidence\": 0.2, \"supports\": [\"E1\", \"E5\"], \"weakens\": [\"E2\"], \"alternative_to\": [\"H1\"], \"specializes\": null, \"candidate\": {\"label\": \"display plinth\", \"kind\": \"type\", \"wikidata_search_term\": \"plinth\"}, \"strongest_counterargument\": \"A podium for display would normally be wider at the top; the tall slender column is a deliberate vertical emphasis.\", \"about\": \"P1\", \"feature_checks\": [{\"feature\": \"figure stands on a larger base\", \"observed\": \"yes\", \"evidence\": [\"E2\"]}]}], \"questions_for_owner\": [\"Is the model based on a real building or monument, and which one?\", \"Which minifigure (set or theme) is on top, and is the helmet a historical type such as Roman or medieval?\", \"Why is the base rectangular and not square, and are there steps or stairs that are not modelled?\", \"What was the purpose of the build (teaching, exhibition, a reconstruction of a find or monument)?\"], \"notes\": \"The pyramid-plus-column-plus-figure configuration is clear, but nothing in the views names a real model. Hypotheses overlap and need not sum to 1.\"}"^^rdf:JSON .
+
+ex:lego_interpreter a lrec:AIAssistant ;
+    rdfs:label "Claude"@en ;
+    dct:identifier "claude-sonnet-5-5" ;
+    rdfs:comment "Self-reported model identifier; may differ from the serving model. Context: fresh session, no prior knowledge; contact sheet and facts only"@en .
+
+ex:lego_H1 a lrec:IdentityHypothesis ;
+    rdfs:label "Brick-built monument: stepped plinth with a column and a statue-like figure on top"@en ;
+    rdfs:comment "feature check: figure on top of the shaft -> yes (E2, E3)"@en,
+        "feature check: inscription or relief on shaft -> no (E8)"@en,
+        "feature check: single slender shaft on the base -> yes (E2)"@en,
+        "feature check: stepped base -> yes (E1)"@en ;
+    prov:wasAttributedTo ex:lego_interpreter ;
+    prov:wasGeneratedBy ex:lego_ident ;
+    lrec:alternativeTo ex:lego_H3 ;
+    lrec:confidence 0.55 ;
+    lrec:confidenceBasis "subjective estimate by the AI assistant from views and facts, not a measurement"@en ;
+    lrec:hypothesisAbout ex:lego_object ;
+    lrec:proposesReferent ex:lego_C1 ;
+    lrec:strongestCounterargument "The figure is a normal small minifigure, not a statue-coloured figure, so it may simply stand on a tower rather than represent a monument."@en ;
+    lrec:verificationStatus "open: confirmation by the owner needed"@en .
+

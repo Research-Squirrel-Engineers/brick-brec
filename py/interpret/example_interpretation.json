@@ -1,0 +1,160 @@
+{
+  "schema": "lrec-model-interpretation/1.1",
+  "model_id": "example_model",
+  "interpreter": {
+    "name": "Claude",
+    "model_id_self_reported": "unknown",
+    "context": "FORMAT EXAMPLE ONLY, not a real analysis"
+  },
+  "object": {
+    "short_description": "Square stepped pyramid with four stair arms and a small roofed shrine on top, built from box-shaped blocks with round studs.",
+    "category": "building_or_monument",
+    "construction_technique": "brick_built_toy",
+    "construction_material": "plastic building bricks",
+    "estimated_real_size": {
+      "value": 0.1,
+      "unit": "m",
+      "confidence": 0.3,
+      "basis": "stud pitch relative to bounding box, typical brick pitch 8 mm"
+    },
+    "up_axis": {
+      "axis": "y",
+      "sign": "+",
+      "confidence": 0.9
+    }
+  },
+  "structure": {
+    "overall_shape": "stepped taper with square footprint",
+    "levels": 7,
+    "symmetry": {
+      "mirror_axes": [
+        "a",
+        "b"
+      ],
+      "rotational_fold": 4
+    },
+    "components": [
+      {
+        "id": "P1",
+        "name": "stepped body",
+        "description": "seven receding levels, light colour at the corners",
+        "count": 1
+      },
+      {
+        "id": "P2",
+        "name": "stair arms",
+        "description": "dark strips from base to top on all four sides",
+        "count": 4
+      },
+      {
+        "id": "P3",
+        "name": "shrine",
+        "description": "small structure with four corner pillars and a roof on top",
+        "count": 1
+      }
+    ],
+    "repeated_elements": [
+      {
+        "what": "round studs on top faces",
+        "pitch_relative_to_largest_extent": 0.055,
+        "count": null
+      }
+    ]
+  },
+  "capture": {
+    "likely_origin": "cad_or_procedural",
+    "defects": [
+      "none visible"
+    ],
+    "floor_or_background_included": false
+  },
+  "evidence": [
+    {
+      "id": "E1",
+      "statement": "Seven receding square levels are visible in all side views.",
+      "source": "views",
+      "strength": "strong"
+    },
+    {
+      "id": "E2",
+      "statement": "Four dark stair arms run from base to top on all four sides.",
+      "source": "views",
+      "strength": "strong"
+    },
+    {
+      "id": "E3",
+      "statement": "The top structure has four corner pillars and a roof.",
+      "source": "views",
+      "strength": "moderate"
+    },
+    {
+      "id": "E4",
+      "statement": "Facts report 7 horizontal surface levels and a periodic stud pattern of about 5 % of the extent.",
+      "source": "facts",
+      "strength": "moderate"
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H1",
+      "label": "Generic step pyramid with a temple on top",
+      "confidence": 0.7,
+      "supports": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "weakens": [],
+      "alternative_to": [],
+      "specializes": null,
+      "candidate": {
+        "label": "step pyramid with temple",
+        "kind": "type",
+        "wikidata_search_term": "step pyramid"
+      },
+      "strongest_counterargument": "Many unrelated designs share a stepped square body.",
+      "about": null,
+      "feature_checks": [
+        {
+          "feature": "four stair arms",
+          "observed": "yes",
+          "evidence": [
+            "E2"
+          ]
+        },
+        {
+          "feature": "shrine on top",
+          "observed": "yes",
+          "evidence": [
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "H2",
+      "label": "Free design without a specific real-world model",
+      "confidence": 0.2,
+      "supports": [
+        "E4"
+      ],
+      "weakens": [],
+      "alternative_to": [
+        "H1"
+      ],
+      "specializes": null,
+      "candidate": {
+        "label": null,
+        "kind": "none",
+        "wikidata_search_term": null
+      },
+      "strongest_counterargument": "Example only.",
+      "about": null,
+      "feature_checks": []
+    }
+  ],
+  "questions_for_owner": [
+    "Is the model based on a real building, and where is it located?"
+  ],
+  "notes": "Format example. Hypotheses overlap and need not sum to 1."
+}

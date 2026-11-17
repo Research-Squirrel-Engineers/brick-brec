@@ -1,0 +1,90 @@
+{
+ "lego-pyramid-kiri-original": {
+  "bundle_ttl_sha256": "438a6d3ffa9dd089518b6c916dcba16a5fb9bfec599f50a41c6cf07c514dde89",
+  "bundle_zip_sha256": "276f5fd53d157dfadf9be65bb64e9251022ab058db998175ec14e3669f71d46b",
+  "files": {
+   "data/model/model.nxs": [
+    10955008,
+    "553a061f37d0950dc2c9ec8473035b2fbf14ec0c7610bd249ed2b6c3f5785a03"
+   ],
+   "data/model/model.nxz": [
+    4976128,
+    "e61ca0b15b26ba352a3d19be9434646a687c51c381a8b44781b4e9aa726067f2"
+   ],
+   "data/model/model.obj": [
+    21735468,
+    "6416f4ec9a638fda230a98604054657c31ca4b2f5b9afebc10f91ec34f67aec6"
+   ],
+   "data/textures/3DModel_Custom_baseColor.jpeg": [
+    3404741,
+    "16c6c11e40e24bb4059e3bebb594c31b4bcd6b1942d2b2b761fa326dcbf16e24"
+   ]
+  }
+ },
+ "lego-pyramid-maya-kiri-original": {
+  "bundle_ttl_sha256": "2112151e258b18bdad920aebb870f03d071a89ed9e0af294a234138aec93d1c2",
+  "bundle_zip_sha256": "33f4d750cf6a8c2dc62886d2682013e70b1eb904ce54373ee70316dc693bc22b",
+  "files": {
+   "data/model/model.nxs": [
+    4751616,
+    "ecded0cdd4949370c5e04bd73abc6b0f9335b5b7e5e5873620e5b494fd1b9fa3"
+   ],
+   "data/model/model.nxz": [
+    2597376,
+    "92f6aab6eaa90eea2f98afbfc450615414bde5df540e5fcadbe89d9676193c09"
+   ],
+   "data/model/model.obj": [
+    7532064,
+    "81ad99017ff8e468fad8e4f9d8f50453b778d4bd4d3a56a95b6aa4e35efd8496"
+   ],
+   "data/textures/3DModel_baseColor.jpeg": [
+    2752215,
+    "5f6904c85e155dfd823ab4727d05a595c59e33216ccdeb910b66887c03af5dca"
+   ]
+  }
+ },
+ "lego-pyramid-maya-reconstruction-claudeai": {
+  "bundle_ttl_sha256": "78303925a9c6e48b5fc881935fcd3c82b7cf2ae3fee4c58beeefdb51cf6db6f5",
+  "bundle_zip_sha256": "2fc7c9cdeeac59fb8d4c11eab713b1ccd8eceec01a5eaa4c8400d7a158e5d122",
+  "files": {
+   "data/model/model.nxs": [
+    1453056,
+    "aeaa897829188453b1815c54ac11c090fafbff12eb1d664b163e2592419a9d3a"
+   ],
+   "data/model/model.nxz": [
+    179968,
+    "d44b4a1540b3fc6d08dd7ccabf8f5aed8dd19dc813017b2369f1711cfdaa5f8d"
+   ],
+   "data/model/model.obj": [
+    3483398,
+    "ebc2e2602c51d0faccaabfd01e6de9c6638705f70f98e0dfd8706ca714342d17"
+   ]
+  }
+ },
+ "lego-pyramid-reconstruction-claudeai": {
+  "bundle_ttl_sha256": "27c8fd5549c584a03987d29d5f60bfaad470f01a8442af6a32e32c6316b0b34b",
+  "bundle_zip_sha256": "4a556cc9fb0a350428bd5ace45484d62a4f93273dac5b2762d1e0bf87e936ddf",
+  "files": {
+   "data/model/model.nxs": [
+    2262016,
+    "aee528ec8e6958187cd1aa7dfc6c73bf8a52b5994767855f332662f12e6f967b"
+   ],
+   "data/model/model.nxz": [
+    371968,
+    "296bc25ba60aee911ccca354d31da5d7e64de9c42bd39ca9a88c33ccd0413699"
+   ],
+   "data/model/model.obj": [
+    3815814,
+    "0eb0fe6f0c9babd2024897bc17633ff4905dc335decadafd08c1db1318124f15"
+   ],
+   "data/textures/material_4_baseColor.png": [
+    34834,
+    "ece181cdecde621a7a2ffc47f581de2fdc2cd0eb386bff4ad6463e059d279fb6"
+   ],
+   "data/textures/material_5_baseColor.png": [
+    19986,
+    "1ffec1e1e34fdfb1d523aa22effaf7bb5db3ef57d91a8f55be463992fa9aa4a7"
+   ]
+  }
+ }
+}

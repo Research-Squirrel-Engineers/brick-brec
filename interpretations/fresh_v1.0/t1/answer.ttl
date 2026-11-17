@@ -1,0 +1,210 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix crminf: <http://www.ics.forth.gr/isl/CRMinf/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <https://example.org/lego-reconstruction/id/> .
+@prefix lrec: <https://example.org/lego-reconstruction#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+lrec:evidenceStrength a owl:DatatypeProperty ;
+    rdfs:domain lrec:Evidence ;
+    rdfs:range xsd:string .
+
+lrec:interpretationJson a owl:DatatypeProperty ;
+    rdfs:domain lrec:Identification ;
+    rdfs:range rdf:JSON .
+
+ex:modelA_C1 a lrec:CandidateReferent ;
+    rdfs:label "step pyramid with temple (brick-built model)"@en ;
+    rdfs:comment "candidate kind: type"@en ;
+    lrec:wikidataSearchTerm "step pyramid" .
+
+ex:modelA_C2 a lrec:CandidateReferent ;
+    rdfs:label "Mesoamerican pyramid"@en ;
+    rdfs:comment "candidate kind: type"@en ;
+    lrec:wikidataSearchTerm "Mesoamerican pyramids" .
+
+ex:modelA_C4 a lrec:CandidateReferent ;
+    rdfs:label "ziggurat"@en ;
+    rdfs:comment "candidate kind: type"@en ;
+    lrec:wikidataSearchTerm "ziggurat" .
+
+ex:modelA_E1 a lrec:Evidence ;
+    rdfs:label "All four side views show a symmetric terraced pyramid silhouette with receding levels."@en ;
+    prov:wasDerivedFrom ex:modelA_views ;
+    lrec:evidenceStrength "strong" ;
+    lrec:supports ex:modelA_H1,
+        ex:modelA_H4 .
+
+ex:modelA_E2 a lrec:Evidence ;
+    rdfs:label "Round studs are visible on the upward faces of the light bricks, and the surfaces are made of rectangular brick shapes."@en ;
+    prov:wasDerivedFrom ex:modelA_views ;
+    lrec:evidenceStrength "strong" ;
+    lrec:supports ex:modelA_H1 .
+
+ex:modelA_E3 a lrec:Evidence ;
+    rdfs:label "A dark band runs from base to top on each side; the top view shows a dark cross on a light square."@en ;
+    prov:wasDerivedFrom ex:modelA_views ;
+    lrec:evidenceStrength "strong" ;
+    lrec:supports ex:modelA_H1,
+        ex:modelA_H2,
+        ex:modelA_H4 .
+
+ex:modelA_E4 a lrec:Evidence ;
+    rdfs:label "A small dark capstone with a lighter gap sits at the apex, resembling a temple or shrine."@en ;
+    prov:wasDerivedFrom ex:modelA_views ;
+    lrec:evidenceStrength "moderate" ;
+    lrec:supports ex:modelA_H1,
+        ex:modelA_H2 ;
+    lrec:weakens ex:modelA_H3,
+        ex:modelA_H4 .
+
+ex:modelA_E5 a lrec:Evidence ;
+    rdfs:label "Facts report a stepped_taper footprint profile, 10 horizontal surface levels, high mirror symmetry in a and b, and 435 connected components."@en ;
+    prov:wasDerivedFrom ex:modelA_facts ;
+    lrec:evidenceStrength "strong" ;
+    lrec:supports ex:modelA_H1 .
+
+ex:modelA_E6 a lrec:Evidence ;
+    rdfs:label "A periodic stud pattern with a pitch of about 5.5 % of the extent was detected, and the model is watertight with 0 boundary edges."@en ;
+    prov:wasDerivedFrom ex:modelA_facts ;
+    lrec:evidenceStrength "moderate" ;
+    lrec:supports ex:modelA_H1 .
+
+ex:modelA_E7 a lrec:Evidence ;
+    rdfs:label "Colours are only dark grey (about 59 %) and off-white (about 41 %), with low saturation."@en ;
+    prov:wasDerivedFrom ex:modelA_facts ;
+    lrec:evidenceStrength "moderate" .
+
+ex:modelA_E8 a lrec:Evidence ;
+    rdfs:label "The views show no distinguishing inscriptions, figures or details that tie the model to one specific real monument."@en ;
+    prov:wasDerivedFrom ex:modelA_views ;
+    lrec:evidenceStrength "weak" ;
+    lrec:supports ex:modelA_H3 ;
+    lrec:weakens ex:modelA_H2 .
+
+ex:modelA_P1 a crm:E18_Physical_Thing ;
+    rdfs:label "stepped body"@en ;
+    dct:description "light grey/white terraced levels with studs on upward faces, receding towards the top"@en ;
+    rdfs:comment "count: 1"@en .
+
+ex:modelA_P2 a crm:E18_Physical_Thing ;
+    rdfs:label "stair arms"@en ;
+    dct:description "dark bricks forming a central band from base to top on each of the four sides, seen as a cross in the top view, with stepped dark flanks"@en ;
+    rdfs:comment "count: 4"@en .
+
+ex:modelA_P3 a crm:E18_Physical_Thing ;
+    rdfs:label "top shrine or capstone"@en ;
+    dct:description "small dark structure at the apex with a lighter opening (window-like gap) beneath a dark roof brick"@en ;
+    rdfs:comment "count: 1"@en .
+
+ex:modelA_P4 a crm:E18_Physical_Thing ;
+    rdfs:label "dark side steps"@en ;
+    dct:description "dark bricks stepping outwards along the sides of the lower tiers, forming a stair-like diagonal profile"@en .
+
+ex:modelA_levels a crm:E54_Dimension ;
+    rdfs:label "Number of levels"@en ;
+    crm:P90_has_value 9 .
+
+ex:modelA_size a crm:E54_Dimension ;
+    rdfs:label "Estimated real size (largest extent)"@en ;
+    dct:description "unit m; bounding box is 0.0959 x 0.0959 x 0.0715 file units (glTF metres); the footprint appears to be about 12 studs wide, which is consistent with typical brick pitch of 8 mm. This is an estimate for the toy model, not for any real monument."@en ;
+    crm:P90_has_value 9.6e-02 ;
+    lrec:confidence 0.5 .
+
+ex:modelA_model a crmdig:D1_Digital_Object ;
+    rdfs:label "3D model modelA"@en .
+
+ex:modelA_facts a crmdig:D1_Digital_Object ;
+    rdfs:label "Measured facts (JSON)"@en ;
+    prov:wasDerivedFrom ex:modelA_model .
+
+ex:modelA_H3 a lrec:IdentityHypothesis ;
+    rdfs:label "Free design without a specific real-world model"@en ;
+    prov:wasAttributedTo ex:modelA_interpreter ;
+    prov:wasGeneratedBy ex:modelA_ident ;
+    lrec:alternativeTo ex:modelA_H1 ;
+    lrec:confidence 0.3 ;
+    lrec:confidenceBasis "subjective estimate by the AI assistant from views and facts, not a measurement"@en ;
+    lrec:hypothesisAbout ex:modelA_object ;
+    lrec:verificationStatus "open: confirmation by the owner needed"@en .
+
+ex:modelA_H4 a lrec:IdentityHypothesis ;
+    rdfs:label "Black-and-white themed model of a stepped pyramid with stairs, such as a Mesopotamian ziggurat"@en ;
+    prov:wasAttributedTo ex:modelA_interpreter ;
+    prov:wasGeneratedBy ex:modelA_ident ;
+    lrec:alternativeTo ex:modelA_H2 ;
+    lrec:confidence 0.1 ;
+    lrec:confidenceBasis "subjective estimate by the AI assistant from views and facts, not a measurement"@en ;
+    lrec:hypothesisAbout ex:modelA_object ;
+    lrec:proposesReferent ex:modelA_C4 ;
+    lrec:specializes ex:modelA_H1 ;
+    lrec:verificationStatus "open: confirmation by the owner needed"@en .
+
+ex:modelA_ident a lrec:Identification ;
+    rdfs:label "Identification of modelA"@en ;
+    crm:P41_classified ex:modelA_object ;
+    crminf:J1_used_as_premise ex:modelA_E1,
+        ex:modelA_E2,
+        ex:modelA_E3,
+        ex:modelA_E4,
+        ex:modelA_E5,
+        ex:modelA_E6,
+        ex:modelA_E7,
+        ex:modelA_E8 ;
+    crminf:J2_concluded_that ex:modelA_H1,
+        ex:modelA_H2,
+        ex:modelA_H3,
+        ex:modelA_H4 ;
+    prov:wasAssociatedWith ex:modelA_interpreter ;
+    lrec:interpretationJson "{\"schema\": \"lrec-model-interpretation/1.0\", \"model_id\": \"modelA\", \"interpreter\": {\"name\": \"Claude\", \"model_id_self_reported\": \"claude-sonnet-5-5\", \"context\": \"fresh session, no prior knowledge; only the contact sheet and facts were used\"}, \"object\": {\"short_description\": \"Square stepped pyramid built from studded box-shaped bricks, light grey/white with a dark cross-shaped band of stairs on all four sides and a small dark capstone with a window-like opening on top.\", \"category\": \"building_or_monument\", \"construction_technique\": \"brick_built_toy\", \"construction_material\": \"plastic building bricks (inferred from studs and brick-shaped blocks)\", \"estimated_real_size\": {\"value\": 0.096, \"unit\": \"m\", \"confidence\": 0.5, \"basis\": \"bounding box is 0.0959 x 0.0959 x 0.0715 file units (glTF metres); the footprint appears to be about 12 studs wide, which is consistent with typical brick pitch of 8 mm. This is an estimate for the toy model, not for any real monument.\"}, \"up_axis\": {\"axis\": \"y\", \"sign\": \"+\", \"confidence\": 0.9}}, \"structure\": {\"overall_shape\": \"square stepped taper with a cross-shaped dark stair band and a small top shrine\", \"levels\": 9, \"symmetry\": {\"mirror_axes\": [\"a\", \"b\"], \"rotational_fold\": 4}, \"components\": [{\"id\": \"P1\", \"name\": \"stepped body\", \"description\": \"light grey/white terraced levels with studs on upward faces, receding towards the top\", \"count\": 1}, {\"id\": \"P2\", \"name\": \"stair arms\", \"description\": \"dark bricks forming a central band from base to top on each of the four sides, seen as a cross in the top view, with stepped dark flanks\", \"count\": 4}, {\"id\": \"P3\", \"name\": \"top shrine or capstone\", \"description\": \"small dark structure at the apex with a lighter opening (window-like gap) beneath a dark roof brick\", \"count\": 1}, {\"id\": \"P4\", \"name\": \"dark side steps\", \"description\": \"dark bricks stepping outwards along the sides of the lower tiers, forming a stair-like diagonal profile\", \"count\": null}], \"repeated_elements\": [{\"what\": \"round studs on upward faces\", \"pitch_relative_to_largest_extent\": 0.0547, \"count\": null}]}, \"capture\": {\"likely_origin\": \"cad_or_procedural\", \"defects\": [\"thin diagonal lines on light faces suggest triangulation seams or coplanar faces\", \"many connected components (435) because bricks are separate bodies\"], \"floor_or_background_included\": false}, \"evidence\": [{\"id\": \"E1\", \"statement\": \"All four side views show a symmetric terraced pyramid silhouette with receding levels.\", \"source\": \"views\", \"strength\": \"strong\"}, {\"id\": \"E2\", \"statement\": \"Round studs are visible on the upward faces of the light bricks, and the surfaces are made of rectangular brick shapes.\", \"source\": \"views\", \"strength\": \"strong\"}, {\"id\": \"E3\", \"statement\": \"A dark band runs from base to top on each side; the top view shows a dark cross on a light square.\", \"source\": \"views\", \"strength\": \"strong\"}, {\"id\": \"E4\", \"statement\": \"A small dark capstone with a lighter gap sits at the apex, resembling a temple or shrine.\", \"source\": \"views\", \"strength\": \"moderate\"}, {\"id\": \"E5\", \"statement\": \"Facts report a stepped_taper footprint profile, 10 horizontal surface levels, high mirror symmetry in a and b, and 435 connected components.\", \"source\": \"facts\", \"strength\": \"strong\"}, {\"id\": \"E6\", \"statement\": \"A periodic stud pattern with a pitch of about 5.5 % of the extent was detected, and the model is watertight with 0 boundary edges.\", \"source\": \"facts\", \"strength\": \"moderate\"}, {\"id\": \"E7\", \"statement\": \"Colours are only dark grey (about 59 %) and off-white (about 41 %), with low saturation.\", \"source\": \"facts\", \"strength\": \"moderate\"}, {\"id\": \"E8\", \"statement\": \"The views show no distinguishing inscriptions, figures or details that tie the model to one specific real monument.\", \"source\": \"views\", \"strength\": \"weak\"}], \"hypotheses\": [{\"id\": \"H1\", \"label\": \"Brick-built toy model of a stepped pyramid with a temple on top\", \"confidence\": 0.8, \"supports\": [\"E1\", \"E2\", \"E3\", \"E4\", \"E5\", \"E6\"], \"weakens\": [], \"alternative_to\": [\"H3\"], \"specializes\": null, \"candidate\": {\"label\": \"step pyramid with temple (brick-built model)\", \"kind\": \"type\", \"wikidata_search_term\": \"step pyramid\"}}, {\"id\": \"H2\", \"label\": \"Mesoamerican-style temple pyramid (for example Maya or Aztec) in brick form\", \"confidence\": 0.4, \"supports\": [\"E3\", \"E4\"], \"weakens\": [\"E8\"], \"alternative_to\": [], \"specializes\": \"H1\", \"candidate\": {\"label\": \"Mesoamerican pyramid\", \"kind\": \"type\", \"wikidata_search_term\": \"Mesoamerican pyramids\"}}, {\"id\": \"H3\", \"label\": \"Free design without a specific real-world model\", \"confidence\": 0.3, \"supports\": [\"E8\"], \"weakens\": [\"E4\"], \"alternative_to\": [\"H1\"], \"specializes\": null, \"candidate\": {\"label\": null, \"kind\": \"none\", \"wikidata_search_term\": null}}, {\"id\": \"H4\", \"label\": \"Black-and-white themed model of a stepped pyramid with stairs, such as a Mesopotamian ziggurat\", \"confidence\": 0.1, \"supports\": [\"E1\", \"E3\"], \"weakens\": [\"E4\"], \"alternative_to\": [\"H2\"], \"specializes\": \"H1\", \"candidate\": {\"label\": \"ziggurat\", \"kind\": \"type\", \"wikidata_search_term\": \"ziggurat\"}}], \"questions_for_owner\": [\"Is the model based on a particular real pyramid or temple, and where is it?\", \"Is it an official brick set, a custom design or a digital-only construction?\", \"What is the real size of the model, and what is the stud pitch?\", \"Why are the stairs and the capstone dark and the body light, and does the colouring have a meaning?\"], \"notes\": \"Axes in the views use z as up, while the file uses y up. Hypotheses overlap and need not sum to 1. The level count of 9 is a visual estimate; the facts list 10 horizontal surface levels.\"}"^^rdf:JSON .
+
+ex:modelA_H2 a lrec:IdentityHypothesis ;
+    rdfs:label "Mesoamerican-style temple pyramid (for example Maya or Aztec) in brick form"@en ;
+    prov:wasAttributedTo ex:modelA_interpreter ;
+    prov:wasGeneratedBy ex:modelA_ident ;
+    lrec:confidence 0.4 ;
+    lrec:confidenceBasis "subjective estimate by the AI assistant from views and facts, not a measurement"@en ;
+    lrec:hypothesisAbout ex:modelA_object ;
+    lrec:proposesReferent ex:modelA_C2 ;
+    lrec:specializes ex:modelA_H1 ;
+    lrec:verificationStatus "open: confirmation by the owner needed"@en .
+
+ex:modelA_interpreter a lrec:AIAssistant ;
+    rdfs:label "Claude"@en ;
+    dct:identifier "claude-sonnet-5-5" ;
+    rdfs:comment "Self-reported model identifier; may differ from the serving model. Context: fresh session, no prior knowledge; only the contact sheet and facts were used"@en .
+
+ex:modelA_object a crm:E18_Physical_Thing ;
+    rdfs:label "Object shown by modelA"@en ;
+    dct:description "Square stepped pyramid built from studded box-shaped bricks, light grey/white with a dark cross-shaped band of stairs on all four sides and a small dark capstone with a window-like opening on top."@en ;
+    dct:format "brick_built_toy" ;
+    dct:medium "plastic building bricks (inferred from studs and brick-shaped blocks)"@en ;
+    dct:type "building_or_monument" ;
+    crm:P43_has_dimension ex:modelA_levels,
+        ex:modelA_size ;
+    crm:P46_is_composed_of ex:modelA_P1,
+        ex:modelA_P2,
+        ex:modelA_P3,
+        ex:modelA_P4 ;
+    rdfs:comment "Overall shape: square stepped taper with a cross-shaped dark stair band and a small top shrine. Mirror axes: a, b; rotational fold: 4."@en .
+
+ex:modelA_views a crmdig:D1_Digital_Object ;
+    rdfs:label "Standard views (contact sheet)"@en ;
+    prov:wasDerivedFrom ex:modelA_model .
+
+ex:modelA_H1 a lrec:IdentityHypothesis ;
+    rdfs:label "Brick-built toy model of a stepped pyramid with a temple on top"@en ;
+    prov:wasAttributedTo ex:modelA_interpreter ;
+    prov:wasGeneratedBy ex:modelA_ident ;
+    lrec:alternativeTo ex:modelA_H3 ;
+    lrec:confidence 0.8 ;
+    lrec:confidenceBasis "subjective estimate by the AI assistant from views and facts, not a measurement"@en ;
+    lrec:hypothesisAbout ex:modelA_object ;
+    lrec:proposesReferent ex:modelA_C1 ;
+    lrec:verificationStatus "open: confirmation by the owner needed"@en .
+

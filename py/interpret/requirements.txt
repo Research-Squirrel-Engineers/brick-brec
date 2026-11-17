@@ -1,0 +1,8 @@
+trimesh
+numpy
+scipy
+matplotlib
+pillow
+rdflib
+jsonschema
+# optional: anthropic (ask_claude.py)

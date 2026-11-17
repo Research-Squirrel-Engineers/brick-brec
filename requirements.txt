@@ -1,0 +1,15 @@
+# Python 3.12 or newer is the verified reference (3.13.18): the pins in the first block give byte-identical GLB files for both models.
+# Python 3.10 and 3.11 are supported with the second block (numpy and scipy have no newer releases for them): P2 stays byte-identical,
+# P1 differs in a few bytes but not in geometry; data/expected_models.json records that second checksum (checked 2026-11-17 on 3.10.20).
+numpy==2.5.3 ; python_version >= "3.12"
+scipy==1.18.1 ; python_version >= "3.12"
+matplotlib==3.11.2 ; python_version >= "3.12"
+numpy==2.2.6 ; python_version < "3.12"
+scipy==1.15.3 ; python_version < "3.12"
+matplotlib==3.10.9 ; python_version < "3.12"
+trimesh==5.2.1
+Pillow==12.3.0
+rdflib==7.6.0
+jsonschema==4.26.0
+# optional: PNG next to the SVG figures (python main.py --png)
+# resvg_py

@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software or ontology, please cite it using the metadata below."
+title: "lego-lrec: LREC, a LEGO Reconstruction Ontology and pipeline"
+abstract: >-
+  Ontology (CIDOC CRM, CRMdig, CRMinf, PROV-O, DCAT, DQV) and reproducible pipeline for documenting the path from a
+  structure-from-motion scan of a LEGO model to an idealised brick reconstruction, its interpretation and its FDOx packaging.
+type: software
+authors:
+  - family-names: Thiery
+    given-names: Florian
+    orcid: "https://orcid.org/0000-0002-3246-3531"
+    affiliation: "Research Squirrel Engineers Network / Leibniz-Zentrum für Archäologie (LEIZA)"
+license: MIT
+version: "0.4.0"
+date-released: "2026-11-17"
+repository-code: "https://github.com/Research-Squirrel-Engineers/lego-lrec"
+# doi: "10.5281/zenodo.XXXXXXX"  # TODO: add Zenodo DOI once minted
+keywords:
+  - CIDOC CRM
+  - FDOx
+  - photogrammetry
+  - LEGO
+  - ontology

@@ -1,0 +1,218 @@
+{
+  "schema": "lrec-model-facts/1.0",
+  "model_id": "3DModel",
+  "file": {
+    "name": "3DModel.obj",
+    "format": "obj",
+    "bytes": 5986977
+  },
+  "counts": {
+    "vertices": 69627,
+    "vertices_after_merge": 26996,
+    "faces": 53482,
+    "geometries": 1,
+    "connected_components": 1,
+    "watertight": false,
+    "boundary_edges": 508
+  },
+  "bounding_box": {
+    "min": [
+      -0.2356,
+      -0.18004,
+      -0.57422
+    ],
+    "max": [
+      0.39234,
+      0.24309,
+      0.07821
+    ],
+    "extents": [
+      0.62794,
+      0.42313,
+      0.65243
+    ],
+    "diagonal": 0.99951,
+    "axes_original": "x,y,z as in file"
+  },
+  "up_axis_estimate": {
+    "axis": "y",
+    "sign": "+",
+    "method": "largest flat face at an extreme (base heuristic)",
+    "confidence": 0.25,
+    "scores": {
+      "x-": 0.0,
+      "x+": 0.0,
+      "y-": 0.0,
+      "y+": 0.003,
+      "z-": 0.0,
+      "z+": 0.0
+    }
+  },
+  "units_hint": "unknown; largest extent 0.6524: metres or arbitrary",
+  "frame_used_for_analysis": "a,b = the two horizontal axes, z = up (derived from up_axis_estimate; views use this frame). Front view looks along +b.",
+  "extents_in_analysis_frame": {
+    "a": 0.65243,
+    "b": 0.62794,
+    "up": 0.42313
+  },
+  "footprint_profile": {
+    "slices": 48,
+    "plateaus_detected": 11,
+    "type": "irregular",
+    "base_footprint_ratio": 0.065,
+    "top_footprint_ratio": 0.009,
+    "note": "plateaus = distinct footprint sizes along the height (robust 0.5-99.5 percentile widths)",
+    "data": [
+      {
+        "z_rel": 0.0,
+        "width_a": 0.0581,
+        "width_b": 0.4078
+      },
+      {
+        "z_rel": 0.083,
+        "width_a": 0.2103,
+        "width_b": 0.6245
+      },
+      {
+        "z_rel": 0.167,
+        "width_a": 0.5684,
+        "width_b": 0.6205
+      },
+      {
+        "z_rel": 0.25,
+        "width_a": 0.5456,
+        "width_b": 0.612
+      },
+      {
+        "z_rel": 0.333,
+        "width_a": 0.5233,
+        "width_b": 0.5043
+      },
+      {
+        "z_rel": 0.417,
+        "width_a": 0.3397,
+        "width_b": 0.367
+      },
+      {
+        "z_rel": 0.5,
+        "width_a": 0.286,
+        "width_b": 0.305
+      },
+      {
+        "z_rel": 0.583,
+        "width_a": 0.2304,
+        "width_b": 0.2458
+      },
+      {
+        "z_rel": 0.667,
+        "width_a": 0.1529,
+        "width_b": 0.1793
+      },
+      {
+        "z_rel": 0.75,
+        "width_a": 0.1338,
+        "width_b": 0.1302
+      },
+      {
+        "z_rel": 0.833,
+        "width_a": 0.1347,
+        "width_b": 0.1341
+      },
+      {
+        "z_rel": 0.917,
+        "width_a": 0.1053,
+        "width_b": 0.1053
+      }
+    ]
+  },
+  "horizontal_surface_levels": {
+    "count": 3,
+    "levels": [
+      {
+        "height_rel": 0.072,
+        "area_share": 0.387
+      },
+      {
+        "height_rel": 0.177,
+        "area_share": 0.038
+      },
+      {
+        "height_rel": 0.275,
+        "area_share": 0.422
+      }
+    ],
+    "note": "height_rel = 0 base .. 1 top; area_share = share of upward-facing flat area"
+  },
+  "symmetry": {
+    "mirror_a": {
+      "permille_of_diagonal": 36.97,
+      "rating": "low"
+    },
+    "mirror_b": {
+      "permille_of_diagonal": 15.31,
+      "rating": "low"
+    },
+    "mirror_up": {
+      "permille_of_diagonal": 116.38,
+      "rating": "low"
+    },
+    "rot90_about_up": {
+      "permille_of_diagonal": 25.84,
+      "rating": "low"
+    }
+  },
+  "periodic_pattern": {
+    "detected": false,
+    "strength": 0.037,
+    "pitch_cells": null,
+    "pitch_rel_to_extent_a": null,
+    "note": "heuristic: strongest repeat distance of the top-down height map (relative to bbox, grid 256, high-pass filtered)"
+  },
+  "appearance": {
+    "dominant_colours": [
+      {
+        "hex": "#656565",
+        "share": 1.0
+      },
+      {
+        "hex": "#656565",
+        "share": 0.0
+      },
+      {
+        "hex": "#656565",
+        "share": 0.0
+      },
+      {
+        "hex": "#656565",
+        "share": 0.0
+      },
+      {
+        "hex": "#656565",
+        "share": 0.0
+      },
+      {
+        "hex": "#656565",
+        "share": 0.0
+      }
+    ],
+    "mean_saturation": 0.0,
+    "grayscale_like": true,
+    "visual_kind": "texture",
+    "materials": [
+      {
+        "visual_kind": "texture",
+        "material_name": "3DModel",
+        "texture_size": [
+          4096,
+          4096
+        ]
+      }
+    ]
+  },
+  "mesh_quality": {
+    "edge_length_median": 0.004631,
+    "edge_length_p95_over_median": 2.2,
+    "degenerate_faces": 0
+  },
+  "heuristics_note": "Fields marked heuristic are computed by simple rules and can be wrong; the images are authoritative for shape."
+}

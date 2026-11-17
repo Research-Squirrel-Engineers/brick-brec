@@ -1,0 +1,112 @@
+{
+  "document": "Änderungen von der SfM-Originalmessung zur Rekonstruktion",
+  "date": "2026-11-12",
+  "language": "de",
+  "common": {
+    "source_type": "KIRI-Engine-Scan (Structure-from-Motion), texturiertes Dreiecksnetz",
+    "reconstruction_type": "prozedural erzeugtes Modell aus idealisierten LEGO-Steinen, kein geglättetes Scan-Netz",
+    "tools": ["Python", "numpy", "scipy", "trimesh", "Pillow", "Three.js (nur Vorschau-Renderings)"],
+    "brick_model": {
+      "scale_to_real": "2/3 (Szenenmaßstab)",
+      "stud_pitch_real_mm": 8.0,
+      "brick_height_real_mm": 9.6,
+      "stud_diameter_real_mm": 4.8,
+      "stud_height_real_mm": 1.7,
+      "gap_mm": 0.05,
+      "chamfer_mm": 0.14,
+      "brick_types": ["2x4", "2x2", "1x1"],
+      "material": "PBR, Rauheit 0.3, nicht metallisch"
+    },
+    "output_formats": ["GLB (glTF 2.0)", "OBJ/MTL"],
+    "texture": "keine Scan-Textur übernommen; Farben als Materialfarben, bei der Figur zusätzlich gemalte Texturen für Kopf und Oberkörper"
+  },
+  "model_1": {
+    "name": "Stufenpyramide weiß mit 1x1-Säule und Minifigur",
+    "original": {
+      "problems": ["Ebene Bodenfläche und Basis des Scans unsauber", "Kanten und Noppen stark verrauscht", "Figur oben verformt und gestreckt (im Scan ca. 38 Scan-Einheiten hoch)"]
+    },
+    "intermediate_cleanup": {
+      "description": "Erste Runde: Scan nur bereinigt, nicht rekonstruiert",
+      "steps": ["Ausrichtung (Leveling)", "Basis abgeschnitten", "Höhenwerte begrenzt (Clamp)", "Taubin-Glättung", "Löcher geschlossen (Kappen)", "Textur nachbearbeitet"],
+      "user_feedback": "zu stark geglättet, Wunsch: aus echten Steinen rekonstruieren"
+    },
+    "reconstruction": {
+      "structure": {
+        "levels_studs_w_x_l": ["14x18", "12x16", "10x14", "8x12", "6x10", "4x8", "2x6", "2x4", "2x2"],
+        "column": "5 Steine 1x1 übereinander, Position ca. (-P/2, -P/2) in Noppenmaßen",
+        "color": "weiß (237,237,233)"
+      },
+      "method": "Jede Ebene wird in 2x2-Blöcke zerlegt und per Zufalls-Dominopflasterung (beste von 400 Versuchen, maximale Zahl an 2x4) mit 2x4- und 2x2-Steinen belegt; Noppen nur dort, wo die nächste Ebene nicht aufliegt",
+      "stud_visibility": "Noppen verdeckter Zellen entfallen",
+      "figure": {
+        "source": "11 Fotos der echten Figur",
+        "approach": "komplett neu modelliert, Maße der Original-Minifigur 1:1 und mit 2/3 skaliert",
+        "parts": ["Beine blau", "Schuhe braun mit Sohlen", "Torso mit Kettenhemd-Druckmuster, Schal, Brosche, Gürtel, Tunika", "Kopf mit Augen, Brauen, Schnurrbart, Mund", "Helm silbern (Krempe, Wulst, Kuppe, Spitze)", "Kettenhemd-Wangenklappen", "Arme mit Ärmeln und C-förmigen Händen", "plissierter Umhang mit Kragen"],
+        "textures": ["Kopf (gemalt)", "Oberkörper (gemalt)"]
+      }
+    },
+    "assumptions": [
+      "Nur 2x4-, 2x2- und 1x1-Steine in Weiß, wie vom Nutzer angegeben",
+      "Verborgene Steinverteilung ist zufällig und nicht aus dem Scan abgelesen"
+    ],
+    "known_deviations": [
+      "Farben von Umhang, Händen und Ärmeln wirken etwas blasser als auf den Fotos",
+      "Kettenhemd als Wabenmuster statt einzelner Ringe",
+      "Wangenklappen eher flach",
+      "Ärmel einfache Röhren"
+    ]
+  },
+  "model_2": {
+    "name": "Stufenpyramide mit grauen Treppenarmen und Tempel",
+    "original": {
+      "file": "3DModel.obj mit 3DModel.jpg (4096x4096), ca. 69600 Eckpunkte, 53500 Dreiecke",
+      "problems": ["Pyramide gegenüber der Bodenfläche um ca. 16° gedreht", "wellige Bodenfläche, Boden steigt zur Pyramide hin an", "Scan in einer Achse gestaucht (ca. Faktor 0.72)", "Treppenseite im Scan teilweise zerfallen", "Textur fast grau, Farben schwach"]
+    },
+    "measurement": {
+      "yaw_deg": 16.25,
+      "method": "Ausrichtung per Histogramm-Schärfe um den Tempelmittelpunkt; Höhen- und Farbkarte aus 4 Mio. Oberflächenpunkten",
+      "stud_pitch_in_scan_cells": 13.2,
+      "brick_height_in_scan_units": 0.0325
+    },
+    "reconstruction_versions": {
+      "v1": {"levels": 8, "base_studs": 20, "note": "aus Scanmaßen, schwarze Treppen, überholt"},
+      "v2_to_v4": {
+        "levels": 7,
+        "white_corner_quadrant_studs_per_level": [6, 5, 4, 3, 2, 0, 0],
+        "level_5_white": "2x2",
+        "stair_arms": {"width_studs": 4, "reach_studs_per_level": [9, 8, 7, 6, 5, 4, 3], "color": "grau (48,50,48), mit Tageslicht heller gerendert"},
+        "temple": {
+          "courses": 4,
+          "course_1": "graue 4x4-Lage",
+          "course_2": "vier weiße 1x1-Eckpfeiler, innen hohl",
+          "course_3": "graue 4x4-Lage (Sturz)",
+          "course_4": "graues 2x2",
+          "pillar_yaw_deg": {"front": 14, "left": -12, "right": 16, "back": -9}
+        },
+        "white_block_yaw_deg": {
+          "description": "Aus dem Scan gemessene leichte Drehung der oberen weißen Eckblöcke; jeder Block dreht sich als Ganzes",
+          "level_3": {"x-z-": 2, "x+z-": 2, "x-z+": -2, "x+z+": -2},
+          "level_4": {"x-z-": 5, "x+z-": 2, "x-z+": -3.5, "x+z+": -3},
+          "level_5": {"x-z-": 7, "x+z-": 7, "x-z+": -2, "x+z+": 0}
+        },
+        "brick_counts": {"white": {"2x4": 32, "2x2": 20, "1x1": 12, "other_1x2_1x4": 8}, "grey": {"2x4": 70, "2x2": 9, "1x1": 0}}
+      }
+    },
+    "decisions_by_user_feedback": [
+      "Treppen und weiße Ecken nach Foto: alle Stufen eine Noppe breit, Ebene 5 als 2x2",
+      "Obere weiße Steine leicht gedreht",
+      "Vier 1x1-Pfeiler im Tempel leicht gedreht"
+    ],
+    "assumptions": [
+      "Stufenzahl 7 nach Foto und Nutzerangabe; der Scan deutet eher 8 Stufen mit 20x20 Noppen an (Boden-Ebenen vermutlich mit dem Tisch verschmolzen)",
+      "Drehwinkel der Pfeiler nach Augenmaß aus dem Nahfoto geschätzt, Drehrichtung unsicher",
+      "Drehwinkel der oberen weißen Blöcke aus dem gestauchten Scan, ca. 20 % Unsicherheit",
+      "Innere, verdeckte Steinverteilung geschätzt"
+    ],
+    "known_deviations": [
+      "Einzelne 1x2- und 1x4-Steine, weil ungerade Eckflächen sonst viele 1x1 erfordern",
+      "Treppenarme in Ebene 6 und 7 im Foto nicht ganz symmetrisch, im Modell symmetrisch",
+      "Bodenfläche des Scans nicht übernommen"
+    ]
+  }
+}

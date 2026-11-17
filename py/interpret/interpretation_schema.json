@@ -1,0 +1,487 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "lrec-model-interpretation/1.1",
+  "type": "object",
+  "required": [
+    "schema",
+    "model_id",
+    "interpreter",
+    "object",
+    "structure",
+    "capture",
+    "evidence",
+    "hypotheses",
+    "questions_for_owner"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "lrec-model-interpretation/1.1"
+    },
+    "model_id": {
+      "type": "string",
+      "description": "copy from the facts file"
+    },
+    "interpreter": {
+      "type": "object",
+      "required": [
+        "name",
+        "model_id_self_reported",
+        "context"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "model_id_self_reported": {
+          "type": "string",
+          "description": "your model identifier as known to you, or 'unknown'"
+        },
+        "context": {
+          "type": "string",
+          "description": "e.g. 'fresh session, no prior knowledge'"
+        }
+      }
+    },
+    "object": {
+      "type": "object",
+      "required": [
+        "short_description",
+        "category",
+        "construction_technique",
+        "estimated_real_size",
+        "up_axis"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "short_description": {
+          "type": "string",
+          "maxLength": 400
+        },
+        "category": {
+          "enum": [
+            "building_or_monument",
+            "figurine_or_character",
+            "artefact_or_tool",
+            "vehicle_or_machine",
+            "plant_or_animal",
+            "landscape_or_terrain",
+            "furniture_or_interior",
+            "abstract_or_geometric",
+            "scene_or_assembly",
+            "unknown"
+          ]
+        },
+        "construction_technique": {
+          "enum": [
+            "brick_built_toy",
+            "carved_or_cut",
+            "cast_or_moulded",
+            "assembled_from_parts",
+            "digital_only",
+            "unknown"
+          ]
+        },
+        "construction_material": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "estimated_real_size": {
+          "type": "object",
+          "required": [
+            "value",
+            "unit",
+            "confidence"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "value": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "unit": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "basis": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "up_axis": {
+          "type": "object",
+          "required": [
+            "axis",
+            "sign",
+            "confidence"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "axis": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "sign": {
+              "enum": [
+                "+",
+                "-"
+              ]
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        }
+      }
+    },
+    "structure": {
+      "type": "object",
+      "required": [
+        "overall_shape",
+        "levels",
+        "symmetry",
+        "components",
+        "repeated_elements"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "overall_shape": {
+          "type": "string"
+        },
+        "levels": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "number of stacked levels/steps if clearly visible"
+        },
+        "symmetry": {
+          "type": "object",
+          "required": [
+            "mirror_axes",
+            "rotational_fold"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "mirror_axes": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "a",
+                  "b",
+                  "up"
+                ]
+              }
+            },
+            "rotational_fold": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          }
+        },
+        "components": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "description"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^P[0-9]+$"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "count": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "repeated_elements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "what"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "what": {
+                "type": "string"
+              },
+              "pitch_relative_to_largest_extent": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "count": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "capture": {
+      "type": "object",
+      "required": [
+        "likely_origin",
+        "defects",
+        "floor_or_background_included"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "likely_origin": {
+          "enum": [
+            "photogrammetry",
+            "laser_scan",
+            "cad_or_procedural",
+            "manual_modelling",
+            "unknown"
+          ]
+        },
+        "defects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "floor_or_background_included": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "statement",
+          "source",
+          "strength"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^E[0-9]+$"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "source": {
+            "enum": [
+              "views",
+              "facts",
+              "photo",
+              "owner_note",
+              "other"
+            ]
+          },
+          "strength": {
+            "enum": [
+              "strong",
+              "moderate",
+              "weak"
+            ]
+          }
+        }
+      }
+    },
+    "hypotheses": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "confidence",
+          "supports",
+          "weakens",
+          "alternative_to",
+          "specializes",
+          "candidate",
+          "strongest_counterargument"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^H[0-9]+$"
+          },
+          "label": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "calibration: 0.1 = unlikely but possible, 0.3 = plausible, 0.5 = about as likely as not, 0.7 = likely, 0.9 = nearly certain"
+          },
+          "supports": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^E[0-9]+$"
+            }
+          },
+          "weakens": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^E[0-9]+$"
+            }
+          },
+          "alternative_to": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^H[0-9]+$"
+            }
+          },
+          "specializes": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^H[0-9]+$"
+          },
+          "candidate": {
+            "type": "object",
+            "required": [
+              "label",
+              "kind",
+              "wikidata_search_term"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "label": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "kind": {
+                "enum": [
+                  "type",
+                  "individual",
+                  "none"
+                ]
+              },
+              "wikidata_search_term": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "plain English search string, never a Q-identifier"
+              }
+            }
+          },
+          "strongest_counterargument": {
+            "type": "string",
+            "description": "one sentence: the best argument against this hypothesis"
+          },
+          "about": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^P[0-9]+$",
+            "description": "component id this hypothesis is about (e.g. the figure), or null for the whole object"
+          },
+          "feature_checks": {
+            "type": "array",
+            "description": "candidate features expected vs. observed",
+            "items": {
+              "type": "object",
+              "required": [
+                "feature",
+                "observed",
+                "evidence"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "feature": {
+                  "type": "string"
+                },
+                "observed": {
+                  "enum": [
+                    "yes",
+                    "partly",
+                    "no",
+                    "unknown"
+                  ]
+                },
+                "evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^E[0-9]+$"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "questions_for_owner": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

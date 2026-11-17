@@ -1,0 +1,221 @@
+{
+  "document": "Changes from the SfM original measurement to the reconstruction",
+  "date": "2026-11-12",
+  "language": "en",
+  "common": {
+    "source_type": "KIRI Engine scan (structure from motion), textured triangle mesh",
+    "reconstruction_type": "procedurally generated model from idealised LEGO bricks, not a smoothed scan mesh",
+    "tools": [
+      "Python",
+      "numpy",
+      "scipy",
+      "trimesh",
+      "Pillow",
+      "Three.js (preview renders only)"
+    ],
+    "brick_model": {
+      "scale_to_real": "2/3 (scene scale)",
+      "stud_pitch_real_mm": 8.0,
+      "brick_height_real_mm": 9.6,
+      "stud_diameter_real_mm": 4.8,
+      "stud_height_real_mm": 1.7,
+      "gap_mm": 0.05,
+      "chamfer_mm": 0.14,
+      "brick_types": [
+        "2x4",
+        "2x2",
+        "1x1"
+      ],
+      "material": "PBR, roughness 0.3, non-metallic"
+    },
+    "output_formats": [
+      "GLB (glTF 2.0)",
+      "OBJ/MTL"
+    ],
+    "texture": "no scan texture carried over; colours as material colours; for the figure additionally painted textures for head and torso"
+  },
+  "model_1": {
+    "name": "White stepped pyramid with 1x1 column and minifigure",
+    "original": {
+      "problems": [
+        "Flat ground surface and base of the scan untidy",
+        "Edges and studs very noisy",
+        "Figure on top deformed and stretched (about 38 scan units high in the scan)"
+      ]
+    },
+    "intermediate_cleanup": {
+      "description": "First round: scan only cleaned, not reconstructed",
+      "steps": [
+        "Alignment (levelling)",
+        "Base cut off",
+        "Height values limited (clamp)",
+        "Taubin smoothing",
+        "Holes closed (capping)",
+        "Texture post-processed"
+      ],
+      "user_feedback": "too heavily smoothed; wish: reconstruct from real bricks"
+    },
+    "reconstruction": {
+      "structure": {
+        "levels_studs_w_x_l": [
+          "14x18",
+          "12x16",
+          "10x14",
+          "8x12",
+          "6x10",
+          "4x8",
+          "2x6",
+          "2x4",
+          "2x2"
+        ],
+        "column": "5 bricks 1x1 stacked, position approx. (-P/2, -P/2) in stud units",
+        "color": "white (237,237,233)"
+      },
+      "method": "Each level is divided into 2x2 blocks and tiled with 2x4 and 2x2 bricks by random domino tiling (best of 400 attempts, maximum number of 2x4); studs only where the next level does not rest on top",
+      "stud_visibility": "Studs of covered cells are omitted",
+      "figure": {
+        "source": "11 photos of the real figure",
+        "approach": "modelled completely anew, dimensions of the original minifigure 1:1 and scaled by 2/3",
+        "parts": [
+          "blue legs",
+          "brown shoes with soles",
+          "torso with chain-mail print, scarf, brooch, belt, tunic",
+          "head with eyes, brows, moustache, mouth",
+          "silver helmet (brim, bead, dome, spike)",
+          "chain-mail cheek guards",
+          "arms with sleeves and C-shaped hands",
+          "pleated cloak with collar"
+        ],
+        "textures": [
+          "head (painted)",
+          "upper body (painted)"
+        ]
+      }
+    },
+    "assumptions": [
+      "Only 2x4, 2x2 and 1x1 bricks in white, as stated by the user",
+      "Hidden brick distribution is random and not read from the scan"
+    ],
+    "known_deviations": [
+      "Colours of cloak, hands and sleeves look slightly paler than in the photos",
+      "Chain mail as a honeycomb pattern instead of individual rings",
+      "Cheek guards rather flat",
+      "Sleeves simple tubes"
+    ]
+  },
+  "model_2": {
+    "name": "Stepped pyramid with grey stair arms and temple",
+    "original": {
+      "file": "3DModel.obj with 3DModel.jpg (4096x4096), approx. 69,600 vertices, 53,500 triangles",
+      "problems": [
+        "Pyramid rotated by approx. 16° relative to the ground surface",
+        "Wavy ground surface, ground rises towards the pyramid",
+        "Scan compressed along one axis (approx. factor 0.72)",
+        "Stair side partly disintegrated in the scan",
+        "Texture almost grey, colours weak"
+      ]
+    },
+    "measurement": {
+      "yaw_deg": 16.25,
+      "method": "Alignment by histogram sharpness around the temple centre; height and colour map from 4 million surface points",
+      "stud_pitch_in_scan_cells": 13.2,
+      "brick_height_in_scan_units": 0.0325
+    },
+    "reconstruction_versions": {
+      "v1": {
+        "levels": 8,
+        "base_studs": 20,
+        "note": "from scan dimensions, black stairs, superseded"
+      },
+      "v2_to_v4": {
+        "levels": 7,
+        "white_corner_quadrant_studs_per_level": [
+          6,
+          5,
+          4,
+          3,
+          2,
+          0,
+          0
+        ],
+        "level_5_white": "2x2",
+        "stair_arms": {
+          "width_studs": 4,
+          "reach_studs_per_level": [
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3
+          ],
+          "color": "grey (48,50,48), rendered lighter in daylight"
+        },
+        "temple": {
+          "courses": 4,
+          "course_1": "grey 4x4 course",
+          "course_2": "four white 1x1 corner pillars, hollow inside",
+          "course_3": "grey 4x4 course (lintel)",
+          "course_4": "grey 2x2",
+          "pillar_yaw_deg": {
+            "front": 14,
+            "left": -12,
+            "right": 16,
+            "back": -9
+          }
+        },
+        "white_block_yaw_deg": {
+          "description": "Slight rotation of the upper white corner blocks measured from the scan; each block rotates as a whole",
+          "level_3": {
+            "x-z-": 2,
+            "x+z-": 2,
+            "x-z+": -2,
+            "x+z+": -2
+          },
+          "level_4": {
+            "x-z-": 5,
+            "x+z-": 2,
+            "x-z+": -3.5,
+            "x+z+": -3
+          },
+          "level_5": {
+            "x-z-": 7,
+            "x+z-": 7,
+            "x-z+": -2,
+            "x+z+": 0
+          }
+        },
+        "brick_counts": {
+          "white": {
+            "2x4": 32,
+            "2x2": 20,
+            "1x1": 12,
+            "other_1x2_1x4": 8
+          },
+          "grey": {
+            "2x4": 70,
+            "2x2": 9,
+            "1x1": 0
+          }
+        }
+      }
+    },
+    "decisions_by_user_feedback": [
+      "Stairs and white corners according to the photo: all steps one stud wide, level 5 as 2x2",
+      "Upper white bricks slightly rotated",
+      "Four 1x1 pillars in the temple slightly rotated"
+    ],
+    "assumptions": [
+      "Seven levels according to the photo and the user's statement; the scan suggests rather 8 levels with 20x20 studs (lowest levels presumably merged with the table)",
+      "Rotation angles of the pillars estimated by eye from the close-up photo, rotation direction uncertain",
+      "Rotation angles of the upper white blocks from the compressed scan, approx. 20 % uncertainty",
+      "Inner, hidden brick distribution estimated"
+    ],
+    "known_deviations": [
+      "A few 1x2 and 1x4 bricks, because odd-sized corner areas would otherwise require many 1x1 bricks",
+      "Stair arms at levels 6 and 7 not quite symmetrical in the photo, symmetrical in the model",
+      "Ground surface of the scan not carried over"
+    ]
+  }
+}

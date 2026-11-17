@@ -1,0 +1,33 @@
+{
+ "p1_reconstruction.glb": {
+  "bounds": [
+   -0.03728,
+   2e-05,
+   -0.04795,
+   0.03728,
+   0.12307,
+   0.04795
+  ],
+  "faces": 49964,
+  "output": "out4/lego.glb",
+  "script": "build_lego3.py",
+  "sha256": "cf51067881aef419856a403725c1352c7c7d14715f286018066991afbc1e9569",
+  "sha256_alt": {
+   "8762d79b2851684d3f57b599139f05c59008e25842aba6f23ff5306c54ebc952": "Python 3.10/3.11 pins (numpy 2.2.6, scipy 1.15.3), checked 2026-11-17"
+  }
+ },
+ "p2_reconstruction.glb": {
+  "bounds": [
+   -0.04795,
+   2e-05,
+   -0.04795,
+   0.04795,
+   0.07153,
+   0.04795
+  ],
+  "faces": 42996,
+  "output": "out6/lego3.glb",
+  "script": "build_m3.py",
+  "sha256": "543a744f2ec29f9b65c12008cd01b3b2fe829ccf1eeef1bc74b40a27943eac8b"
+ }
+}

@@ -1,0 +1,27 @@
+# --- Python ---
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Scratch directories the pipeline removes itself ---
+dist/figures_work/
+dist/reconstruction_work/
+
+# --- Large raw inputs stay on your machine (see data/raw/README.md) ---
+data/raw/*
+!data/raw/README.md
+!data/raw/CHECKSUMS.json
+data/raw/**/*.zip
+
+# --- Note ---
+# dist/ and docs/ hold the versioned, citable products and are NOT ignored.
