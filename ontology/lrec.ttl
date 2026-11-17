@@ -19,6 +19,8 @@
 @prefix time:   <http://www.w3.org/2006/time#> .
 @prefix geo:    <http://www.opengis.net/ont/geosparql#> .
 @prefix wd:     <http://www.wikidata.org/entity/> .
+@prefix mbo:    <https://w3id.org/mbo/ontology#> .   # Minimal Brick Ontology (w3id registration pending)
+@prefix mbot:   <https://w3id.org/mbo/thesaurus/> .
 @prefix lrec:   <https://example.org/lego-reconstruction#> .
 @prefix ex:     <https://example.org/lego-reconstruction/id/> .
 
@@ -61,7 +63,7 @@ lrec:LegoModelTwin a owl:Class ;
     rdfs:subClassOf hdt:HC_Heritage_Digital_Twin , crmdig:D1_Digital_Object ;
     rdfs:label "Digitaler Zwilling eines LEGO-Modells"@de .
 lrec:LegoModel a owl:Class ;
-    rdfs:subClassOf hdt:HC_Tangible_Asset , crm:E22_Human-Made_Object ;
+    rdfs:subClassOf hdt:HC_Tangible_Asset , crm:E22_Human-Made_Object , mbo:Build ;
     rdfs:label "LEGO-Modell (physisch)"@de .
 
 # ---- v0.2: neue Klassen ----
@@ -174,6 +176,10 @@ ex:brick_scheme a skos:ConceptScheme ; skos:prefLabel "LEGO-Steintypen"@de .
 ex:brick_2x4 a lrec:BrickType ; skos:prefLabel "2x4"@de ; skos:inScheme ex:brick_scheme .
 ex:brick_2x2 a lrec:BrickType ; skos:prefLabel "2x2"@de ; skos:inScheme ex:brick_scheme .
 ex:brick_1x1 a lrec:BrickType ; skos:prefLabel "1x1"@de ; skos:inScheme ex:brick_scheme .
+# Steintypen im Minimal Brick Ontology (data/mbo_bricks.csv): Part 3001 = Brick 2 x 4, 3003 = Brick 2 x 2, 3005 = Brick 1 x 1
+ex:brick_2x4 skos:exactMatch <https://w3id.org/mbo/thesaurus/part/3001> .
+ex:brick_2x2 skos:exactMatch <https://w3id.org/mbo/thesaurus/part/3003> .
+ex:brick_1x1 skos:exactMatch <https://w3id.org/mbo/thesaurus/part/3005> .
 # Wikidata-Verknüpfungen (skos:exactMatch / owl:sameAs): siehe wikidata_mapping.ttl, erzeugt von wikidata_match.py
 
 # ---- v0.2 Abgleich mit der Gesamtzeichnung: Fotos, Geraet, KIRI, Einheit, Typ ----

@@ -599,6 +599,7 @@
 <https://example.org/lego-reconstruction#LegoModel> <http://www.w3.org/2000/01/rdf-schema#label> "LEGO-Modell (physisch)"@de .
 <https://example.org/lego-reconstruction#LegoModel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.cidoc-crm.org/cidoc-crm/E22_Human-Made_Object> .
 <https://example.org/lego-reconstruction#LegoModel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://example.org/placeholder/hdt#HC_Tangible_Asset> .
+<https://example.org/lego-reconstruction#LegoModel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/mbo/ontology#Build> .
 <https://example.org/lego-reconstruction#LegoModelTwin> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://example.org/lego-reconstruction#LegoModelTwin> <http://www.w3.org/2000/01/rdf-schema#label> "Digital twin of a LEGO model"@en .
 <https://example.org/lego-reconstruction#LegoModelTwin> <http://www.w3.org/2000/01/rdf-schema#label> "Digitaler Zwilling eines LEGO-Modells"@de .
@@ -741,14 +742,17 @@
 <https://example.org/lego-reconstruction/id/assume_7_levels> <http://www.w3.org/2000/01/rdf-schema#label> "7 levels according to the photo; the scan suggests 8"@en .
 <https://example.org/lego-reconstruction/id/assume_7_levels> <https://example.org/lego-reconstruction#confidence> "0.7"^^<http://www.w3.org/2001/XMLSchema#decimal> .
 <https://example.org/lego-reconstruction/id/brick_1x1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://example.org/lego-reconstruction#BrickType> .
+<https://example.org/lego-reconstruction/id/brick_1x1> <http://www.w3.org/2004/02/skos/core#exactMatch> <https://w3id.org/mbo/thesaurus/part/3005> .
 <https://example.org/lego-reconstruction/id/brick_1x1> <http://www.w3.org/2004/02/skos/core#inScheme> <https://example.org/lego-reconstruction/id/brick_scheme> .
 <https://example.org/lego-reconstruction/id/brick_1x1> <http://www.w3.org/2004/02/skos/core#prefLabel> "1x1"@de .
 <https://example.org/lego-reconstruction/id/brick_1x1> <http://www.w3.org/2004/02/skos/core#prefLabel> "1x1"@en .
 <https://example.org/lego-reconstruction/id/brick_2x2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://example.org/lego-reconstruction#BrickType> .
+<https://example.org/lego-reconstruction/id/brick_2x2> <http://www.w3.org/2004/02/skos/core#exactMatch> <https://w3id.org/mbo/thesaurus/part/3003> .
 <https://example.org/lego-reconstruction/id/brick_2x2> <http://www.w3.org/2004/02/skos/core#inScheme> <https://example.org/lego-reconstruction/id/brick_scheme> .
 <https://example.org/lego-reconstruction/id/brick_2x2> <http://www.w3.org/2004/02/skos/core#prefLabel> "2x2"@de .
 <https://example.org/lego-reconstruction/id/brick_2x2> <http://www.w3.org/2004/02/skos/core#prefLabel> "2x2"@en .
 <https://example.org/lego-reconstruction/id/brick_2x4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://example.org/lego-reconstruction#BrickType> .
+<https://example.org/lego-reconstruction/id/brick_2x4> <http://www.w3.org/2004/02/skos/core#exactMatch> <https://w3id.org/mbo/thesaurus/part/3001> .
 <https://example.org/lego-reconstruction/id/brick_2x4> <http://www.w3.org/2004/02/skos/core#inScheme> <https://example.org/lego-reconstruction/id/brick_scheme> .
 <https://example.org/lego-reconstruction/id/brick_2x4> <http://www.w3.org/2004/02/skos/core#prefLabel> "2x4"@de .
 <https://example.org/lego-reconstruction/id/brick_2x4> <http://www.w3.org/2004/02/skos/core#prefLabel> "2x4"@en .

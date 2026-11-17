@@ -1,6 +1,6 @@
 """pages: build the documentation site under docs/ from the ontology and the figures (static HTML, house style).
 
-Pages: index, data model (modules, classes, properties), CRM coverage, crosswalk, instance models, figures, fdox (the four FDOx, relations),
+Pages: index, data model (modules, classes, properties), CRM coverage, crosswalk, bricks (MBO), instance models, fdox, sparql, viewer, figures (overview and four categories).
 Everything is generated; docs/ is committed.
 """
 from __future__ import annotations
@@ -16,7 +16,6 @@ from rdflib import RDF, RDFS, OWL, Namespace
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
 import pages_more  # noqa: E402
 import pages_web  # noqa: E402
-from pages_more import FIG_NAV  # noqa: E402
 from lrec_utils import DOCS, IMG, ONTOLOGY, PY, RELEASE, ROOT, Report, ensure_dirs, load_graph, write_text  # noqa: E402
 
 LREC = Namespace("https://example.org/lego-reconstruction#")
@@ -46,11 +45,15 @@ table{border-collapse:collapse;width:100%;font-size:15px}th,td{text-align:left;p
 code{font-size:14px;background:#f1efe8;padding:1px 4px;border-radius:4px}.muted{color:var(--muted);font-size:14px}
 img{max-width:100%;height:auto}.n{color:var(--accent);font-weight:500;margin-right:8px}.cap{font-size:20px;font-weight:500}
 blockquote{background:#fff7e0;border-left:4px solid #fbbf24;margin:12px 0;padding:8px 12px}
-textarea.sparql{display:block;width:100%;min-width:100%;box-sizing:border-box;resize:vertical;font:13px/1.4 ui-monospace,Consolas,monospace;border:1px solid var(--rim);border-radius:6px;padding:8px;background:#fbfbf9}\n.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:#bbb}.dot.ok{background:#166534}.dot.busy{background:#fbbf24}.dot.err{background:#9a3412}\n.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:700px){.grid{grid-template-columns:1fr}}
+textarea.sparql{display:block;width:100%;min-width:100%;box-sizing:border-box;resize:vertical;font:13px/1.4 ui-monospace,Consolas,monospace;border:1px solid var(--rim);border-radius:6px;padding:8px;background:#fbfbf9}\nsection.q .CodeMirror{height:auto;border:1px solid var(--rim);border-radius:6px;font:13px/1.45 ui-monospace,Consolas,monospace;background:#fbfbf9}.CodeMirror-gutters{background:#f1efe8;border-right:1px solid var(--rim)}
+.cm-s-default .cm-keyword{color:#9a3412;font-weight:500}.cm-s-default .cm-variable-2{color:#166534}.cm-s-default .cm-atom{color:#4c1d95}.cm-s-default .cm-string{color:#92400e}
+.cm-s-default .cm-comment{color:#6b7280;font-style:italic}.cm-s-default .cm-number{color:#1d4ed8}.cm-s-default .cm-def{color:#4c1d95}.cm-s-default .cm-builtin{color:#9a3412}
+.cm-lint-err{background:#fde8e1;border-bottom:2px solid #9a3412}.lint{font-size:13px;min-height:1.4em;margin-top:4px;color:var(--muted)}.lint.good{color:#166534}.lint.bad{color:#9a3412}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:#bbb}.dot.ok{background:#166534}.dot.busy{background:#fbbf24}.dot.err{background:#9a3412}\n.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}.grid .card{margin-bottom:0}@media(max-width:700px){.grid{grid-template-columns:1fr}}
 """
-PAGES = [("index.html", "Overview"), ("ontology.html", "Data model"), ("coverage.html", "CRM coverage"), ("crosswalk.html", "Crosswalk"), ("instances.html", "Instance models"),
-         ("sparql.html", "SPARQL"), ("viewer.html", "3D viewer"), ("visuals.html", "Figures"), ("fdox.html", "FDOx")]
-FIGPAGES = FIG_NAV
+PAGES = [("index.html", "Overview"), ("ontology.html", "Data model"), ("coverage.html", "CRM coverage"), ("crosswalk.html", "Crosswalk"), ("bricks.html", "Bricks (MBO)")]
+EXPLORE = [("instances.html", "Instance models"), ("fdox.html", "FDOx"), ("sparql.html", "SPARQL"), ("viewer.html", "3D viewer")]
+FIGPAGES = pages_more.FIGPAGES
 JS_COPY = """<script>document.querySelectorAll("button[data-c]").forEach(function(b){b.addEventListener("click",function(){var ok=function(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy"},1200)};if(navigator.clipboard){navigator.clipboard.writeText(b.dataset.c).then(ok).catch(function(){})}})});</script>"""
 
 
@@ -64,7 +67,7 @@ CSSV = __import__("hashlib").sha256(CSS.encode("utf-8")).hexdigest()[:8]   # cac
 def page(name: str, title: str, body: str, head: str = "") -> None:
     def row(lab, items):
         return f'<div class=grp><span class=lab>{lab}</span><span class=lnk>' + "".join(f'<a href="{f}"{" class=on" if f == name else ""}>{t}</a>' for f, t in items) + "</span></div>"
-    nav = row("Documentation", PAGES) + row("Figures", FIGPAGES)
+    nav = row("Documentation", PAGES) + row("Data and tools", EXPLORE) + row("Figures", FIGPAGES)
     write_text(DOCS / name, f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
                f'<title>{esc(title)} | LREC</title><link rel="stylesheet" href="assets/site.css?v={CSSV}">{head}</head><body><nav>{nav}</nav><main>{body}</main>{JS_COPY}</body></html>')
 
@@ -116,9 +119,12 @@ def main(strict: bool) -> int:
     page("coverage.html", "CRM coverage", pages_more.coverage_body(g, missing))
     page("crosswalk.html", "Crosswalk", pages_more.crosswalk_body(g, gm, missing))
     page("instances.html", "Instance models", pages_more.instances_body(gm, missing))
-    page("visuals.html", "Figures", pages_more.figures_body(missing))
+    page("visuals.html", "Figures", pages_more.figures_overview_body(missing))
+    for slug, title, _, _ in pages_more.FIGCATS:
+        page(f"visuals-{slug}.html", "Figures: " + title, pages_more.figures_cat_body(slug, missing))
+    page("bricks.html", "Bricks (MBO)", pages_more.bricks_body(g, missing))
     pages_web.write_graph(gm)
-    page("sparql.html", "SPARQL", pages_web.sparql_page(gm, r), f'<script src="https://cdn.jsdelivr.net/pyodide/v{pages_web.PYODIDE}/full/pyodide.js"></script>')
+    page("sparql.html", "SPARQL", pages_web.sparql_page(gm, r), pages_web.sparql_head())
     page("viewer.html", "3D viewer", pages_web.viewer_page(r))
     for m in sorted(set(missing)):
         r.warn(f"{m} missing; run the figures step first")
@@ -148,7 +154,7 @@ def main(strict: bool) -> int:
          "the version DOI is the registry pin (<code>data/fdox/registry_pins.csv</code>). Check both against the Zenodo page before entering them.</blockquote></section>"
          f"<section><h2>Relations between the FDOx</h2><table><tr><th>From (concept DOI suffix)</th><th>Role</th><th>To</th><th>Note</th></tr>{rel}</table></section>")
 
-    r.ok(f"{len(PAGES)} pages, {len(classes)} classes, {len(props)} properties, {len(fdox)} FDOx, docs/lrec.ttl")
+    r.ok(f"{len(PAGES) + len(EXPLORE) + len(FIGPAGES)} pages, {len(classes)} classes, {len(props)} properties, {len(fdox)} FDOx, docs/lrec.ttl")
     return r.exit_code()
 
 

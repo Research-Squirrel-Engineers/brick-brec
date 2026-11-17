@@ -63,6 +63,27 @@ def main(strict: bool) -> int:
     if unassigned(g):
         r.fail("classes not assigned to a module of the data model (py/pages_more.py, MODULES): " + ", ".join(unassigned(g)))
 
+    # 2c. brick types matched to the Minimal Brick Ontology: the part must be in data/mbo_bricks.csv (a copy of the MBO thesaurus) and its studs must agree with the label "AxB"
+    import csv
+    SKOS = rdflib.Namespace("http://www.w3.org/2004/02/skos/core#")
+    mbo_parts = {row["part_number"]: row for row in csv.DictReader((DATA / "mbo_bricks.csv").open(encoding="utf-8"))}
+    n_mbo = 0
+    for bt in sorted(g.subjects(RDF.type, LREC.BrickType), key=str):
+        ms = [o for o in g.objects(bt, SKOS.exactMatch) if str(o).startswith("https://w3id.org/mbo/thesaurus/part/")]
+        lab = next((str(x) for x in g.objects(bt, SKOS.prefLabel) if getattr(x, "language", "") == "en"), "")
+        if len(ms) != 1:
+            r.fail(f"brick type {bt.split('/')[-1]} needs exactly one MBO part (skos:exactMatch), has {len(ms)}")
+            continue
+        row = mbo_parts.get(str(ms[0]).rsplit("/", 1)[-1])
+        dims = sorted((int(x) for x in re.findall(r"\d+", lab)), reverse=True)
+        if row is None:
+            r.fail(f"{bt.split('/')[-1]}: {ms[0]} is not in data/mbo_bricks.csv")
+        elif dims != sorted([int(row["studs_length"]), int(row["studs_width"])], reverse=True):
+            r.fail(f"{bt.split('/')[-1]}: label {lab} disagrees with MBO part {row['part_number']} ({row['studs_length']} x {row['studs_width']} studs)")
+        else:
+            n_mbo += 1
+    r.ok(f"{n_mbo} brick types matched to MBO parts, label and studs agree")
+
     # 2b. curated Wikidata mappings: only for nodes of the ontology, only wd:Q ids, one per node, each with a label
     from lrec_utils import WIKIDATA_MAP
     cands = {str(s_) for s_ in g.subjects(LREC.wikidataSearchTerm, None)}

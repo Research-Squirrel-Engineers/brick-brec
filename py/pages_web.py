@@ -19,6 +19,7 @@ from lrec_utils import DATA, DOCS, ROOT
 PYODIDE = "0.26.4"
 RDFLIB = "7.1.1"      # pure-Python wheel that micropip installs; the build runs the queries with the pinned rdflib of requirements.txt
 THREE = "0.160.0"
+CODEMIRROR = "5.65.16"   # editor with the SPARQL mode; the page still works as a plain text area when the CDN is unreachable
 MAX_ROWS = 500
 MODELS = [("p1", "Pyramid 1", "p1_reconstruction.glb", "Reconstruction model 1 (white stepped pyramid with column and figure)"),
           ("p2", "Pyramid 2", "p2_reconstruction.glb", "Reconstruction model 2 (stepped Maya pyramid with temple, version 4)")]
@@ -26,6 +27,12 @@ MODELS = [("p1", "Pyramid 1", "p1_reconstruction.glb", "Reconstruction model 1 (
 
 def esc(x) -> str:
     return html.escape(str(x))
+
+
+def sparql_head() -> str:
+    cm = f"https://cdnjs.cloudflare.com/ajax/libs/codemirror/{CODEMIRROR}"
+    return (f'<link rel="stylesheet" href="{cm}/codemirror.min.css"><script src="{cm}/codemirror.min.js"></script><script src="{cm}/mode/sparql/sparql.min.js"></script>'
+            f'<script src="https://cdn.jsdelivr.net/pyodide/v{PYODIDE}/full/pyodide.js"></script>')
 
 
 def write_graph(gm) -> int:
@@ -50,13 +57,14 @@ def sparql_page(gm, report) -> str:
         rows = max(5, q["sparql"].count("\n") + 2)
         blocks.append(f'<section class=q id="q-{q["id"]}"><h2>{i}. {esc(q["title"])}</h2><p>{esc(q["intro"])}</p>'
                       f'<textarea class=sparql id="src-{q["id"]}" spellcheck=false rows={rows}>{esc(q["sparql"])}</textarea>'
+                      f'<div class=lint id="lint-{q["id"]}" aria-live=polite></div>'
                       f'<div style="overflow:hidden;margin-top:6px"><button type=button class=run data-q="{q["id"]}" disabled>Run</button> <button type=button class=reset data-q="{q["id"]}">Reset</button> '
                       f'<a class=muted href="downloads/queries/{q["id"]}.rq">.rq file</a> <span class=muted id="time-{q["id"]}"></span></div><div id="out-{q["id"]}"></div></section>')
     report.ok("SPARQL queries (rows): " + ", ".join(counts))
     js = (JS.replace("__PREFIXES__", json.dumps(pre)).replace("__QUERIES__", json.dumps(qjs)).replace("__MAX__", str(MAX_ROWS))
           .replace("__RDFLIB__", RDFLIB))
     body = ("<h1>Query the graph</h1><section><p>There is no SPARQL endpoint and no server. The graph is fetched as a static file (<a href=\"graph.nt\"><code>graph.nt</code></a>: ontology, "
-            "Wikidata mapping, the four FDOx bundles and the registry pins) and parsed in your browser by <code>rdflib</code> under Pyodide. Edit a query and press Run; nothing you type leaves your machine. "
+            "Wikidata mapping, the four FDOx bundles and the registry pins) and parsed in your browser by <code>rdflib</code> under Pyodide. Edit a query and press Run (or Ctrl+Enter); the editor colours the syntax and checks it with the SPARQL parser of <code>rdflib</code> while you type. Nothing you type leaves your machine. "
             "The page needs to be served over HTTP (GitHub Pages does this); opened from a local file the browser blocks the fetch.</p></section>"
             '<div class=card id=status><span id=dot class=dot></span> <span id=status-text>Loading the Python runtime (about 10 MB on first visit)&hellip;</span></div>'
             + "".join(blocks) + f"<script>{js}</script>")
@@ -66,7 +74,9 @@ def sparql_page(gm, report) -> str:
 JS = r"""
 const PREFIXES = __PREFIXES__, QUERIES = __QUERIES__, MAX_ROWS = __MAX__;
 const st = document.getElementById('status-text'), dot = document.getElementById('dot');
-let pyodide = null;
+let pyodide = null, parserReady = false;
+const ed = {}, OFFSET = PREFIXES.split('\n').length;
+const get = id => ed[id] ? ed[id].getValue() : document.getElementById('src-' + id).value;
 function setStatus(t, s) { st.textContent = t; dot.className = 'dot ' + (s || ''); }
 function esc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 const NS = [];
@@ -99,7 +109,18 @@ base.parse(data=await resp.string(), format="nt")
 n_base = len(base)
 `);
     setStatus('Ready — ' + pyodide.globals.get('n_base') + ' triples loaded. Edit a query and press Run.', 'ok');
+    await pyodide.runPythonAsync(`
+from rdflib.plugins.sparql import prepareQuery
+def _lint(q):
+    try:
+        prepareQuery(q)
+        return ""
+    except Exception as e:
+        return str(e)
+`);
+    parserReady = true;
     document.querySelectorAll('button.run').forEach(b => b.disabled = false);
+    Object.keys(QUERIES).forEach(lint);
   } catch (e) { setStatus('Could not start: ' + e.message, 'err'); console.error(e); }
 }
 async function run(id) {
@@ -107,7 +128,7 @@ async function run(id) {
   btn.disabled = true; tm.textContent = 'running…'; out.innerHTML = '';
   const t0 = performance.now();
   try {
-    pyodide.globals.set('_q', PREFIXES + '\n' + document.getElementById('src-' + id).value);
+    pyodide.globals.set('_q', PREFIXES + '\n' + get(id));
     const json = await pyodide.runPythonAsync(`
 import json
 res = base.query(_q)
@@ -124,7 +145,43 @@ json.dumps({"cols": cols, "rows": rows, "total": len(_all)})
 }
 document.querySelectorAll('button.run').forEach(b => b.addEventListener('click', () => run(b.dataset.q)));
 document.querySelectorAll('button.reset').forEach(b => b.addEventListener('click', () => { const id = b.dataset.q;
-  document.getElementById('src-' + id).value = QUERIES[id]; document.getElementById('out-' + id).innerHTML = ''; document.getElementById('time-' + id).textContent = ''; }));
+  setText(id, QUERIES[id]); document.getElementById('out-' + id).innerHTML = ''; document.getElementById('time-' + id).textContent = ''; }));
+
+function setText(id, t) { if (ed[id]) ed[id].setValue(t); else document.getElementById('src-' + id).value = t; }
+// quick check before the parser is ready: brackets must balance (strings, IRIs and comments are skipped)
+function brackets(q) {
+  const t = q.replace(/"(?:[^"\\\n]|\\.)*"|'(?:[^'\\\n]|\\.)*'/g, '""').replace(/<[^<>\s"{}|^`\\]*>/g, '<>').replace(/#[^\n]*/g, '');
+  const st = [], pair = {')': '(', ']': '[', '}': '{'};
+  for (const c of t) { if ('([{'.includes(c)) st.push(c); else if (pair[c] && st.pop() !== pair[c]) return 'Unbalanced ' + c; }
+  return st.length ? 'Unclosed ' + st[st.length - 1] : '';
+}
+function lint(id) {
+  const box = document.getElementById('lint-' + id), q = get(id);
+  if (ed[id]) ed[id].getAllMarks().forEach(m => m.clear());
+  let msg = brackets(q), line = null;
+  if (!msg && parserReady) {
+    pyodide.globals.set('_lq', PREFIXES + '\n' + q);
+    msg = pyodide.runPython('_lint(_lq)');
+    const m = /line:(\d+), col:(\d+)/.exec(msg);
+    if (m) line = Math.max(1, Number(m[1]) - OFFSET);
+    msg = msg.replace(/\s+/g, ' ').trim();
+    if (msg.length > 260) msg = msg.slice(0, 260) + '…';
+  }
+  if (msg) {
+    box.className = 'lint bad'; box.textContent = (line ? 'Line ' + line + ': ' : '') + msg;
+    if (ed[id] && line && line <= ed[id].lineCount()) ed[id].markText({line: line - 1, ch: 0}, {line: line - 1, ch: ed[id].getLine(line - 1).length}, {className: 'cm-lint-err'});
+  } else { box.className = 'lint ' + (parserReady ? 'good' : ''); box.textContent = parserReady ? 'Syntax OK' : 'Syntax check starts when the runtime is ready'; }
+}
+if (window.CodeMirror) {
+  document.querySelectorAll('textarea.sparql').forEach(ta => {
+    const id = ta.id.slice(4), t = {};
+    const cm = CodeMirror.fromTextArea(ta, {mode: 'application/sparql-query', lineNumbers: true, indentUnit: 2, viewportMargin: Infinity,
+      extraKeys: {'Ctrl-Enter': () => { const b = document.querySelector('button.run[data-q="' + id + '"]'); if (!b.disabled) run(id); }}});
+    ed[id] = cm;
+    cm.on('change', () => { clearTimeout(t.h); t.h = setTimeout(() => lint(id), 350); });
+    lint(id);
+  });
+}
 boot();
 """
 
