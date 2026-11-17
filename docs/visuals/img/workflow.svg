@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1750" height="860" viewBox="0 0 1750 860" font-family="Fira Sans">
+<rect width="1750" height="860" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#111"/></marker><marker id="d" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6"><circle cx="5" cy="5" r="4" fill="#111"/></marker></defs>
+<rect x="560.0" y="90.0" width="340.0" height="108.0" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
+<text x="730.0" y="116.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#fff">python main.py --only check</text>
+<text x="730.0" y="142.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">ontology parses, drawings match it, FDOx bundle</text>
+<text x="730.0" y="162.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">TTLs match pins and ontology</text>
+<rect x="560.0" y="290.0" width="340.0" height="108.0" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
+<text x="730.0" y="316.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#fff">python main.py --only reconstruct</text>
+<text x="730.0" y="342.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">rebuild both reconstructions (GLB) and compare with</text>
+<text x="730.0" y="362.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">the recorded result</text>
+<rect x="560.0" y="490.0" width="340.0" height="108.0" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
+<text x="730.0" y="516.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#fff">python main.py --only figures</text>
+<text x="730.0" y="542.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">draw overview, class diagram and identification</text>
+<text x="730.0" y="562.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">figures (SVG)</text>
+<rect x="560.0" y="690.0" width="340.0" height="108.0" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
+<text x="730.0" y="716.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#fff">python main.py --only pages</text>
+<text x="730.0" y="742.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">build the documentation site under docs/</text>
+<path d="M730.0 198.0 L730.0 290.0" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M730.0 398.0 L730.0 490.0" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M730.0 598.0 L730.0 690.0" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="40.0" y="40.0" width="330.0" height="100.0" rx="6" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/>
+<text x="205.0" y="64.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#1f1f1d">Ontology lrec.ttl</text>
+<text x="205.0" y="85.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#1f1f1d">713 triples</text>
+<text x="205.0" y="106.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#1f1f1d">read by check, figures and pages</text>
+<rect x="40.0" y="190.0" width="330.0" height="100.0" rx="6" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/>
+<text x="205.0" y="214.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#1f1f1d">4 FDOx bundle TTLs and pins</text>
+<text x="205.0" y="235.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#1f1f1d">4 concept and version DOIs</text>
+<text x="205.0" y="256.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#1f1f1d">metadata of the Zenodo records</text>
+<rect x="40.0" y="340.0" width="330.0" height="100.0" rx="6" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/>
+<text x="205.0" y="364.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#1f1f1d">Scripts with scan measurements</text>
+<text x="205.0" y="385.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#1f1f1d">parameters read once from the</text>
+<text x="205.0" y="406.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#1f1f1d">KIRI Engine SfM scans (not in the repo)</text>
+<rect x="40.0" y="490.0" width="330.0" height="100.0" rx="6" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/>
+<text x="205.0" y="514.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#1f1f1d">Wikidata mapping</text>
+<text x="205.0" y="535.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#1f1f1d">6 curated closeMatch items</text>
+<text x="205.0" y="556.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#1f1f1d">py/wikidata/match.py, run locally</text>
+<rect x="1170.0" y="290.0" width="340.0" height="108.0" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1340.0" y="314.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#fff">GLB reconstructions</text>
+<text x="1340.0" y="335.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">2 models, SHA-256 compared</text>
+<text x="1340.0" y="356.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">with the recorded build</text>
+<rect x="1170.0" y="490.0" width="340.0" height="108.0" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1340.0" y="514.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#fff">Figures</text>
+<text x="1340.0" y="535.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">SVG and PNG, Fira Sans</text>
+<text x="1340.0" y="556.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">English, checked for overlaps</text>
+<rect x="1170.0" y="690.0" width="340.0" height="108.0" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1340.0" y="714.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#fff">Documentation site</text>
+<text x="1340.0" y="735.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">docs/, GitHub Pages</text>
+<text x="1340.0" y="756.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">pages, tables, figures</text>
+<rect x="1170.0" y="90.0" width="340.0" height="108.0" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1340.0" y="114.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#fff">Check report</text>
+<text x="1340.0" y="135.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">dist/pipeline_report.txt</text>
+<text x="1340.0" y="156.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">OK, WARN or ERROR per check</text>
+<path d="M370.0 90.0 L560.0 144.0" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="438.0" y="106.0" width="54" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="465.0" y="117.0" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#000">parses</text>
+<path d="M370.0 240.0 L560.0 144.0" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="433.0" y="181.0" width="64" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="465.0" y="192.0" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#000">matches</text>
+<path d="M370.0 390.0 L560.0 344.0" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="423.0" y="356.0" width="84" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="465.0" y="367.0" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#000">parametrise</text>
+<path d="M370.0 540.0 L560.0 544.0" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="439.5" y="531.0" width="51" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="465.0" y="542.0" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#000">labels</text>
+<path d="M900.0 144.0 L1170.0 144.0" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="1006.0" y="133.0" width="58" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1035.0" y="144.0" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#000">reports</text>
+<path d="M900.0 344.0 L1170.0 344.0" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="1009.0" y="333.0" width="52" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1035.0" y="344.0" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#000">builds</text>
+<path d="M900.0 544.0 L1170.0 544.0" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="1009.5" y="533.0" width="51" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1035.0" y="544.0" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#000">draws</text>
+<path d="M900.0 744.0 L1170.0 744.0" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="1009.5" y="733.0" width="51" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1035.0" y="744.0" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#000">writes</text>
+<rect x="40" y="830" width="26" height="16" fill="#e2e8f0" stroke="#000"/>
+<text x="74.0" y="838.5" text-anchor="start" dominant-baseline="central" font-size="13" fill="#1f1f1d">input in the repository</text>
+<rect x="233.4" y="830" width="26" height="16" fill="#9a3412" stroke="#000"/>
+<text x="267.4" y="838.5" text-anchor="start" dominant-baseline="central" font-size="13" fill="#1f1f1d">step of main.py</text>
+<rect x="384.70000000000005" y="830" width="26" height="16" fill="#4c1d95" stroke="#000"/>
+<text x="418.7" y="838.5" text-anchor="start" dominant-baseline="central" font-size="13" fill="#1f1f1d">output</text>
+</svg>

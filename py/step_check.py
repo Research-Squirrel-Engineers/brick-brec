@@ -52,6 +52,17 @@ def main(strict: bool) -> int:
             r.warn(f"class {name} is in the ontology but not in the class diagram (py/figures/draw_classes.py)")
     r.ok(f"{len(classes)} LREC classes checked for labels and for presence in the class diagram")
 
+    # 2a. every class is anchored in CIDOC CRM (crm, crmdig or crminf, directly or through another LREC class) and belongs to a module of the data model page
+    from crm_coverage import NO_ANCHOR_OK, uncovered
+    from pages_more import unassigned
+    miss = sorted(c.split("#")[-1] for c in uncovered(g))
+    if set(miss) != set(NO_ANCHOR_OK):
+        r.fail("classes without a CIDOC CRM family ancestor: " + ", ".join(sorted(set(miss) ^ set(NO_ANCHOR_OK))))
+    else:
+        r.ok(f"{len(classes) - len(miss)} of {len(classes)} classes anchored in CIDOC CRM, CRMdig or CRMinf")
+    if unassigned(g):
+        r.fail("classes not assigned to a module of the data model (py/pages_more.py, MODULES): " + ", ".join(unassigned(g)))
+
     # 2b. curated Wikidata mappings: only for nodes of the ontology, only wd:Q ids, one per node, each with a label
     from lrec_utils import WIKIDATA_MAP
     cands = {str(s_) for s_ in g.subjects(LREC.wikidataSearchTerm, None)}

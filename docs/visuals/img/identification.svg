@@ -171,7 +171,7 @@
 <text x="1318" y="1068" font-size="12.5" font-weight="500">0.70</text>
 <text x="1050" y="1090" font-size="12">supports: E1 E2 E3 E6    weakens: –</text>
 <text x="1050" y="1107" font-size="11.5" fill="#222">main assumption · id m2_a</text>
-<text x="1050" y="1122" font-size="11" fill="#222">Status: open: confirmation by Flo needed</text>
+<text x="1050" y="1122" font-size="11" fill="#222">Status: confirmed by the builder (Daria Stefan, via Flo), 2026-11-17</text>
 <path d="M1470 1070 L1650 1070" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>
 <rect x="1650" y="1038" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
 <text x="1660" y="1058" font-size="13" font-weight="500" fill="#fff">Mesoamerican step pyramid with temple</text>
@@ -184,7 +184,7 @@
 <text x="1318" y="1198" font-size="12.5" font-weight="500">0.35</text>
 <text x="1050" y="1220" font-size="12">supports: E2 E3    weakens: E5</text>
 <text x="1050" y="1237" font-size="11.5" fill="#222">special case of a · id m2_b</text>
-<text x="1050" y="1252" font-size="11" fill="#222">Status: open: confirmation by Flo needed</text>
+<text x="1050" y="1252" font-size="11" fill="#222">Status: not confirmed by the builder (not refuted), 2026-11-17</text>
 <path d="M1470 1200 L1650 1200" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>
 <rect x="1650" y="1168" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
 <text x="1660" y="1188" font-size="13" font-weight="500" fill="#fff">El Castillo (Pyramid of Kukulcán,</text>

@@ -66,11 +66,11 @@ lrec:LegoModel a owl:Class ;
 
 # ---- v0.2: neue Klassen ----
 lrec:ReconstructionDataset a owl:Class ;
-    rdfs:subClassOf dcat:Dataset , prov:Entity ;
+    rdfs:subClassOf dcat:Dataset , prov:Entity , crmdig:D1_Digital_Object ;
     rdfs:label "Rekonstruktions-Datensatz (DCAT-AP)"@de ;
     rdfs:comment "Datensatz-Hülle um GLB, Doku und Skripte; Distribution ist lrec:ReconstructionModel."@de .
 lrec:QualityMeasurement a owl:Class ;
-    rdfs:subClassOf dqv:QualityMeasurement ;
+    rdfs:subClassOf dqv:QualityMeasurement , crm:E54_Dimension ;
     rdfs:label "Qualitätsmessung"@de .
 lrec:ReconstructionScript a owl:Class ;
     rdfs:subClassOf crmdig:D14_Software , schema:SoftwareSourceCode , prov:Entity ;
@@ -397,10 +397,10 @@ ex:hyp_m1_d lrec:confidenceBasis "subjective estimate by the AI assistant after 
 ex:hyp_m1_d lrec:verificationStatus "open: confirmation by Flo needed"@en .
 ex:hyp_m2_a rdfs:label "Mesoamerican (Maya) step pyramid with a temple on top, generic"@en .
 ex:hyp_m2_a lrec:confidenceBasis "subjective estimate by the AI assistant after inspecting photos and scan, not a measurement"@en .
-ex:hyp_m2_a lrec:verificationStatus "open: confirmation by Flo needed"@en .
+ex:hyp_m2_a lrec:verificationStatus "confirmed by the builder (Daria Stefan, via Flo), 2026-11-17"@en .
 ex:hyp_m2_b rdfs:label "El Castillo at Chichén Itzá (special case of a)"@en .
 ex:hyp_m2_b lrec:confidenceBasis "subjective estimate by the AI assistant after inspecting photos and scan, not a measurement"@en .
-ex:hyp_m2_b lrec:verificationStatus "open: confirmation by Flo needed"@en .
+ex:hyp_m2_b lrec:verificationStatus "not confirmed by the builder (not refuted), 2026-11-17"@en .
 ex:hyp_m2_c rdfs:label "Angkor temple mountain with sanctuary"@en .
 ex:hyp_m2_c lrec:confidenceBasis "subjective estimate by the AI assistant after inspecting photos and scan, not a measurement"@en .
 ex:hyp_m2_c lrec:verificationStatus "open: confirmation by Flo needed"@en .

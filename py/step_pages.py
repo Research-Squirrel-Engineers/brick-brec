@@ -1,6 +1,6 @@
 """pages: build the documentation site under docs/ from the ontology and the figures (static HTML, house style).
 
-Pages: index, ontology (classes, properties), visuals (figures), fdox (the four FDOx, relations),
+Pages: index, data model (modules, classes, properties), CRM coverage, crosswalk, instance models, figures, fdox (the four FDOx, relations),
 interpretations (identification hypotheses with status). Everything is generated; docs/ is committed.
 """
 from __future__ import annotations
@@ -14,6 +14,8 @@ import rdflib
 from rdflib import RDF, RDFS, OWL, Namespace
 
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
+import pages_more  # noqa: E402
+from pages_more import FIG_NAV  # noqa: E402
 from lrec_utils import DOCS, IMG, ONTOLOGY, PY, RELEASE, ROOT, Report, ensure_dirs, load_graph, write_text  # noqa: E402
 
 LREC = Namespace("https://example.org/lego-reconstruction#")
@@ -45,8 +47,9 @@ img{max-width:100%;height:auto}.n{color:var(--accent);font-weight:500;margin-rig
 blockquote{background:#fff7e0;border-left:4px solid #fbbf24;margin:12px 0;padding:8px 12px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:700px){.grid{grid-template-columns:1fr}}
 """
-PAGES = [("index.html", "Overview"), ("ontology.html", "Ontology"), ("visuals.html", "Figures"), ("fdox.html", "FDOx"), ("interpretations.html", "Interpretations")]
-FIGPAGES = [("visuals.html#overview", "Whole model"), ("visuals.html#classes", "Class diagram"), ("visuals.html#identification", "Identification")]
+PAGES = [("index.html", "Overview"), ("ontology.html", "Data model"), ("coverage.html", "CRM coverage"), ("crosswalk.html", "Crosswalk"), ("instances.html", "Instance models"),
+         ("visuals.html", "Figures"), ("fdox.html", "FDOx"), ("interpretations.html", "Interpretations")]
+FIGPAGES = FIG_NAV
 JS_COPY = """<script>document.querySelectorAll("button[data-c]").forEach(function(b){b.addEventListener("click",function(){var ok=function(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy"},1200)};if(navigator.clipboard){navigator.clipboard.writeText(b.dataset.c).then(ok).catch(function(){})}})});</script>"""
 
 
@@ -102,47 +105,18 @@ def main(strict: bool) -> int:
             'main.py: check -> reconstruct -> figures -> pages</pre></section>')
     page("index.html", "LREC", body)
 
-    # --- ontology
-    rows = ""
-    for c in classes:
-        parents = ", ".join(f"<code>{esc(q(g, o))}</code>" for o in sorted(g.objects(c, RDFS.subClassOf), key=str))
-        com = next((str(x) for x in g.objects(c, RDFS.comment) if getattr(x, "language", None) == "en"), "")
-        rows += f"<tr><td><code>{esc(q(g, c))}</code></td><td>{esc(label(g, c, 'en'))}<br><span class=muted>{esc(label(g, c, 'de'))}</span></td><td>{parents}</td><td>{esc(com)}</td></tr>"
-    prow = ""
-    for p in props:
-        dom = ", ".join(esc(q(g, o)) for o in g.objects(p, RDFS.domain)); rng = ", ".join(esc(q(g, o)) for o in g.objects(p, RDFS.range))
-        kind = "object" if (p, RDF.type, OWL.ObjectProperty) in g else "data"
-        prow += f"<tr><td><code>{esc(q(g, p))}</code></td><td>{esc(label(g, p, 'en'))}</td><td>{kind}</td><td>{dom}</td><td>{rng}</td></tr>"
-    page("ontology.html", "Ontology", f"<h1>Ontology</h1><section><h2>Classes ({len(classes)})</h2><table><tr><th>Class</th><th>Label (en / de)</th><th>Subclass of</th><th>Note</th></tr>{rows}</table></section>"
-         f"<section><h2>Own properties ({len(props)})</h2><table><tr><th>Property</th><th>Label</th><th>Kind</th><th>Domain</th><th>Range</th></tr>{prow}</table></section>")
-
-    # --- visuals (English only; what a figure needs to be read goes here, not into the figure)
-    figs = [("overview", "Whole model: scan, reconstruction, interpretation, FDOx packages",
-             "Shown for pyramid 2. Pyramid 1 is analogous (FDOx concept DOIs 10.5281/zenodo.24305240 for the scan and 10.5281/zenodo.24305343 for the reconstruction). "
-             "Noted inside the classes without a node of their own: DCAT-AP, CodeMeta, SKOS, Wikidata (closeMatch), OWL-Time (P4); every class is also a prov:Entity, prov:Activity or prov:Agent (subclass relation, not drawn)."),
-            ("classes", "LREC class diagram",
-             "Hollow-triangle arrows are rdfs:subClassOf; the parent classes are listed per class so that no lines cross. Amber text marks attributes (datatype properties); the solid arrow is an object property."),
-            ("identification", "Identification: evidence, hypotheses, candidates",
-             "Confidence is a subjective estimate by the AI assistant (0 to 1), not a measurement; hypotheses overlap and do not sum to 1.")]
-    cards = ""
-    for i, (stem, cap, note) in enumerate(figs, 1):
-        f = f"{stem}.svg"
-        if not (IMG / f).exists():
-            r.warn(f"{f} missing; run the figures step first")
-            continue
-        png = IMG / f"{stem}.png"   # an SVG used as <img> cannot load the page fonts, so the page shows the PNG when there is one
-        if png.exists():
-            wpx, hpx = struct.unpack(">II", png.read_bytes()[16:24])
-            shown = f'<img src="visuals/img/{stem}.png" width="{wpx}" height="{hpx}" loading="lazy" alt="{esc(cap)}">'
-            dl = f'<a href="visuals/img/{stem}.png">PNG</a> · <a href="visuals/img/{f}">SVG</a>'
-        else:
-            shown, dl = f'<img src="visuals/img/{f}" alt="{esc(cap)}">', f'<a href="visuals/img/{f}">SVG</a>'
-        cards += (f'<div class=card id={stem}>{shown}<p><button type=button data-c="{esc(cap)}">Copy</button><span class=n>F{i}</span><span class=cap>{esc(cap)}</span></p>'
-                  f'<p class=muted>{esc(note)} Generated by py/figures from ontology/lrec.ttl. {dl}</p></div>')
-    page("visuals.html", "Figures", f"<h1>Figures</h1>{cards}")
+    # --- data model, CRM coverage, crosswalk, figures (bodies in pages_more.py)
+    gm = load_graph(with_fdox=True)
+    missing: list = []
+    page("ontology.html", "Data model", pages_more.model_body(g))
+    page("coverage.html", "CRM coverage", pages_more.coverage_body(g, missing))
+    page("crosswalk.html", "Crosswalk", pages_more.crosswalk_body(g, gm, missing))
+    page("instances.html", "Instance models", pages_more.instances_body(gm, missing))
+    page("visuals.html", "Figures", pages_more.figures_body(missing))
+    for m in sorted(set(missing)):
+        r.warn(f"{m} missing; run the figures step first")
 
     # --- FDOx: bundle TTLs (identity, title, people, relations) + registry pins + lrec.ttl, merged
-    gm = load_graph(with_fdox=True)
     fdox = sorted(gm.subjects(RDF.type, LREC.FDOx), key=str)
 
     def who(n) -> str:

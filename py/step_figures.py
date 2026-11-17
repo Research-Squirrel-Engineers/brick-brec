@@ -12,7 +12,7 @@ import shutil
 import sys
 
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
-from lrec_utils import DIST, IMG, ONTOLOGY, PY, WIKIDATA_MAP, Report, ensure_dirs, run_script, write_text  # noqa: E402
+from lrec_utils import DIST, IMG, ONTOLOGY, PY, ROOT, WIKIDATA_MAP, Report, ensure_dirs, run_script, write_text  # noqa: E402
 
 
 def to_png(svg, png) -> str:
@@ -40,6 +40,9 @@ def to_png(svg, png) -> str:
         return ""
 
 
+NOTES = ROOT / "notes" / "aenderungen_en.json"
+
+
 def main(strict: bool, png: bool) -> int:
     r = Report(strict)
     ensure_dirs()
@@ -49,10 +52,20 @@ def main(strict: bool, png: bool) -> int:
     for old in IMG.glob("*"):   # the figures are English only; drop what earlier versions wrote (de/en pairs)
         if old.is_file():
             old.unlink()
+    mapping = str(WIKIDATA_MAP) if WIKIDATA_MAP.exists() else "-"
     jobs = [
         ("draw.py", [], "ontologie_planar.svg", "overview.svg"),
         ("draw_classes.py", ["en", str(ONTOLOGY)], "lrec_klassen_en.svg", "classes.svg"),
         ("draw_ident.py", [str(ONTOLOGY), "en", *([str(WIKIDATA_MAP)] if WIKIDATA_MAP.exists() else [])], "identifikation_en.svg", "identification.svg"),
+        ("draw_pyramid.py", ["1", str(ONTOLOGY), mapping, str(NOTES)], "pyramid1.svg", "pyramid1.svg"),
+        ("draw_pyramid.py", ["2", str(ONTOLOGY), mapping, str(NOTES)], "pyramid2.svg", "pyramid2.svg"),
+        ("draw_hub.py", [], "hub.svg", "hub.svg"),
+        ("draw_workflow.py", [], "workflow.svg", "workflow.svg"),
+        ("draw_coverage.py", [], "coverage.svg", "coverage.svg"),
+        ("draw_story.py", [str(ONTOLOGY), mapping], "story.svg", "story.svg"),
+        ("draw_node.py", [str(ONTOLOGY), mapping], "node.svg", "node.svg"),
+        ("draw_arch.py", [str(ONTOLOGY)], "architecture.svg", "architecture.svg"),
+        ("draw_crosswalk.py", [str(ONTOLOGY)], "crosswalk.svg", "crosswalk.svg"),
     ]
     made = []
     for script, args, produced, final in jobs:
@@ -64,10 +77,9 @@ def main(strict: bool, png: bool) -> int:
         write_text(IMG / final, f.read_text(encoding="utf-8"))
         made.append(final)
         r.ok(f"{final}")
-        if script == "draw.py":   # the drawing script reports overlaps of its labels, boxes and lines
-            m = re.search(r"crossings/overlaps: (\[.*\])", p.stdout)
-            if m and m.group(1) != "[]":
-                r.fail(f"overview drawing: crossings or overlaps {m.group(1)}")
+        m = re.search(r"crossings/overlaps: (\[.*\])", p.stdout)   # the drawing scripts report overlaps of their labels, boxes and lines
+        if m and m.group(1) != "[]":
+            r.fail(f"{final}: crossings or overlaps {m.group(1)}")
     shutil.rmtree(work, ignore_errors=True)
     if png:
         used = ""

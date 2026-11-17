@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1750" height="1000" viewBox="0 0 1750 1000" font-family="Fira Sans">
+<rect width="1750" height="1000" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#111"/></marker><marker id="d" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6"><circle cx="5" cy="5" r="4" fill="#111"/></marker></defs>
+<rect x="665.0" y="764.0" width="420.0" height="36.0" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="1"/>
+<rect x="671.0" y="759.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="701.0" y="759.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="731.0" y="759.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="761.0" y="759.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="791.0" y="759.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="821.0" y="759.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="851.0" y="759.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="881.0" y="759.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="911.0" y="759.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="941.0" y="759.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="971.0" y="759.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="1001.0" y="759.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="1031.0" y="759.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="1061.0" y="759.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="695.0" y="728.0" width="360.0" height="36.0" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="1"/>
+<rect x="701.0" y="723.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="731.0" y="723.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="761.0" y="723.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="791.0" y="723.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="821.0" y="723.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="851.0" y="723.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="881.0" y="723.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="911.0" y="723.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="941.0" y="723.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="971.0" y="723.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="1001.0" y="723.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="1031.0" y="723.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="725.0" y="692.0" width="300.0" height="36.0" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="1"/>
+<rect x="731.0" y="687.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="761.0" y="687.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="791.0" y="687.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="821.0" y="687.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="851.0" y="687.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="881.0" y="687.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="911.0" y="687.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="941.0" y="687.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="971.0" y="687.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="1001.0" y="687.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="755.0" y="656.0" width="240.0" height="36.0" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="1"/>
+<rect x="761.0" y="651.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="791.0" y="651.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="821.0" y="651.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="851.0" y="651.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="881.0" y="651.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="911.0" y="651.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="941.0" y="651.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="971.0" y="651.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="785.0" y="620.0" width="180.0" height="36.0" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="1"/>
+<rect x="791.0" y="615.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="821.0" y="615.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="851.0" y="615.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="881.0" y="615.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="911.0" y="615.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="941.0" y="615.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="815.0" y="584.0" width="120.0" height="36.0" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="1"/>
+<rect x="821.0" y="579.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="851.0" y="579.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="881.0" y="579.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="911.0" y="579.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="845.0" y="548.0" width="60.0" height="36.0" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="1"/>
+<rect x="851.0" y="543.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="881.0" y="543.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="845.0" y="512.0" width="60.0" height="36.0" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="1"/>
+<rect x="851.0" y="507.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="881.0" y="507.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="845.0" y="476.0" width="60.0" height="36.0" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="1"/>
+<rect x="851.0" y="471.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="881.0" y="471.2" width="18.0" height="4.8" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="0.8"/>
+<rect x="845.0" y="440.0" width="30.0" height="36.0" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="1"/>
+<rect x="845.0" y="404.0" width="30.0" height="36.0" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="1"/>
+<rect x="845.0" y="368.0" width="30.0" height="36.0" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="1"/>
+<rect x="845.0" y="332.0" width="30.0" height="36.0" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="1"/>
+<rect x="845.0" y="296.0" width="30.0" height="36.0" rx="1" fill="#f4f4f1" stroke="#000" stroke-width="1"/>
+<rect x="842.0" y="229.2" width="36.0" height="44.0" rx="3" fill="#7f1d1d" stroke="#000" stroke-width="1"/>
+<rect x="847.0" y="271.2" width="11.0" height="20.0" rx="1" fill="#1d4ed8" stroke="#000" stroke-width="1"/>
+<rect x="862.0" y="271.2" width="11.0" height="20.0" rx="1" fill="#1d4ed8" stroke="#000" stroke-width="1"/>
+<rect x="846.0" y="286.2" width="13.0" height="5.0" rx="1" fill="#78350f" stroke="#000" stroke-width="1"/>
+<rect x="861.0" y="286.2" width="13.0" height="5.0" rx="1" fill="#78350f" stroke="#000" stroke-width="1"/>
+<rect x="846.0" y="239.2" width="28.0" height="32.0" rx="3" fill="#9ca3af" stroke="#000" stroke-width="1"/>
+<rect x="846.0" y="263.2" width="28.0" height="4.0" rx="0" fill="#78350f" stroke="#000" stroke-width="1"/>
+<circle cx="860.0" cy="227.2" r="11" fill="#f2c9a0" stroke="#000" stroke-width="1"/>
+<path d="M848.0 225.2 A12 12 0 0 1 872.0 225.2 Z" fill="#d1d5db" stroke="#000" stroke-width="1"/>
+<path d="M857.0 214.2 L860.0 201.2 L863.0 214.2 Z" fill="#d1d5db" stroke="#000" stroke-width="1"/>
+<rect x="40.0" y="36.0" width="500.0" height="55.0" rx="6" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/>
+<text x="50.0" y="53.1" text-anchor="start" dominant-baseline="central" font-size="13" font-weight="500" fill="#1f1f1d">Figure in the scan</text>
+<text x="50.0" y="70.0" text-anchor="start" dominant-baseline="central" font-size="12" fill="#1f1f1d">Deformed and stretched, about 38 scan units high; modelled anew from photos</text>
+<path d="M540.0 63.5 L842.0 251.2" fill="none" stroke="#111" stroke-width="1.1" marker-end="url(#d)"/>
+<rect x="40.0" y="198.8" width="500.0" height="55.0" rx="6" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
+<text x="50.0" y="216.0" text-anchor="start" dominant-baseline="central" font-size="13" font-weight="500" fill="#000000">Hidden bricks</text>
+<text x="50.0" y="232.9" text-anchor="start" dominant-baseline="central" font-size="12" fill="#000000">Hidden distribution is random, not read from the scan</text>
+<path d="M540.0 226.3 L845.0 566.0" fill="none" stroke="#111" stroke-width="1.1" marker-end="url(#d)"/>
+<rect x="40.0" y="361.6" width="500.0" height="55.0" rx="6" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/>
+<text x="50.0" y="378.8" text-anchor="start" dominant-baseline="central" font-size="13" font-weight="500" fill="#1f1f1d">Scan problems</text>
+<text x="50.0" y="395.6" text-anchor="start" dominant-baseline="central" font-size="12" fill="#1f1f1d">Edges and studs very noisy, flat ground and base untidy</text>
+<path d="M540.0 389.1 L785.0 638.0" fill="none" stroke="#111" stroke-width="1.1" marker-end="url(#d)"/>
+<rect x="40.0" y="524.4" width="500.0" height="55.0" rx="6" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
+<text x="50.0" y="541.6" text-anchor="start" dominant-baseline="central" font-size="13" font-weight="500" fill="#000000">Bricks</text>
+<text x="50.0" y="558.5" text-anchor="start" dominant-baseline="central" font-size="12" fill="#000000">Only 2 x 4, 2 x 2 and 1 x 1 in white, as stated by the builder</text>
+<path d="M540.0 551.9 L725.0 710.0" fill="none" stroke="#111" stroke-width="1.1" marker-end="url(#d)"/>
+<rect x="40.0" y="687.2" width="500.0" height="55.0" rx="6" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/>
+<text x="50.0" y="704.4" text-anchor="start" dominant-baseline="central" font-size="13" font-weight="500" fill="#1f1f1d">Capture</text>
+<text x="50.0" y="721.2" text-anchor="start" dominant-baseline="central" font-size="12" fill="#1f1f1d">69 photos, Samsung Galaxy S26; KIRI Engine (structure from motion)</text>
+<path d="M540.0 714.7 L695.0 746.0" fill="none" stroke="#111" stroke-width="1.1" marker-end="url(#d)"/>
+<rect x="40.0" y="850.0" width="500.0" height="55.0" rx="6" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/>
+<text x="50.0" y="867.1" text-anchor="start" dominant-baseline="central" font-size="13" font-weight="500" fill="#1f1f1d">Footprint</text>
+<text x="50.0" y="884.0" text-anchor="start" dominant-baseline="central" font-size="12" fill="#1f1f1d">14 x 18 studs at the base, 9 equally high steps</text>
+<path d="M540.0 877.5 L665.0 789.2" fill="none" stroke="#111" stroke-width="1.1" marker-end="url(#d)"/>
+<rect x="1210.0" y="36.0" width="500.0" height="70.0" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1220.0" y="53.1" text-anchor="start" dominant-baseline="central" font-size="13" font-weight="500" fill="#fff">Monument: statue of a warrior on a column above a stepped base</text>
+<text x="1220.0" y="70.0" text-anchor="start" dominant-baseline="central" font-size="12" fill="#fff">Confidence 0.55 (subjective estimate). open: confirmation by Flo needed.</text>
+<text x="1220.0" y="85.7" text-anchor="start" dominant-baseline="central" font-size="12" fill="#fff">Wikidata: Q51845395 (memorial column)</text>
+<path d="M1210.0 71.0 L881.0 197.2" fill="none" stroke="#111" stroke-width="1.1" marker-end="url(#d)"/>
+<rect x="1210.0" y="134.8" width="500.0" height="55.0" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1220.0" y="151.9" text-anchor="start" dominant-baseline="central" font-size="13" font-weight="500" fill="#fff">Stepped pyramid with a figure as a free play or fantasy scene</text>
+<text x="1220.0" y="168.8" text-anchor="start" dominant-baseline="central" font-size="12" fill="#fff">Confidence 0.20 (subjective estimate). open: confirmation by Flo needed.</text>
+<path d="M1210.0 162.3 L895.0 197.2" fill="none" stroke="#111" stroke-width="1.1" marker-end="url(#d)"/>
+<rect x="1210.0" y="218.6" width="500.0" height="70.0" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1220.0" y="235.7" text-anchor="start" dominant-baseline="central" font-size="13" font-weight="500" fill="#fff">Abstracted watchtower or lookout with a sentry</text>
+<text x="1220.0" y="252.6" text-anchor="start" dominant-baseline="central" font-size="12" fill="#fff">Confidence 0.15 (subjective estimate). open: confirmation by Flo needed.</text>
+<text x="1220.0" y="268.2" text-anchor="start" dominant-baseline="central" font-size="12" fill="#fff">Wikidata: Q947103 (watchtower)</text>
+<path d="M1210.0 253.6 L867.0 197.2" fill="none" stroke="#111" stroke-width="1.1" marker-end="url(#d)"/>
+<rect x="1210.0" y="317.3" width="500.0" height="55.0" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1220.0" y="334.5" text-anchor="start" dominant-baseline="central" font-size="13" font-weight="500" fill="#fff">Specific historical monument (special case of a, cannot be determined)</text>
+<text x="1220.0" y="351.4" text-anchor="start" dominant-baseline="central" font-size="12" fill="#fff">Confidence 0.10 (subjective estimate). open: confirmation by Flo needed.</text>
+<path d="M1210.0 344.8 L853.0 197.2" fill="none" stroke="#111" stroke-width="1.1" marker-end="url(#d)"/>
+<rect x="1210.0" y="401.1" width="500.0" height="70.0" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1220.0" y="418.3" text-anchor="start" dominant-baseline="central" font-size="13" font-weight="500" fill="#fff">Medieval warrior / soldier</text>
+<text x="1220.0" y="435.2" text-anchor="start" dominant-baseline="central" font-size="12" fill="#fff">Confidence 0.75 (subjective estimate). open: confirmation by Flo needed.</text>
+<text x="1220.0" y="450.8" text-anchor="start" dominant-baseline="central" font-size="12" fill="#fff">Wikidata: Q4991371 (soldier)</text>
+<path d="M1210.0 436.1 L839.0 197.2" fill="none" stroke="#111" stroke-width="1.1" marker-end="url(#d)"/>
+<rect x="1210.0" y="499.9" width="500.0" height="55.0" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1220.0" y="517.0" text-anchor="start" dominant-baseline="central" font-size="13" font-weight="500" fill="#fff">Figure comes from a Cobi series (style-based guess only)</text>
+<text x="1220.0" y="533.9" text-anchor="start" dominant-baseline="central" font-size="12" fill="#fff">Confidence 0.40 (subjective estimate). open: confirmation by Flo needed.</text>
+<path d="M1210.0 527.4 L825.0 197.2" fill="none" stroke="#111" stroke-width="1.1" marker-end="url(#d)"/>
+<rect x="1210.0" y="583.7" width="500.0" height="55.0" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
+<text x="1220.0" y="600.8" text-anchor="start" dominant-baseline="central" font-size="13" font-weight="500" fill="#fff">Figure</text>
+<text x="1220.0" y="617.7" text-anchor="start" dominant-baseline="central" font-size="12" fill="#fff">Rebuilt from 11 photos of the real figure, 1:1 and scaled by 2/3; head and torso painted</text>
+<path d="M1210.0 611.2 L878.0 251.2" fill="none" stroke="#111" stroke-width="1.1" marker-end="url(#d)"/>
+<rect x="1210.0" y="667.4" width="500.0" height="55.0" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
+<text x="1220.0" y="684.6" text-anchor="start" dominant-baseline="central" font-size="13" font-weight="500" fill="#fff">Known deviation</text>
+<text x="1220.0" y="701.5" text-anchor="start" dominant-baseline="central" font-size="12" fill="#fff">Chain mail as a honeycomb pattern, cloak and sleeves slightly paler, cheek guards flat</text>
+<path d="M1210.0 694.9 L874.0 267.2" fill="none" stroke="#111" stroke-width="1.1" marker-end="url(#d)"/>
+<rect x="1210.0" y="751.2" width="500.0" height="55.0" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
+<text x="1220.0" y="768.4" text-anchor="start" dominant-baseline="central" font-size="13" font-weight="500" fill="#fff">Column</text>
+<text x="1220.0" y="785.3" text-anchor="start" dominant-baseline="central" font-size="12" fill="#fff">Five 1 x 1 bricks stacked on the top step</text>
+<path d="M1210.0 778.7 L875.0 386.0" fill="none" stroke="#111" stroke-width="1.1" marker-end="url(#d)"/>
+<rect x="1210.0" y="835.0" width="500.0" height="70.0" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
+<text x="1220.0" y="852.1" text-anchor="start" dominant-baseline="central" font-size="13" font-weight="500" fill="#fff">Tiling</text>
+<text x="1220.0" y="869.0" text-anchor="start" dominant-baseline="central" font-size="12" fill="#fff">Each level split into 2 x 2 blocks and tiled with 2 x 4 and 2 x 2 bricks (best of 400</text>
+<text x="1220.0" y="884.6" text-anchor="start" dominant-baseline="central" font-size="12" fill="#fff">random tilings)</text>
+<path d="M1210.0 870.0 L995.0 674.0" fill="none" stroke="#111" stroke-width="1.1" marker-end="url(#d)"/>
+<rect x="40" y="950" width="26" height="16" fill="#e2e8f0" stroke="#000"/>
+<text x="74.0" y="958.5" text-anchor="start" dominant-baseline="central" font-size="13" fill="#1f1f1d">measured in the scan</text>
+<rect x="227.4" y="950" width="26" height="16" fill="#fbbf24" stroke="#000"/>
+<text x="261.4" y="958.5" text-anchor="start" dominant-baseline="central" font-size="13" fill="#1f1f1d">estimated or assumed</text>
+<rect x="419.3" y="950" width="26" height="16" fill="#9a3412" stroke="#000"/>
+<text x="453.3" y="958.5" text-anchor="start" dominant-baseline="central" font-size="13" fill="#1f1f1d">reconstructed</text>
+<rect x="562.2" y="950" width="26" height="16" fill="#4c1d95" stroke="#000"/>
+<text x="596.2" y="958.5" text-anchor="start" dominant-baseline="central" font-size="13" fill="#1f1f1d">interpreted (hypothesis)</text>
+</svg>

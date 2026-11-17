@@ -201,3 +201,7 @@ Siehe Teil B. Diese Schritte werden beschrieben, sobald sie an der Reihe sind.
 - Die Mermaid-Übersicht fehlt in den FDOx-Bundles (`mmdc … unknown option '-w'`); gehört zu fdo-squirrel, nicht hierher.
 - Der Registry-Pin auf `fdo-squirrel` v1.3.0 ist noch zu heben (anderes Repo).
 - Wikidata-IDs der Kandidaten (Maya-Pyramide, El Castillo, Kriegerfigur …) fehlen noch.
+- Erledigt 2026-11-18: alle 23 Klassen an CIDOC CRM geankert (`lrec:QualityMeasurement` unter `crm:E54_Dimension`, `lrec:ReconstructionDataset` unter `crmdig:D1_Digital_Object`; Vorschlag, die Wahl von E54 bzw. D1 ist von Flo zu bestätigen); `check` schlägt fehl, wenn eine Klasse keinen Vorfahren der CRM-Familie hat (`py/crm_coverage.py`).
+- Erledigt 2026-11-18: neue Seiten Datenmodell (drei Module), CRM-Abdeckung, Crosswalk, Instanzmodelle; neue Abbildungen Story, Architektur, Pyramidenknoten, Pyramide 1 und 2 (gemessen/geschätzt/rekonstruiert/interpretiert), FDOx-Knoten, Workflow, CRM-Anker, Crosswalk-Matrix. Zeitbalken-Abbildung entfernt (auf Wunsch).
+- Zurückgestellt: SPARQL-Seite im Browser (Pyodide, wdt-sparql) und 3D-Ansicht der GLB-Modelle.
+- Offen: Wikidata-IDs für `ex:c_cobi`, `ex:c_elcastillo`, `ex:c_maya` (`python py/wikidata/match.py --set ex:c_cobi=Q… …`); der Knoten-Abbildung zeigt `c_maya` gestrichelt, bis die ID da ist.

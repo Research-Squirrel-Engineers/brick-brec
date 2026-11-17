@@ -51,8 +51,10 @@ The figures are set in Fira Sans (SIL Open Font Licence, `py/figures/fonts/`); t
 
 ## Documentation site
 
-`docs/index.html` (open locally or publish with GitHub Pages from `/docs`) has the ontology tables, the figures in both
-languages, the four FDOx and the identification hypotheses with their status.
+`docs/index.html` (open locally or publish with GitHub Pages from `/docs`) has eight pages, all generated from `ontology/lrec.ttl`, the FDOx bundle TTLs and the Wikidata mapping:
+overview, **data model** (three modules with class and property tables), **CRM coverage** (chain from every LREC class to its CIDOC CRM / CRMdig / CRMinf ancestor), **crosswalk** (direct parents per vocabulary),
+**instance models** (the two pyramids with builder, scan, FDOx and hypotheses), figures (twelve, as PNG with SVG download), FDOx and interpretations.
+Every LREC class is anchored in the CRM family; `check` fails if one is not, or if a class belongs to no module of the data model page (`MODULES` in `py/pages_more.py`).
 
 ## Links
 
