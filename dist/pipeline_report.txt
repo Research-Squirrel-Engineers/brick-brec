@@ -9,13 +9,10 @@
 [check] OK    no raw inputs present (optional, see data/raw/README.md)
 [reconstruct] WARN  p1_reconstruction.glb: bytes differ from the recorded build; geometry matches (49964 faces vs 49964). Library versions differ from requirements.txt?
 [reconstruct] OK    p2_reconstruction.glb: byte-identical to the recorded build (543a744f2ec2...)
-[figures] Traceback (most recent call last):
-[figures]   File "C:\git\lego-lrec\py\step_figures.py", line 79, in <module>
-[figures]     sys.exit(main("--strict" in sys.argv, "--png" in sys.argv))
-[figures]   File "C:\git\lego-lrec\py\step_figures.py", line 58, in main
-[figures]     write_text(IMG / final, f.read_text(encoding="utf-8"))
-[figures]   File "C:\Users\flori\AppData\Local\Programs\Python\Python310\lib\pathlib.py", line 1133, in read_text
-[figures]     return f.read()
-[figures]   File "C:\Users\flori\AppData\Local\Programs\Python\Python310\lib\codecs.py", line 322, in decode
-[figures]     (result, consumed) = self._buffer_decode(data, self.errors, final)
-[figures] UnicodeDecodeError: 'utf-8' codec can't decode byte 0xc4 in position 8484: invalid continuation byte
+[figures] OK    overview_de.svg
+[figures] OK    classes_de.svg
+[figures] OK    classes_en.svg
+[figures] OK    identification_de.svg
+[figures] OK    identification_en.svg
+[figures] OK    overview_en.svg (German drawing, 26 labels replaced)
+[pages] OK    5 pages, 23 classes, 16 properties, 4 FDOx, docs/lrec.ttl

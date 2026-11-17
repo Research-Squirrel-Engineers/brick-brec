@@ -57,12 +57,12 @@ CTX = """OWNER-SUPPLIED CONTEXT (from the person who owns the model; treat as ev
 """
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('facts'); ap.add_argument('--out'); ap.add_argument('--context', help='free text from the owner (what it is, where from, capture setup)'); ap.add_argument('--previous', help='previous answer JSON -> builds the refinement (pass 2) prompt'); A = ap.parse_args()
-    facts = json.load(open(A.facts)); schema = json.dumps(json.load(open(os.path.join(HERE, 'interpretation_schema.json'))), separators=(',', ':'))
-    example = json.dumps(json.load(open(os.path.join(HERE, 'example_interpretation.json'))), separators=(',', ':'))
+    facts = json.load(open(A.facts, encoding='utf-8')); schema = json.dumps(json.load(open(os.path.join(HERE, 'interpretation_schema.json'), encoding='utf-8')), separators=(',', ':'))
+    example = json.dumps(json.load(open(os.path.join(HERE, 'example_interpretation.json'), encoding='utf-8')), separators=(',', ':'))
     facts['footprint_profile'].pop('data', None)
     ctx = CTX.format(c=A.context) if A.context else ''
     if A.previous:
-        out = A.out or A.facts.replace('_facts.json', '_prompt2.md'); body = PASS2.format(previous=json.dumps(json.load(open(A.previous)), separators=(',', ':'), ensure_ascii=False), schema=schema, context=ctx, facts=json.dumps(facts, indent=1), rules_tail='')
+        out = A.out or A.facts.replace('_facts.json', '_prompt2.md'); body = PASS2.format(previous=json.dumps(json.load(open(A.previous, encoding='utf-8')), separators=(',', ':'), ensure_ascii=False), schema=schema, context=ctx, facts=json.dumps(facts, indent=1), rules_tail='')
     else:
         out = A.out or A.facts.replace('_facts.json', '_prompt.md'); body = T.format(schema=schema, example=example, context=ctx, facts=json.dumps(facts, indent=1))
     open(out, 'w', encoding='utf-8').write(body)

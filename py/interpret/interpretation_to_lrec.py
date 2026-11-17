@@ -12,7 +12,7 @@ def check(d):
     errs = []
     try:
         import jsonschema
-        v = jsonschema.Draft202012Validator(json.load(open(os.path.join(HERE, 'interpretation_schema.json'))))
+        v = jsonschema.Draft202012Validator(json.load(open(os.path.join(HERE, 'interpretation_schema.json'), encoding='utf-8')))
         errs += [f"schema: {'/'.join(map(str, e.path))}: {e.message}" for e in v.iter_errors(d)]
     except ImportError: print('note: pip install jsonschema for full schema validation (only reference checks run)')
     E = {e['id'] for e in d.get('evidence', [])}; H = {h['id']: h for h in d.get('hypotheses', [])}

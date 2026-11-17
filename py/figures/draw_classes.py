@@ -66,5 +66,5 @@ for f,s,t in items:
     sw=3.5 if s=='#1d4ed8' else 1.2
     o.append(f'<rect x="{x}" y="{ly}" width="26" height="16" fill="{f}" stroke="{s}" stroke-width="{sw}"/><text x="{x+34}" y="{ly+13}" font-size="13">{t}</text>'); x+=44+len(t)*6.3
 o.append(f'<text x="50" y="{ly+40}" font-size="12" fill="#444">{TX["foot"]}</text></svg>')
-open('lrec_klassen'+SUF+'.svg','w').write('\n'.join(o))
+open('lrec_klassen'+SUF+'.svg','w',encoding='utf-8',newline='\n').write('\n'.join(o))
 print('rows',len(rows),'size',W,H)

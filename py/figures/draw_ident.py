@@ -76,4 +76,4 @@ hd = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H:.0f}" vie
 leg = H - 40; x = 40
 for col, st, t in [('#fff', '#000', TX["l1"]), ('#9a3412', '#000', TX["l2"]), ('#fbbf24', '#000', TX["l3"]), ('#4c1d95', '#000', TX["l4"])]:
     o.append(f'<rect x="{x}" y="{leg:.0f}" width="26" height="16" fill="{col}" stroke="{st}"/><text x="{x+34}" y="{leg+13:.0f}" font-size="13">{t}</text>'); x += 70 + len(t) * 7
-open('identifikation' + SUF + '.svg', 'w').write('\n'.join(hd + o + ['</svg>'])); print('ok', W, int(H))
+open('identifikation' + SUF + '.svg', 'w', encoding='utf-8', newline='\n').write('\n'.join(hd + o + ['</svg>'])); print('ok', W, int(H))

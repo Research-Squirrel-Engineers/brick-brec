@@ -1,0 +1,5 @@
+# Line endings are part of the product (byte-stable rebuilds): keep LF in the working copy on Windows too.
+* text=auto eol=lf
+*.glb binary
+*.png binary
+*.zip binary

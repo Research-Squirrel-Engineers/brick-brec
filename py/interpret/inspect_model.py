@@ -154,7 +154,7 @@ def main():
         appearance=dict(dominant_colours=pal, mean_saturation=round(sat, 3), grayscale_like=bool(sat < 0.08), visual_kind=mats[0].get('visual_kind'), materials=mats[:6]),
         mesh_quality=dict(edge_length_median=round(float(np.median(el)), 6), edge_length_p95_over_median=round(float(np.percentile(el, 95) / max(np.median(el), 1e-12)), 2), degenerate_faces=int((mesh.area_faces < 1e-12 * diag ** 2).sum())),
         heuristics_note='Fields marked heuristic are computed by simple rules and can be wrong; the images are authoritative for shape.')
-    jpath = os.path.join(A.out, stem + '_facts.json'); json.dump(facts, open(jpath, 'w'), indent=2); print('wrote', jpath)
+    jpath = os.path.join(A.out, stem + '_facts.json'); json.dump(facts, open(jpath, 'w', encoding='utf-8'), indent=2); print('wrote', jpath)
     # --- views
     import matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt; from matplotlib.collections import PolyCollection
     Fi = np.arange(len(F)); 

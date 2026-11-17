@@ -52,8 +52,8 @@ def sha256_file(path: Path) -> str:
 
 
 def run_script(script: Path, args: list[str] | None = None, cwd: Path | None = None) -> subprocess.CompletedProcess:
-    """Run a Python script with UTF-8 pipes (Windows codec errors otherwise hide the real bug)."""
-    env = dict(os.environ, PYTHONIOENCODING="utf-8", PYTHONHASHSEED="0")
+    """Run a Python script in UTF-8 mode: on Windows open() without an encoding means cp1252 and breaks on umlauts."""
+    env = dict(os.environ, PYTHONIOENCODING="utf-8", PYTHONUTF8="1", PYTHONHASHSEED="0")
     return subprocess.run(
         [sys.executable, str(script), *(args or [])],
         cwd=str(cwd or ROOT), env=env, capture_output=True, text=True, encoding="utf-8",

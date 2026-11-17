@@ -101,4 +101,4 @@ for col,t in items:
     o.append(f'<rect x="{x}" y="{ly}" width="26" height="16" fill="{col}" stroke="#000"/><text x="{x+34}" y="{ly+13}" font-size="13">{t}</text>'); x+=60+len(t)*7
 o.append(f'<rect x="{x}" y="{ly}" width="26" height="16" fill="#fff" stroke="#1d4ed8" stroke-width="4"/><text x="{x+34}" y="{ly+13}" font-size="13">Heritage-Digital-Twin-Klasse (hdt)</text>')
 o.append(f'<text x="60" y="{ly+44}" font-size="12" fill="#444">In Klasse notiert (ohne eigenen Knoten): DCAT-AP, CodeMeta, SKOS, Wikidata (closeMatch), OWL-Time (P4). Zusätzlich je Klasse: prov:Entity / prov:Activity / prov:Agent (Unterklassenbeziehung, nicht als Pfeil gezeichnet).</text>')
-o.append('</svg>'); open('ontologie_planar.svg','w').write('\n'.join(o))
+o.append('</svg>'); open('ontologie_planar.svg','w',encoding='utf-8',newline='\n').write('\n'.join(o))
