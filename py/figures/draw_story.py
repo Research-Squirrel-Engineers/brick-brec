@@ -56,7 +56,7 @@ svg.text(X[3], DT + 190, "subjective estimate, not a measurement", 12, False, MU
 svg.rect(X[3] - 110, DT + 215, 220, 40, GREY, name="builder")
 svg.text(X[3], DT + 235, "builder confirms Maya", 14, True, INK, "middle", maxw=200)
 # linked data: the targets
-for k, (t, s, fill) in enumerate([("CIDOC CRM family", "classes of the nodes", ORANGE), ("Wikidata", "places and candidates", PURPLE),
+for k, (t, s, fill) in enumerate([("CRM family and HDT", "classes of the nodes", ORANGE), ("Wikidata", "places and candidates", PURPLE),
                                   ("FDOx on Zenodo", "scan and reconstruction", PURPLE), ("ORCID", "people", PURPLE)]):
     y = DT + 12 + k * 65
     svg.rect(X[4] - 110, y, 220, 54, fill, name="t" + t)
@@ -70,7 +70,7 @@ caps = [(["Self-built LEGO pyramids,", "by Flo and Daria Stefan"], GREY),
         ([f"{n1} and {n2} photos,", "smartphone, KIRI Engine (SfM)"], GREY),
         (["Bricks only, seven levels,", "every change documented"], GREY),
         (["Evidence supports hypotheses;", "each proposes a candidate"], GREY),
-        (["One IRI per node,", "close matches, DOIs, CRM classes"], GREY)]
+        (["One IRI per node,", "close matches, DOIs, CRM and HDT"], GREY)]
 for x, (lines, fill) in zip(X, caps):
     yy = DB + 24
     svg.rect(x - SW / 2, yy, SW, 84, fill, name="cap" + lines[0])

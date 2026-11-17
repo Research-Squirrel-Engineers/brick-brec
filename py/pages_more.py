@@ -130,6 +130,11 @@ def crm_anchor_cell(g, c) -> str:
     return ", ".join(f"<code>{esc(q(g, o))}</code> (via own class)" for o in via) or "<span class=muted>none</span>"
 
 
+def hdt_cell(g, c) -> str:
+    hs = [o for o in g.objects(c, RDFS.subClassOf) if "/hdt" in str(o).lower() or str(o).split("#")[-1].startswith("HC_") or str(o).split("/")[-1].startswith("HC_")]
+    return ", ".join(f"<code>{esc(q(g, o))}</code>" for o in sorted(hs, key=str)) or '<span class=muted>-</span>'
+
+
 def model_body(g) -> str:
     classes = own_classes(g)
     props = sorted({p for t in (OWL.ObjectProperty, OWL.DatatypeProperty) for p in g.subjects(RDF.type, t) if str(p).startswith(str(LREC))}, key=str)
@@ -140,7 +145,7 @@ def model_body(g) -> str:
         cl = [c for c in classes if c.split("#")[1] in names]
         pr = [p for p in props if (g.value(p, RDFS.domain) or "").split("#")[-1] in names]
         figlinks = " · ".join(f'<a href="visuals.html#{f}">{esc(next(c for s, c, _ in FIGS if s == f))}</a>' for f in figs)
-        crows = "".join(f"<tr><td><code>{esc(q(g, c))}</code></td><td>{esc(label(g, c, 'en'))}</td><td>{esc(comment(g, c))}</td><td>{crm_anchor_cell(g, c)}</td></tr>" for c in cl)
+        crows = "".join(f"<tr><td><code>{esc(q(g, c))}</code></td><td>{esc(label(g, c, 'en'))}</td><td>{esc(comment(g, c))}</td><td>{crm_anchor_cell(g, c)}</td><td>{hdt_cell(g, c)}</td></tr>" for c in cl)
         prows = ""
         for p in pr:
             kind = "object" if (p, RDF.type, OWL.ObjectProperty) in g else "data"
@@ -148,7 +153,7 @@ def model_body(g) -> str:
             prows += (f"<tr><td><code>{esc(q(g, p))}</code> <span class=muted>({kind})</span></td><td>{esc(q(g, g.value(p, RDFS.domain)))}</td>"
                       f"<td>{esc(q(g, g.value(p, RDFS.range)))}</td><td>{esc(label(g, p, 'en'))}{(' · sub-property of ' + sub) if sub else ''}</td></tr>")
         out.append(f"<section><h2>{esc(name)}</h2><p>{esc(desc)} Figures: {figlinks}.</p><h3>Classes ({len(cl)})</h3>"
-                   f"<table><tr><th>Class</th><th>Label</th><th>Comment</th><th>CRM anchor</th></tr>{crows}</table>"
+                   f"<table><tr><th>Class</th><th>Label</th><th>Comment</th><th>CRM anchor</th><th>HDT parent</th></tr>{crows}</table>"
                    + (f"<h3>Properties ({len(pr)})</h3><table><tr><th>Property</th><th>Domain</th><th>Range</th><th>Label</th></tr>{prows}</table>" if pr else "")
                    + "</section>")
     return "".join(out)

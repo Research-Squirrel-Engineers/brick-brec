@@ -523,7 +523,7 @@
 <rect x="1265.0" y="325.0" width="220.0" height="40.0" rx="6" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/>
 <text x="1375.0" y="345.0" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#1f1f1d">builder confirms Maya</text>
 <rect x="1665.0" y="122.0" width="220.0" height="54.0" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
-<text x="1775.0" y="140.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#fff">CIDOC CRM family</text>
+<text x="1775.0" y="140.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#fff">CRM family and HDT</text>
 <text x="1775.0" y="160.0" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#fff">classes of the nodes</text>
 <rect x="1665.0" y="187.0" width="220.0" height="54.0" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
 <text x="1775.0" y="205.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#fff">Wikidata</text>
@@ -556,7 +556,7 @@
 <text x="1375.0" y="454.0" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#1f1f1d">each proposes a candidate</text>
 <rect x="1650.0" y="404.0" width="250.0" height="84.0" rx="6" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/>
 <text x="1775.0" y="430.0" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#1f1f1d">One IRI per node,</text>
-<text x="1775.0" y="454.0" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#1f1f1d">close matches, DOIs, CRM classes</text>
+<text x="1775.0" y="454.0" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#1f1f1d">close matches, DOIs, CRM and HDT</text>
 <rect x="50" y="590" width="26" height="16" fill="#e2e8f0" stroke="#000"/>
 <text x="84.0" y="598.5" text-anchor="start" dominant-baseline="central" font-size="13" fill="#1f1f1d">model or statement</text>
 <rect x="227.4" y="590" width="26" height="16" fill="#9a3412" stroke="#000"/>

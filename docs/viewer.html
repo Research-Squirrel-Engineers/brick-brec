@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3D viewer | LREC</title><link rel="stylesheet" href="assets/site.css"></head><body><nav><div class=grp><span class=lab>Documentation</span><span class=lnk><a href="index.html">Overview</a><a href="ontology.html">Data model</a><a href="coverage.html">CRM coverage</a><a href="crosswalk.html">Crosswalk</a><a href="instances.html">Instance models</a><a href="sparql.html">SPARQL</a><a href="viewer.html" class=on>3D viewer</a><a href="visuals.html">Figures</a><a href="fdox.html">FDOx</a><a href="interpretations.html">Interpretations</a></span></div><div class=grp><span class=lab>Figures</span><span class=lnk><a href="visuals.html#story">Story</a><a href="visuals.html#architecture">Architecture</a><a href="visuals.html#overview">Whole model</a><a href="visuals.html#classes">Class diagram</a><a href="visuals.html#identification">Identification</a><a href="visuals.html#node">Pyramid node</a><a href="visuals.html#pyramid1">Pyramid 1</a><a href="visuals.html#pyramid2">Pyramid 2</a><a href="visuals.html#hub">FDOx node</a><a href="visuals.html#workflow">Workflow</a><a href="visuals.html#coverage">CRM anchors</a><a href="visuals.html#crosswalk">Crosswalk</a></span></div></nav><main><h1>3D viewer</h1><section><p>The two brick reconstructions as GLB files (glTF 2.0), rebuilt by <code>main.py</code> from the reconstruction scripts and compared with a recorded checksum. Drag to turn, scroll to zoom, right-drag to pan. The models are 3 to 4 MB each and load when selected.</p><p><label>Model <select id=sel><option value="p1">Pyramid 1</option><option value="p2">Pyramid 2</option></select></label> <button type=button id=reset>Reset view</button> <span class=muted id=info></span></p><div id=view style="width:100%;height:560px;background:#eef0f3;border-radius:8px;position:relative"><span class=muted id=msg style="position:absolute;left:12px;top:10px">Loading three.js&hellip;</span></div><p class=muted>Download: <a href="models/p1_reconstruction.glb">pyramid 1 (GLB)</a> &middot; <a href="models/p2_reconstruction.glb">pyramid 2 (GLB)</a>. The published records are on the <a href="fdox.html">FDOx page</a>.</p></section><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script><script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+const MODELS = {"p1": {"file": "models/p1_reconstruction.glb", "text": "Reconstruction model 1 (white stepped pyramid with column and figure)", "mb": 3.5}, "p2": {"file": "models/p2_reconstruction.glb", "text": "Reconstruction model 2 (stepped Maya pyramid with temple, version 4)", "mb": 3.6}};
+const box = document.getElementById('view'), msg = document.getElementById('msg'), sel = document.getElementById('sel'), info = document.getElementById('info');
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+box.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xeef0f3);
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+const camera = new THREE.PerspectiveCamera(40, 1, 0.01, 100);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+let current = null, home = null;
+function resize() { const w = box.clientWidth, h = box.clientHeight; renderer.setSize(w, h); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+addEventListener('resize', resize); resize();
+function frame(obj) {
+  const b = new THREE.Box3().setFromObject(obj), c = b.getCenter(new THREE.Vector3()), s = b.getSize(new THREE.Vector3()).length();
+  controls.target.copy(c);
+  camera.position.copy(c).add(new THREE.Vector3(0.9, 0.6, 1.1).normalize().multiplyScalar(s * 1.3));
+  camera.near = s / 100; camera.far = s * 20; camera.updateProjectionMatrix(); controls.update();
+  home = { p: camera.position.clone(), t: controls.target.clone() };
+}
+const loader = new GLTFLoader();
+function load(key) {
+  const m = MODELS[key]; msg.textContent = 'Loading ' + m.file + ' (' + m.mb + ' MB)…'; msg.hidden = false;
+  loader.load(m.file, g => {
+    if (current) scene.remove(current);
+    current = g.scene; scene.add(current); frame(current); msg.hidden = true; info.textContent = m.text;
+  }, undefined, e => { msg.textContent = 'Could not load the model: ' + (e.message || e); });
+}
+sel.addEventListener('change', () => load(sel.value));
+document.getElementById('reset').addEventListener('click', () => { if (home) { camera.position.copy(home.p); controls.target.copy(home.t); controls.update(); } });
+renderer.setAnimationLoop(() => { controls.update(); renderer.render(scene, camera); });
+load(sel.value);
+</script></main><script>document.querySelectorAll("button[data-c]").forEach(function(b){b.addEventListener("click",function(){var ok=function(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy"},1200)};if(navigator.clipboard){navigator.clipboard.writeText(b.dataset.c).then(ok).catch(function(){})}})});</script></body></html>

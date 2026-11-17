@@ -1,0 +1,100 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SPARQL | LREC</title><link rel="stylesheet" href="assets/site.css"><script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script></head><body><nav><div class=grp><span class=lab>Documentation</span><span class=lnk><a href="index.html">Overview</a><a href="ontology.html">Data model</a><a href="coverage.html">CRM coverage</a><a href="crosswalk.html">Crosswalk</a><a href="instances.html">Instance models</a><a href="sparql.html" class=on>SPARQL</a><a href="viewer.html">3D viewer</a><a href="visuals.html">Figures</a><a href="fdox.html">FDOx</a><a href="interpretations.html">Interpretations</a></span></div><div class=grp><span class=lab>Figures</span><span class=lnk><a href="visuals.html#story">Story</a><a href="visuals.html#architecture">Architecture</a><a href="visuals.html#overview">Whole model</a><a href="visuals.html#classes">Class diagram</a><a href="visuals.html#identification">Identification</a><a href="visuals.html#node">Pyramid node</a><a href="visuals.html#pyramid1">Pyramid 1</a><a href="visuals.html#pyramid2">Pyramid 2</a><a href="visuals.html#hub">FDOx node</a><a href="visuals.html#workflow">Workflow</a><a href="visuals.html#coverage">CRM anchors</a><a href="visuals.html#crosswalk">Crosswalk</a></span></div></nav><main><h1>Query the graph</h1><section><p>There is no SPARQL endpoint and no server. The graph is fetched as a static file (<a href="graph.nt"><code>graph.nt</code></a>: ontology, Wikidata mapping, the four FDOx bundles and the registry pins) and parsed in your browser by <code>rdflib</code> under Pyodide. Edit a query and press Run; nothing you type leaves your machine. The page needs to be served over HTTP (GitHub Pages does this); opened from a local file the browser blocks the fetch.</p></section><div class=card id=status><span id=dot class=dot></span> <span id=status-text>Loading the Python runtime (about 10 MB on first visit)&hellip;</span></div><section class=q id="q-classes-anchored"><h2>1. Which LREC classes sit directly under a CRM family class?</h2><p>Every LREC class is anchored in CIDOC CRM, CRMdig or CRMinf. This lists the direct anchors; classes that reach the family only through another LREC class do not appear here (see the CRM coverage page).</p><textarea class=sparql id="src-classes-anchored" spellcheck=false rows=7>SELECT ?class ?anchor WHERE {
+  ?class a owl:Class ; rdfs:subClassOf ?anchor .
+  FILTER(STRSTARTS(STR(?class), &quot;https://example.org/lego-reconstruction#&quot;))
+  FILTER(STRSTARTS(STR(?anchor), &quot;http://www.cidoc-crm.org/&quot;) || STRSTARTS(STR(?anchor), &quot;http://www.ics.forth.gr/isl/CRM&quot;))
+}
+ORDER BY ?anchor ?class</textarea><p><button type=button class=run data-q="classes-anchored" disabled>Run</button> <button type=button class=reset data-q="classes-anchored">Reset</button> <a class=muted href="downloads/queries/classes-anchored.rq">.rq file</a> <span class=muted id="time-classes-anchored"></span></p><div id="out-classes-anchored"></div></section><section class=q id="q-hypotheses-ranked"><h2>2. Identification hypotheses, ranked by confidence</h2><p>The confidence is a subjective estimate by the AI assistant, not a measurement. Hypotheses overlap and do not sum to 1.</p><textarea class=sparql id="src-hypotheses-ranked" spellcheck=false rows=9>SELECT ?object ?hypothesis ?confidence ?status WHERE {
+  ?h lrec:hypothesisAbout ?o ; lrec:confidence ?confidence ; rdfs:label ?hypothesis .
+  FILTER(LANG(?hypothesis) = &quot;en&quot;)
+  ?o rdfs:label ?object .
+  FILTER(LANG(?object) = &quot;en&quot; || LANG(?object) = &quot;&quot;)
+  OPTIONAL { ?h lrec:verificationStatus ?status . FILTER(LANG(?status) = &quot;en&quot;) }
+}
+ORDER BY ?object DESC(?confidence)</textarea><p><button type=button class=run data-q="hypotheses-ranked" disabled>Run</button> <button type=button class=reset data-q="hypotheses-ranked">Reset</button> <a class=muted href="downloads/queries/hypotheses-ranked.rq">.rq file</a> <span class=muted id="time-hypotheses-ranked"></span></p><div id="out-hypotheses-ranked"></div></section><section class=q id="q-evidence"><h2>3. Which evidence was used for which identification?</h2><p>An identification (crminf:I5 Inference Making) uses evidence as a premise and concludes a hypothesis.</p><textarea class=sparql id="src-evidence" spellcheck=false rows=7>SELECT ?identification ?evidence WHERE {
+  ?i crminf:J1_used_as_premise ?e .
+  ?i rdfs:label ?identification . FILTER(LANG(?identification) = &quot;en&quot;)
+  ?e rdfs:label ?evidence . FILTER(LANG(?evidence) = &quot;en&quot;)
+}
+ORDER BY ?identification ?evidence</textarea><p><button type=button class=run data-q="evidence" disabled>Run</button> <button type=button class=reset data-q="evidence">Reset</button> <a class=muted href="downloads/queries/evidence.rq">.rq file</a> <span class=muted id="time-evidence"></span></p><div id="out-evidence"></div></section><section class=q id="q-scans"><h2>4. Scans: when, with what, how many photos, where</h2><p>The scan events of the two pyramids with device, photo count and the Wikidata item of the place.</p><textarea class=sparql id="src-scans" spellcheck=false rows=9>SELECT ?model ?device ?photos (MIN(?placeLabel) AS ?place) ?wikidata WHERE {
+  ?event a lrec:ScanDigitization ; crmdig:L1_digitized ?m ; lrec:captureDevice ?device ; lrec:imageCount ?photos ; crm:P7_took_place_at ?p .
+  ?m rdfs:label ?model . FILTER(LANG(?model) = &quot;en&quot;)
+  ?p rdfs:label ?placeLabel . FILTER(LANG(?placeLabel) = &quot;en&quot;)
+  OPTIONAL { ?p skos:closeMatch ?wikidata }
+}
+GROUP BY ?model ?device ?photos ?wikidata
+ORDER BY ?model</textarea><p><button type=button class=run data-q="scans" disabled>Run</button> <button type=button class=reset data-q="scans">Reset</button> <a class=muted href="downloads/queries/scans.rq">.rq file</a> <span class=muted id="time-scans"></span></p><div id="out-scans"></div></section><section class=q id="q-fdox"><h2>5. The four FDOx: concept DOI, title and pinned version</h2><p>The identity of an FDOx is its concept DOI; the pinned version DOI is the registry pin.</p><textarea class=sparql id="src-fdox" spellcheck=false rows=6>SELECT ?concept ?title ?version WHERE {
+  ?concept a lrec:FDOx ; dct:title ?title .
+  OPTIONAL { ?concept dct:hasVersion ?version }
+}
+ORDER BY ?title</textarea><p><button type=button class=run data-q="fdox" disabled>Run</button> <button type=button class=reset data-q="fdox">Reset</button> <a class=muted href="downloads/queries/fdox.rq">.rq file</a> <span class=muted id="time-fdox"></span></p><div id="out-fdox"></div></section><section class=q id="q-models"><h2>6. Which 3D models belong to which pyramid?</h2><p>hdt:has_3D_model links a LEGO model to its raw scan and to the reconstruction.</p><textarea class=sparql id="src-models" spellcheck=false rows=8>SELECT ?pyramid ?model ?type WHERE {
+  ?p a lrec:LegoModel ; rdfs:label ?pyramid ; ?has ?m .
+  FILTER(STRENDS(STR(?has), &quot;has_3D_model&quot;) &amp;&amp; LANG(?pyramid) = &quot;en&quot;)
+  ?m a ?type ; rdfs:label ?model .
+  FILTER(LANG(?model) = &quot;en&quot;)
+}
+ORDER BY ?pyramid ?model</textarea><p><button type=button class=run data-q="models" disabled>Run</button> <button type=button class=reset data-q="models">Reset</button> <a class=muted href="downloads/queries/models.rq">.rq file</a> <span class=muted id="time-models"></span></p><div id="out-models"></div></section><section class=q id="q-properties"><h2>7. Own properties with domain and range</h2><p>The 16 properties that LREC defines, with the class they start from and the class or datatype they lead to.</p><textarea class=sparql id="src-properties" spellcheck=false rows=8>SELECT ?property ?domain ?range WHERE {
+  { ?property a owl:ObjectProperty } UNION { ?property a owl:DatatypeProperty }
+  FILTER(STRSTARTS(STR(?property), &quot;https://example.org/lego-reconstruction#&quot;))
+  OPTIONAL { ?property rdfs:domain ?domain }
+  OPTIONAL { ?property rdfs:range ?range }
+}
+ORDER BY ?property</textarea><p><button type=button class=run data-q="properties" disabled>Run</button> <button type=button class=reset data-q="properties">Reset</button> <a class=muted href="downloads/queries/properties.rq">.rq file</a> <span class=muted id="time-properties"></span></p><div id="out-properties"></div></section><script>
+const PREFIXES = "PREFIX lrec: <https://example.org/lego-reconstruction#>\nPREFIX ex: <https://example.org/lego-reconstruction/id/>\nPREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>\nPREFIX crmdig: <http://www.ics.forth.gr/isl/CRMdig/>\nPREFIX crminf: <http://www.ics.forth.gr/isl/CRMinf/>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX dcat: <http://www.w3.org/ns/dcat#>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>", QUERIES = {"classes-anchored": "SELECT ?class ?anchor WHERE {\n  ?class a owl:Class ; rdfs:subClassOf ?anchor .\n  FILTER(STRSTARTS(STR(?class), \"https://example.org/lego-reconstruction#\"))\n  FILTER(STRSTARTS(STR(?anchor), \"http://www.cidoc-crm.org/\") || STRSTARTS(STR(?anchor), \"http://www.ics.forth.gr/isl/CRM\"))\n}\nORDER BY ?anchor ?class", "hypotheses-ranked": "SELECT ?object ?hypothesis ?confidence ?status WHERE {\n  ?h lrec:hypothesisAbout ?o ; lrec:confidence ?confidence ; rdfs:label ?hypothesis .\n  FILTER(LANG(?hypothesis) = \"en\")\n  ?o rdfs:label ?object .\n  FILTER(LANG(?object) = \"en\" || LANG(?object) = \"\")\n  OPTIONAL { ?h lrec:verificationStatus ?status . FILTER(LANG(?status) = \"en\") }\n}\nORDER BY ?object DESC(?confidence)", "evidence": "SELECT ?identification ?evidence WHERE {\n  ?i crminf:J1_used_as_premise ?e .\n  ?i rdfs:label ?identification . FILTER(LANG(?identification) = \"en\")\n  ?e rdfs:label ?evidence . FILTER(LANG(?evidence) = \"en\")\n}\nORDER BY ?identification ?evidence", "scans": "SELECT ?model ?device ?photos (MIN(?placeLabel) AS ?place) ?wikidata WHERE {\n  ?event a lrec:ScanDigitization ; crmdig:L1_digitized ?m ; lrec:captureDevice ?device ; lrec:imageCount ?photos ; crm:P7_took_place_at ?p .\n  ?m rdfs:label ?model . FILTER(LANG(?model) = \"en\")\n  ?p rdfs:label ?placeLabel . FILTER(LANG(?placeLabel) = \"en\")\n  OPTIONAL { ?p skos:closeMatch ?wikidata }\n}\nGROUP BY ?model ?device ?photos ?wikidata\nORDER BY ?model", "fdox": "SELECT ?concept ?title ?version WHERE {\n  ?concept a lrec:FDOx ; dct:title ?title .\n  OPTIONAL { ?concept dct:hasVersion ?version }\n}\nORDER BY ?title", "models": "SELECT ?pyramid ?model ?type WHERE {\n  ?p a lrec:LegoModel ; rdfs:label ?pyramid ; ?has ?m .\n  FILTER(STRENDS(STR(?has), \"has_3D_model\") && LANG(?pyramid) = \"en\")\n  ?m a ?type ; rdfs:label ?model .\n  FILTER(LANG(?model) = \"en\")\n}\nORDER BY ?pyramid ?model", "properties": "SELECT ?property ?domain ?range WHERE {\n  { ?property a owl:ObjectProperty } UNION { ?property a owl:DatatypeProperty }\n  FILTER(STRSTARTS(STR(?property), \"https://example.org/lego-reconstruction#\"))\n  OPTIONAL { ?property rdfs:domain ?domain }\n  OPTIONAL { ?property rdfs:range ?range }\n}\nORDER BY ?property"}, MAX_ROWS = 500;
+const st = document.getElementById('status-text'), dot = document.getElementById('dot');
+let pyodide = null;
+function setStatus(t, s) { st.textContent = t; dot.className = 'dot ' + (s || ''); }
+function esc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function table(cols, rows, id, total) {
+  const out = document.getElementById(id);
+  if (!rows.length) { out.innerHTML = '<p class="muted">No results. The query is valid but matched nothing.</p>'; return; }
+  let h = '<div style="overflow-x:auto"><table><tr>' + cols.map(c => '<th>' + esc(c) + '</th>').join('') + '</tr>';
+  for (const r of rows) h += '<tr>' + cols.map(c => { const v = r[c]; if (v === null || v === undefined) return '<td class="muted">&mdash;</td>';
+    const s = String(v); return /^https?:\/\//.test(s) ? '<td><a href="' + esc(s) + '" target="_blank" rel="noopener">' + esc(s) + '</a></td>' : '<td>' + esc(s) + '</td>'; }).join('') + '</tr>';
+  out.innerHTML = h + '</table></div><p class="muted">' + (total > rows.length ? 'Showing the first ' + rows.length + ' of ' + total + ' rows.' : rows.length + ' row' + (rows.length === 1 ? '' : 's') + '.') + '</p>';
+}
+async function boot() {
+  try {
+    pyodide = await loadPyodide();
+    setStatus('Installing rdflib…', 'busy');
+    await pyodide.loadPackage('micropip');
+    await pyodide.runPythonAsync('import micropip\nawait micropip.install("rdflib==7.1.1")');
+    setStatus('Loading the graph…', 'busy');
+    await pyodide.runPythonAsync(`
+from pyodide.http import pyfetch
+from rdflib import Graph
+resp = await pyfetch("graph.nt")
+if resp.status != 200:
+    raise RuntimeError("graph.nt -> HTTP " + str(resp.status))
+base = Graph()
+base.parse(data=await resp.string(), format="nt")
+n_base = len(base)
+`);
+    setStatus('Ready — ' + pyodide.globals.get('n_base') + ' triples loaded. Edit a query and press Run.', 'ok');
+    document.querySelectorAll('button.run').forEach(b => b.disabled = false);
+  } catch (e) { setStatus('Could not start: ' + e.message, 'err'); console.error(e); }
+}
+async function run(id) {
+  const btn = document.querySelector('button.run[data-q="' + id + '"]'), tm = document.getElementById('time-' + id), out = document.getElementById('out-' + id);
+  btn.disabled = true; tm.textContent = 'running…'; out.innerHTML = '';
+  const t0 = performance.now();
+  try {
+    pyodide.globals.set('_q', PREFIXES + '\n' + document.getElementById('src-' + id).value);
+    const json = await pyodide.runPythonAsync(`
+import json
+res = base.query(_q)
+cols = [str(v) for v in res.vars]
+_all = list(res)
+rows = [{c: (None if r[i] is None else str(r[i])) for i, c in enumerate(cols)} for r in _all[:${MAX_ROWS}]]
+json.dumps({"cols": cols, "rows": rows, "total": len(_all)})
+`);
+    const d = JSON.parse(json);
+    table(d.cols, d.rows, 'out-' + id, d.total);
+    tm.textContent = ((performance.now() - t0) / 1000).toFixed(1) + ' s';
+  } catch (e) { out.innerHTML = '<pre style="white-space:pre-wrap;color:#9a3412">' + esc(e.message) + '</pre>'; tm.textContent = ''; }
+  btn.disabled = false;
+}
+document.querySelectorAll('button.run').forEach(b => b.addEventListener('click', () => run(b.dataset.q)));
+document.querySelectorAll('button.reset').forEach(b => b.addEventListener('click', () => { const id = b.dataset.q;
+  document.getElementById('src-' + id).value = QUERIES[id]; document.getElementById('out-' + id).innerHTML = ''; document.getElementById('time-' + id).textContent = ''; }));
+boot();
+</script></main><script>document.querySelectorAll("button[data-c]").forEach(function(b){b.addEventListener("click",function(){var ok=function(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy"},1200)};if(navigator.clipboard){navigator.clipboard.writeText(b.dataset.c).then(ok).catch(function(){})}})});</script></body></html>

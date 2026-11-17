@@ -22,6 +22,8 @@ fam = {str(a).split("/")[2] for c in classes for a in anchors(g, c)}
 if not {"www.cidoc-crm.org", "www.ics.forth.gr"} <= fam or not any("CRMinf" in str(a) for c in classes for a in anchors(g, c)) \
         or not any("CRMdig" in str(a) for c in classes for a in anchors(g, c)):
     sys.exit("draw_arch: the ontology no longer uses crm, crmdig and crminf anchors")
+if not any(str(o).startswith("https://w3id.org/hdt") or "/hdt" in str(o).lower() for c in classes for o in g.objects(c, rdflib.RDFS.subClassOf) if "HC_" in str(o)):
+    sys.exit("draw_arch: no class is a subclass of an HDT HC class any more")
 count = [sum(1 for c in classes if str(c).split("#")[1] in names) for _, _, names, _ in MODULES]
 if sum(count) != len(classes):
     sys.exit("draw_arch: classes without a module")
@@ -46,10 +48,11 @@ def node(x, y, w, h, fill, l1, l2, big=False):
 
 
 # CRM family
-panel(30, 30, LW, 250, "#edf1f9", "CRM family")
+panel(30, 30, LW, 250, "#edf1f9", "CRM family and Heritage Digital Twin (HDT)")
 node(60, 84, LW - 60, 60, "#d4e0f4", "CIDOC CRM", "events, things, places, time-spans, types, actors")
-node(60, 168, 520, 96, "#e2d6ef", "CRMdig", "digital objects, digitisation, software, derivation")
-node(610, 168, 520, 96, "#d7e8d2", "CRMinf", "beliefs, propositions, inference making")
+node(60, 168, 340, 96, "#e2d6ef", "CRMdig", "digital objects, digitisation, software")
+node(420, 168, 340, 96, "#d7e8d2", "CRMinf", "beliefs, propositions, inference")
+node(780, 168, 340, 96, "#fde3c8", "HDT", "Heritage Digital Twin: HC classes")
 # domain layer
 panel(30, 360, LW, 270, "#f5f6f0", "LREC domain layer", sub=f"{len(classes)} classes in three modules, all anchored in the CRM family")
 cols = ["#fff0cc", "#d7e8d2", "#f7d9ea"]
@@ -80,9 +83,9 @@ for t, s2, fill in [("Wikidata", "places, candidates", WHITE), ("FDOx", "Zenodo 
     node(bx, 915, w, 62, fill, t, s2)
     bx += w + 20
 # arrows with amber chips centred on them
-for x in (200, 605, 1010 - 0):
+for x in (230, 590, 950):
     svg.arrow([(x, 360), (x, 280)], sw=1.6)
-svg.chip(605, 320, "anchored by rdfs:subClassOf")
+svg.chip(590, 320, "anchored by rdfs:subClassOf")
 for x in (200, 590, 980):
     svg.arrow([(x, 630), (x, 730)], sw=1.6)
 svg.chip(590, 680, "reused, not copied")

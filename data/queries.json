@@ -1,0 +1,47 @@
+{
+ "prefixes": "PREFIX lrec: <https://example.org/lego-reconstruction#>\nPREFIX ex: <https://example.org/lego-reconstruction/id/>\nPREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>\nPREFIX crmdig: <http://www.ics.forth.gr/isl/CRMdig/>\nPREFIX crminf: <http://www.ics.forth.gr/isl/CRMinf/>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX dcat: <http://www.w3.org/ns/dcat#>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>",
+ "queries": [
+  {
+   "id": "classes-anchored",
+   "title": "Which LREC classes sit directly under a CRM family class?",
+   "intro": "Every LREC class is anchored in CIDOC CRM, CRMdig or CRMinf. This lists the direct anchors; classes that reach the family only through another LREC class do not appear here (see the CRM coverage page).",
+   "sparql": "SELECT ?class ?anchor WHERE {\n  ?class a owl:Class ; rdfs:subClassOf ?anchor .\n  FILTER(STRSTARTS(STR(?class), \"https://example.org/lego-reconstruction#\"))\n  FILTER(STRSTARTS(STR(?anchor), \"http://www.cidoc-crm.org/\") || STRSTARTS(STR(?anchor), \"http://www.ics.forth.gr/isl/CRM\"))\n}\nORDER BY ?anchor ?class"
+  },
+  {
+   "id": "hypotheses-ranked",
+   "title": "Identification hypotheses, ranked by confidence",
+   "intro": "The confidence is a subjective estimate by the AI assistant, not a measurement. Hypotheses overlap and do not sum to 1.",
+   "sparql": "SELECT ?object ?hypothesis ?confidence ?status WHERE {\n  ?h lrec:hypothesisAbout ?o ; lrec:confidence ?confidence ; rdfs:label ?hypothesis .\n  FILTER(LANG(?hypothesis) = \"en\")\n  ?o rdfs:label ?object .\n  FILTER(LANG(?object) = \"en\" || LANG(?object) = \"\")\n  OPTIONAL { ?h lrec:verificationStatus ?status . FILTER(LANG(?status) = \"en\") }\n}\nORDER BY ?object DESC(?confidence)"
+  },
+  {
+   "id": "evidence",
+   "title": "Which evidence was used for which identification?",
+   "intro": "An identification (crminf:I5 Inference Making) uses evidence as a premise and concludes a hypothesis.",
+   "sparql": "SELECT ?identification ?evidence WHERE {\n  ?i crminf:J1_used_as_premise ?e .\n  ?i rdfs:label ?identification . FILTER(LANG(?identification) = \"en\")\n  ?e rdfs:label ?evidence . FILTER(LANG(?evidence) = \"en\")\n}\nORDER BY ?identification ?evidence"
+  },
+  {
+   "id": "scans",
+   "title": "Scans: when, with what, how many photos, where",
+   "intro": "The scan events of the two pyramids with device, photo count and the Wikidata item of the place.",
+   "sparql": "SELECT ?model ?device ?photos (MIN(?placeLabel) AS ?place) ?wikidata WHERE {\n  ?event a lrec:ScanDigitization ; crmdig:L1_digitized ?m ; lrec:captureDevice ?device ; lrec:imageCount ?photos ; crm:P7_took_place_at ?p .\n  ?m rdfs:label ?model . FILTER(LANG(?model) = \"en\")\n  ?p rdfs:label ?placeLabel . FILTER(LANG(?placeLabel) = \"en\")\n  OPTIONAL { ?p skos:closeMatch ?wikidata }\n}\nGROUP BY ?model ?device ?photos ?wikidata\nORDER BY ?model"
+  },
+  {
+   "id": "fdox",
+   "title": "The four FDOx: concept DOI, title and pinned version",
+   "intro": "The identity of an FDOx is its concept DOI; the pinned version DOI is the registry pin.",
+   "sparql": "SELECT ?concept ?title ?version WHERE {\n  ?concept a lrec:FDOx ; dct:title ?title .\n  OPTIONAL { ?concept dct:hasVersion ?version }\n}\nORDER BY ?title"
+  },
+  {
+   "id": "models",
+   "title": "Which 3D models belong to which pyramid?",
+   "intro": "hdt:has_3D_model links a LEGO model to its raw scan and to the reconstruction.",
+   "sparql": "SELECT ?pyramid ?model ?type WHERE {\n  ?p a lrec:LegoModel ; rdfs:label ?pyramid ; ?has ?m .\n  FILTER(STRENDS(STR(?has), \"has_3D_model\") && LANG(?pyramid) = \"en\")\n  ?m a ?type ; rdfs:label ?model .\n  FILTER(LANG(?model) = \"en\")\n}\nORDER BY ?pyramid ?model"
+  },
+  {
+   "id": "properties",
+   "title": "Own properties with domain and range",
+   "intro": "The 16 properties that LREC defines, with the class they start from and the class or datatype they lead to.",
+   "sparql": "SELECT ?property ?domain ?range WHERE {\n  { ?property a owl:ObjectProperty } UNION { ?property a owl:DatatypeProperty }\n  FILTER(STRSTARTS(STR(?property), \"https://example.org/lego-reconstruction#\"))\n  OPTIONAL { ?property rdfs:domain ?domain }\n  OPTIONAL { ?property rdfs:range ?range }\n}\nORDER BY ?property"
+  }
+ ]
+}

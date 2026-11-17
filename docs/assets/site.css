@@ -18,4 +18,6 @@ table{border-collapse:collapse;width:100%;font-size:15px}th,td{text-align:left;p
 code{font-size:14px;background:#f1efe8;padding:1px 4px;border-radius:4px}.muted{color:var(--muted);font-size:14px}
 img{max-width:100%;height:auto}.n{color:var(--accent);font-weight:500;margin-right:8px}.cap{font-size:20px;font-weight:500}
 blockquote{background:#fff7e0;border-left:4px solid #fbbf24;margin:12px 0;padding:8px 12px}
+textarea.sparql{width:100%;font:13px/1.4 ui-monospace,Consolas,monospace;border:1px solid var(--rim);border-radius:6px;padding:8px;background:#fbfbf9}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:#bbb}.dot.ok{background:#166534}.dot.busy{background:#fbbf24}.dot.err{background:#9a3412}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:700px){.grid{grid-template-columns:1fr}}

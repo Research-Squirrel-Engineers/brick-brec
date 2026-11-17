@@ -32,6 +32,8 @@ def need(c, m):
 
 need((L.LegoModel, rdflib.RDFS.subClassOf, CRM["E22_Human-Made_Object"]) in g, "LegoModel is no longer a crm:E22")
 need((P, L.builtBy, EX.daria) in g, "builder changed")
+need((L.LegoModel, rdflib.RDFS.subClassOf, HDT.HC_Tangible_Asset) in g, "LegoModel is no longer an HDT tangible asset")
+need((L.LegoModelTwin, rdflib.RDFS.subClassOf, HDT.HC_Heritage_Digital_Twin) in g, "LegoModelTwin is no longer an HDT digital twin")
 need((P, HDT.has_digital_twin, EX.lego_pyramid_2_twin) in g, "digital twin missing")
 need((P, HDT.has_3D_model, EX.model2_scan) in g and (P, HDT.has_3D_model, EX.model2_v4) in g, "3D models missing")
 need((EX.model2_scan_event, CRMDIG.L1_digitized, P) in g, "scan event does not digitise the pyramid")
@@ -73,9 +75,9 @@ def box(c, w, h, fill, l1, l2, dash=None):
 
 BW, BH = 290, 78
 # spokes: centre, fill, line 1, line 2, chip, direction (1 pyramid -> box, -1 box -> pyramid), dash
-S = [((170, 110), ORANGE, "CIDOC CRM family", "lrec:LegoModel, subclass of crm:E22", "rdf:type", 1, None),
+S = [((170, 110), ORANGE, "CRM family and HDT", "crm:E22 and hdt:HC Tangible Asset", "rdf:type", 1, None),
      ((170, 290), PURPLE, "Daria Stefan (TU Wien)", "ORCID 0009-0008-0586-9350", "lrec: builtBy", 1, None),
-     ((170, 470), ORANGE, "Digital twin", "lrec:LegoModelTwin, crmdig:D1", "hdt: has digital twin", 1, None),
+     ((170, 470), ORANGE, "Digital twin", "crmdig:D1 and hdt:HC Digital Twin", "hdt: has digital twin", 1, None),
      ((170, 640), ORANGE, "Scan digitisation", f"{n} photos, Samsung Galaxy A71", "crmdig: L1 digitized", -1, None),
      ((1580, 110), ORANGE, "Identity hypothesis", f"Maya step pyramid, confidence {conf:.2f}", "lrec: hypothesisAbout", -1, None),
      ((1580, 470), GREY, "Raw scan", "KIRI Engine, ex:model2_scan", "hdt: has 3D model", 1, None),

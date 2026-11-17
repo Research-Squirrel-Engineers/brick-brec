@@ -15,6 +15,7 @@ from rdflib import RDF, RDFS, OWL, Namespace
 
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
 import pages_more  # noqa: E402
+import pages_web  # noqa: E402
 from pages_more import FIG_NAV  # noqa: E402
 from lrec_utils import DOCS, IMG, ONTOLOGY, PY, RELEASE, ROOT, Report, ensure_dirs, load_graph, write_text  # noqa: E402
 
@@ -45,10 +46,10 @@ table{border-collapse:collapse;width:100%;font-size:15px}th,td{text-align:left;p
 code{font-size:14px;background:#f1efe8;padding:1px 4px;border-radius:4px}.muted{color:var(--muted);font-size:14px}
 img{max-width:100%;height:auto}.n{color:var(--accent);font-weight:500;margin-right:8px}.cap{font-size:20px;font-weight:500}
 blockquote{background:#fff7e0;border-left:4px solid #fbbf24;margin:12px 0;padding:8px 12px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:700px){.grid{grid-template-columns:1fr}}
+textarea.sparql{width:100%;font:13px/1.4 ui-monospace,Consolas,monospace;border:1px solid var(--rim);border-radius:6px;padding:8px;background:#fbfbf9}\n.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:#bbb}.dot.ok{background:#166534}.dot.busy{background:#fbbf24}.dot.err{background:#9a3412}\n.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:700px){.grid{grid-template-columns:1fr}}
 """
 PAGES = [("index.html", "Overview"), ("ontology.html", "Data model"), ("coverage.html", "CRM coverage"), ("crosswalk.html", "Crosswalk"), ("instances.html", "Instance models"),
-         ("visuals.html", "Figures"), ("fdox.html", "FDOx"), ("interpretations.html", "Interpretations")]
+         ("sparql.html", "SPARQL"), ("viewer.html", "3D viewer"), ("visuals.html", "Figures"), ("fdox.html", "FDOx"), ("interpretations.html", "Interpretations")]
 FIGPAGES = FIG_NAV
 JS_COPY = """<script>document.querySelectorAll("button[data-c]").forEach(function(b){b.addEventListener("click",function(){var ok=function(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy"},1200)};if(navigator.clipboard){navigator.clipboard.writeText(b.dataset.c).then(ok).catch(function(){})}})});</script>"""
 
@@ -57,12 +58,12 @@ def esc(x) -> str:
     return html.escape(str(x))
 
 
-def page(name: str, title: str, body: str) -> None:
+def page(name: str, title: str, body: str, head: str = "") -> None:
     def row(lab, items):
         return f'<div class=grp><span class=lab>{lab}</span><span class=lnk>' + "".join(f'<a href="{f}"{" class=on" if f == name else ""}>{t}</a>' for f, t in items) + "</span></div>"
     nav = row("Documentation", PAGES) + row("Figures", FIGPAGES)
     write_text(DOCS / name, f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-               f'<title>{esc(title)} | LREC</title><link rel="stylesheet" href="assets/site.css"></head><body><nav>{nav}</nav><main>{body}</main>{JS_COPY}</body></html>')
+               f'<title>{esc(title)} | LREC</title><link rel="stylesheet" href="assets/site.css">{head}</head><body><nav>{nav}</nav><main>{body}</main>{JS_COPY}</body></html>')
 
 
 def label(g, s, lang="en") -> str:
@@ -113,6 +114,9 @@ def main(strict: bool) -> int:
     page("crosswalk.html", "Crosswalk", pages_more.crosswalk_body(g, gm, missing))
     page("instances.html", "Instance models", pages_more.instances_body(gm, missing))
     page("visuals.html", "Figures", pages_more.figures_body(missing))
+    pages_web.write_graph(gm)
+    page("sparql.html", "SPARQL", pages_web.sparql_page(gm, r), f'<script src="https://cdn.jsdelivr.net/pyodide/v{pages_web.PYODIDE}/full/pyodide.js"></script>')
+    page("viewer.html", "3D viewer", pages_web.viewer_page(r))
     for m in sorted(set(missing)):
         r.warn(f"{m} missing; run the figures step first")
 

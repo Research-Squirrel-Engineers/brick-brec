@@ -444,6 +444,8 @@ ex:flo schema:identifier <https://orcid.org/0000-0002-3246-3531> ; owl:sameAs <h
 ex:lego_pyramid_1 lrec:builtBy ex:flo ; dct:description "Eigenbau, kein kommerzielles Set"@de , "Self-built, no commercial set"@en .
 ex:lego_pyramid_2 lrec:builtBy ex:daria ; dct:description "Eigenbau, kein kommerzielles Set; Zustimmung zur Veröffentlichung liegt vor"@de ,
     "Self-built, no commercial set; consent to publication obtained"@en .
+ex:lego_pyramid_2 rdfs:label "LEGO-Modell 2: gestufte Pyramide mit Tempelaufsatz"@de , "LEGO model 2: stepped pyramid with a temple on top"@en .
+ex:model2_v4 rdfs:label "Rekonstruktion Modell 2 (Version 4)"@de , "Reconstruction model 2 (version 4)"@en .
 
 # Scan-Sitzung (beide Modelle am 2026-11-12 im Apothekertrakt, Schloss Schönbrunn, während CHNT31)
 ex:scan_place a lrec:ScanLocation ;
