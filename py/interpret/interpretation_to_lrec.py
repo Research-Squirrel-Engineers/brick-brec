@@ -6,7 +6,7 @@ import argparse, json, os, re, sys
 import rdflib
 from rdflib import RDF, RDFS, OWL, XSD, Literal, Namespace, URIRef
 HERE = os.path.dirname(os.path.abspath(__file__))
-NS = dict(lrec='https://example.org/lego-reconstruction#', ex='https://example.org/lego-reconstruction/id/', crm='http://www.cidoc-crm.org/cidoc-crm/', crmdig='http://www.ics.forth.gr/isl/CRMdig/',
+NS = dict(lrec='https://example.org/lego-reconstruction#', ex='https://example.org/lego-reconstruction/id/', crm='http://www.cidoc-crm.org/cidoc-crm/', crmdig='http://www.cidoc-crm.org/extensions/crmdig/',
           crminf='http://www.ics.forth.gr/isl/CRMinf/', prov='http://www.w3.org/ns/prov#', dct='http://purl.org/dc/terms/', skos='http://www.w3.org/2004/02/skos/core#')
 def check(d):
     errs = []

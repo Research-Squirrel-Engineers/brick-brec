@@ -3,11 +3,12 @@ import sys, rdflib
 from rdflib import RDF, RDFS, URIRef
 ttls = sys.argv[1:] or ['ontology/lrec.ttl']   # ontology first, then optional FDOx bundle TTLs
 g = rdflib.Graph()
-for ttl in ttls: g.parse(ttl, format='turtle')
+OLD_DIG = 'http://www.ics.forth.gr/isl/CRMdig/'   # the published FDOx bundles still use the CRMdig 3.2.1 namespace
+for ttl in ttls: g.parse(data=open(ttl, encoding='utf-8').read().replace(OLD_DIG, 'http://www.cidoc-crm.org/extensions/crmdig/'), format='turtle')
 def U(s):
     p, l = s.split(':', 1)
     return URIRef({'ex': 'https://example.org/lego-reconstruction/id/', 'crm': 'http://www.cidoc-crm.org/cidoc-crm/',
-                   'crmdig': 'http://www.ics.forth.gr/isl/CRMdig/', 'crminf': 'http://www.ics.forth.gr/isl/CRMinf/',
+                   'crmdig': 'http://www.cidoc-crm.org/extensions/crmdig/', 'crminf': 'http://www.ics.forth.gr/isl/CRMinf/',
                    'hdt': 'https://example.org/placeholder/hdt#', 'prov': 'http://www.w3.org/ns/prov#',
                    'lrec': 'https://example.org/lego-reconstruction#', 'dqv': 'http://www.w3.org/ns/dqv#',
                    'unit': 'http://qudt.org/vocab/unit/', 'skos': 'http://www.w3.org/2004/02/skos/core#',

@@ -1,7 +1,7 @@
 PREFIX lrec: <https://example.org/lego-reconstruction#>
 PREFIX ex: <https://example.org/lego-reconstruction/id/>
 PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
-PREFIX crmdig: <http://www.ics.forth.gr/isl/CRMdig/>
+PREFIX crmdig: <http://www.cidoc-crm.org/extensions/crmdig/>
 PREFIX crminf: <http://www.ics.forth.gr/isl/CRMinf/>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
@@ -13,6 +13,6 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 SELECT ?class ?anchor WHERE {
   ?class a owl:Class ; rdfs:subClassOf ?anchor .
   FILTER(STRSTARTS(STR(?class), "https://example.org/lego-reconstruction#"))
-  FILTER(STRSTARTS(STR(?anchor), "http://www.cidoc-crm.org/") || STRSTARTS(STR(?anchor), "http://www.ics.forth.gr/isl/CRM"))
+  FILTER(STRSTARTS(STR(?anchor), "http://www.cidoc-crm.org/") || STRSTARTS(STR(?anchor), "http://www.cidoc-crm.org/extensions/") || STRSTARTS(STR(?anchor), "http://www.ics.forth.gr/isl/CRMinf/"))
 }
 ORDER BY ?anchor ?class

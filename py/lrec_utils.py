@@ -90,6 +90,16 @@ def read_pins() -> list[dict]:
         return list(csv.DictReader(f))
 
 
+CRMDIG_OLD, CRMDIG_NEW = "http://www.ics.forth.gr/isl/CRMdig/", "http://www.cidoc-crm.org/extensions/crmdig/"
+
+
+def parse_bundle(g, path):
+    """Parse a published FDOx bundle TTL. The bundles on Zenodo still use the CRMdig 3.2.1 namespace; the ontology uses the one of CRMdig 5.0,
+    so the old namespace is rewritten on reading. The files themselves stay as published (they change with the next Zenodo version)."""
+    from pathlib import Path
+    g.parse(data=Path(path).read_text(encoding="utf-8").replace(CRMDIG_OLD, CRMDIG_NEW), format="turtle")
+
+
 def load_graph(with_fdox: bool = True):
     """The ontology graph; with_fdox adds the four bundle TTLs (identical node IRIs merge) and the registry pins as dct:hasVersion."""
     import rdflib
@@ -102,7 +112,7 @@ def load_graph(with_fdox: bool = True):
         g.parse(WIKIDATA_MAP, format="turtle")
     if with_fdox:
         for f in sorted(FDOX_BUNDLES.glob("*.ttl")):
-            g.parse(f, format="turtle")
+            parse_bundle(g, f)
         for x in read_pins():
             g.add((URIRef("https://doi.org/" + x["concept_doi"]), DCTERMS.hasVersion, Literal(x["pinned_version_doi"])))
     return g

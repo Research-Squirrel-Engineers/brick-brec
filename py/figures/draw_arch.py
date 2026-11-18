@@ -20,7 +20,7 @@ g.parse(sys.argv[1], format="turtle")
 classes = own_classes(g)
 fam = {str(a).split("/")[2] for c in classes for a in anchors(g, c)}
 if not {"www.cidoc-crm.org", "www.ics.forth.gr"} <= fam or not any("CRMinf" in str(a) for c in classes for a in anchors(g, c)) \
-        or not any("CRMdig" in str(a) for c in classes for a in anchors(g, c)):
+        or not any("crmdig" in str(a).lower() for c in classes for a in anchors(g, c)):
     sys.exit("draw_arch: the ontology no longer uses crm, crmdig and crminf anchors")
 if not any(str(o).startswith("https://w3id.org/hdt") or "/hdt" in str(o).lower() for c in classes for o in g.objects(c, rdflib.RDFS.subClassOf) if "HC_" in str(o)):
     sys.exit("draw_arch: no class is a subclass of an HDT HC class any more")

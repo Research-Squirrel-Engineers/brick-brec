@@ -15,7 +15,7 @@ import rdflib
 from rdflib import RDF, RDFS, OWL, Namespace, URIRef
 
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
-from lrec_utils import DATA, FDOX_BUNDLES, ONTOLOGY, PY, RAW, ROOT, Report, read_pins, run_script, sha256_file  # noqa: E402
+from lrec_utils import DATA, FDOX_BUNDLES, parse_bundle, ONTOLOGY, PY, RAW, ROOT, Report, read_pins, run_script, sha256_file  # noqa: E402
 
 LREC = Namespace("https://example.org/lego-reconstruction#")
 DCT = Namespace("http://purl.org/dc/terms/")
@@ -126,7 +126,7 @@ def main(strict: bool) -> int:
         if sums.get(x["slug"]) and hashlib.sha256(f.read_bytes().replace(b"\r\n", b"\n")).hexdigest() != sums[x["slug"]]:  # line endings do not count (Git may convert them)
             r.warn(f"{x['slug']}: bundle TTL differs from the recorded checksum (new Zenodo version? update original_bundles.json)")
         b = rdflib.Graph()
-        b.parse(f, format="turtle")
+        parse_bundle(b, f)
         if (iri, RDF.type, FDO["3DDataFDO"]) not in b:
             r.fail(f"{x['slug']}: no fdo:3DDataFDO with IRI {iri} in the bundle TTL (wrong or missing concept DOI in the pins?)")
             continue

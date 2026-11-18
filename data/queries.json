@@ -1,11 +1,11 @@
 {
- "prefixes": "PREFIX lrec: <https://example.org/lego-reconstruction#>\nPREFIX ex: <https://example.org/lego-reconstruction/id/>\nPREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>\nPREFIX crmdig: <http://www.ics.forth.gr/isl/CRMdig/>\nPREFIX crminf: <http://www.ics.forth.gr/isl/CRMinf/>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX dcat: <http://www.w3.org/ns/dcat#>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>",
+ "prefixes": "PREFIX lrec: <https://example.org/lego-reconstruction#>\nPREFIX ex: <https://example.org/lego-reconstruction/id/>\nPREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>\nPREFIX crmdig: <http://www.cidoc-crm.org/extensions/crmdig/>\nPREFIX crminf: <http://www.ics.forth.gr/isl/CRMinf/>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX dcat: <http://www.w3.org/ns/dcat#>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>",
  "queries": [
   {
    "id": "classes-anchored",
    "title": "Which LREC classes sit directly under a CRM family class?",
    "intro": "Every LREC class is anchored in CIDOC CRM, CRMdig or CRMinf. This lists the direct anchors; classes that reach the family only through another LREC class do not appear here (see the CRM coverage page).",
-   "sparql": "SELECT ?class ?anchor WHERE {\n  ?class a owl:Class ; rdfs:subClassOf ?anchor .\n  FILTER(STRSTARTS(STR(?class), \"https://example.org/lego-reconstruction#\"))\n  FILTER(STRSTARTS(STR(?anchor), \"http://www.cidoc-crm.org/\") || STRSTARTS(STR(?anchor), \"http://www.ics.forth.gr/isl/CRM\"))\n}\nORDER BY ?anchor ?class"
+   "sparql": "SELECT ?class ?anchor WHERE {\n  ?class a owl:Class ; rdfs:subClassOf ?anchor .\n  FILTER(STRSTARTS(STR(?class), \"https://example.org/lego-reconstruction#\"))\n  FILTER(STRSTARTS(STR(?anchor), \"http://www.cidoc-crm.org/\") || STRSTARTS(STR(?anchor), \"http://www.cidoc-crm.org/extensions/\") || STRSTARTS(STR(?anchor), \"http://www.ics.forth.gr/isl/CRMinf/\"))\n}\nORDER BY ?anchor ?class"
   },
   {
    "id": "hypotheses-ranked",
