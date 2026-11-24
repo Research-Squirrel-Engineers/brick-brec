@@ -14,7 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from svgkit import GREY, ORANGE, PURPLE, Svg, WHITE, INK, MUTED  # noqa: E402
 from shapes import stepped  # noqa: E402
 
-L, EX = Namespace("https://example.org/lego-reconstruction#"), Namespace("https://example.org/lego-reconstruction/id/")
+L, EX = Namespace("https://example.org/brick-reconstruction#"), Namespace("https://example.org/brick-reconstruction/id/")
 CRM, CRMDIG = Namespace("http://www.cidoc-crm.org/cidoc-crm/"), Namespace("http://www.cidoc-crm.org/extensions/crmdig/")
 SK = Namespace("http://www.w3.org/2004/02/skos/core#")
 g = rdflib.Graph()
@@ -30,10 +30,10 @@ def need(c, m):
         sys.exit(f"draw_node: {m}")
 
 
-need((L.LegoModel, rdflib.RDFS.subClassOf, CRM["E22_Human-Made_Object"]) in g, "LegoModel is no longer a crm:E22")
+need((L.BrickModel, rdflib.RDFS.subClassOf, CRM["E22_Human-Made_Object"]) in g, "BrickModel is no longer a crm:E22")
 need((P, L.builtBy, EX.daria) in g, "builder changed")
-need((L.LegoModel, rdflib.RDFS.subClassOf, HDT.HC_Tangible_Asset) in g, "LegoModel is no longer an HDT tangible asset")
-need((L.LegoModelTwin, rdflib.RDFS.subClassOf, HDT.HC_Heritage_Digital_Twin) in g, "LegoModelTwin is no longer an HDT digital twin")
+need((L.BrickModel, rdflib.RDFS.subClassOf, HDT.HC_Tangible_Asset) in g, "BrickModel is no longer an HDT tangible asset")
+need((L.BrickModelTwin, rdflib.RDFS.subClassOf, HDT.HC_Heritage_Digital_Twin) in g, "BrickModelTwin is no longer an HDT digital twin")
 need((P, HDT.has_digital_twin, EX.lego_pyramid_2_twin) in g, "digital twin missing")
 need((P, HDT.has_3D_model, EX.model2_scan) in g and (P, HDT.has_3D_model, EX.model2_v4) in g, "3D models missing")
 need((EX.model2_scan_event, CRMDIG.L1_digitized, P) in g, "scan event does not digitise the pyramid")
@@ -76,10 +76,10 @@ def box(c, w, h, fill, l1, l2, dash=None):
 BW, BH = 290, 78
 # spokes: centre, fill, line 1, line 2, chip, direction (1 pyramid -> box, -1 box -> pyramid), dash
 S = [((170, 110), ORANGE, "CRM family and HDT", "crm:E22 and hdt:HC Tangible Asset", "rdf:type", 1, None),
-     ((170, 290), PURPLE, "Daria Stefan (TU Wien)", "ORCID 0009-0008-0586-9350", "lrec: builtBy", 1, None),
+     ((170, 290), PURPLE, "Daria Stefan (TU Wien)", "ORCID 0009-0008-0586-9350", "brec: builtBy", 1, None),
      ((170, 470), ORANGE, "Digital twin", "crmdig:D1 and hdt:HC Digital Twin", "hdt: has digital twin", 1, None),
      ((170, 640), ORANGE, "Scan digitisation", f"{n} photos, Samsung Galaxy A71", "crmdig: L1 digitized", -1, None),
-     ((1580, 110), ORANGE, "Identity hypothesis", f"Maya step pyramid, confidence {conf:.2f}", "lrec: hypothesisAbout", -1, None),
+     ((1580, 110), ORANGE, "Identity hypothesis", f"Maya step pyramid, confidence {conf:.2f}", "brec: hypothesisAbout", -1, None),
      ((1580, 470), GREY, "Raw scan", "KIRI Engine, ex:model2_scan", "hdt: has 3D model", 1, None),
      ((1580, 650), ORANGE, "Reconstruction model", "GLB, ex:model2_v4", "hdt: has 3D model", 1, None)]
 for c, fill, l1, l2, chip, d, dash in S:
@@ -108,7 +108,7 @@ link((170, 640), (170, 780), "crm: P7 took place at")
 box((170, 920), BW, BH, PURPLE, f"Wikidata {str(wd).split('/')[-1]}", "same place as the scan location")
 link((170, 780), (170, 920), "skos: closeMatch")
 box((1580, 290), BW, BH, PURPLE, "Candidate referent", "Wikidata item still to be chosen" if cand_wd is None else f"Wikidata {str(cand_wd).split('/')[-1]}", dash="7 5" if cand_wd is None else None)
-link((1580, 110), (1580, 290), "lrec: proposesReferent")
+link((1580, 110), (1580, 290), "brec: proposesReferent")
 box((1580, 830), BW, BH, PURPLE, "FDOx on Zenodo", "10.5281/zenodo.24305436")
 link((1580, 650), (1580, 830), "hdt: has 3D model", up=True)
 svg.legend([(ORANGE, "class or reconstruction"), (GREY, "instance"), (PURPLE, "term or identifier")], 560, 960)

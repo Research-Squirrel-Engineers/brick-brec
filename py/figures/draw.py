@@ -8,7 +8,7 @@ def ww(n): return SZ.get(n,(W,H))[0]
 def hh(n): return SZ.get(n,(W,H))[1]
 GRN=('#166534','#fff'); ORG=('#9a3412','#fff'); PUR=('#4c1d95','#fff'); AMB=('#fbbf24','#000')
 N={ # id:(col,row,fill,hdt,lines)
-'TA':(1,0,GRN,1,['HC16 Tangible Asset','E22 Human-Made Object','LEGO model (physical)']),
+'TA':(1,0,GRN,1,['HC16 Tangible Asset','E22 Human-Made Object','Brick model (physical)']),
 'TW':(4,0,ORG,1,['HC3 Heritage Digital Twin','D1 Digital Object','Digital twin']),
 'HDOC':(6,0,ORG,1,['HC4 Heritage Document','E31 Document','Change docs md + json']),
 'IMG':(2,1,ORG,1,['HC6 Imagery','D1 Digital Object','Photos (reference)']),
@@ -27,8 +27,8 @@ N={ # id:(col,row,fill,hdt,lines)
 'SW1':(1,4,ORG,0,['D14 Software','KIRI Engine']),
 'DIM':(2,4,AMB,0,['E54 Dimension','Value + accuracy']),
 'BEL':(4,4,AMB,0,['I2 Belief','Assumption, e.g. 7 levels']),
-'FR':(5,5,ORG,0,['lrec:FDOx · dcat:Dataset','FDOx reconstruction (Zenodo)','Concept DOI ...24305436']),
-'FS':(8,5,ORG,0,['lrec:FDOx · dcat:Dataset','FDOx scan (Zenodo)','Concept DOI ...24305428']),
+'FR':(5,5,ORG,0,['brec:FDOx · dcat:Dataset','FDOx reconstruction (Zenodo)','Concept DOI ...24305436']),
+'FS':(8,5,ORG,0,['brec:FDOx · dcat:Dataset','FDOx scan (Zenodo)','Concept DOI ...24305428']),
 'UNIT':(2,5,PUR,0,['E58 Measurement Unit','qudt:Unit']),
 }
 def box(n): c,r=N[n][:2]; return (C[c],R[r])
@@ -53,7 +53,7 @@ E=[ # (label, pts, label_xy)
 ('P91 has unit',[anc('DIM','b'),anc('UNIT','t')],(570,848)),
 ('J1 used as premise',[anc('INF','b',-40),anc('DIM','t',50)],(668,674)),
 ('J2 concluded that',[anc('INF','b',40),anc('BEL','t',-40)],(972,674)),
-('lrec: usesAssumption',[anc('REC','b'),anc('BEL','t')],(1180,602)),
+('brec: usesAssumption',[anc('REC','b'),anc('BEL','t')],(1180,602)),
 ('L12 happened on device',[anc('DIG','b'),anc('DEV','t')],(310,505)),
 ('L23 used software',[anc('DIG','l'),(60,420),(60,760),anc('SW1','l')],(60,592)),
 ('P14 carried out by',[anc('REC','b',30),(1130,535),(1350,535),anc('AGT','t',-40)],(1240,535)),

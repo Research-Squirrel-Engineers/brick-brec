@@ -1,5 +1,5 @@
-PREFIX lrec: <https://example.org/lego-reconstruction#>
-PREFIX ex: <https://example.org/lego-reconstruction/id/>
+PREFIX brec: <https://example.org/brick-reconstruction#>
+PREFIX ex: <https://example.org/brick-reconstruction/id/>
 PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX crmdig: <http://www.cidoc-crm.org/extensions/crmdig/>
 PREFIX crminf: <http://www.ics.forth.gr/isl/CRMinf/>

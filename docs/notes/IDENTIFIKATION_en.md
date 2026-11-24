@@ -1,6 +1,6 @@
 # Identification: what do the two LEGO models represent?
 
-State: 13 Nov 2026 · File: `lrec_v0.3.ttl` · Drawing: `identifikation_en.png/.svg` (`python draw_ident.py en`)
+State: 13 Nov 2026 · File: `brec_v0.3.ttl` · Drawing: `identifikation_en.png/.svg` (`python draw_ident.py en`)
 
 Procedure: (1) recognise from the photos and scans, (2) give reasons (here), (3) write it into the graph as a CRMinf argumentation.
 Confidence is a **subjective estimate** by the AI assistant (0 to 1), not a measurement. Hypotheses overlap and do not sum to 1. Nothing has been confirmed by the owner; all hypotheses have the status "open: confirmation by Flo needed".
@@ -27,10 +27,10 @@ Observations: E1 seven centred levels · E2 four grey stair arms, each 4 studs w
 Figure: f_a medieval warrior / soldier 0.75 · f_b Cobi series (style-based guess only) 0.40.
 
 ## Modelling
-`lrec:Identification` (⊑ `crm:E17`, `crminf:I5`) uses `lrec:Evidence` (⊑ `crminf:I4`) as premises (`J1`) and concludes on `lrec:IdentityHypothesis` (⊑ `lrec:Assumption` ⊑ `crminf:I2`) (`J2`). Relations: `lrec:supports`, `lrec:weakens`, `lrec:alternativeTo`, `lrec:specializes`, `lrec:proposesReferent` → `lrec:CandidateReferent` (with `lrec:wikidataSearchTerm`; the QID is added later as `skos:closeMatch`).
+`brec:Identification` (⊑ `crm:E17`, `crminf:I5`) uses `brec:Evidence` (⊑ `crminf:I4`) as premises (`J1`) and concludes on `brec:IdentityHypothesis` (⊑ `brec:Assumption` ⊑ `crminf:I2`) (`J2`). Relations: `brec:supports`, `brec:weakens`, `brec:alternativeTo`, `brec:specializes`, `brec:proposesReferent` → `brec:CandidateReferent` (with `brec:wikidataSearchTerm`; the QID is added later as `skos:closeMatch`).
 
 ## Wikidata (Windows cmd, one line)
-`pip install rdflib && python wikidata_match.py lrec_v0.3.ttl && python draw_ident.py en`
+`pip install rdflib && python wikidata_match.py brec_v0.3.ttl && python draw_ident.py en`
 
 The script lists the Wikidata hits per candidate and you choose the number; it writes `wikidata_mapping.ttl`, which `draw_ident.py` reads automatically and shows as a QID in the drawing.
 

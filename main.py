@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""lego-lrec orchestrator: the single entry point.
+"""brick-brec orchestrator: the single entry point.
 
     python main.py                  all steps, in order
     python main.py --list           print steps and exit
@@ -21,7 +21,7 @@ import subprocess
 import sys
 
 if sys.version_info < (3, 10):
-    sys.exit(f"lego-lrec needs Python 3.10 or newer (3.12 or newer recommended); this is {sys.version.split()[0]}. See README.md.")
+    sys.exit(f"brick-brec needs Python 3.10 or newer (3.12 or newer recommended); this is {sys.version.split()[0]}. See README.md.")
 import time
 from pathlib import Path
 

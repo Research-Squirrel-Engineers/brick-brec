@@ -1,4 +1,4 @@
-"""Shared constants and helpers for lego-lrec. Create-once module: paths, release, canonical writers."""
+"""Shared constants and helpers for brick-brec. Create-once module: paths, release, canonical writers."""
 from __future__ import annotations
 
 import hashlib
@@ -13,7 +13,7 @@ RELEASE = "0.4.0"
 
 ROOT = Path(__file__).resolve().parent.parent
 PY = ROOT / "py"
-ONTOLOGY = ROOT / "ontology" / "lrec.ttl"
+ONTOLOGY = ROOT / "ontology" / "brec.ttl"
 DATA = ROOT / "data"
 RAW = DATA / "raw"
 FDOX_BUNDLES = DATA / "fdox" / "bundles"
@@ -24,8 +24,8 @@ DOCS = ROOT / "docs"
 IMG = DOCS / "visuals" / "img"
 
 NS = {
-    "lrec": "https://example.org/lego-reconstruction#",
-    "ex": "https://example.org/lego-reconstruction/id/",
+    "brec": "https://example.org/brick-reconstruction#",
+    "ex": "https://example.org/brick-reconstruction/id/",
 }
 
 

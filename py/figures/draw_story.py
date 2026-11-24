@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from svgkit import GREY, ORANGE, PURPLE, Svg, WHITE, wrap, INK, MUTED  # noqa: E402
 from shapes import stepped  # noqa: E402
 
-L, EX = Namespace("https://example.org/lego-reconstruction#"), Namespace("https://example.org/lego-reconstruction/id/")
+L, EX = Namespace("https://example.org/brick-reconstruction#"), Namespace("https://example.org/brick-reconstruction/id/")
 g = rdflib.Graph()
 g.parse(sys.argv[1], format="turtle")
 if sys.argv[2] != "-":

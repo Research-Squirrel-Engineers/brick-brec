@@ -1,6 +1,6 @@
 """One FDOx as a node and what it is linked to (after figure 16 of geo-lod): the reconstruction FDOx of pyramid 2.
 
-usage: draw_hub.py   (reads the ontology, the four bundle TTLs, the registry pins and the Wikidata mapping through lrec_utils)
+usage: draw_hub.py   (reads the ontology, the four bundle TTLs, the registry pins and the Wikidata mapping through brec_utils)
 Every spoke is checked against the merged graph; the run stops if a drawn link no longer stands there. Output: hub.svg
 """
 import math
@@ -11,14 +11,14 @@ from rdflib import Namespace, URIRef
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from lrec_utils import load_graph  # noqa: E402
+from brec_utils import load_graph  # noqa: E402
 from svgkit import AMBER, GREY, ORANGE, PURPLE, Svg, WHITE, GREEN  # noqa: E402
 from fira import tw  # noqa: E402
 
 g = load_graph(True)
 DCT, PROV, DCAT = Namespace("http://purl.org/dc/terms/"), Namespace("http://www.w3.org/ns/prov#"), Namespace("http://www.w3.org/ns/dcat#")
 HDT = Namespace(str(next(ns for p, ns in g.namespaces() if p == "hdt")))
-EX = Namespace("https://example.org/lego-reconstruction/id/")
+EX = Namespace("https://example.org/brick-reconstruction/id/")
 HUB = URIRef("https://doi.org/10.5281/zenodo.24305436")
 SCAN = URIRef("https://doi.org/10.5281/zenodo.24305428")
 FLO, DARIA = URIRef("https://orcid.org/0000-0002-3246-3531"), URIRef("https://orcid.org/0009-0008-0586-9350")
@@ -46,7 +46,7 @@ W, H = 1750, 1000
 svg = Svg(W, H)
 HX, HY, HW, HH = 875, 500, 400, 120
 svg.rect(HX - HW / 2, HY - HH / 2, HW, HH, ORANGE, sw=3, name="HUB")
-for k, (t, size, med) in enumerate([("lrec:FDOx · dcat:Dataset", 16, True), ("Lego Pyramid Maya", 15, False), ("(Reconstruction claude.ai)", 15, False), (f"Concept DOI 10.5281/zenodo.{str(HUB).split('.')[-1]}", 13, False)]):
+for k, (t, size, med) in enumerate([("brec:FDOx · dcat:Dataset", 16, True), ("Lego Pyramid Maya", 15, False), ("(Reconstruction claude.ai)", 15, False), (f"Concept DOI 10.5281/zenodo.{str(HUB).split('.')[-1]}", 13, False)]):
     svg.text(HX, HY - 42 + k * 28, t, size, med, "#fff", "middle", maxw=HW - 20)
 
 # (box centre, width, height, fill, lines, chip label, direction: 1 = hub -> box, -1 = box -> hub)
@@ -85,5 +85,5 @@ for c, w, h, fill, lines, chip, d in S:
     svg.arrow([a, b], ends=("HUB", lines[0]), sw=1.6)
     svg.chip((a[0] + b[0]) / 2, (a[1] + b[1]) / 2, chip)
 
-svg.legend([(ORANGE, "class (LREC / CRM / HDT)"), (GREY, "instance"), (PURPLE, "term or identifier"), (WHITE, "web resource or record")], 40, 960)
+svg.legend([(ORANGE, "class (BREC / CRM / HDT)"), (GREY, "instance"), (PURPLE, "term or identifier"), (WHITE, "web resource or record")], 40, 960)
 svg.save("hub.svg")

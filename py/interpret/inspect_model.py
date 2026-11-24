@@ -141,7 +141,7 @@ def main():
     comps = len(mw.split(only_watertight=False)) if len(F) < 300000 else None
     ext_all = float(ext.max()); fmt = os.path.splitext(A.model)[1].lower()
     unit_hint = 'metres (glTF specification)' if fmt in ('.glb', '.gltf') else 'unknown; largest extent %.4g: %s' % (ext_all, 'metres or arbitrary' if ext_all < 10 else 'centimetres or millimetres likely' if ext_all < 2000 else 'millimetres or arbitrary scan units')
-    facts = dict(schema='lrec-model-facts/1.0', model_id=stem, file=dict(name=os.path.basename(A.model), format=fmt.strip('.'), bytes=os.path.getsize(A.model)),
+    facts = dict(schema='brec-model-facts/1.0', model_id=stem, file=dict(name=os.path.basename(A.model), format=fmt.strip('.'), bytes=os.path.getsize(A.model)),
         counts=dict(vertices=int(len(V)), vertices_after_merge=int(len(mw.vertices)), faces=int(len(F)), geometries=ngeo, connected_components=comps, watertight=bool(mw.is_watertight), boundary_edges=boundary),
         bounding_box=dict(min=[round(float(x), 5) for x in lo], max=[round(float(x), 5) for x in hi], extents=[round(float(x), 5) for x in ext], diagonal=round(diag, 5), axes_original='x,y,z as in file'),
         up_axis_estimate=up, units_hint=unit_hint,

@@ -14,7 +14,7 @@ import shutil
 from rdflib import BNode
 from rdflib.compare import to_canonical_graph
 
-from lrec_utils import DATA, DOCS, ROOT
+from brec_utils import DATA, DOCS, ROOT
 
 PYODIDE = "0.26.4"
 RDFLIB = "7.1.1"      # pure-Python wheel that micropip installs; the build runs the queries with the pinned rdflib of requirements.txt

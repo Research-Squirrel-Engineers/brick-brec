@@ -37,7 +37,7 @@ FORMAT EXAMPLE (shows only the structure; it is NOT about this model, do not cop
 PASS2 = """You are refining an earlier interpretation of a 3D model. The attached image is the contact sheet (and photos, if any). Below is YOUR PREVIOUS ANSWER (JSON) and the FACTS.
 
 TASK
-Return the complete, improved JSON document (same schema, same rules as before, schema version lrec-model-interpretation/1.1). Concretely:
+Return the complete, improved JSON document (same schema, same rules as before, schema version brec-model-interpretation/1.1). Concretely:
 1. Re-check every evidence statement against the images; correct or add evidence, especially counts (steps, stairs, pillars) and details of components.
 2. For each general hypothesis add 1 to 3 specific named candidates (real buildings, cultures, periods, character types, object types) with "specializes", each with feature_checks (expected vs. observed) and a strongest_counterargument. Low confidence is fine, omitting is not.
 3. Give each notable component (for example a figure, a top structure) its own hypotheses with "about": "P<n>".

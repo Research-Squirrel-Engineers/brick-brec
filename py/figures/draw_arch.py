@@ -1,4 +1,4 @@
-"""Architecture: CIDOC CRM family, the LREC domain layer in three modules, reused W3C standards, the knowledge graph and the Linked Open Data cloud.
+"""Architecture: CIDOC CRM family, the BREC domain layer in three modules, reused W3C standards, the knowledge graph and the Linked Open Data cloud.
 
 usage: draw_arch.py <ontology.ttl>   Output: architecture.svg
 Class counts per module come from the ontology and the module list of the data model page; the run stops if a CRM family member
@@ -54,7 +54,7 @@ node(60, 168, 340, 96, "#e2d6ef", "CRMdig", "digital objects, digitisation, soft
 node(420, 168, 340, 96, "#d7e8d2", "CRMinf", "beliefs, propositions, inference")
 node(780, 168, 340, 96, "#fde3c8", "HDT", "Heritage Digital Twin: HC classes")
 # domain layer
-panel(30, 360, LW, 270, "#f5f6f0", "LREC domain layer", sub=f"{len(classes)} classes in three modules, all anchored in the CRM family")
+panel(30, 360, LW, 270, "#f5f6f0", "BREC domain layer", sub=f"{len(classes)} classes in three modules, all anchored in the CRM family")
 cols = ["#fff0cc", "#d7e8d2", "#f7d9ea"]
 sub = ["from scan to documented reconstruction", "evidence, hypotheses, candidates", "Zenodo records and datasets"]
 mw = (LW - 60 - 2 * 20) / 3

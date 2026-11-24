@@ -45,7 +45,7 @@
 <g><rect x="478" y="829" width="84" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="520" y="844" font-size="12" text-anchor="middle" fill="#000">P91 has unit</text></g>
 <g><rect x="610" y="664" width="119" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="670" y="680" font-size="12" text-anchor="middle" fill="#000">J1 used as premise</text></g>
 <g><rect x="898" y="664" width="113" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="955" y="680" font-size="12" text-anchor="middle" fill="#000">J2 concluded that</text></g>
-<g><rect x="1033" y="579" width="134" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1100" y="594" font-size="12" text-anchor="middle" fill="#000">lrec: usesAssumption</text></g>
+<g><rect x="1032" y="579" width="137" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1100" y="594" font-size="12" text-anchor="middle" fill="#000">brec: usesAssumption</text></g>
 <g><rect x="155" y="494" width="150" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="230" y="510" font-size="12" text-anchor="middle" fill="#000">L12 happened on device</text></g>
 <g transform="rotate(-90 60 592)"><rect x="2" y="581" width="116" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="60" y="596" font-size="12" text-anchor="middle" fill="#000">L23 used software</text></g>
 <g><rect x="1182" y="524" width="116" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1240" y="540" font-size="12" text-anchor="middle" fill="#000">P14 carried out by</text></g>
@@ -58,7 +58,7 @@
 <rect x="125.0" y="38.0" width="210" height="84" rx="6" fill="#166534" stroke="#1d4ed8" stroke-width="4"/>
 <text x="230" y="66" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">HC16 Tangible Asset</text>
 <text x="230" y="84" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">E22 Human-Made Object</text>
-<text x="230" y="102" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">LEGO model (physical)</text>
+<text x="230" y="102" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Brick model (physical)</text>
 <rect x="995.0" y="38.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#1d4ed8" stroke-width="4"/>
 <text x="1100" y="66" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">HC3 Heritage Digital Twin</text>
 <text x="1100" y="84" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">D1 Digital Object</text>
@@ -130,11 +130,11 @@
 <text x="1100" y="755" font-size="14" font-weight="500" text-anchor="middle" fill="#000">I2 Belief</text>
 <text x="1100" y="773" font-size="12.5" font-weight="400" text-anchor="middle" fill="#000">Assumption, e.g. 7 levels</text>
 <rect x="1285.0" y="878.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
-<text x="1390" y="906" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">lrec:FDOx · dcat:Dataset</text>
+<text x="1390" y="906" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">brec:FDOx · dcat:Dataset</text>
 <text x="1390" y="924" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">FDOx reconstruction (Zenodo)</text>
 <text x="1390" y="942" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Concept DOI ...24305436</text>
 <rect x="1725.0" y="878.0" width="210" height="84" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
-<text x="1830" y="906" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">lrec:FDOx · dcat:Dataset</text>
+<text x="1830" y="906" font-size="14" font-weight="500" text-anchor="middle" fill="#fff">brec:FDOx · dcat:Dataset</text>
 <text x="1830" y="924" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">FDOx scan (Zenodo)</text>
 <text x="1830" y="942" font-size="12.5" font-weight="400" text-anchor="middle" fill="#fff">Concept DOI ...24305428</text>
 <rect x="415.0" y="878.0" width="210" height="84" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>

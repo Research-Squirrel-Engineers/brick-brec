@@ -83,7 +83,7 @@
 <text x="170.0" y="276.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#fff">Daria Stefan (TU Wien)</text>
 <text x="170.0" y="302.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">ORCID 0009-0008-0586-9350</text>
 <path d="M755.0 447.7 L314.7 329.0" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
-<rect x="493.4" y="377.3" width="83" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="534.9" y="388.3" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#000">lrec: builtBy</text>
+<rect x="491.4" y="377.3" width="87" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="534.9" y="388.3" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#000">brec: builtBy</text>
 <rect x="25.0" y="431.0" width="290.0" height="78.0" rx="6" fill="#9a3412" stroke="#000" stroke-width="1.2"/>
 <text x="170.0" y="456.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#fff">Digital twin</text>
 <text x="170.0" y="482.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">crmdig:D1 and hdt:HC Digital Twin</text>
@@ -98,7 +98,7 @@
 <text x="1580.0" y="96.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#fff">Identity hypothesis</text>
 <text x="1580.0" y="122.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">Maya step pyramid, confidence 0.70</text>
 <path d="M1505.7 149.0 L995.0 417.0" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
-<rect x="1182.3" y="272.0" width="136" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1250.3" y="283.0" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#000">lrec: hypothesisAbout</text>
+<rect x="1180.3" y="272.0" width="140" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1250.3" y="283.0" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#000">brec: hypothesisAbout</text>
 <rect x="1435.0" y="431.0" width="290.0" height="78.0" rx="6" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/>
 <text x="1580.0" y="456.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#1f1f1d">Raw scan</text>
 <text x="1580.0" y="482.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#1f1f1d">KIRI Engine, ex:model2_scan</text>
@@ -123,7 +123,7 @@
 <text x="1580.0" y="276.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#fff">Candidate referent</text>
 <text x="1580.0" y="302.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">Wikidata item still to be chosen</text>
 <path d="M1580.0 149.0 L1580.0 251.0" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
-<rect x="1508.5" y="189.0" width="143" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1580.0" y="200.0" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#000">lrec: proposesReferent</text>
+<rect x="1507.0" y="189.0" width="146" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1580.0" y="200.0" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#000">brec: proposesReferent</text>
 <rect x="1435.0" y="791.0" width="290.0" height="78.0" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
 <text x="1580.0" y="816.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#fff">FDOx on Zenodo</text>
 <text x="1580.0" y="842.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">10.5281/zenodo.24305436</text>

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "lrec-model-interpretation/1.1",
+  "title": "brec-model-interpretation/1.1",
   "type": "object",
   "required": [
     "schema",
@@ -16,7 +16,7 @@
   "additionalProperties": false,
   "properties": {
     "schema": {
-      "const": "lrec-model-interpretation/1.1"
+      "const": "brec-model-interpretation/1.1"
     },
     "model_id": {
       "type": "string",

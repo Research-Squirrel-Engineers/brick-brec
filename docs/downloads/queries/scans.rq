@@ -1,5 +1,5 @@
-PREFIX lrec: <https://example.org/lego-reconstruction#>
-PREFIX ex: <https://example.org/lego-reconstruction/id/>
+PREFIX brec: <https://example.org/brick-reconstruction#>
+PREFIX ex: <https://example.org/brick-reconstruction/id/>
 PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX crmdig: <http://www.cidoc-crm.org/extensions/crmdig/>
 PREFIX crminf: <http://www.ics.forth.gr/isl/CRMinf/>
@@ -11,7 +11,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
 SELECT ?model ?device ?photos (MIN(?placeLabel) AS ?place) ?wikidata WHERE {
-  ?event a lrec:ScanDigitization ; crmdig:L1_digitized ?m ; lrec:captureDevice ?device ; lrec:imageCount ?photos ; crm:P7_took_place_at ?p .
+  ?event a brec:ScanDigitization ; crmdig:L1_digitized ?m ; brec:captureDevice ?device ; brec:imageCount ?photos ; crm:P7_took_place_at ?p .
   ?m rdfs:label ?model . FILTER(LANG(?model) = "en")
   ?p rdfs:label ?placeLabel . FILTER(LANG(?placeLabel) = "en")
   OPTIONAL { ?p skos:closeMatch ?wikidata }

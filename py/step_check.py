@@ -15,9 +15,9 @@ import rdflib
 from rdflib import RDF, RDFS, OWL, Namespace, URIRef
 
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
-from lrec_utils import DATA, FDOX_BUNDLES, parse_bundle, ONTOLOGY, PY, RAW, ROOT, Report, read_pins, run_script, sha256_file  # noqa: E402
+from brec_utils import DATA, FDOX_BUNDLES, parse_bundle, ONTOLOGY, PY, RAW, ROOT, Report, read_pins, run_script, sha256_file  # noqa: E402
 
-LREC = Namespace("https://example.org/lego-reconstruction#")
+BREC = Namespace("https://example.org/brick-reconstruction#")
 DCT = Namespace("http://purl.org/dc/terms/")
 FDO = Namespace("https://w3id.org/fdo-squirrel/")
 FLO = "https://orcid.org/0000-0002-3246-3531"
@@ -39,9 +39,9 @@ def main(strict: bool) -> int:
     else:
         r.ok("overview drawing agrees with the graph (" + p.stdout.strip().splitlines()[-1] + ")")
 
-    # 2. every LREC class has German and English labels, and is drawn in the class diagram
+    # 2. every BREC class has German and English labels, and is drawn in the class diagram
     src = (PY / "figures" / "draw_classes.py").read_text(encoding="utf-8")
-    classes = sorted(c for c in g.subjects(RDF.type, OWL.Class) if str(c).startswith(str(LREC)))
+    classes = sorted(c for c in g.subjects(RDF.type, OWL.Class) if str(c).startswith(str(BREC)))
     for c in classes:
         labels = {lit.language for lit in g.objects(c, RDFS.label) if isinstance(lit, rdflib.Literal)}
         if not {"de", "en"} <= labels:
@@ -50,9 +50,9 @@ def main(strict: bool) -> int:
         name = c.split("#")[-1]
         if name not in src and de.split(" (")[0] not in src:
             r.warn(f"class {name} is in the ontology but not in the class diagram (py/figures/draw_classes.py)")
-    r.ok(f"{len(classes)} LREC classes checked for labels and for presence in the class diagram")
+    r.ok(f"{len(classes)} BREC classes checked for labels and for presence in the class diagram")
 
-    # 2a. every class is anchored in CIDOC CRM (crm, crmdig or crminf, directly or through another LREC class) and belongs to a module of the data model page
+    # 2a. every class is anchored in CIDOC CRM (crm, crmdig or crminf, directly or through another BREC class) and belongs to a module of the data model page
     from crm_coverage import NO_ANCHOR_OK, uncovered
     from pages_more import unassigned
     miss = sorted(c.split("#")[-1] for c in uncovered(g))
@@ -68,7 +68,7 @@ def main(strict: bool) -> int:
     SKOS = rdflib.Namespace("http://www.w3.org/2004/02/skos/core#")
     mbo_parts = {row["part_number"]: row for row in csv.DictReader((DATA / "mbo_bricks.csv").open(encoding="utf-8"))}
     n_mbo = 0
-    for bt in sorted(g.subjects(RDF.type, LREC.BrickType), key=str):
+    for bt in sorted(g.subjects(RDF.type, BREC.BrickType), key=str):
         ms = [o for o in g.objects(bt, SKOS.exactMatch) if str(o).startswith("https://w3id.org/mbo/thesaurus/part/")]
         lab = next((str(x) for x in g.objects(bt, SKOS.prefLabel) if getattr(x, "language", "") == "en"), "")
         if len(ms) != 1:
@@ -85,8 +85,8 @@ def main(strict: bool) -> int:
     r.ok(f"{n_mbo} brick types matched to MBO parts, label and studs agree")
 
     # 2b. curated Wikidata mappings: only for nodes of the ontology, only wd:Q ids, one per node, each with a label
-    from lrec_utils import WIKIDATA_MAP
-    cands = {str(s_) for s_ in g.subjects(LREC.wikidataSearchTerm, None)}
+    from brec_utils import WIKIDATA_MAP
+    cands = {str(s_) for s_ in g.subjects(BREC.wikidataSearchTerm, None)}
     if WIKIDATA_MAP.exists():
         wg = rdflib.Graph()
         wg.parse(WIKIDATA_MAP, format="turtle")
@@ -106,16 +106,16 @@ def main(strict: bool) -> int:
     else:
         r.ok(f"no data/wikidata_mapping.ttl yet: {len(cands)} candidates without Wikidata item (python py/wikidata/match.py)")
 
-    # 3. FDOx: the four bundle TTLs (source of truth for identity, title, people, relations) vs registry pins vs lrec.ttl
+    # 3. FDOx: the four bundle TTLs (source of truth for identity, title, people, relations) vs registry pins vs brec.ttl
     pins = read_pins()
     concept = [x["concept_doi"] for x in pins]
     version = [x["pinned_version_doi"] for x in pins]
     if len(set(concept)) != len(concept) or set(concept) & set(version):
         r.fail("a DOI appears twice, or a concept DOI is also used as a version DOI")
-    mine = {str(s) for s in g.subjects(RDF.type, LREC.FDOx)}
+    mine = {str(s) for s in g.subjects(RDF.type, BREC.FDOx)}
     want_iris = {"https://doi.org/" + c for c in concept}
     if mine != want_iris:
-        r.fail(f"lrec:FDOx nodes in lrec.ttl differ from the registry pins: only in lrec.ttl {sorted(mine - want_iris)}, only in pins {sorted(want_iris - mine)}")
+        r.fail(f"brec:FDOx nodes in brec.ttl differ from the registry pins: only in brec.ttl {sorted(mine - want_iris)}, only in pins {sorted(want_iris - mine)}")
     sums = {k: v.get("bundle_ttl_sha256") for k, v in json.load(open(DATA / "fdox" / "original_bundles.json", encoding="utf-8")).items()}
     for x in pins:
         f = FDOX_BUNDLES / f"{x['slug']}.ttl"
@@ -147,7 +147,7 @@ def main(strict: bool) -> int:
             r.fail(f"{x['slug']}: " + "; ".join(bad))
         else:
             who = ", ".join(sorted({str(b.value(URIRef(c), RDFS.label)) for c in contribs})) or "none with an IRI"
-            r.ok(f"{x['slug']}: bundle TTL = pins = lrec.ttl (concept {x['concept_doi']}, pinned {x['pinned_version_doi']} {x['zenodo_version']}; contributors: {who})")
+            r.ok(f"{x['slug']}: bundle TTL = pins = brec.ttl (concept {x['concept_doi']}, pinned {x['pinned_version_doi']} {x['zenodo_version']}; contributors: {who})")
 
     # 4. raw inputs, only if the user has put them here (they are large and not part of the repository)
     sums = json.load(open(RAW / "CHECKSUMS.json", encoding="utf-8"))

@@ -1,7 +1,7 @@
-# lego-lrec
+# brick-brec
 
-LREC, the **LEGO Reconstruction Ontology**, with the pipeline that reproduces its figures, models and documentation site.
-It documents the path from a structure-from-motion scan (KIRI Engine) of a LEGO model to an idealised brick reconstruction,
+BREC, the **Brick Reconstruction Ontology**, with the pipeline that reproduces its figures, models and documentation site.
+It documents the path from a structure-from-motion scan (KIRI Engine) of an interlocking-brick model to an idealised brick reconstruction,
 its interpretation (what does the object represent, with arguments and confidence) and its packaging as FDOx on Zenodo.
 
 Two pyramids are modelled: P1 (pyramid with column and figure) and P2 (stepped "Maya" pyramid with temple), each as a scan
@@ -38,7 +38,7 @@ The figures are set in Fira Sans (SIL Open Font Licence, `py/figures/fonts/`); t
 
 | Path | Role |
 |---|---|
-| `ontology/lrec.ttl` | the ontology and the worked examples (source of truth, German and English labels) |
+| `ontology/brec.ttl` | the ontology and the worked examples (source of truth, German and English labels) |
 | `py/step_*.py` | the four pipeline steps (`check`, `reconstruct`, `figures`, `pages`), each runnable on its own |
 | `py/reconstruct/` | procedural brick reconstructions of P1 and P2 (seeded, no scan files read) |
 | `py/figures/` | hand-laid-out SVG drawings with crossing checks; `wikidata_match.py` is interactive (run it yourself) |
@@ -51,15 +51,19 @@ The figures are set in Fira Sans (SIL Open Font Licence, `py/figures/fonts/`); t
 
 ## Documentation site
 
-`docs/index.html` (open locally or publish with GitHub Pages from `/docs`) has fourteen pages in three navigation rows (documentation, data and tools, figures), all generated from `ontology/lrec.ttl`, the FDOx bundle TTLs and the Wikidata mapping:
-overview, **data model** (three modules with class and property tables), **CRM coverage** (chain from every LREC class to its CIDOC CRM / CRMdig / CRMinf ancestor), **crosswalk** (direct parents per vocabulary),
+`docs/index.html` (open locally or publish with GitHub Pages from `/docs`) has fourteen pages in three navigation rows (documentation, data and tools, figures), all generated from `ontology/brec.ttl`, the FDOx bundle TTLs and the Wikidata mapping:
+overview, **data model** (three modules with class and property tables), **CRM coverage** (chain from every BREC class to its CIDOC CRM / CRMdig / CRMinf ancestor), **crosswalk** (direct parents per vocabulary),
 **instance models** (the two pyramids with builder, scan, FDOx and hypotheses), a **SPARQL page** (rdflib under Pyodide, no endpoint; the queries are in `data/queries.json`, each is executed at build time and must return rows; the graph it queries is `docs/graph.nt`), a **3D viewer** (three.js, the two GLB reconstructions copied to `docs/models/`), FDOx, a **Bricks (MBO)** page (the brick types matched to the [Minimal Brick Ontology](https://github.com/Research-Squirrel-Engineers/minimal-brick-ontology), checked against `data/mbo_bricks.csv`), and the figures (twelve, as PNG with SVG download) in four category pages (big picture, data model, CIDOC CRM, pyramids) with an overview. The SPARQL editor highlights the syntax and checks it with the rdflib parser while you type (CodeMirror 5.65.16, pinned). Pyodide 0.26.4, rdflib 7.1.1 (in the browser) and three.js 0.160.0 are loaded from jsDelivr and pinned in `py/pages_web.py`; both interactive pages need to be served over HTTP.
-Every LREC class is anchored in the CRM family; `check` fails if one is not, or if a class belongs to no module of the data model page (`MODULES` in `py/pages_more.py`).
+Every BREC class is anchored in the CRM family; `check` fails if one is not, or if a class belongs to no module of the data model page (`MODULES` in `py/pages_more.py`).
 
 ## Links
 
-- Repository: <https://github.com/Research-Squirrel-Engineers/lego-lrec>
-- Documentation site (GitHub Pages, from `docs/`): <https://research-squirrel-engineers.github.io/lego-lrec/>
+- Repository: <https://github.com/Research-Squirrel-Engineers/brick-brec>
+- Documentation site (GitHub Pages, from `docs/`): <https://research-squirrel-engineers.github.io/brick-brec/>
+
+## Trademark notice
+
+Independent research vocabulary. Not affiliated with, authorised or endorsed by the LEGO Group. LEGO is a trademark of the LEGO Group. The name BREC and the class names deliberately avoid the brand; where "LEGO" appears (titles of the published Sketchfab and Zenodo records, descriptions of the physical objects) it is a descriptive reference.
 
 ## Licence
 

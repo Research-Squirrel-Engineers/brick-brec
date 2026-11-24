@@ -1,5 +1,5 @@
-PREFIX lrec: <https://example.org/lego-reconstruction#>
-PREFIX ex: <https://example.org/lego-reconstruction/id/>
+PREFIX brec: <https://example.org/brick-reconstruction#>
+PREFIX ex: <https://example.org/brick-reconstruction/id/>
 PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX crmdig: <http://www.cidoc-crm.org/extensions/crmdig/>
 PREFIX crminf: <http://www.ics.forth.gr/isl/CRMinf/>
@@ -11,7 +11,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
 SELECT ?concept ?title ?version WHERE {
-  ?concept a lrec:FDOx ; dct:title ?title .
+  ?concept a brec:FDOx ; dct:title ?title .
   OPTIONAL { ?concept dct:hasVersion ?version }
 }
 ORDER BY ?title

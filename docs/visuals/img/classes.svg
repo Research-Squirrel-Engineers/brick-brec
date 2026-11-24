@@ -8,15 +8,15 @@
 <path d="M765 99 L860 99" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="84.0" width="280" height="30" rx="5" fill="#166534" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="104.0" font-size="12.5" text-anchor="middle" fill="#fff">mbo:Build</text>
 <rect x="425" y="40" width="340" height="80" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="76" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:LegoModel</text>
-<text x="595.0" y="95" font-size="12.5" text-anchor="middle" fill="#fff">LEGO model (physical)</text>
+<text x="595.0" y="76" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:BrickModel</text>
+<text x="595.0" y="95" font-size="12.5" text-anchor="middle" fill="#fff">Brick model (physical)</text>
 <path d="M425 189 L330 189" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="174.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="194.0" font-size="12.5" text-anchor="middle" fill="#000">crmdig:D1 Digital Object</text>
 <path d="M765 189 L860 189" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="174.0" width="280" height="30" rx="5" fill="#fff" stroke="#1d4ed8" stroke-width="3.5"/><text x="1000.0" y="194.0" font-size="12.5" text-anchor="middle" fill="#000">hdt:HC Heritage Digital Twin</text>
 <rect x="425" y="154" width="340" height="70" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="185" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:LegoModelTwin</text>
-<text x="595.0" y="204" font-size="12.5" text-anchor="middle" fill="#fff">Digital twin of a LEGO model</text>
+<text x="595.0" y="185" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:BrickModelTwin</text>
+<text x="595.0" y="204" font-size="12.5" text-anchor="middle" fill="#fff">Digital twin of a brick model</text>
 <path d="M425 298 L330 298" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="283.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="303.0" font-size="12.5" text-anchor="middle" fill="#000">crmdig:D2 Digitization Process</text>
 <path d="M765 279 L860 279" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
@@ -24,7 +24,7 @@
 <path d="M765 317 L860 317" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="302.0" width="280" height="30" rx="5" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="322.0" font-size="12.5" text-anchor="middle" fill="#000">prov:Activity</text>
 <rect x="425" y="258" width="340" height="80" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="294" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:ScanDigitization</text>
+<text x="595.0" y="294" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:ScanDigitization</text>
 <text x="595.0" y="313" font-size="12.5" text-anchor="middle" fill="#fff">Scan digitisation</text>
 <path d="M425 412 L330 412" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="397.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="417.0" font-size="12.5" text-anchor="middle" fill="#000">crmdig:D1 Digital Object</text>
@@ -33,7 +33,7 @@
 <path d="M765 431 L860 431" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="416.0" width="280" height="30" rx="5" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="436.0" font-size="12.5" text-anchor="middle" fill="#000">prov:Entity</text>
 <rect x="425" y="372" width="340" height="80" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="408" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:RawScan</text>
+<text x="595.0" y="408" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:RawScan</text>
 <text x="595.0" y="427" font-size="12.5" text-anchor="middle" fill="#fff">SfM raw scan</text>
 <path d="M425 526 L330 526" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="511.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="531.0" font-size="12.5" text-anchor="middle" fill="#000">crmdig:D1 Digital Object</text>
@@ -42,7 +42,7 @@
 <path d="M765 545 L860 545" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="530.0" width="280" height="30" rx="5" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="550.0" font-size="12.5" text-anchor="middle" fill="#000">prov:Entity</text>
 <rect x="425" y="486" width="340" height="80" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="522" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:ReferencePhoto</text>
+<text x="595.0" y="522" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:ReferencePhoto</text>
 <text x="595.0" y="541" font-size="12.5" text-anchor="middle" fill="#fff">Reference photo</text>
 <path d="M425 621 L330 621" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="606.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="626.0" font-size="12.5" text-anchor="middle" fill="#000">crm:E16 Measurement</text>
@@ -51,21 +51,21 @@
 <path d="M765 640 L860 640" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="625.0" width="280" height="30" rx="5" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="645.0" font-size="12.5" text-anchor="middle" fill="#000">prov:Activity</text>
 <rect x="425" y="600" width="340" height="80" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="636" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:AlignmentAndMeasurement</text>
+<text x="595.0" y="636" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:AlignmentAndMeasurement</text>
 <text x="595.0" y="655" font-size="12.5" text-anchor="middle" fill="#fff">Alignment and measurement</text>
 <path d="M425 749 L330 749" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="734.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="754.0" font-size="12.5" text-anchor="middle" fill="#000">crminf:I5 Inference Making</text>
 <path d="M765 749 L860 749" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="734.0" width="280" height="30" rx="5" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="754.0" font-size="12.5" text-anchor="middle" fill="#000">prov:Activity</text>
 <rect x="425" y="714" width="340" height="70" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="745" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:StructureInference</text>
+<text x="595.0" y="745" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:StructureInference</text>
 <text x="595.0" y="764" font-size="12.5" text-anchor="middle" fill="#fff">Structure inference</text>
 <path d="M425 871 L330 871" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="856.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="876.0" font-size="12.5" text-anchor="middle" fill="#000">crminf:I2 Belief</text>
 <path d="M765 871 L860 871" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="856.0" width="280" height="30" rx="5" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="876.0" font-size="12.5" text-anchor="middle" fill="#000">prov:Entity</text>
 <rect x="425" y="818" width="340" height="106" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="849" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:Assumption</text>
+<text x="595.0" y="849" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:Assumption</text>
 <text x="595.0" y="868" font-size="12.5" text-anchor="middle" fill="#fff">Assumption</text>
 <text x="595.0" y="897" font-size="12.5" text-anchor="middle" fill="#fbbf24" font-weight="500">+ confidence : xsd:decimal</text>
 <text x="595.0" y="915" font-size="12.5" text-anchor="middle" fill="#fbbf24" font-weight="500">+ confidenceBasis : xsd:string</text>
@@ -74,7 +74,7 @@
 <path d="M765 1035 L860 1035" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="1020.0" width="280" height="30" rx="5" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="1040.0" font-size="12.5" text-anchor="middle" fill="#000">prov:Activity</text>
 <rect x="425" y="1000" width="340" height="70" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="1031" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:ProceduralReconstruction</text>
+<text x="595.0" y="1031" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:ProceduralReconstruction</text>
 <text x="595.0" y="1050" font-size="12.5" text-anchor="middle" fill="#fff">Procedural reconstruction</text>
 <path d="M425 1163 L330 1163" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="1148.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="1168.0" font-size="12.5" text-anchor="middle" fill="#000">crmdig:D1 Digital Object</text>
@@ -85,7 +85,7 @@
 <path d="M765 1201 L860 1201" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="1186.0" width="280" height="30" rx="5" fill="#4c1d95" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="1206.0" font-size="12.5" text-anchor="middle" fill="#fff">dcat:Distribution</text>
 <rect x="425" y="1104" width="340" height="118" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="1150" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:ReconstructionModel</text>
+<text x="595.0" y="1150" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:ReconstructionModel</text>
 <text x="595.0" y="1169" font-size="12.5" text-anchor="middle" fill="#fff">Reconstruction model (GLB)</text>
 <text x="595.0" y="1180" font-size="12.5" text-anchor="middle" fill="#fbbf24" font-weight="500">+ knownDeviation : xsd:string</text>
 <path d="M425 1291 L330 1291" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
@@ -93,7 +93,7 @@
 <path d="M765 1291 L860 1291" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="1276.0" width="280" height="30" rx="5" fill="#4c1d95" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="1296.0" font-size="12.5" text-anchor="middle" fill="#000">dqv:QualityMeasurement</text>
 <rect x="425" y="1256" width="340" height="70" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="1287" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:QualityMeasurement</text>
+<text x="595.0" y="1287" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:QualityMeasurement</text>
 <text x="595.0" y="1306" font-size="12.5" text-anchor="middle" fill="#fff">Quality measurement</text>
 <path d="M425 1400 L330 1400" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="1385.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="1405.0" font-size="12.5" text-anchor="middle" fill="#000">crmdig:D14 Software</text>
@@ -102,21 +102,21 @@
 <path d="M765 1419 L860 1419" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="1404.0" width="280" height="30" rx="5" fill="#4c1d95" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="1424.0" font-size="12.5" text-anchor="middle" fill="#000">schema:SoftwareSourceCode</text>
 <rect x="425" y="1360" width="340" height="80" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="1396" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:ReconstructionScript</text>
+<text x="595.0" y="1396" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:ReconstructionScript</text>
 <text x="595.0" y="1415" font-size="12.5" text-anchor="middle" fill="#fff">Reconstruction script (CodeMeta)</text>
 <path d="M425 1495 L330 1495" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="1480.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="1500.0" font-size="12.5" text-anchor="middle" fill="#000">crm:E52 Time-Span</text>
 <path d="M425 1533 L330 1533" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="1518.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="1538.0" font-size="12.5" text-anchor="middle" fill="#000">time:ProperInterval</text>
 <rect x="425" y="1474" width="340" height="80" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="1510" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:ProcessInterval</text>
+<text x="595.0" y="1510" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:ProcessInterval</text>
 <text x="595.0" y="1529" font-size="12.5" text-anchor="middle" fill="#fff">Time interval of a process</text>
 <path d="M425 1609 L330 1609" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="1594.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="1614.0" font-size="12.5" text-anchor="middle" fill="#000">crm:E53 Place</text>
 <path d="M425 1647 L330 1647" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="1632.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="1652.0" font-size="12.5" text-anchor="middle" fill="#000">geo:Feature</text>
 <rect x="425" y="1588" width="340" height="80" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="1624" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:ScanLocation</text>
+<text x="595.0" y="1624" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:ScanLocation</text>
 <text x="595.0" y="1643" font-size="12.5" text-anchor="middle" fill="#fff">Capture location</text>
 <path d="M425 1742 L330 1742" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="1727.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="1747.0" font-size="12.5" text-anchor="middle" fill="#000">crmdig:D1 Digital Object</text>
@@ -125,7 +125,7 @@
 <path d="M765 1761 L860 1761" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="1746.0" width="280" height="30" rx="5" fill="#4c1d95" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="1766.0" font-size="12.5" text-anchor="middle" fill="#fff">dcat:Dataset</text>
 <rect x="425" y="1702" width="340" height="80" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="1738" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:ReconstructionDataset</text>
+<text x="595.0" y="1738" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:ReconstructionDataset</text>
 <text x="595.0" y="1757" font-size="12.5" text-anchor="middle" fill="#fff">Reconstruction dataset (DCAT-AP)</text>
 <path d="M425 1856 L330 1856" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="1841.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="1861.0" font-size="12.5" text-anchor="middle" fill="#000">crmdig:D1 Digital Object</text>
@@ -134,7 +134,7 @@
 <path d="M765 1875 L860 1875" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="1860.0" width="280" height="30" rx="5" fill="#4c1d95" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="1880.0" font-size="12.5" text-anchor="middle" fill="#fff">dcat:Dataset</text>
 <rect x="425" y="1816" width="340" height="80" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="1852" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:FDOx</text>
+<text x="595.0" y="1852" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:FDOx</text>
 <text x="595.0" y="1871" font-size="12.5" text-anchor="middle" fill="#fff">FDOx (FAIR digital object, exchangeable; Zenodo record)</text>
 <path d="M425 1951 L330 1951" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="1936.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="1956.0" font-size="12.5" text-anchor="middle" fill="#000">crm:E17 Type Assignment</text>
@@ -143,12 +143,12 @@
 <path d="M765 1970 L860 1970" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="1955.0" width="280" height="30" rx="5" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="1975.0" font-size="12.5" text-anchor="middle" fill="#000">prov:Activity</text>
 <rect x="425" y="1930" width="340" height="80" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="1966" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:Identification</text>
+<text x="595.0" y="1966" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:Identification</text>
 <text x="595.0" y="1985" font-size="12.5" text-anchor="middle" fill="#fff">Identification (what does the object represent?)</text>
 <path d="M765 2097 L860 2097" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
-<rect x="860" y="2082.0" width="280" height="30" rx="5" fill="#d6a58a" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="2102.0" font-size="12.5" text-anchor="middle" fill="#000">lrec:Assumption</text>
+<rect x="860" y="2082.0" width="280" height="30" rx="5" fill="#d6a58a" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="2102.0" font-size="12.5" text-anchor="middle" fill="#000">brec:Assumption</text>
 <rect x="425" y="2044" width="340" height="106" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="2075" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:IdentityHypothesis</text>
+<text x="595.0" y="2075" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:IdentityHypothesis</text>
 <text x="595.0" y="2094" font-size="12.5" text-anchor="middle" fill="#fff">Identification hypothesis</text>
 <text x="595.0" y="2123" font-size="12.5" text-anchor="middle" fill="#fbbf24" font-weight="500">+ verificationStatus : xsd:string</text>
 <text x="595.0" y="2141" font-size="12.5" text-anchor="middle" fill="#fbbf24" font-weight="500">(inherits confidence)</text>
@@ -157,12 +157,12 @@
 <path d="M765 2219 L860 2219" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="2204.0" width="280" height="30" rx="5" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="2224.0" font-size="12.5" text-anchor="middle" fill="#000">prov:Entity</text>
 <rect x="425" y="2184" width="340" height="70" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="2215" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:Evidence</text>
+<text x="595.0" y="2215" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:Evidence</text>
 <text x="595.0" y="2234" font-size="12.5" text-anchor="middle" fill="#fff">Observation / argument</text>
 <path d="M425 2332 L330 2332" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="2317.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="2337.0" font-size="12.5" text-anchor="middle" fill="#000">crm:E1 CRM Entity</text>
 <rect x="425" y="2288" width="340" height="88" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="2319" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:CandidateReferent</text>
+<text x="595.0" y="2319" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:CandidateReferent</text>
 <text x="595.0" y="2338" font-size="12.5" text-anchor="middle" fill="#fff">Candidate (possible original)</text>
 <text x="595.0" y="2349" font-size="12.5" text-anchor="middle" fill="#fbbf24" font-weight="500">+ wikidataSearchTerm : xsd:string</text>
 <path d="M425 2450 L330 2450" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
@@ -172,30 +172,30 @@
 <path d="M765 2469 L860 2469" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="2454.0" width="280" height="30" rx="5" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="2474.0" font-size="12.5" text-anchor="middle" fill="#000">prov:Entity</text>
 <rect x="425" y="2410" width="340" height="80" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="2446" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:ChangeDocumentation</text>
+<text x="595.0" y="2446" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:ChangeDocumentation</text>
 <text x="595.0" y="2465" font-size="12.5" text-anchor="middle" fill="#fff">Change documentation</text>
 <path d="M425 2559 L330 2559" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="2544.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="2564.0" font-size="12.5" text-anchor="middle" fill="#000">crm:E55 Type</text>
 <path d="M765 2559 L860 2559" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="2544.0" width="280" height="30" rx="5" fill="#4c1d95" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="2564.0" font-size="12.5" text-anchor="middle" fill="#fff">skos:Concept</text>
 <rect x="425" y="2524" width="340" height="70" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="2555" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:BrickType</text>
+<text x="595.0" y="2555" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:BrickType</text>
 <text x="595.0" y="2574" font-size="12.5" text-anchor="middle" fill="#fff">Brick type</text>
 <path d="M425 2663 L330 2663" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="50" y="2648.0" width="280" height="30" rx="5" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="190.0" y="2668.0" font-size="12.5" text-anchor="middle" fill="#000">crm:E39 Actor</text>
 <path d="M765 2663 L860 2663" stroke="#111" stroke-width="1.5" fill="none" marker-end="url(#s)"/>
 <rect x="860" y="2648.0" width="280" height="30" rx="5" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/><text x="1000.0" y="2668.0" font-size="12.5" text-anchor="middle" fill="#000">prov:SoftwareAgent</text>
 <rect x="425" y="2628" width="340" height="70" rx="7" fill="#9a3412" stroke="#000" stroke-width="1.3"/>
-<text x="595.0" y="2659" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">lrec:AIAssistant</text>
+<text x="595.0" y="2659" font-size="15" font-weight="500" text-anchor="middle" fill="#fff">brec:AIAssistant</text>
 <text x="595.0" y="2678" font-size="12.5" text-anchor="middle" fill="#fff">AI assistant (software agent)</text>
 <path d="M595.0 1000 L595.0 924" stroke="#111" stroke-width="2" fill="none" marker-end="url(#a)"/>
-<rect x="447.0" y="951.0" width="296" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="595.0" y="966.0" font-size="12.5" text-anchor="middle">lrec:usesAssumption (sub-property of prov:used)</text>
-<rect x="50" y="2736" width="26" height="16" fill="#9a3412" stroke="#000" stroke-width="1.2"/><text x="84" y="2749" font-size="13">LREC class</text>
-<rect x="169.5" y="2736" width="26" height="16" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="203.5" y="2749" font-size="13">CRM / CRMdig / CRMinf / Time / GeoSPARQL</text>
-<rect x="490.5" y="2736" width="26" height="16" fill="#fff" stroke="#1d4ed8" stroke-width="3.5"/><text x="524.5" y="2749" font-size="13">Heritage Digital Twin (hdt)</text>
+<rect x="445.5" y="951.0" width="299" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="595.0" y="966.0" font-size="12.5" text-anchor="middle">brec:usesAssumption (sub-property of prov:used)</text>
+<rect x="50" y="2736" width="26" height="16" fill="#9a3412" stroke="#000" stroke-width="1.2"/><text x="84" y="2749" font-size="13">BREC class</text>
+<rect x="170.9" y="2736" width="26" height="16" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="204.9" y="2749" font-size="13">CRM / CRMdig / CRMinf / Time / GeoSPARQL</text>
+<rect x="491.9" y="2736" width="26" height="16" fill="#fff" stroke="#1d4ed8" stroke-width="3.5"/><text x="525.9" y="2749" font-size="13">Heritage Digital Twin (hdt)</text>
 <rect x="50" y="2762" width="26" height="16" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/><text x="84" y="2775" font-size="13">PROV-O</text>
-<rect x="153.9" y="2762" width="26" height="16" fill="#d6a58a" stroke="#000" stroke-width="1.2"/><text x="187.9" y="2775" font-size="13">LREC parent class</text>
-<rect x="316.20000000000005" y="2762" width="26" height="16" fill="#4c1d95" stroke="#000" stroke-width="1.2"/><text x="350.20000000000005" y="2775" font-size="13">DCAT / DQV / SKOS / schema.org</text>
-<rect x="568.7" y="2762" width="26" height="16" fill="#166534" stroke="#000" stroke-width="1.2"/><text x="602.7" y="2775" font-size="13">Minimal Brick Ontology (mbo)</text>
-<rect x="802.1" y="2762" width="26" height="16" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="836.1" y="2775" font-size="13">attribute (datatype property)</text>
+<rect x="153.9" y="2762" width="26" height="16" fill="#d6a58a" stroke="#000" stroke-width="1.2"/><text x="187.9" y="2775" font-size="13">BREC parent class</text>
+<rect x="317.6" y="2762" width="26" height="16" fill="#4c1d95" stroke="#000" stroke-width="1.2"/><text x="351.6" y="2775" font-size="13">DCAT / DQV / SKOS / schema.org</text>
+<rect x="570.1" y="2762" width="26" height="16" fill="#166534" stroke="#000" stroke-width="1.2"/><text x="604.1" y="2775" font-size="13">Minimal Brick Ontology (mbo)</text>
+<rect x="803.5" y="2762" width="26" height="16" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="837.5" y="2775" font-size="13">attribute (datatype property)</text>
 </svg>

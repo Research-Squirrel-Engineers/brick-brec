@@ -2,7 +2,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
-@prefix ex: <https://example.org/lego-reconstruction/id/> .
+@prefix ex: <https://example.org/brick-reconstruction/id/> .
 
 ex:c_angkor skos:closeMatch wd:Q788982 .  # Bakong | Temple mountain of sandstone near Siem Reap, Cambodia
 wd:Q788982 rdfs:label "Bakong"@en .

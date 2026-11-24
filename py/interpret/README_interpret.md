@@ -1,6 +1,6 @@
 # Werkzeugkette zur Modell-Interpretation ("Inkognito"-Workflow)
 
-Ziel: Du gibst Claude in einem frischen Chat ohne Vorwissen **irgendein** 3D-Modell und bekommst **standardisierte Angaben** zurück, mit denen man das Modell interpretieren kann; danach werden sie in den LREC-Graphen geschrieben.
+Ziel: Du gibst Claude in einem frischen Chat ohne Vorwissen **irgendein** 3D-Modell und bekommst **standardisierte Angaben** zurück, mit denen man das Modell interpretieren kann; danach werden sie in den BREC-Graphen geschrieben.
 
 ## Ablauf (Windows cmd; zusammengehörige Befehle in einer Zeile)
 1. **Messen und rendern** (lokal, deterministisch):
@@ -13,11 +13,11 @@ Ziel: Du gibst Claude in einem frischen Chat ohne Vorwissen **irgendein** 3D-Mod
    **Durchgang 2 (Verfeinerung, empfohlen):** `python make_prompt.py out/mein_modell_facts.json --previous out/mein_modell_interpretation.json` → `out/mein_modell_prompt2.md`; in einem frischen Chat mit denselben Bildern ausführen, die Antwort ersetzt das JSON. Durchgang 2 prüft Zahlen (Stufen, Treppen), ergänzt spezifische benannte Kandidaten pro allgemeiner Hypothese (`specializes`), eigene Hypothesen für Bauteile (z. B. Figur, `about`) und Merkmalsvergleiche.
    Optional ohne Chat: `pip install anthropic && set ANTHROPIC_API_KEY=... && python ask_claude.py out/mein_modell_prompt.md out/mein_modell_views.png` (hier ungetestet).
 4. **Prüfen und in den Graphen schreiben**:
-   `python interpretation_to_lrec.py out/mein_modell_interpretation.json --merge ontology/lrec.ttl --out lrec_merged.ttl && python draw_ident.py lrec_merged.ttl en`
+   `python interpretation_to_brec.py out/mein_modell_interpretation.json --merge ontology/brec.ttl --out brec_merged.ttl && python draw_ident.py brec_merged.ttl en`
 
-## Was zurückkommt (Schema `lrec-model-interpretation/1.1`)
+## Was zurückkommt (Schema `brec-model-interpretation/1.1`)
 `object` (Beschreibung, Kategorie, Bautechnik/Material, Größenschätzung, Up-Achse) · `structure` (Form, Ebenen, Symmetrie, Bauteile, Wiederholungen) · `capture` (Herkunft, Defekte, Boden enthalten) · `evidence` (E1.., Quelle Ansichten/Messwerte/Foto/Eigentümer-Notiz, Stärke) · `hypotheses` (H1.., Konfidenz, stützt/schwächt, Alternative, Spezialfall, Kandidat mit Wikidata-Suchbegriff, **`feature_checks`** erwartet vs. beobachtet, **`strongest_counterargument`**, **`about`** = Bauteil) · `questions_for_owner`.
-Im Graphen: `lrec:Identification` → `lrec:Evidence` / `lrec:IdentityHypothesis` / `lrec:CandidateReferent`, dazu Objekt, Teile und Maße (CRM E18/E54); das Roh-JSON bleibt als `lrec:interpretationJson` erhalten.
+Im Graphen: `brec:Identification` → `brec:Evidence` / `brec:IdentityHypothesis` / `brec:CandidateReferent`, dazu Objekt, Teile und Maße (CRM E18/E54); das Roh-JSON bleibt als `brec:interpretationJson` erhalten.
 
 ## Neu in 1.1
 - `horizontal_surface_levels` trennt `count_raw` (zählt Noppenebenen mit) von `count_without_stud_tops` und `regular_steps` (gleichmäßig verteilte Ebenen); für Stufen zählen die Bilder.

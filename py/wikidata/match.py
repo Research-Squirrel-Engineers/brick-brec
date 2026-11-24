@@ -19,19 +19,19 @@ from pathlib import Path
 import rdflib
 
 ROOT = Path(__file__).resolve().parents[2]
-ONT, OUT, CAND = ROOT / "ontology" / "lrec.ttl", ROOT / "data" / "wikidata_mapping.ttl", ROOT / "dist" / "wikidata_candidates.md"
-L = rdflib.Namespace("https://example.org/lego-reconstruction#")
-EX = "https://example.org/lego-reconstruction/id/"
+ONT, OUT, CAND = ROOT / "ontology" / "brec.ttl", ROOT / "data" / "wikidata_mapping.ttl", ROOT / "dist" / "wikidata_candidates.md"
+L = rdflib.Namespace("https://example.org/brick-reconstruction#")
+EX = "https://example.org/brick-reconstruction/id/"
 HEAD = ("# Curated Wikidata mappings (written by py/wikidata/match.py, checked by hand). Each line: node, skos:closeMatch, label | description from Wikidata.\n"
         "@prefix skos: <http://www.w3.org/2004/02/skos/core#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n"
-        "@prefix wd: <http://www.wikidata.org/entity/> .\n@prefix ex: <https://example.org/lego-reconstruction/id/> .\n\n")
+        "@prefix wd: <http://www.wikidata.org/entity/> .\n@prefix ex: <https://example.org/brick-reconstruction/id/> .\n\n")
 LINE = re.compile(r'^(ex:\S+) skos:closeMatch (wd:Q\d+) \.\s*# (.*)$')
 
 
 def search(term, n=8):
     url = "https://www.wikidata.org/w/api.php?" + urllib.parse.urlencode(
         {"action": "wbsearchentities", "search": term, "language": "en", "uselang": "en", "format": "json", "limit": n})
-    req = urllib.request.Request(url, headers={"User-Agent": "lego-lrec-match/1.0 (research use; github.com/Research-Squirrel-Engineers/lego-lrec)"})
+    req = urllib.request.Request(url, headers={"User-Agent": "brick-brec-match/1.0 (research use; github.com/Research-Squirrel-Engineers/brick-brec)"})
     with urllib.request.urlopen(req, timeout=30) as r:
         return json.load(r)["search"]
 
@@ -71,7 +71,7 @@ def set_qids(pairs):
             sys.exit(f"{pair}: not a QID")
         url = "https://www.wikidata.org/w/api.php?" + urllib.parse.urlencode(
             {"action": "wbgetentities", "ids": qid, "props": "labels|descriptions", "languages": "en", "format": "json"})
-        req = urllib.request.Request(url, headers={"User-Agent": "lego-lrec-match/1.0 (research use; github.com/Research-Squirrel-Engineers/lego-lrec)"})
+        req = urllib.request.Request(url, headers={"User-Agent": "brick-brec-match/1.0 (research use; github.com/Research-Squirrel-Engineers/brick-brec)"})
         with urllib.request.urlopen(req, timeout=30) as r:
             e = json.load(r)["entities"][qid]
         label = e.get("labels", {}).get("en", {}).get("value", qid)

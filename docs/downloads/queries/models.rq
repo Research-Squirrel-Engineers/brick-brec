@@ -1,5 +1,5 @@
-PREFIX lrec: <https://example.org/lego-reconstruction#>
-PREFIX ex: <https://example.org/lego-reconstruction/id/>
+PREFIX brec: <https://example.org/brick-reconstruction#>
+PREFIX ex: <https://example.org/brick-reconstruction/id/>
 PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX crmdig: <http://www.cidoc-crm.org/extensions/crmdig/>
 PREFIX crminf: <http://www.ics.forth.gr/isl/CRMinf/>
@@ -11,7 +11,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
 SELECT ?pyramid ?model ?type WHERE {
-  ?p a lrec:LegoModel ; rdfs:label ?pyramid ; ?has ?m .
+  ?p a brec:BrickModel ; rdfs:label ?pyramid ; ?has ?m .
   FILTER(STRENDS(STR(?has), "has_3D_model") && LANG(?pyramid) = "en")
   ?m a ?type ; rdfs:label ?model .
   FILTER(LANG(?model) = "en")

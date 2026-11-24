@@ -177,7 +177,7 @@ Neu aus dem Scan messen (nur falls Parameter überprüft werden sollen): `analyz
 
 ## 6. Interpretationen
 
-### 6.1 Eigene Hypothesen (Claude im Projektgespräch, Vergleich Foto gegen Render, Graph `lrec_v0.3.ttl`)
+### 6.1 Eigene Hypothesen (Claude im Projektgespräch, Vergleich Foto gegen Render, Graph `brec_v0.3.ttl`)
 
 Konfidenz = subjektive Schätzung, keine Messung; alle Hypothesen stehen auf **„offen: Bestätigung durch Flo nötig"**.
 
@@ -195,13 +195,13 @@ Konfidenz = subjektive Schätzung, keine Messung; alle Hypothesen stehen auf **�
 | P2 | hyp_m2_d | Zikkurat mit Tempel | 0,08 |
 | P2 | hyp_m2_e | freies Design ohne bestimmtes Vorbild | 0,15 |
 
-Wikidata-Verknüpfungen fehlen noch (Suchbegriffe sind im Graphen als `lrec:wikidataSearchTerm` gespeichert; IDs erzeugt `wikidata_match.py` auf deinem Rechner, Windows cmd: `pip install rdflib && python wikidata_match.py lrec_v0.3.ttl`).
+Wikidata-Verknüpfungen fehlen noch (Suchbegriffe sind im Graphen als `brec:wikidataSearchTerm` gespeichert; IDs erzeugt `wikidata_match.py` auf deinem Rechner, Windows cmd: `pip install rdflib && python wikidata_match.py brec_v0.3.ttl`).
 
-**Bestätigung (laut Memo, 2026-11-17):** Die Erbauerin von P2 hat „Maya-Stufenpyramide" bestätigt (hyp_m2_a → *bestätigt*). „El Castillo" ist **nicht bestätigt** (hyp_m2_b → *vom Erbauer nicht bestätigt*; das ist keine Widerlegung, die Konfidenz 0,35 bleibt als ursprüngliche KI-Schätzung stehen). Beides ist in `lrec_v0.4.ttl` eingetragen, mit der Erbauer-Aussage als Evidenz `ev_m2_builder`. Für P1 bleiben alle Hypothesen offen.
+**Bestätigung (laut Memo, 2026-11-17):** Die Erbauerin von P2 hat „Maya-Stufenpyramide" bestätigt (hyp_m2_a → *bestätigt*). „El Castillo" ist **nicht bestätigt** (hyp_m2_b → *vom Erbauer nicht bestätigt*; das ist keine Widerlegung, die Konfidenz 0,35 bleibt als ursprüngliche KI-Schätzung stehen). Beides ist in `brec_v0.4.ttl` eingetragen, mit der Erbauer-Aussage als Evidenz `ev_m2_builder`. Für P1 bleiben alle Hypothesen offen.
 
 ### 6.2 Test mit frischen Instanzen ohne Vorwissen („Inkognito"-Toolkit, Schema 1.1)
 
-Prompt, Messwerte und Bilder pro Lauf liegen im Paket unter `interpretations/`. Alle Antworten sind schema-konform und wurden in LREC-Turtle umgewandelt. Modell laut Selbstauskunft `claude-sonnet-5-5` (selbstberichtet, kann abweichen). Konfidenzen sind subjektiv und zwischen Läufen nicht vergleichbar.
+Prompt, Messwerte und Bilder pro Lauf liegen im Paket unter `interpretations/`. Alle Antworten sind schema-konform und wurden in BREC-Turtle umgewandelt. Modell laut Selbstauskunft `claude-sonnet-5-5` (selbstberichtet, kann abweichen). Konfidenzen sind subjektiv und zwischen Läufen nicht vergleichbar.
 
 | Lauf | Objekt | Stufen | Top-Hypothesen (Konfidenz) |
 |---|---|---|---|
@@ -225,7 +225,7 @@ pip install -r requirements.txt && python inspect_model.py lego3.glb --out out &
 4. In den Graphen schreiben und zeichnen:
 
 ```cmd
-python interpretation_to_lrec.py out/lego3_interpretation.json --merge lrec_v0.3.ttl --out lrec_merged.ttl && python draw_ident.py lrec_merged.ttl en
+python interpretation_to_brec.py out/lego3_interpretation.json --merge brec_v0.3.ttl --out brec_merged.ttl && python draw_ident.py brec_merged.ttl en
 ```
 
 Das Toolkit (`model_interpretation_toolkit.zip`, Version 1.1) enthält Schema, Prüfung und README (DE/EN).
@@ -311,7 +311,7 @@ ex:rebuild2 a prov:Activity ; dct:description "Procedural rebuild from idealised
 ex:claude a prov:SoftwareAgent ; dct:title "Claude (Anthropic), claude-sonnet-5-5"@en .
 ```
 
-Die Interpretationen (Identification, Evidence, IdentityHypothesis) stehen vollständig in `lrec_v0.3.ttl` und in den `answer*.ttl`-Dateien des Pakets und werden dort mit `prov:wasGeneratedBy` an die jeweilige Identifikation gebunden.
+Die Interpretationen (Identification, Evidence, IdentityHypothesis) stehen vollständig in `brec_v0.3.ttl` und in den `answer*.ttl`-Dateien des Pakets und werden dort mit `prov:wasGeneratedBy` an die jeweilige Identifikation gebunden.
 
 ---
 
@@ -327,7 +327,7 @@ Die Interpretationen (Identification, Evidence, IdentityHypothesis) stehen volls
 8. ~~FDOx-Schema~~ Schema und DOIs sind im FDOx-Chat umgesetzt (Abschnitt 11); das Gerüst in Abschnitt 9 bleibt als allgemeine Vorlage.
 9. **Lizenz der Skripte** und Ablageort (Zenodo oder Repository).
 10. **Einheit von D2:** unbekannt (größte Ausdehnung 0,652). Wenn P2 real bekannt ist, Skalierungsfaktor eintragen.
-11. **Ontologie-Reste** aus `LREC.md`: HDT-Namespace, CRMdig-/CRMinf-Propertycodes prüfen, DCAT-AP-Pflichtfelder, SHACL, `owl:imports`, Beispiel für Modell 1 vollständig.
+11. **Ontologie-Reste** aus `BREC.md`: HDT-Namespace, CRMdig-/CRMinf-Propertycodes prüfen, DCAT-AP-Pflichtfelder, SHACL, `owl:imports`, Beispiel für Modell 1 vollständig.
 
 ---
 
@@ -346,14 +346,14 @@ Alle: Typ `fdo:3DDataFDO`, Zenodo-Community „Squirrel FDOx", Dataset, CC BY 4.
 
 **Beziehungen (für die Modellierung):**
 - Scan → Rekonstruktion: `isReferencedBy` (→ `dct:isReferencedBy`); Rekonstruktion → Scan: `isDerivedFrom` (→ `prov:wasDerivedFrom`). Jeweils Ziel = Concept-DOI des Partners, mit `note`.
-- Die eigene Sketchfab-Seite steht ebenfalls als `isDerivedFrom` (Beschluss 2026-11-17). Die Rekonstruktion hat dadurch **zwei** `prov:wasDerivedFrom`, unterscheidbar an IRI und Label. Im Graphen heißt die Seite `lrec:sketchfabPage`.
+- Die eigene Sketchfab-Seite steht ebenfalls als `isDerivedFrom` (Beschluss 2026-11-17). Die Rekonstruktion hat dadurch **zwei** `prov:wasDerivedFrom`, unterscheidbar an IRI und Label. Im Graphen heißt die Seite `brec:sketchfabPage`.
 - Mit `note` erzeugt fdo-squirrel `dcat:qualifiedRelation [ a dcat:Relationship ; dct:relation <Ziel> ; dcat:hadRole <Rolle> ; rdfs:comment "note" ]`. Die Registry ankert `dcat:Relationship` über `crm:E13_Attribute_Assignment` (Deutung, kein DCAT-Axiom).
 
-**Umgesetzt in `lrec_v0.4.ttl` (Skript `add_fdox.py`, 785 Triples, Gesamtzeichnung weiter ohne Fehler: 21 Knoten, 26 Kanten; die Zeichnung zeigt die FDOx-Ebene noch nicht):**
-- Neue Klasse `lrec:FDOx` (⊑ `dcat:Dataset`, `prov:Entity`, `crmdig:D1_Digital_Object`); Identität in `dct:identifier` (Concept-DOI), gepinnte Version in `dct:hasVersion`.
-- Beziehungen als `dcat:Relationship` mit `dcat:hadRole`; die Notiz als `lrec:relationNote`.
-- Scan-Sitzung als `lrec:ScanDigitization` mit Ort (`lrec:ScanLocation`, GeoSPARQL-Punkt, Wikidata-`skos:closeMatch`), Zeit (OWL-Time), Gerät (`lrec:captureDevice`), Foto-Anzahl (`lrec:imageCount`) und Person (`crm:P14_carried_out_by`).
-- Bauer des realen Objekts: `lrec:builtBy` (⊑ `crm:P14_carried_out_by`).
+**Umgesetzt in `brec_v0.4.ttl` (Skript `add_fdox.py`, 785 Triples, Gesamtzeichnung weiter ohne Fehler: 21 Knoten, 26 Kanten; die Zeichnung zeigt die FDOx-Ebene noch nicht):**
+- Neue Klasse `brec:FDOx` (⊑ `dcat:Dataset`, `prov:Entity`, `crmdig:D1_Digital_Object`); Identität in `dct:identifier` (Concept-DOI), gepinnte Version in `dct:hasVersion`.
+- Beziehungen als `dcat:Relationship` mit `dcat:hadRole`; die Notiz als `brec:relationNote`.
+- Scan-Sitzung als `brec:ScanDigitization` mit Ort (`brec:ScanLocation`, GeoSPARQL-Punkt, Wikidata-`skos:closeMatch`), Zeit (OWL-Time), Gerät (`brec:captureDevice`), Foto-Anzahl (`brec:imageCount`) und Person (`crm:P14_carried_out_by`).
+- Bauer des realen Objekts: `brec:builtBy` (⊑ `crm:P14_carried_out_by`).
 
 **Lehren aus dem Memo, die in die Modellierung gehören:**
 1. Concept-DOI ≠ Versions-DOI: Identität ist die Concept-DOI, die Registry pinnt die Versions-DOI. Deshalb zwei getrennte Felder.
@@ -362,7 +362,7 @@ Alle: Typ `fdo:3DDataFDO`, Zenodo-Community „Squirrel FDOx", Dataset, CC BY 4.
 
 **Offen laut Memo:** Mermaid-Bild fehlt in den Bundles (`mmdc … unknown option '-w'`); Registry-Pin auf fdo-squirrel v1.3.0 heben; Registry-Release-Bundle (S8) noch nicht auf Zenodo; Zenodo-DOI des fdo-squirrel-Releases in die `CITATION.cff`; eigene Beziehung für die Sketchfab-Quelle wäre sauberer als `isDerivedFrom`; Scan-Uhrzeit des Maya-Scans optional nachtragen.
 
-Im Paket: `memo/` (Memo, CSV, `make_local_metadata.py`) und `ontology/` (`lrec_v0.4.ttl`, `add_fdox.py`, Zeichen- und Prüfskripte).
+Im Paket: `memo/` (Memo, CSV, `make_local_metadata.py`) und `ontology/` (`brec_v0.4.ttl`, `add_fdox.py`, Zeichen- und Prüfskripte).
 
 ---
 
@@ -396,4 +396,4 @@ Ich habe die vier hochgeladenen Bundles entpackt und `MD.cff`, `FDOx.yaml`, `fdo
 | P2 Scan | `33f4d750…3bc22b` | `81ad9901…efd8496` (7.532.064) | `92f6aab6…193c09` | `3DModel_baseColor.jpeg` 2.752.215 B |
 | P2 Rekonstruktion | `2fc7c9cd…58e5d122` | `ebc2e260…342d17` (3.483.398) | `d44b4a15…cfdaa5f8d` | – |
 
-Vollständige Werte: `fdox_originals/bundle_sha.json` im Paket; die ZIP-SHA-256 stehen auch in `lrec_v0.4.ttl` als `dcat:Distribution`.
+Vollständige Werte: `fdox_originals/bundle_sha.json` im Paket; die ZIP-SHA-256 stehen auch in `brec_v0.4.ttl` als `dcat:Distribution`.

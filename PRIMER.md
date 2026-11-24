@@ -1,7 +1,7 @@
-# PRIMER: lego-lrec
+# PRIMER: brick-brec
 
-Arbeitsplan für die LREC-Ontologie und ihre Pipeline. Wird zu Beginn jedes Chats hochgeladen, am Ende zurückgeschrieben.
-Intern und deutsch; alles andere im Repo ist britisches Englisch. Stand: 2026-11-17.
+Arbeitsplan für die BREC-Ontologie und ihre Pipeline. Wird zu Beginn jedes Chats hochgeladen, am Ende zurückgeschrieben.
+Intern und deutsch; alles andere im Repo ist britisches Englisch. Stand: 2026-11-23.
 
 ---
 
@@ -11,7 +11,7 @@ Intern und deutsch; alles andere im Repo ist britisches Englisch. Stand: 2026-11
 
 | Was | Wo | Rolle |
 |---|---|---|
-| Ontologie LREC v0.4 (23 Klassen, 16 eigene Properties, 711 Tripel; vor der Umstellung auf die Bundle-TTLs 832 Tripel) | `ontology/lrec.ttl` | Quelle der Wahrheit |
+| Ontologie BREC v0.4 (23 Klassen, 16 eigene Properties, 711 Tripel; vor der Umstellung auf die Bundle-TTLs 832 Tripel) | `ontology/brec.ttl` | Quelle der Wahrheit |
 | Rekonstruktionsskripte P1, P2 | `py/reconstruct/` | seeded, lesen keine Scandateien |
 | Zeichnungen (Gesamtmodell, Klassen, Identifikation; nur englisch) | `py/figures/` | handgesetzt, kreuzungsfrei |
 | Interpretations-Toolkit (Schema 1.1) | `py/interpret/` | Messen → Prompt → frischer Chat → Konverter |
@@ -24,7 +24,7 @@ Intern und deutsch; alles andere im Repo ist britisches Englisch. Stand: 2026-11
 - Die Original-FDOx-Bundles enthalten **Konversionen** (`model.obj`, `.nxs`, `.nxz`, Texturen), nicht die GLB-Quellen. Flächenzahlen der Rekonstruktionen stimmen (49.964 und 42.996), die Prüfsummen nicht (geprüft 2026-11-17).
 - Daria Stefan steht in `MD.cff` und `fdo-metadata.ttl` der Maya-FDOx als **Beitragende**, nicht als Erstellerin; das Memo nennt sie Autorin der Zenodo-Records. Unklar, ob beides gleich sein soll (geprüft 2026-11-17).
 - Zwei echte Fehler beim Veröffentlichen: falsche Datei im Maya-Scan-Record (v1 enthielt das Bundle der ersten Pyramide) und falsche Concept-DOI `24305438` (gehört einem fremden Record; richtig ist `24305436`). Der Schritt `check` fängt beides jetzt vor dem Upload ab (2026-11-17).
-- Die Gesamtzeichnung und die Klassenzeichnung kennen `lrec:FDOx` noch nicht; `python main.py --strict` meldet das (2026-11-17).
+- Die Gesamtzeichnung und die Klassenzeichnung kennen `brec:FDOx` noch nicht; `python main.py --strict` meldet das (2026-11-17).
 - Die frühere Annahme, Hersteller und Set der Modelle müssten ergänzt werden, war **falsch**: beide sind Eigenbauten (P1 Flo, P2 Daria Stefan), korrigiert 2026-11-17.
 
 **Auswirkung der FDOx auf die Modellierung** (aus dem Abgleich mit den Originalen):
@@ -32,21 +32,21 @@ Intern und deutsch; alles andere im Repo ist britisches Englisch. Stand: 2026-11
 | Bereich | Auswirkung |
 |---|---|
 | Identität | Der FDOx ist die zitierbare Einheit. Seine IRI ist die Concept-DOI; die Registry pinnt die Versions-DOI. Im Graphen zwei getrennte Felder (`dct:identifier`, `dct:hasVersion`). |
-| Doppelung | `lrec:ReconstructionDataset` (interne Hülle) und `lrec:FDOx` (veröffentlichtes Paket) überlappen. Vorschlag in A4. |
+| Doppelung | `brec:ReconstructionDataset` (interne Hülle) und `brec:FDOx` (veröffentlichtes Paket) überlappen. Vorschlag in A4. |
 | Eine Quelle der Wahrheit | `MD.cff` (YAML) und der Graph führen dieselben Fakten (Titel, Beteiligte, Beziehungen). Solange beides von Hand gepflegt wird, entstehen Abweichungen wie Ersteller/Beitragende. |
 | Provenienz | FDOx flacht die Kette Messung → Strukturableitung → Rekonstruktion auf ein `prov:wasDerivedFrom` ab. Der Graph ist reicher; die Details stehen nur als Freitext in `technique.processing`. |
 | Interpretation | Die Hypothesen (mit Argumenten und Konfidenz) kommen im FDOx nur als Satz vor. Status „bestätigt" und Graph können auseinanderlaufen. |
-| Rollen | Drei verschiedene Rollen sind zu trennen: Erbauer des Objekts (`lrec:builtBy`), Aufnehmender (`crm:P14` an der Scan-Aktivität), Beteiligte am Record (`dct:creator`/`dct:contributor`). |
+| Rollen | Drei verschiedene Rollen sind zu trennen: Erbauer des Objekts (`brec:builtBy`), Aufnehmender (`crm:P14` an der Scan-Aktivität), Beteiligte am Record (`dct:creator`/`dct:contributor`). |
 | Versionen | Modellversion (z. B. `model2_v4`) ≠ Record-Version (Zenodo v1, v2, v3). Die Zenodo-Versionen von 2026-11-17 sind Korrekturen der Pakete, keine neuen Modelle. |
 | Dateien | Quelle (GLB/OBJ) und Bundle-Konversion (OBJ/Nexus) sind verschiedene digitale Objekte mit eigener Prüfsumme; die Konversion ist eine Aktivität. |
-| KI-Beteiligung | Im FDOx nur als Beitragende ohne IRI (leerer Knoten). Im Graphen `ex:claude_sonnet_5_5` (`lrec:AIAssistant`); beide verbinden. |
+| KI-Beteiligung | Im FDOx nur als Beitragende ohne IRI (leerer Knoten). Im Graphen `ex:claude_sonnet_5_5` (`brec:AIAssistant`); beide verbinden. |
 
 ## A2 Zielbild
 
 ```
 Scan (KIRI) ──► Messung ──► Rekonstruktion (Steine, GLB) ──► Interpretation ──► FDOx (Zenodo + Sketchfab)
                     │                 │                            │                   │
-                    └──────── ontology/lrec.ttl (ein Graph) ───────┴───────────────────┘
+                    └──────── ontology/brec.ttl (ein Graph) ───────┴───────────────────┘
                                           │
                        check → reconstruct → figures → pages  (python main.py)
                                           │
@@ -57,8 +57,8 @@ Eigenschaften des Ergebnisses (jeweils prüfbar):
 
 1. `python main.py` läuft offline durch; zweimal hintereinander ausgeführt bleibt `git status` sauber.
 2. Beide Rekonstruktionen stimmen byte-identisch mit dem aufgezeichneten Ergebnis überein (`data/expected_models.json`).
-3. Die vier `fdo-metadata.ttl` der Bundles, die Registry-Pins und `lrec.ttl` stimmen überein (Concept-DOI, Versions-DOI, Ersteller, Sketchfab-Seite, keine Fremd-DOI), geprüft vor jedem Upload.
-4. Jede Zeichnung zeigt jede LREC-Klasse und jede Kante des Gesamtmodells; `--strict` läuft grün.
+3. Die vier `fdo-metadata.ttl` der Bundles, die Registry-Pins und `brec.ttl` stimmen überein (Concept-DOI, Versions-DOI, Ersteller, Sketchfab-Seite, keine Fremd-DOI), geprüft vor jedem Upload.
+4. Jede Zeichnung zeigt jede BREC-Klasse und jede Kante des Gesamtmodells; `--strict` läuft grün.
 5. Jede Hypothese trägt Konfidenz, Argumente und einen Status; „bestätigt" nur mit Quelle und Datum.
 
 ## A3 Querschnittsregeln
@@ -82,13 +82,14 @@ Eigenschaften des Ergebnisses (jeweils prüfbar):
 | Identifikation P2 | „Maya-Stufenpyramide" bestätigt durch die Erbauerin; „El Castillo" nicht bestätigt (nicht widerlegt) | 2026-11-17 |
 | Rekonstruktion | prozedural aus idealisierten Steinen; nur Maße und Struktur aus dem Scan, kein Mesh, keine Textur | 2026-11-12 |
 | KI-Beteiligung | im Beschreibungstext des FDOx und als Beitragende vermerkt | 2026-11-17 |
-| Quelle der Ontologie | `ontology/lrec.ttl` (v0.4 ist die Quelle; die Hilfsskripte `translate_en.py`, `add_fdox.py` aus dem Chat sind abgelöst) | Vorschlag |
-| `lrec:FDOx` und `lrec:ReconstructionDataset` | `lrec:FDOx` = veröffentlichtes Paket (Scan und Rekonstruktion), Unterklasse von `dcat:Dataset`; die beiden Rekonstruktions-FDOx tragen zusätzlich `lrec:ReconstructionDataset`, die Scan-FDOx nicht; keine Unterklassenbeziehung zwischen beiden | 2026-11-17 |
-| Quelle für FDOx-Metadaten | die `fdo-metadata.ttl` der veröffentlichten Bundles (`data/fdox/bundles/`), unverändert abgelegt; `lrec.ttl` führt die FDOx-Knoten unter derselben IRI und ergänzt nur LREC-eigene Aussagen (Typ, Scan-Aktivität, Modell, KI-Zuschreibung); die Versions-DOI steht nur in `data/fdox/registry_pins.csv`. Die Overrides `MD.cff`/`CITATION.cff` bleiben Eingabe des Packagers (S3) | 2026-11-17 |
-| Rolle von Daria Stefan | Beitragende (`dct:contributor`) bei den Maya-FDOx, Ersteller bleibt Flo; Daria allein als Erbauerin des Objekts (`lrec:builtBy`) | 2026-11-17 |
+| Quelle der Ontologie | `ontology/brec.ttl` (v0.4 ist die Quelle; die Hilfsskripte `translate_en.py`, `add_fdox.py` aus dem Chat sind abgelöst) | Vorschlag |
+| `brec:FDOx` und `brec:ReconstructionDataset` | `brec:FDOx` = veröffentlichtes Paket (Scan und Rekonstruktion), Unterklasse von `dcat:Dataset`; die beiden Rekonstruktions-FDOx tragen zusätzlich `brec:ReconstructionDataset`, die Scan-FDOx nicht; keine Unterklassenbeziehung zwischen beiden | 2026-11-17 |
+| Quelle für FDOx-Metadaten | die `fdo-metadata.ttl` der veröffentlichten Bundles (`data/fdox/bundles/`), unverändert abgelegt; `brec.ttl` führt die FDOx-Knoten unter derselben IRI und ergänzt nur BREC-eigene Aussagen (Typ, Scan-Aktivität, Modell, KI-Zuschreibung); die Versions-DOI steht nur in `data/fdox/registry_pins.csv`. Die Overrides `MD.cff`/`CITATION.cff` bleiben Eingabe des Packagers (S3) | 2026-11-17 |
+| Rolle von Daria Stefan | Beitragende (`dct:contributor`) bei den Maya-FDOx, Ersteller bleibt Flo; Daria allein als Erbauerin des Objekts (`brec:builtBy`) | 2026-11-17 |
 | Figuren | SVG ist das Produkt; PNG optional (`--png`, resvg_py oder Playwright) | Vorschlag |
 | Figuren: Sprache und Aufbau | nur englisch, ohne Kopf- und Fußzeile (Titel, Quelle und Erläuterungen stehen auf der Seite bzw. der Folie, nicht im Bild); Beschriftungen der Pfeile als gelbe Chips (`#fbbf24`) mittig auf dem Pfeil, nie daneben; `check`/`figures` melden Überlappungen von Chips mit Kästen, Chips und fremden Linien | 2026-11-17 |
 | `dist/`, `docs/` | werden committet, nicht ignoriert | 2026-11-17 |
+| Markenneutralität | Name BREC (Brick Reconstruction Ontology) statt LREC; Präfix `brec:`, Klassen `BrickModel`/`BrickModelTwin`, Namespace `https://example.org/brick-reconstruction#` (Platzhalter bis w3id), Repo `brick-brec`; Markenhinweis in Ontologie, README und jeder Doku-Seite. Beschreibende Nennung bleibt in den Titeln der veröffentlichten Sketchfab-/Zenodo-Records, in den FDOx-Bundles, in `ex:lego_pyramid_*` und in den Skriptnamen `build_lego*.py`. Die Rohantworten unter `interpretations/fresh_*` bleiben unverändert mit dem alten Präfix `lrec:`; beim Merge (S5) wird das Präfix abgebildet | 2026-11-23 |
 
 ## A5 Was in welchem Chat hochgeladen wird
 
@@ -105,8 +106,8 @@ Nicht hochladen: `.git/`, `.venv/`, `dist/`, `docs/` (alles erzeugt), die Scanda
 | Pfad | Inhalt | Ziel des Redirects | Status |
 |---|---|---|---|
 | `https://doi.org/10.5281/zenodo.<concept>` | die vier FDOx | Zenodo | aktiv |
-| `https://example.org/lego-reconstruction#` | LREC-Klassen und -Properties | Platzhalter | geplant (w3id oder Zenodo, S0) |
-| `https://example.org/lego-reconstruction/id/` | Beispielindividuen | Platzhalter | geplant |
+| `https://example.org/brick-reconstruction#` | BREC-Klassen und -Properties | Platzhalter | geplant (w3id oder Zenodo, S0) |
+| `https://example.org/brick-reconstruction/id/` | Beispielindividuen | Platzhalter | geplant |
 | `https://example.org/placeholder/hdt#` | HDT-Klassen | Platzhalter, durch den offiziellen Namespace ersetzen | geplant |
 
 ---
@@ -115,15 +116,15 @@ Nicht hochladen: `.git/`, `.venv/`, `dist/`, `docs/` (alles erzeugt), die Scanda
 
 | ID | Schritt | Repo | hängt ab von | Status |
 |---|---|---|---|---|
-| S0 | Festlegungen: Namespace (w3id), HDT-Namespace (Rest); `FDOx` vs. `ReconstructionDataset` und Rolle Daria Stefan entschieden 2026-11-17 (A4) | lego-lrec | – | teilweise erledigt 2026-11-17 |
-| S1 | Skelett und Pipeline (`check`, `reconstruct`, `figures`, `pages`) | lego-lrec | – | erledigt 2026-11-17 |
-| S2 | FDOx-Ebene in alle Zeichnungen (Gesamtmodell, Klassen; Identifikation braucht sie nicht) | lego-lrec | S0 | erledigt 2026-11-17 |
-| S3 | Bundle-TTLs als einzige Quelle der FDOx-Metadaten: Umstellung von `check` und Seite erledigt 2026-11-17; offen: Overrides `MD.cff`/`CITATION.cff` gegen die erzeugte TTL prüfen | lego-lrec | S0 | teilweise erledigt 2026-11-17 |
-| S4 | LREC-Graph als Datei in die FDOx; Versionsmodell (Modell vs. Record); Konversion als Aktivität | lego-lrec | S3 | offen |
-| S5 | Interpretationen t4/t5 in den Graphen mergen; Wikidata-IDs mit `wikidata_match.py` | lego-lrec | – | offen |
-| S6 | Ontologie-Seite veröffentlichen (GitHub Pages, Zenodo-Release) | lego-lrec | S2, S0 | offen |
-| S7 | SHACL-Shapes (FDOx, Identifikation) und DCAT-AP-Pflichtfelder | lego-lrec | S3 | offen |
-| S8 | Modell 1 vollständig als Beispiel; CRMdig-/CRMinf-Codes prüfen | lego-lrec | – | offen |
+| S0 | Festlegungen: Namespace (w3id), HDT-Namespace (Rest); `FDOx` vs. `ReconstructionDataset` und Rolle Daria Stefan entschieden 2026-11-17 (A4) | brick-brec | – | teilweise erledigt 2026-11-17 |
+| S1 | Skelett und Pipeline (`check`, `reconstruct`, `figures`, `pages`) | brick-brec | – | erledigt 2026-11-17 |
+| S2 | FDOx-Ebene in alle Zeichnungen (Gesamtmodell, Klassen; Identifikation braucht sie nicht) | brick-brec | S0 | erledigt 2026-11-17 |
+| S3 | Bundle-TTLs als einzige Quelle der FDOx-Metadaten: Umstellung von `check` und Seite erledigt 2026-11-17; offen: Overrides `MD.cff`/`CITATION.cff` gegen die erzeugte TTL prüfen | brick-brec | S0 | teilweise erledigt 2026-11-17 |
+| S4 | BREC-Graph als Datei in die FDOx; Versionsmodell (Modell vs. Record); Konversion als Aktivität | brick-brec | S3 | offen |
+| S5 | Interpretationen t4/t5 in den Graphen mergen; Wikidata-IDs mit `wikidata_match.py` | brick-brec | – | offen |
+| S6 | Ontologie-Seite veröffentlichen (GitHub Pages, Zenodo-Release) | brick-brec | S2, S0 | offen |
+| S7 | SHACL-Shapes (FDOx, Identifikation) und DCAT-AP-Pflichtfelder | brick-brec | S3 | offen |
+| S8 | Modell 1 vollständig als Beispiel; CRMdig-/CRMinf-Codes prüfen | brick-brec | – | offen |
 | S9 | Skill `kiri-scan-to-lego-reconstruction` um FDOx und Repo-Struktur erweitern | Claude-Skill | S1 | Vorschlag erstellt 2026-11-17 |
 
 Unabhängig voneinander: S5, S8 und S2 (nach S0) können in beliebiger Reihenfolge laufen. S3 und S4 bauen aufeinander auf.
@@ -148,7 +149,7 @@ Alle vier Schritte laufen (ca. 5 Sekunden, davon 4 für die Rekonstruktion). Die
 
 ## S2 FDOx-Ebene in alle Zeichnungen
 
-**Ziel:** `lrec:FDOx`, `dcat:Relationship`, Scan-Sitzung und die Rolle des Bauers erscheinen in Gesamtmodell, Klassendiagramm und Identifikation.
+**Ziel:** `brec:FDOx`, `dcat:Relationship`, Scan-Sitzung und die Rolle des Bauers erscheinen in Gesamtmodell, Klassendiagramm und Identifikation.
 
 **Uploads:** die aktuellen Zeichnungen aus `docs/visuals/img/` zur Ansicht.
 
@@ -158,10 +159,10 @@ Die Zeichnungen sind handgesetzt; neue Knoten brauchen Platz, ohne Kanten zu kre
 
 ### Erledigt 2026-11-17
 
-- **Gesamtzeichnung:** zwei neue Knoten `lrec:FDOx` (Scan, Rekonstruktion von Pyramide 2, Concept-DOI `...24305428` und `...24305436`) unten rechts, mit den Kanten `dct:isReferencedBy` (Scan → Rekonstruktion), `prov:wasDerivedFrom` (Rekonstruktion → Scan) und `prov:wasAttributedTo` (Rekonstruktion → KI-Agent). Pyramide 1 steht als Fußnote (`...24305240`, `...24305343`), weil die Zeichnung nur Pyramide 2 zeigt. 23 Knoten, 29 Kanten, keine Kreuzung.
+- **Gesamtzeichnung:** zwei neue Knoten `brec:FDOx` (Scan, Rekonstruktion von Pyramide 2, Concept-DOI `...24305428` und `...24305436`) unten rechts, mit den Kanten `dct:isReferencedBy` (Scan → Rekonstruktion), `prov:wasDerivedFrom` (Rekonstruktion → Scan) und `prov:wasAttributedTo` (Rekonstruktion → KI-Agent). Pyramide 1 steht als Fußnote (`...24305240`, `...24305343`), weil die Zeichnung nur Pyramide 2 zeigt. 23 Knoten, 29 Kanten, keine Kreuzung.
 - **Nicht gezeichnet:** die Kanten `hdt:has_3D_model` von den FDOx zu den Modellknoten (RAW, OUT). Der Bereich dazwischen ist so dicht belegt, dass sie nicht kreuzungsfrei gehen; die Zuordnung steht im Graphen. Wer sie zeichnen will, muss QM und SW2 umsetzen (offen).
-- **`check_diagram.py`** liest jetzt `lrec.ttl` **und** die Bundle-TTLs, weil `dct:isReferencedBy` und `prov:wasDerivedFrom` zwischen den FDOx nur dort stehen.
-- **Klassendiagramm:** `lrec:FDOx` (Eltern `crmdig:D1`, `prov:Entity`, `dcat:Dataset`); Legende auf zwei Zeilen umgebrochen (die Einträge überlappten), Fußzeile nennt `ontology/lrec.ttl` statt `lrec_v0.3.ttl`.
+- **`check_diagram.py`** liest jetzt `brec.ttl` **und** die Bundle-TTLs, weil `dct:isReferencedBy` und `prov:wasDerivedFrom` zwischen den FDOx nur dort stehen.
+- **Klassendiagramm:** `brec:FDOx` (Eltern `crmdig:D1`, `prov:Entity`, `dcat:Dataset`); Legende auf zwei Zeilen umgebrochen (die Einträge überlappten), Fußzeile nennt `ontology/brec.ttl` statt `brec_v0.3.ttl`.
 - **Identifikation:** unverändert. Die Hypothesen hängen nicht an den FDOx.
 - **Ergebnis:** `python main.py --strict` endet mit Exit 0, es gibt keine bekannte Lücke mehr.
 - **Nachtrag (Darstellung):** Zeichnungen nur englisch (`overview.svg`, `classes.svg`, `identification.svg`), keine Kopf- und Fußzeilen; die Erläuterungen (Pyramide 1, Konfidenz, Pfeile) stehen jetzt in den Bildunterschriften von `docs/visuals.html`. Pfeilbeschriftungen sind gelbe Chips; `draw.py` setzt sie automatisch auf die Mitte des Pfeils (kurze Pfeile zuerst, mit Prüfung gegen Kästen, andere Chips und fremde Linien); die Pyramide-2-Ortsbox ist dafür schmaler (170 statt 190) und ein Stück nach rechts gerückt, damit der Pfeil P7 lang genug ist. Im Klassendiagramm ist der Abstand zwischen `Assumption` und `ProceduralReconstruction` größer, in der Identifikationsgrafik sind die Pfeile zwischen den Spalten länger. `figures` schlägt fehl, wenn `draw.py` Überlappungen meldet.
@@ -176,13 +177,13 @@ Die Zeichnungen sind handgesetzt; neue Knoten brauchen Platz, ohne Kanten zu kre
 
 ### Erledigt 2026-11-17 (Teil 1: Quelle umgestellt)
 
-Die vier `fdo-metadata.ttl` liegen unverändert in `data/fdox/bundles/` (Prüfsumme in `data/fdox/original_bundles.json`). Sie benutzen dasselbe Vokabular wie unsere FDOx-Knoten (`dcat:Dataset`, `crmdig:D1`, `prov:wasDerivedFrom`, `dcat:qualifiedRelation`) und dieselbe IRI (Concept-DOI), deshalb verschmelzen sie mit `lrec.ttl` ohne `owl:sameAs`. Aus `lrec.ttl` entfielen die kopierten Titel, Ersteller, Distributionen und `ex:rel_*`-Knoten sowie die Properties `lrec:fdoType`, `lrec:sketchfabPage`, `lrec:relationNote`. Die Versions-DOI ist die einzige FDOx-Angabe, die die Bundles nicht kennen: `data/fdox/registry_pins.csv`. `py/lrec_utils.load_graph()` lädt alles zusammen; `check` und die FDOx-Seite benutzen es. Geprüft: eine falsche Concept-DOI in den Pins (24305438) und eine Relation auf eine Fremd-DOI in einer Bundle-TTL lassen `check` fehlschlagen. Daria Stefan steht in beiden Maya-Bundles bereits als `dct:contributor`.
+Die vier `fdo-metadata.ttl` liegen unverändert in `data/fdox/bundles/` (Prüfsumme in `data/fdox/original_bundles.json`). Sie benutzen dasselbe Vokabular wie unsere FDOx-Knoten (`dcat:Dataset`, `crmdig:D1`, `prov:wasDerivedFrom`, `dcat:qualifiedRelation`) und dieselbe IRI (Concept-DOI), deshalb verschmelzen sie mit `brec.ttl` ohne `owl:sameAs`. Aus `brec.ttl` entfielen die kopierten Titel, Ersteller, Distributionen und `ex:rel_*`-Knoten sowie die Properties `brec:fdoType`, `brec:sketchfabPage`, `brec:relationNote`. Die Versions-DOI ist die einzige FDOx-Angabe, die die Bundles nicht kennen: `data/fdox/registry_pins.csv`. `py/brec_utils.load_graph()` lädt alles zusammen; `check` und die FDOx-Seite benutzen es. Geprüft: eine falsche Concept-DOI in den Pins (24305438) und eine Relation auf eine Fremd-DOI in einer Bundle-TTL lassen `check` fehlschlagen. Daria Stefan steht in beiden Maya-Bundles bereits als `dct:contributor`.
 
 Offen in S3: `make_local_metadata.py` gegen die erzeugten TTLs prüfen (Overrides ergeben dieselben Felder?).
 
 ## S4 Graph in die FDOx, Versionsmodell
 
-**Ziel:** Jeder FDOx enthält den Auszug des LREC-Graphen als Dokumentation; Modellversion und Record-Version sind getrennt modelliert.
+**Ziel:** Jeder FDOx enthält den Auszug des BREC-Graphen als Dokumentation; Modellversion und Record-Version sind getrennt modelliert.
 
 **Abnahme:** der Auszug parst, die Beziehungen im Graphen und im Bundle stimmen überein.
 
@@ -201,11 +202,11 @@ Siehe Teil B. Diese Schritte werden beschrieben, sobald sie an der Reihe sind.
 - Die Mermaid-Übersicht fehlt in den FDOx-Bundles (`mmdc … unknown option '-w'`); gehört zu fdo-squirrel, nicht hierher.
 - Der Registry-Pin auf `fdo-squirrel` v1.3.0 ist noch zu heben (anderes Repo).
 - Wikidata-IDs der Kandidaten (Maya-Pyramide, El Castillo, Kriegerfigur …) fehlen noch.
-- Erledigt 2026-11-18: alle 23 Klassen an CIDOC CRM geankert (`lrec:QualityMeasurement` unter `crm:E54_Dimension`, `lrec:ReconstructionDataset` unter `crmdig:D1_Digital_Object`; Vorschlag, die Wahl von E54 bzw. D1 ist von Flo zu bestätigen); `check` schlägt fehl, wenn eine Klasse keinen Vorfahren der CRM-Familie hat (`py/crm_coverage.py`).
+- Erledigt 2026-11-18: alle 23 Klassen an CIDOC CRM geankert (`brec:QualityMeasurement` unter `crm:E54_Dimension`, `brec:ReconstructionDataset` unter `crmdig:D1_Digital_Object`; Vorschlag, die Wahl von E54 bzw. D1 ist von Flo zu bestätigen); `check` schlägt fehl, wenn eine Klasse keinen Vorfahren der CRM-Familie hat (`py/crm_coverage.py`).
 - Erledigt 2026-11-18: neue Seiten Datenmodell (drei Module), CRM-Abdeckung, Crosswalk, Instanzmodelle; neue Abbildungen Story, Architektur, Pyramidenknoten, Pyramide 1 und 2 (gemessen/geschätzt/rekonstruiert/interpretiert), FDOx-Knoten, Workflow, CRM-Anker, Crosswalk-Matrix. Zeitbalken-Abbildung entfernt (auf Wunsch).
 - Erledigt 2026-11-18: SPARQL-Seite im Browser (`docs/sparql.html`, Pyodide 0.26.4 + rdflib 7.1.1, Abfragen in `data/queries.json`, jede beim Build ausgeführt, leere Abfrage = Fehler; Graph `docs/graph.nt` als sortierte N-Triples mit kanonischen Blank-Node-Ids) und 3D-Ansicht der GLBs (`docs/viewer.html`, three.js 0.160.0). Nicht umgesetzt: quarto-live-Notebook (`qmd/`) der wdt-sparql-Vorlage.
-- Erledigt 2026-11-18: HDT (Heritage Digital Twin, HC-Klassen) in der Architekturabbildung, der Story-Abbildung, dem Pyramidenknoten und als Spalte der Datenmodell-Seite; Labels für `ex:lego_pyramid_2` und `ex:model2_v4` ergänzt (fehlten, die Instanzseite zeigte die IRI). Offen bleibt der HDT-Namespace (Platzhalter in `lrec.ttl`).
+- Erledigt 2026-11-18: HDT (Heritage Digital Twin, HC-Klassen) in der Architekturabbildung, der Story-Abbildung, dem Pyramidenknoten und als Spalte der Datenmodell-Seite; Labels für `ex:lego_pyramid_2` und `ex:model2_v4` ergänzt (fehlten, die Instanzseite zeigte die IRI). Offen bleibt der HDT-Namespace (Platzhalter in `brec.ttl`).
 - Erledigt 2026-11-18: SPARQL-Editor mit Syntax-Highlighting (CodeMirror 5.65.16, cdnjs, gepinnt) und Live-Linter (rdflib-`prepareQuery` unter Pyodide, entprellt; vor dem Start nur Klammerprüfung); Ctrl+Enter führt aus; ohne CDN bleibt das Textfeld. Figures in vier Kategorie-Seiten (`visuals-picture|model|crm|pyramids.html`) mit Übersicht `visuals.html` (Vorschaubilder, Anker `#stem` bleiben); Nummern F1 bis F12 aus `FIGCATS` in `py/pages_more.py`; Navigation in drei Zeilen.
-- Erledigt 2026-11-18: Minimal Brick Ontology angebunden: `ex:brick_2x4|2x2|1x1` per `skos:exactMatch` an `mbot:part/3001|3003|3005`, `lrec:LegoModel` unter `mbo:Build`; `data/mbo_bricks.csv` ist eine Kopie der fünf Teile (MBO-Commit 52a636a), `check` prüft Teil und Noppenzahl gegen das Label; neue Seite `bricks.html`. Befunde im MBO-Repo (Python-<3.12-SyntaxError in `step_docs.py`, Minifig-Kategorien von Rebrickable falsch erraten) sind dort in einem eigenen Patch korrigiert. Offen und beiden Repos gemeinsam: der CRMdig/CRMinf-Namespace ist hier `http://www.ics.forth.gr/isl/…`, im MBO `http://www.cidoc-crm.org/extensions/…`; welcher gilt, ist nicht belegt (CRMdig-5.0-PDF nennt keinen). Offen: MBO-Namespace (w3id) ist noch nicht registriert, die IRIs lösen nicht auf.
-- Erledigt 2026-11-18: CRMdig-Namespace auf `http://www.cidoc-crm.org/extensions/crmdig/` (CRMdig 5.0, Oktober 2025; RDFS `…/rdfs/5.0/CRMdig_v5.0.rdf` geprüft: D1, D2, D3, D7, D8, D14, L1, L11, L12, L21, L22, L23 existieren dort) umgestellt in `lrec.ttl`, Skripten und `data/queries.json`. Die vier veröffentlichten FDOx-Bundle-TTLs behalten bis zur nächsten Zenodo-Version den alten Namespace `http://www.ics.forth.gr/isl/CRMdig/`; `parse_bundle` in `py/lrec_utils.py` schreibt ihn beim Lesen um. Beschluss Flo (Vorschlag „Ontologie jetzt, Bundles später“). Offen: CRMinf-Namespace (`http://www.ics.forth.gr/isl/CRMinf/`) ist nicht gegen die aktuelle CRMinf-Version geprüft; die archivierten `interpretations/` bleiben unverändert.
+- Erledigt 2026-11-18: Minimal Brick Ontology angebunden: `ex:brick_2x4|2x2|1x1` per `skos:exactMatch` an `mbot:part/3001|3003|3005`, `brec:BrickModel` unter `mbo:Build`; `data/mbo_bricks.csv` ist eine Kopie der fünf Teile (MBO-Commit 52a636a), `check` prüft Teil und Noppenzahl gegen das Label; neue Seite `bricks.html`. Befunde im MBO-Repo (Python-<3.12-SyntaxError in `step_docs.py`, Minifig-Kategorien von Rebrickable falsch erraten) sind dort in einem eigenen Patch korrigiert. Offen und beiden Repos gemeinsam: der CRMdig/CRMinf-Namespace ist hier `http://www.ics.forth.gr/isl/…`, im MBO `http://www.cidoc-crm.org/extensions/…`; welcher gilt, ist nicht belegt (CRMdig-5.0-PDF nennt keinen). Offen: MBO-Namespace (w3id) ist noch nicht registriert, die IRIs lösen nicht auf.
+- Erledigt 2026-11-18: CRMdig-Namespace auf `http://www.cidoc-crm.org/extensions/crmdig/` (CRMdig 5.0, Oktober 2025; RDFS `…/rdfs/5.0/CRMdig_v5.0.rdf` geprüft: D1, D2, D3, D7, D8, D14, L1, L11, L12, L21, L22, L23 existieren dort) umgestellt in `brec.ttl`, Skripten und `data/queries.json`. Die vier veröffentlichten FDOx-Bundle-TTLs behalten bis zur nächsten Zenodo-Version den alten Namespace `http://www.ics.forth.gr/isl/CRMdig/`; `parse_bundle` in `py/brec_utils.py` schreibt ihn beim Lesen um. Beschluss Flo (Vorschlag „Ontologie jetzt, Bundles später“). Offen: CRMinf-Namespace (`http://www.ics.forth.gr/isl/CRMinf/`) ist nicht gegen die aktuelle CRMinf-Version geprüft; die archivierten `interpretations/` bleiben unverändert.
 - Offen: Wikidata-IDs für `ex:c_cobi`, `ex:c_elcastillo`, `ex:c_maya` (`python py/wikidata/match.py --set ex:c_cobi=Q… …`); der Knoten-Abbildung zeigt `c_maya` gestrichelt, bis die ID da ist.

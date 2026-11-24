@@ -11,18 +11,18 @@ import struct
 from rdflib import OWL, RDF, RDFS, Literal, Namespace, URIRef
 
 from crm_coverage import FAMILY, anchors, chains, own_classes
-from lrec_utils import IMG, read_pins
+from brec_utils import IMG, read_pins
 
-LREC = Namespace("https://example.org/lego-reconstruction#")
-EX = Namespace("https://example.org/lego-reconstruction/id/")
+BREC = Namespace("https://example.org/brick-reconstruction#")
+EX = Namespace("https://example.org/brick-reconstruction/id/")
 DCT, PROV, SK = Namespace("http://purl.org/dc/terms/"), Namespace("http://www.w3.org/ns/prov#"), Namespace("http://www.w3.org/2004/02/skos/core#")
 SCHEMA, CRMINF = Namespace("https://schema.org/"), Namespace("http://www.ics.forth.gr/isl/CRMinf/")
-CREDIT = "Source: ontology/lrec.ttl and the notes of the repository; Research Squirrel Engineers at LEIZA."
+CREDIT = "Source: ontology/brec.ttl and the notes of the repository; Research Squirrel Engineers at LEIZA."
 
 # the three modules of the model; every own class must be listed (step_pages fails otherwise)
 MODULES = [
     ("Scan and reconstruction", "From the physical model through the SfM scan, the measurement and the brick reconstruction to its documentation.",
-     ["LegoModel", "LegoModelTwin", "ScanDigitization", "RawScan", "ReferencePhoto", "ScanLocation", "ProcessInterval", "AlignmentAndMeasurement",
+     ["BrickModel", "BrickModelTwin", "ScanDigitization", "RawScan", "ReferencePhoto", "ScanLocation", "ProcessInterval", "AlignmentAndMeasurement",
       "StructureInference", "Assumption", "ProceduralReconstruction", "ReconstructionModel", "ReconstructionScript", "QualityMeasurement",
       "BrickType", "ChangeDocumentation", "AIAssistant"], ["overview", "classes"]),
     ("Identification", "What does the object represent? Evidence supports or weakens hypotheses; a hypothesis proposes a candidate referent, which can be linked to Wikidata.",
@@ -35,14 +35,14 @@ MODULES = [
 FIGS = [
     ("story", "From the pyramid to the Linked Open Data cloud",
      "Five stages: the physical pyramid, the SfM scan, the brick reconstruction, the interpretation and the anchoring. Photo counts and confidences are read from the graph; the scan is drawn as noisy points, the reconstruction as bricks (schematic)."),
-    ("architecture", "Architecture: CRM family, LREC domain layer, standards, knowledge graph",
+    ("architecture", "Architecture: CRM family, BREC domain layer, standards, knowledge graph",
      "The three modules of the data model sit under the CRM family and reuse W3C vocabularies; the knowledge graph built from them is linked to the Linked Open Data cloud."),
     ("node", "One pyramid as a node and what it is linked to",
      "Pyramid 2. Every link is a statement in the graph; the dashed box marks a Wikidata item that has not been chosen yet (data/wikidata_mapping.ttl)."),
     ("overview", "Whole model: scan, reconstruction, interpretation, FDOx packages",
      "Shown for pyramid 2. Pyramid 1 is analogous (FDOx concept DOIs 10.5281/zenodo.24305240 for the scan and 10.5281/zenodo.24305343 for the reconstruction). "
      "Noted inside the classes without a node of their own: DCAT-AP, CodeMeta, SKOS, Wikidata (closeMatch), OWL-Time (P4); every class is also a prov:Entity, prov:Activity or prov:Agent (subclass relation, not drawn)."),
-    ("classes", "LREC class diagram",
+    ("classes", "BREC class diagram",
      "Hollow-triangle arrows are rdfs:subClassOf; the parent classes are listed per class so that no lines cross. Amber text marks attributes (datatype properties); the solid arrow is an object property."),
     ("identification", "Identification: evidence, hypotheses, candidates",
      "Confidence is a subjective estimate by the AI assistant (0 to 1), not a measurement; hypotheses overlap and do not sum to 1. Wikidata items are picked by hand (data/wikidata_mapping.ttl)."),
@@ -51,13 +51,13 @@ FIGS = [
     ("pyramid2", "Pyramid 2: measured, estimated, reconstructed and interpreted",
      "Schematic front view; stair-arm reach and corner blocks follow the reconstruction (v2 to v4). The builder confirmed the Maya step pyramid on 2026-11-17; El Castillo is not confirmed."),
     ("hub", "One FDOx and what it is linked to",
-     "The reconstruction record of pyramid 2. Every link is a statement in the merged graph (bundle TTL, pins and lrec.ttl)."),
+     "The reconstruction record of pyramid 2. Every link is a statement in the merged graph (bundle TTL, pins and brec.ttl)."),
     ("workflow", "Inputs, the four steps of main.py, outputs",
      "Step names are read from main.py; counts from the repository files."),
     ("coverage", "Own classes by their nearest CRM-family anchor",
      "A class with two anchors stands in both groups; (via) marks an anchor reached through another own class."),
     ("crosswalk", "Crosswalk: classes against vocabularies",
-     "Direct rdfs:subClassOf parents of every LREC class, one column per vocabulary; orange cells are the CRM family anchors."),
+     "Direct rdfs:subClassOf parents of every BREC class, one column per vocabulary; orange cells are the CRM family anchors."),
 ]
 # figure pages by category: slug (page visuals-<slug>.html), title, what the category answers, stems in reading order; F-numbers follow this order
 FIGCATS = [
@@ -173,8 +173,8 @@ def hdt_cell(g, c) -> str:
 
 def model_body(g) -> str:
     classes = own_classes(g)
-    props = sorted({p for t in (OWL.ObjectProperty, OWL.DatatypeProperty) for p in g.subjects(RDF.type, t) if str(p).startswith(str(LREC))}, key=str)
-    out = [f"<h1>Data model</h1><section><p>Classes, properties, domains and ranges are read from <code>ontology/lrec.ttl</code> at build time: "
+    props = sorted({p for t in (OWL.ObjectProperty, OWL.DatatypeProperty) for p in g.subjects(RDF.type, t) if str(p).startswith(str(BREC))}, key=str)
+    out = [f"<h1>Data model</h1><section><p>Classes, properties, domains and ranges are read from <code>ontology/brec.ttl</code> at build time: "
            f"{len(classes)} classes and {len(props)} own properties in three modules. Every class is anchored in CIDOC CRM, CRMdig or CRMinf "
            '(see <a href="coverage.html">CRM coverage</a>); the <a href="crosswalk.html">crosswalk</a> shows the parents in the other vocabularies.</p></section>']
     for k, (name, desc, names, figs) in enumerate(MODULES):
@@ -209,9 +209,9 @@ def coverage_body(g, missing: list) -> str:
     if miss:
         raise SystemExit("coverage page: classes without a CRM anchor: " + ", ".join(c.split("#")[1] for c in miss))
     return ("<h1>CRM coverage</h1><section><p>A class counts as anchored when a class of the CIDOC CRM family (crm, crmdig, crminf) is among its ancestors through "
-            "<code>rdfs:subClassOf</code>, directly or through another LREC class. The CRM classes themselves are not in this ontology (it imports CIDOC CRM), "
+            "<code>rdfs:subClassOf</code>, directly or through another BREC class. The CRM classes themselves are not in this ontology (it imports CIDOC CRM), "
             "so a chain ends at the first class of the family.</p>"
-            f"<p><strong>{len(classes)} of {len(classes)}</strong> LREC classes are anchored in the CRM family.</p></section>"
+            f"<p><strong>{len(classes)} of {len(classes)}</strong> BREC classes are anchored in the CRM family.</p></section>"
             + fig_by("coverage", missing)
             + f"<section><h2>Chains to the CRM family ({len(classes)} classes)</h2><table><tr><th>Class</th><th>Chain</th></tr>{rows}</table></section>")
 
@@ -235,10 +235,10 @@ def crosswalk_body(g, gm, missing: list) -> str:
     sup, typ = {}, {}
     for c in classes:
         for o in g.objects(c, RDFS.subClassOf):
-            if isinstance(o, URIRef) and not str(o).startswith(str(LREC)):
+            if isinstance(o, URIRef) and not str(o).startswith(str(BREC)):
                 sup[o] = sup.get(o, 0) + 1
     for _, t in gm.subject_objects(RDF.type):
-        if isinstance(t, URIRef) and not str(t).startswith(str(LREC)) and not str(t).startswith("http://www.w3.org/2002/07/owl#"):
+        if isinstance(t, URIRef) and not str(t).startswith(str(BREC)) and not str(t).startswith("http://www.w3.org/2002/07/owl#"):
             typ[t] = typ.get(t, 0) + 1
     ext = sorted(set(sup) | set(typ), key=lambda u: (q(gm, u)))
     erows = ""
@@ -247,12 +247,12 @@ def crosswalk_body(g, gm, missing: list) -> str:
         if u in typ:
             use.append(f"in data: {typ[u]} nodes")
         if u in sup:
-            use.append(f"superclass of {sup[u]} LREC class" + ("es" if sup[u] > 1 else ""))
+            use.append(f"superclass of {sup[u]} BREC class" + ("es" if sup[u] > 1 else ""))
         erows += f"<tr><td><code>{esc(q(gm, u))}</code></td><td>{esc('; '.join(use))}</td></tr>"
-    return ("<h1>Crosswalk</h1><section><p>Where each LREC class sits in the other vocabularies: the direct parents from <code>rdfs:subClassOf</code>, one column per vocabulary. "
-            "An LREC class is at the same time a class of the CRM family, of PROV-O (entity, activity or agent) and, where it applies, of HDT, DCAT, DQV, SKOS, schema.org, OWL-Time or GeoSPARQL. "
+    return ("<h1>Crosswalk</h1><section><p>Where each BREC class sits in the other vocabularies: the direct parents from <code>rdfs:subClassOf</code>, one column per vocabulary. "
+            "An BREC class is at the same time a class of the CRM family, of PROV-O (entity, activity or agent) and, where it applies, of HDT, DCAT, DQV, SKOS, schema.org, OWL-Time or GeoSPARQL. "
             "<code>hdt:</code> is a placeholder namespace until the official HDT namespace is entered.</p>"
-            f'<div style="overflow-x:auto"><table><tr><th>LREC class</th>{head}</tr>{rows}</table></div></section>'
+            f'<div style="overflow-x:auto"><table><tr><th>BREC class</th>{head}</tr>{rows}</table></div></section>'
             f"<section><h2>Classes of other vocabularies ({len(ext)})</h2><p class=muted>Counted in the merged graph (ontology, four FDOx bundles, Wikidata mapping).</p>"
             f"<table><tr><th>Class</th><th>Use</th></tr>{erows}</table></section>" + fig_by("crosswalk", missing))
 
@@ -263,10 +263,10 @@ MBO_COMMIT = "52a636a"      # state of the Minimal Brick Ontology that data/mbo_
 
 def bricks_body(g, missing: list) -> str:
     import csv
-    from lrec_utils import DATA
+    from brec_utils import DATA
     parts = {r["part_number"]: r for r in csv.DictReader((DATA / "mbo_bricks.csv").open(encoding="utf-8"))}
     rows = ""
-    for bt in sorted(g.subjects(RDF.type, LREC.BrickType), key=str):
+    for bt in sorted(g.subjects(RDF.type, BREC.BrickType), key=str):
         for m in g.objects(bt, SK.exactMatch):
             if not str(m).startswith("https://w3id.org/mbo/thesaurus/part/"):
                 continue
@@ -276,15 +276,15 @@ def bricks_body(g, missing: list) -> str:
                      f'<td><a href="{MBO_DOCS}thesaurus.html#part/{esc(n)}"><code>mbot:part/{esc(n)}</code></a><br><span class=muted>{esc(r["label"])}</span></td>'
                      f"<td>{esc(r['studs_length'])} x {esc(r['studs_width'])} studs, {esc(r['height_plates'])} plates</td>"
                      f"<td>{esc(r['nominal_length_mm'])} x {esc(r['nominal_width_mm'])} x {esc(r['nominal_height_mm'])} mm</td><td>{esc(r['verification'])}</td></tr>")
-    return ("<h1>Bricks (MBO)</h1><section><p>LREC does not define bricks, colours or parts. For these it uses the "
+    return ("<h1>Bricks (MBO)</h1><section><p>BREC does not define bricks, colours or parts. For these it uses the "
             f'<a href="{MBO_DOCS}">Minimal Brick Ontology (MBO)</a>, an independent community vocabulary of the same group: an OWL ontology aligned to CIDOC CRM, CRMba and CRMdig, '
-            "and a SKOS thesaurus of colours, part designs and identifier systems. LREC contributes what MBO does not cover: the scan, the measurement, the reconstruction and its interpretation.</p>"
-            "<ul><li>Each <code>lrec:BrickType</code> is matched with <code>skos:exactMatch</code> to the part of the MBO thesaurus; the match is checked against "
+            "and a SKOS thesaurus of colours, part designs and identifier systems. BREC contributes what MBO does not cover: the scan, the measurement, the reconstruction and its interpretation.</p>"
+            "<ul><li>Each <code>brec:BrickType</code> is matched with <code>skos:exactMatch</code> to the part of the MBO thesaurus; the match is checked against "
             f"<code>data/mbo_bricks.csv</code>, a copy of the five parts used so far (MBO commit <code>{MBO_COMMIT}</code>), including the number of studs against the label.</li>"
-            "<li><code>lrec:LegoModel</code> (the physical model) is a subclass of <code>mbo:Build</code>, which is an <code>mbo:Assembly</code> (CRM <code>E22</code>) and a CRMba <code>B1 Built Work</code>.</li>"
+            "<li><code>brec:BrickModel</code> (the physical model) is a subclass of <code>mbo:Build</code>, which is an <code>mbo:Assembly</code> (CRM <code>E22</code>) and a CRMba <code>B1 Built Work</code>.</li>"
             "<li>The MBO namespace <code>https://w3id.org/mbo/</code> is prepared, but the w3id registration is pending; until then the IRIs do not resolve.</li></ul></section>"
             "<section><h2>Brick types matched to MBO parts</h2>"
-            f"<table><tr><th>LREC</th><th>Label</th><th>MBO part</th><th>Grid</th><th>Nominal size</th><th>MBO status</th></tr>{rows}</table>"
+            f"<table><tr><th>BREC</th><th>Label</th><th>MBO part</th><th>Grid</th><th>Nominal size</th><th>MBO status</th></tr>{rows}</table>"
             "<p class=muted>Nominal sizes are community values, not published by the LEGO Group: length = studs x 8 mm - 0.2 mm, brick height 9.6 mm. "
             "The reconstruction uses a stud pitch of 8 mm and a brick height of 9.6 mm at scene scale 2/3.</p></section>")
 
@@ -319,8 +319,8 @@ def instances_body(gm, missing: list) -> str:
         place = gm.value(scan_ev, URIRef("http://www.cidoc-crm.org/cidoc-crm/P7_took_place_at"))
         wd = gm.value(place, SK.closeMatch)
         rows = [("Model", esc(label(gm, model, "en"))),
-                ("Built by", esc(_person(gm, gm.value(model, LREC.builtBy)))),
-                ("Scan", f"{esc(gm.value(scan_ev, LREC.imageCount))} photos, {esc(gm.value(scan_ev, LREC.captureDevice))}; {esc(next((str(x) for x in gm.objects(scan_ev, DCT.description) if getattr(x, 'language', '') == 'en'), ''))}"),
+                ("Built by", esc(_person(gm, gm.value(model, BREC.builtBy)))),
+                ("Scan", f"{esc(gm.value(scan_ev, BREC.imageCount))} photos, {esc(gm.value(scan_ev, BREC.captureDevice))}; {esc(next((str(x) for x in gm.objects(scan_ev, DCT.description) if getattr(x, 'language', '') == 'en'), ''))}"),
                 ("Place", esc(min((str(x) for x in gm.objects(place, RDFS.label) if getattr(x, "language", "") == "en"), default=q(gm, place))) + (f' (<a href="{esc(wd)}">{esc(str(wd).split("/")[-1])}</a>)' if wd else "")),
                 ("Reconstruction", esc("; ".join(label(gm, r_, "en") for r_ in recs)))]
         for z, role in ((z_scan, "FDOx: scan"), (z_rec, "FDOx: reconstruction")):
@@ -331,10 +331,10 @@ def instances_body(gm, missing: list) -> str:
         hyp = []
         for idn in idents:
             sub = []
-            for h in sorted(gm.objects(idn, CRMINF.J2_concluded_that), key=lambda x: -float(gm.value(x, LREC.confidence))):
-                cand = gm.value(h, LREC.proposesReferent)
+            for h in sorted(gm.objects(idn, CRMINF.J2_concluded_that), key=lambda x: -float(gm.value(x, BREC.confidence))):
+                cand = gm.value(h, BREC.proposesReferent)
                 w = gm.value(cand, SK.closeMatch) if cand else None
-                sub.append(f"{float(gm.value(h, LREC.confidence)):.2f} {esc(label(gm, h, 'en'))}" + (f' (<a href="{esc(w)}">{esc(str(w).split("/")[-1])}</a>)' if w else ""))
+                sub.append(f"{float(gm.value(h, BREC.confidence)):.2f} {esc(label(gm, h, 'en'))}" + (f' (<a href="{esc(w)}">{esc(str(w).split("/")[-1])}</a>)' if w else ""))
             hyp.append((f"<strong>{esc(label(gm, idn, 'en'))}</strong><br>" if len(idents) > 1 else "") + "<br>".join(sub))
         rows.append(("Identification", "<br><br>".join(hyp)))
         tr = "".join(f"<tr><th>{esc(k)}</th><td>{v}</td></tr>" for k, v in rows)

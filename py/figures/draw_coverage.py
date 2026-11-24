@@ -10,7 +10,7 @@ import rdflib
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from lrec_utils import ONTOLOGY  # noqa: E402
+from brec_utils import ONTOLOGY  # noqa: E402
 from crm_coverage import anchors, chains, own_classes  # noqa: E402
 from svgkit import GREY, ORANGE, Svg, WHITE  # noqa: E402
 from fira import tw  # noqa: E402
@@ -39,7 +39,7 @@ for a in order:
     svg.text(205, y + BHH / 2, q, 14, True, "#1f1f1d", "middle", maxw=310)
     x = 420
     for c, via in sorted(groups[a], key=lambda t: str(t[0])):
-        label = "lrec:" + c.split("#")[1] + (" (via)" if via else "")
+        label = "brec:" + c.split("#")[1] + (" (via)" if via else "")
         w = tw(label, 13) + 24
         svg.rect(x, y, w, BHH, ORANGE, name="class " + label)
         svg.text(x + w / 2, y + BHH / 2, label, 13, False, "#fff", "middle", maxw=w - 8)
@@ -48,5 +48,5 @@ for a in order:
         sys.exit("draw_coverage: a group is wider than the figure")
     svg.o.append(f'<path d="M375 {y + BHH / 2} L410 {y + BHH / 2}" stroke="#111" stroke-width="1.4" fill="none"/>')
     y += ROW
-svg.legend([(WHITE, "CRM family class (crm, crmdig, crminf)"), (ORANGE, "LREC class")], 40, H - 40)
+svg.legend([(WHITE, "CRM family class (crm, crmdig, crminf)"), (ORANGE, "BREC class")], 40, H - 40)
 svg.save("coverage.svg")

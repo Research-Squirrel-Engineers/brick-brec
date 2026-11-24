@@ -13,7 +13,7 @@ import sys
 import trimesh
 
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
-from lrec_utils import DATA, DIST, PY, Report, ensure_dirs, run_script, sha256_file  # noqa: E402
+from brec_utils import DATA, DIST, PY, Report, ensure_dirs, run_script, sha256_file  # noqa: E402
 
 
 def main(strict: bool) -> int:

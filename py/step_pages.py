@@ -16,9 +16,9 @@ from rdflib import RDF, RDFS, OWL, Namespace
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
 import pages_more  # noqa: E402
 import pages_web  # noqa: E402
-from lrec_utils import DOCS, IMG, ONTOLOGY, PY, RELEASE, ROOT, Report, ensure_dirs, load_graph, write_text  # noqa: E402
+from brec_utils import DOCS, IMG, ONTOLOGY, PY, RELEASE, ROOT, Report, ensure_dirs, load_graph, write_text  # noqa: E402
 
-LREC = Namespace("https://example.org/lego-reconstruction#")
+BREC = Namespace("https://example.org/brick-reconstruction#")
 DCT = Namespace("http://purl.org/dc/terms/")
 PROV = Namespace("http://www.w3.org/ns/prov#")
 DCAT = Namespace("http://www.w3.org/ns/dcat#")
@@ -57,6 +57,9 @@ FIGPAGES = pages_more.FIGPAGES
 JS_COPY = """<script>document.querySelectorAll("button[data-c]").forEach(function(b){b.addEventListener("click",function(){var ok=function(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy"},1200)};if(navigator.clipboard){navigator.clipboard.writeText(b.dataset.c).then(ok).catch(function(){})}})});</script>"""
 
 
+TM_NOTE = "Independent research vocabulary. Not affiliated with, authorised or endorsed by the LEGO Group. LEGO is a trademark of the LEGO Group."
+
+
 def esc(x) -> str:
     return html.escape(str(x))
 
@@ -69,7 +72,7 @@ def page(name: str, title: str, body: str, head: str = "") -> None:
         return f'<div class=grp><span class=lab>{lab}</span><span class=lnk>' + "".join(f'<a href="{f}"{" class=on" if f == name else ""}>{t}</a>' for f, t in items) + "</span></div>"
     nav = row("Documentation", PAGES) + row("Data and tools", EXPLORE) + row("Figures", FIGPAGES)
     write_text(DOCS / name, f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-               f'<title>{esc(title)} | LREC</title><link rel="stylesheet" href="assets/site.css?v={CSSV}">{head}</head><body><nav>{nav}</nav><main>{body}</main>{JS_COPY}</body></html>')
+               f'<title>{esc(title)} | BREC</title><link rel="stylesheet" href="assets/site.css?v={CSSV}">{head}</head><body><nav>{nav}</nav><main>{body}</main><footer style="max-width:70rem;margin:2rem auto;padding:0 1rem;font-size:.85em;opacity:.75">{TM_NOTE}</footer>{JS_COPY}</body></html>')
 
 
 def label(g, s, lang="en") -> str:
@@ -92,25 +95,25 @@ def main(strict: bool) -> int:
     (DOCS / "assets" / "fonts").mkdir(exist_ok=True)
     for n in ("FiraSans-Regular.ttf", "FiraSans-Medium.ttf", "LICENSE-FiraSans.txt"):
         shutil.copyfile(PY / "figures" / "fonts" / n, DOCS / "assets" / "fonts" / n)
-    shutil.copyfile(ONTOLOGY, DOCS / "lrec.ttl")
+    shutil.copyfile(ONTOLOGY, DOCS / "brec.ttl")
     (DOCS / "notes").mkdir(exist_ok=True)
-    for n in ("LREC_en.md", "LREC.md", "IDENTIFIKATION_en.md", "FDOx_Pyramiden_Metadaten.md", "aenderungen_en.md"):
+    for n in ("BREC_en.md", "BREC.md", "IDENTIFIKATION_en.md", "FDOx_Pyramiden_Metadaten.md", "aenderungen_en.md"):
         shutil.copyfile(ROOT / "notes" / n, DOCS / "notes" / n)
 
-    classes = sorted((c for c in g.subjects(RDF.type, OWL.Class) if str(c).startswith(str(LREC))), key=str)
-    props = sorted((p for p in g.subjects(RDF.type, None) if str(p).startswith(str(LREC)) and (p, RDF.type, OWL.ObjectProperty) in g or (p, RDF.type, OWL.DatatypeProperty) in g), key=str)
+    classes = sorted((c for c in g.subjects(RDF.type, OWL.Class) if str(c).startswith(str(BREC))), key=str)
+    props = sorted((p for p in g.subjects(RDF.type, None) if str(p).startswith(str(BREC)) and (p, RDF.type, OWL.ObjectProperty) in g or (p, RDF.type, OWL.DatatypeProperty) in g), key=str)
     props = sorted(set(props), key=str)
 
     # --- index
-    body = (f"<h1>LREC: LEGO Reconstruction Ontology</h1><p class=muted>Release {RELEASE}</p><section>"
+    body = (f"<h1>BREC: Brick Reconstruction Ontology</h1><p class=muted>Release {RELEASE}</p><section>"
             "<p>From a structure-from-motion scan of a LEGO model to an idealised brick reconstruction, its documentation and its interpretation, "
             "modelled with CIDOC CRM (+ CRMdig, CRMinf), PROV-O, DCAT, DQV, OWL-Time, GeoSPARQL, SKOS and Wikidata.</p>"
-            f"<p>{len(g)} triples, {len(classes)} LREC classes, {len(props)} own properties. German and English labels.</p>"
-            '<p><a href="lrec.ttl">lrec.ttl</a> · <a href="notes/LREC_en.md">LREC (English)</a> · <a href="notes/LREC.md">LREC (Deutsch)</a> · '
+            f"<p>{len(g)} triples, {len(classes)} BREC classes, {len(props)} own properties. German and English labels.</p>"
+            '<p><a href="brec.ttl">brec.ttl</a> · <a href="notes/BREC_en.md">BREC (English)</a> · <a href="notes/BREC.md">BREC (Deutsch)</a> · '
             '<a href="notes/FDOx_Pyramiden_Metadaten.md">FDOx metadata (Deutsch)</a> · <a href="notes/aenderungen_en.md">What changed from scan to reconstruction</a></p></section>'
             '<section><h2>Pipeline</h2><pre>scan (KIRI) -> measurement -> reconstruction (bricks, GLB) -> interpretation -> FDOx (Zenodo)\n'
             'main.py: check -> reconstruct -> figures -> pages</pre></section>')
-    page("index.html", "LREC", body)
+    page("index.html", "BREC", body)
 
     # --- data model, CRM coverage, crosswalk, figures (bodies in pages_more.py)
     gm = load_graph(with_fdox=True)
@@ -129,8 +132,8 @@ def main(strict: bool) -> int:
     for m in sorted(set(missing)):
         r.warn(f"{m} missing; run the figures step first")
 
-    # --- FDOx: bundle TTLs (identity, title, people, relations) + registry pins + lrec.ttl, merged
-    fdox = sorted(gm.subjects(RDF.type, LREC.FDOx), key=str)
+    # --- FDOx: bundle TTLs (identity, title, people, relations) + registry pins + brec.ttl, merged
+    fdox = sorted(gm.subjects(RDF.type, BREC.FDOx), key=str)
 
     def who(n) -> str:
         return str(gm.value(n, RDFS.label) or gm.value(n, SCHEMA.name) or n)
@@ -154,7 +157,7 @@ def main(strict: bool) -> int:
          "the version DOI is the registry pin (<code>data/fdox/registry_pins.csv</code>). Check both against the Zenodo page before entering them.</blockquote></section>"
          f"<section><h2>Relations between the FDOx</h2><table><tr><th>From (concept DOI suffix)</th><th>Role</th><th>To</th><th>Note</th></tr>{rel}</table></section>")
 
-    r.ok(f"{len(PAGES) + len(EXPLORE) + len(FIGPAGES)} pages, {len(classes)} classes, {len(props)} properties, {len(fdox)} FDOx, docs/lrec.ttl")
+    r.ok(f"{len(PAGES) + len(EXPLORE) + len(FIGPAGES)} pages, {len(classes)} classes, {len(props)} properties, {len(fdox)} FDOx, docs/brec.ttl")
     return r.exit_code()
 
 

@@ -1,7 +1,7 @@
-"""Crosswalk: every LREC class against the vocabularies it is a subclass of (direct rdfs:subClassOf parents), as a matrix.
+"""Crosswalk: every BREC class against the vocabularies it is a subclass of (direct rdfs:subClassOf parents), as a matrix.
 
 usage: draw_crosswalk.py <ontology.ttl>   Output: crosswalk.svg
-CRM family columns are filled, because every class must have an entry there (directly or through another LREC class; those show "via").
+CRM family columns are filled, because every class must have an entry there (directly or through another BREC class; those show "via").
 """
 import sys
 from pathlib import Path
@@ -51,7 +51,7 @@ for kind, v in rows:
         svg.rect(X0, y + 2, W - X0 - 40, ROW - 4, "#f1efe8", stroke="#d8d6ce", check=False)
         svg.text(X0 + 10, y + ROW / 2, v, 14, True, INK, maxw=400)
     else:
-        svg.text(X0 + 10, y + ROW / 2, "lrec:" + str(v).split("#")[1], 13, False, INK, maxw=235)
+        svg.text(X0 + 10, y + ROW / 2, "brec:" + str(v).split("#")[1], 13, False, INK, maxw=235)
         direct_any = False
         for p, _ in VOCAB:
             ps = sorted((o for o in g.objects(v, RDFS.subClassOf) if str(o).startswith(ns[p])), key=str)

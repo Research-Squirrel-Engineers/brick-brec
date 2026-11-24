@@ -1,5 +1,5 @@
 {
-  "schema": "lrec-model-interpretation/1.1",
+  "schema": "brec-model-interpretation/1.1",
   "model_id": "example_model",
   "interpreter": {
     "name": "Claude",

@@ -1,12 +1,12 @@
 #!/usr/bin/env python
-"""interpretation_to_lrec.py <x_interpretation.json> [--merge ontology/lrec.ttl --out merged.ttl]
-Validates the JSON answer of the 'incognito' chat against interpretation_schema.json (+ reference checks) and writes it as LREC Turtle
+"""interpretation_to_brec.py <x_interpretation.json> [--merge ontology/brec.ttl --out merged.ttl]
+Validates the JSON answer of the 'incognito' chat against interpretation_schema.json (+ reference checks) and writes it as BREC Turtle
 (Identification, Evidence, IdentityHypothesis, CandidateReferent, object/parts/dimensions). With --merge the fragment is appended to your ontology."""
 import argparse, json, os, re, sys
 import rdflib
 from rdflib import RDF, RDFS, OWL, XSD, Literal, Namespace, URIRef
 HERE = os.path.dirname(os.path.abspath(__file__))
-NS = dict(lrec='https://example.org/lego-reconstruction#', ex='https://example.org/lego-reconstruction/id/', crm='http://www.cidoc-crm.org/cidoc-crm/', crmdig='http://www.cidoc-crm.org/extensions/crmdig/',
+NS = dict(brec='https://example.org/brick-reconstruction#', ex='https://example.org/brick-reconstruction/id/', crm='http://www.cidoc-crm.org/cidoc-crm/', crmdig='http://www.cidoc-crm.org/extensions/crmdig/',
           crminf='http://www.ics.forth.gr/isl/CRMinf/', prov='http://www.w3.org/ns/prov#', dct='http://purl.org/dc/terms/', skos='http://www.w3.org/2004/02/skos/core#')
 def check(d):
     errs = []
@@ -30,7 +30,7 @@ def check(d):
 def build(d):
     g = rdflib.Graph()
     for k, v in NS.items(): g.bind(k, v)
-    L, EX, CRM, CI, PROV, DCT = (Namespace(NS[k]) for k in ('lrec', 'ex', 'crm', 'crminf', 'prov', 'dct'))
+    L, EX, CRM, CI, PROV, DCT = (Namespace(NS[k]) for k in ('brec', 'ex', 'crm', 'crminf', 'prov', 'dct'))
     slug = re.sub(r'[^A-Za-z0-9]+', '_', d['model_id']).strip('_'); R = lambda s: EX[f'{slug}_{s}']
     en = lambda t: Literal(t, lang='en')
     # property declarations for the fragment

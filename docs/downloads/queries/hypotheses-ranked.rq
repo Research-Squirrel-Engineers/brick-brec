@@ -1,5 +1,5 @@
-PREFIX lrec: <https://example.org/lego-reconstruction#>
-PREFIX ex: <https://example.org/lego-reconstruction/id/>
+PREFIX brec: <https://example.org/brick-reconstruction#>
+PREFIX ex: <https://example.org/brick-reconstruction/id/>
 PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX crmdig: <http://www.cidoc-crm.org/extensions/crmdig/>
 PREFIX crminf: <http://www.ics.forth.gr/isl/CRMinf/>
@@ -11,10 +11,10 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
 SELECT ?object ?hypothesis ?confidence ?status WHERE {
-  ?h lrec:hypothesisAbout ?o ; lrec:confidence ?confidence ; rdfs:label ?hypothesis .
+  ?h brec:hypothesisAbout ?o ; brec:confidence ?confidence ; rdfs:label ?hypothesis .
   FILTER(LANG(?hypothesis) = "en")
   ?o rdfs:label ?object .
   FILTER(LANG(?object) = "en" || LANG(?object) = "")
-  OPTIONAL { ?h lrec:verificationStatus ?status . FILTER(LANG(?status) = "en") }
+  OPTIONAL { ?h brec:verificationStatus ?status . FILTER(LANG(?status) = "en") }
 }
 ORDER BY ?object DESC(?confidence)

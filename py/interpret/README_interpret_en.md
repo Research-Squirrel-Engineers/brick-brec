@@ -1,6 +1,6 @@
 # Model interpretation toolkit ("incognito" workflow)
 
-Goal: give Claude **any** 3D model in a fresh chat without prior knowledge and get back **standardised information** for interpreting it; then write it into the LREC graph.
+Goal: give Claude **any** 3D model in a fresh chat without prior knowledge and get back **standardised information** for interpreting it; then write it into the BREC graph.
 
 ## Workflow (Windows cmd; commands that belong together are chained in one line)
 1. **Measure and render** (local, deterministic):
@@ -14,11 +14,11 @@ Goal: give Claude **any** 3D model in a fresh chat without prior knowledge and g
    **Pass 2 (refinement, recommended):** `python make_prompt.py out/my_model_facts.json --previous out/my_model_interpretation.json` → `out/my_model_prompt2.md`; run it in a fresh chat with the same images, the answer replaces the JSON. Pass 2 re-checks counts (steps, stairs), adds specific named candidates per general hypothesis (`specializes`), separate hypotheses for components (e.g. a figure, `about`) and feature checks.
    Optional without a chat: `pip install anthropic && set ANTHROPIC_API_KEY=... && python ask_claude.py out/my_model_prompt.md out/my_model_views.png` (untested here).
 4. **Validate and write into the graph**:
-   `python interpretation_to_lrec.py out/my_model_interpretation.json --merge ontology/lrec.ttl --out lrec_merged.ttl && python draw_ident.py lrec_merged.ttl en`
+   `python interpretation_to_brec.py out/my_model_interpretation.json --merge ontology/brec.ttl --out brec_merged.ttl && python draw_ident.py brec_merged.ttl en`
 
-## What comes back (schema `lrec-model-interpretation/1.1`)
+## What comes back (schema `brec-model-interpretation/1.1`)
 `object` (description, category, construction technique/material, real-size estimate, up axis) · `structure` (shape, levels, symmetry, components, repeated elements) · `capture` (likely origin, defects, floor included) · `evidence` (E1.., source views/facts/photo/owner_note, strength) · `hypotheses` (H1.., confidence, supports/weakens, alternative_to, specializes, candidate with Wikidata search term, **`feature_checks`** expected vs. observed, **`strongest_counterargument`**, **`about`** = component) · `questions_for_owner`.
-In the graph: `lrec:Identification` → `lrec:Evidence` / `lrec:IdentityHypothesis` / `lrec:CandidateReferent`, plus object, parts and dimensions (CRM E18/E54); the raw JSON is kept as `lrec:interpretationJson`.
+In the graph: `brec:Identification` → `brec:Evidence` / `brec:IdentityHypothesis` / `brec:CandidateReferent`, plus object, parts and dimensions (CRM E18/E54); the raw JSON is kept as `brec:interpretationJson`.
 
 ## What `inspect_model.py` measures
 Counts, bounding box, units hint, up-axis estimate (glTF: Y up; otherwise flat-base heuristic), footprint profile along the height (plateaus, type), horizontal surface levels, mirror/90° symmetry, periodic pattern (e.g. stud pitch), dominant colours, mesh quality (merged-vertex topology, boundary edges, components).

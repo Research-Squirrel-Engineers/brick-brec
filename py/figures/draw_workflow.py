@@ -10,7 +10,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from lrec_utils import DATA, FDOX_BUNDLES, ONTOLOGY, ROOT, WIKIDATA_MAP, read_pins  # noqa: E402
+from brec_utils import DATA, FDOX_BUNDLES, ONTOLOGY, ROOT, WIKIDATA_MAP, read_pins  # noqa: E402
 import rdflib  # noqa: E402
 from svgkit import AMBER, GREY, ORANGE, PURPLE, Svg, WHITE, GREEN, wrap  # noqa: E402
 
@@ -55,7 +55,7 @@ for y in ROWS[:-1]:
     svg.arrow([(MX + BW / 2, y + BH), (MX + BW / 2, y + 200)], ends=("step check", "step reconstruct", "step figures", "step pages"))
 
 # inputs (left)
-box(LX, 40, 330, 100, GREY, "Ontology lrec.ttl", [f"{n_trip} triples", "read by check, figures and pages"])
+box(LX, 40, 330, 100, GREY, "Ontology brec.ttl", [f"{n_trip} triples", "read by check, figures and pages"])
 box(LX, 190, 330, 100, GREY, f"{n_bund} FDOx bundle TTLs and pins", [f"{n_pins} concept and version DOIs", "metadata of the Zenodo records"])
 box(LX, 340, 330, 100, GREY, "Scripts with scan measurements", ["parameters read once from the", "KIRI Engine SfM scans (not in the repo)"])
 box(LX, 490, 330, 100, GREY, "Wikidata mapping", [f"{n_map} curated closeMatch items", "py/wikidata/match.py, run locally"])

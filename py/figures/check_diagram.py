@@ -1,16 +1,16 @@
 # Prueft, dass jeder Knoten und jede Kante der Gesamtzeichnung (draw.py) in der Turtle-Datei steht.
 import sys, rdflib
 from rdflib import RDF, RDFS, URIRef
-ttls = sys.argv[1:] or ['ontology/lrec.ttl']   # ontology first, then optional FDOx bundle TTLs
+ttls = sys.argv[1:] or ['ontology/brec.ttl']   # ontology first, then optional FDOx bundle TTLs
 g = rdflib.Graph()
 OLD_DIG = 'http://www.ics.forth.gr/isl/CRMdig/'   # the published FDOx bundles still use the CRMdig 3.2.1 namespace
 for ttl in ttls: g.parse(data=open(ttl, encoding='utf-8').read().replace(OLD_DIG, 'http://www.cidoc-crm.org/extensions/crmdig/'), format='turtle')
 def U(s):
     p, l = s.split(':', 1)
-    return URIRef({'ex': 'https://example.org/lego-reconstruction/id/', 'crm': 'http://www.cidoc-crm.org/cidoc-crm/',
+    return URIRef({'ex': 'https://example.org/brick-reconstruction/id/', 'crm': 'http://www.cidoc-crm.org/cidoc-crm/',
                    'crmdig': 'http://www.cidoc-crm.org/extensions/crmdig/', 'crminf': 'http://www.ics.forth.gr/isl/CRMinf/',
                    'hdt': 'https://example.org/placeholder/hdt#', 'prov': 'http://www.w3.org/ns/prov#',
-                   'lrec': 'https://example.org/lego-reconstruction#', 'dqv': 'http://www.w3.org/ns/dqv#',
+                   'brec': 'https://example.org/brick-reconstruction#', 'dqv': 'http://www.w3.org/ns/dqv#',
                    'unit': 'http://qudt.org/vocab/unit/', 'skos': 'http://www.w3.org/2004/02/skos/core#',
                    'geo': 'http://www.opengis.net/ont/geosparql#', 'dcat': 'http://www.w3.org/ns/dcat#', 'dct': 'http://purl.org/dc/terms/',
                    'zenodo': 'https://doi.org/10.5281/zenodo.'}[p] + l)
@@ -41,7 +41,7 @@ EDGES = [  # (Subjekt, Praedikat, Objekt) wie in der Zeichnung
  ('DIG','crmdig:L11_had_output','RAW'), ('REC','crmdig:L10_had_input','RAW'), ('REC','crmdig:L11_had_output','OUT'),
  ('OUT','crmdig:L21_used_as_derivation_source','RAW'), ('OUT','crm:P2_has_type','BT'), ('HDOC','crm:P70_documents','REC'),
  ('MEAS','crm:P39_measured','RAW'), ('MEAS','crm:P40_observed_dimension','DIM'), ('DIM','crm:P91_has_unit','UNIT'),
- ('INF','crminf:J1_used_as_premise','DIM'), ('INF','crminf:J2_concluded_that','BEL'), ('REC','lrec:usesAssumption','BEL'),
+ ('INF','crminf:J1_used_as_premise','DIM'), ('INF','crminf:J2_concluded_that','BEL'), ('REC','brec:usesAssumption','BEL'),
  ('DIG','crmdig:L12_happened_on_device','DEV'), ('DIG','crmdig:L23_used_software_or_firmware','SW1'),
  ('REC','crm:P14_carried_out_by','AGT1'), ('REC','crm:P14_carried_out_by','AGT2'), ('REC','crmdig:L23_used_software_or_firmware','SW2'),
  ('FS','dct:isReferencedBy','FR'), ('FR','prov:wasDerivedFrom','FS'), ('FR','prov:wasAttributedTo','AGT2'),
