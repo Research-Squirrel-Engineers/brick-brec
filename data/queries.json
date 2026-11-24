@@ -1,11 +1,11 @@
 {
- "prefixes": "PREFIX brec: <https://example.org/brick-reconstruction#>\nPREFIX ex: <https://example.org/brick-reconstruction/id/>\nPREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>\nPREFIX crmdig: <http://www.cidoc-crm.org/extensions/crmdig/>\nPREFIX crminf: <http://www.ics.forth.gr/isl/CRMinf/>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX dcat: <http://www.w3.org/ns/dcat#>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>",
+ "prefixes": "PREFIX brec: <https://w3id.org/brec/ontology#>\nPREFIX ex: <https://w3id.org/brec/id/>\nPREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>\nPREFIX crmdig: <http://www.cidoc-crm.org/extensions/crmdig/>\nPREFIX crminf: <http://www.ics.forth.gr/isl/CRMinf/>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX dcat: <http://www.w3.org/ns/dcat#>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>",
  "queries": [
   {
    "id": "classes-anchored",
    "title": "Which BREC classes sit directly under a CRM family class?",
    "intro": "Every BREC class is anchored in CIDOC CRM, CRMdig or CRMinf. This lists the direct anchors; classes that reach the family only through another BREC class do not appear here (see the CRM coverage page).",
-   "sparql": "SELECT ?class ?anchor WHERE {\n  ?class a owl:Class ; rdfs:subClassOf ?anchor .\n  FILTER(STRSTARTS(STR(?class), \"https://example.org/brick-reconstruction#\"))\n  FILTER(STRSTARTS(STR(?anchor), \"http://www.cidoc-crm.org/\") || STRSTARTS(STR(?anchor), \"http://www.cidoc-crm.org/extensions/\") || STRSTARTS(STR(?anchor), \"http://www.ics.forth.gr/isl/CRMinf/\"))\n}\nORDER BY ?anchor ?class"
+   "sparql": "SELECT ?class ?anchor WHERE {\n  ?class a owl:Class ; rdfs:subClassOf ?anchor .\n  FILTER(STRSTARTS(STR(?class), \"https://w3id.org/brec/ontology#\"))\n  FILTER(STRSTARTS(STR(?anchor), \"http://www.cidoc-crm.org/\") || STRSTARTS(STR(?anchor), \"http://www.cidoc-crm.org/extensions/\") || STRSTARTS(STR(?anchor), \"http://www.ics.forth.gr/isl/CRMinf/\"))\n}\nORDER BY ?anchor ?class"
   },
   {
    "id": "hypotheses-ranked",
@@ -41,7 +41,7 @@
    "id": "properties",
    "title": "Own properties with domain and range",
    "intro": "The 16 properties that BREC defines, with the class they start from and the class or datatype they lead to.",
-   "sparql": "SELECT ?property ?domain ?range WHERE {\n  { ?property a owl:ObjectProperty } UNION { ?property a owl:DatatypeProperty }\n  FILTER(STRSTARTS(STR(?property), \"https://example.org/brick-reconstruction#\"))\n  OPTIONAL { ?property rdfs:domain ?domain }\n  OPTIONAL { ?property rdfs:range ?range }\n}\nORDER BY ?property"
+   "sparql": "SELECT ?property ?domain ?range WHERE {\n  { ?property a owl:ObjectProperty } UNION { ?property a owl:DatatypeProperty }\n  FILTER(STRSTARTS(STR(?property), \"https://w3id.org/brec/ontology#\"))\n  OPTIONAL { ?property rdfs:domain ?domain }\n  OPTIONAL { ?property rdfs:range ?range }\n}\nORDER BY ?property"
   }
  ]
 }

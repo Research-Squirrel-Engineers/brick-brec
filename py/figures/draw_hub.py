@@ -18,7 +18,7 @@ from fira import tw  # noqa: E402
 g = load_graph(True)
 DCT, PROV, DCAT = Namespace("http://purl.org/dc/terms/"), Namespace("http://www.w3.org/ns/prov#"), Namespace("http://www.w3.org/ns/dcat#")
 HDT = Namespace(str(next(ns for p, ns in g.namespaces() if p == "hdt")))
-EX = Namespace("https://example.org/brick-reconstruction/id/")
+EX = Namespace("https://w3id.org/brec/id/")
 HUB = URIRef("https://doi.org/10.5281/zenodo.24305436")
 SCAN = URIRef("https://doi.org/10.5281/zenodo.24305428")
 FLO, DARIA = URIRef("https://orcid.org/0000-0002-3246-3531"), URIRef("https://orcid.org/0009-0008-0586-9350")

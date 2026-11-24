@@ -7,10 +7,10 @@ OLD_DIG = 'http://www.ics.forth.gr/isl/CRMdig/'   # the published FDOx bundles s
 for ttl in ttls: g.parse(data=open(ttl, encoding='utf-8').read().replace(OLD_DIG, 'http://www.cidoc-crm.org/extensions/crmdig/'), format='turtle')
 def U(s):
     p, l = s.split(':', 1)
-    return URIRef({'ex': 'https://example.org/brick-reconstruction/id/', 'crm': 'http://www.cidoc-crm.org/cidoc-crm/',
+    return URIRef({'ex': 'https://w3id.org/brec/id/', 'crm': 'http://www.cidoc-crm.org/cidoc-crm/',
                    'crmdig': 'http://www.cidoc-crm.org/extensions/crmdig/', 'crminf': 'http://www.ics.forth.gr/isl/CRMinf/',
                    'hdt': 'https://example.org/placeholder/hdt#', 'prov': 'http://www.w3.org/ns/prov#',
-                   'brec': 'https://example.org/brick-reconstruction#', 'dqv': 'http://www.w3.org/ns/dqv#',
+                   'brec': 'https://w3id.org/brec/ontology#', 'dqv': 'http://www.w3.org/ns/dqv#',
                    'unit': 'http://qudt.org/vocab/unit/', 'skos': 'http://www.w3.org/2004/02/skos/core#',
                    'geo': 'http://www.opengis.net/ont/geosparql#', 'dcat': 'http://www.w3.org/ns/dcat#', 'dct': 'http://purl.org/dc/terms/',
                    'zenodo': 'https://doi.org/10.5281/zenodo.'}[p] + l)

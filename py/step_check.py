@@ -17,7 +17,7 @@ from rdflib import RDF, RDFS, OWL, Namespace, URIRef
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
 from brec_utils import DATA, FDOX_BUNDLES, parse_bundle, ONTOLOGY, PY, RAW, ROOT, Report, read_pins, run_script, sha256_file  # noqa: E402
 
-BREC = Namespace("https://example.org/brick-reconstruction#")
+BREC = Namespace("https://w3id.org/brec/ontology#")
 DCT = Namespace("http://purl.org/dc/terms/")
 FDO = Namespace("https://w3id.org/fdo-squirrel/")
 FLO = "https://orcid.org/0000-0002-3246-3531"

@@ -5,7 +5,7 @@ ontology file (it imports CIDOC CRM), so a chain ends at the first class of the 
 """
 from rdflib import OWL, RDF, RDFS, URIRef
 
-BREC = "https://example.org/brick-reconstruction#"
+BREC = "https://w3id.org/brec/ontology#"
 FAMILY = ("http://www.cidoc-crm.org/cidoc-crm/", "http://www.cidoc-crm.org/extensions/crmdig/", "http://www.ics.forth.gr/isl/CRMinf/")
 
 # Classes that intentionally have no CRM-family ancestor, with the reason. Empty since 2026-11-17: every class is anchored.

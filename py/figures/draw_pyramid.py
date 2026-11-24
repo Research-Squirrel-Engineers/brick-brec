@@ -19,8 +19,8 @@ from fira import tw  # noqa: E402
 
 MODEL = sys.argv[1]
 ONT, MAP, NOTES = sys.argv[2], sys.argv[3], sys.argv[4]
-L = Namespace("https://example.org/brick-reconstruction#")
-EX = Namespace("https://example.org/brick-reconstruction/id/")
+L = Namespace("https://w3id.org/brec/ontology#")
+EX = Namespace("https://w3id.org/brec/id/")
 SK = Namespace("http://www.w3.org/2004/02/skos/core#")
 g = rdflib.Graph()
 g.parse(ONT, format="turtle")

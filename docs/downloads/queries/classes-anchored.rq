@@ -1,5 +1,5 @@
-PREFIX brec: <https://example.org/brick-reconstruction#>
-PREFIX ex: <https://example.org/brick-reconstruction/id/>
+PREFIX brec: <https://w3id.org/brec/ontology#>
+PREFIX ex: <https://w3id.org/brec/id/>
 PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX crmdig: <http://www.cidoc-crm.org/extensions/crmdig/>
 PREFIX crminf: <http://www.ics.forth.gr/isl/CRMinf/>
@@ -12,7 +12,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
 SELECT ?class ?anchor WHERE {
   ?class a owl:Class ; rdfs:subClassOf ?anchor .
-  FILTER(STRSTARTS(STR(?class), "https://example.org/brick-reconstruction#"))
+  FILTER(STRSTARTS(STR(?class), "https://w3id.org/brec/ontology#"))
   FILTER(STRSTARTS(STR(?anchor), "http://www.cidoc-crm.org/") || STRSTARTS(STR(?anchor), "http://www.cidoc-crm.org/extensions/") || STRSTARTS(STR(?anchor), "http://www.ics.forth.gr/isl/CRMinf/"))
 }
 ORDER BY ?anchor ?class

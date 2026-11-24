@@ -13,8 +13,8 @@ from rdflib import OWL, RDF, RDFS, Literal, Namespace, URIRef
 from crm_coverage import FAMILY, anchors, chains, own_classes
 from brec_utils import IMG, read_pins
 
-BREC = Namespace("https://example.org/brick-reconstruction#")
-EX = Namespace("https://example.org/brick-reconstruction/id/")
+BREC = Namespace("https://w3id.org/brec/ontology#")
+EX = Namespace("https://w3id.org/brec/id/")
 DCT, PROV, SK = Namespace("http://purl.org/dc/terms/"), Namespace("http://www.w3.org/ns/prov#"), Namespace("http://www.w3.org/2004/02/skos/core#")
 SCHEMA, CRMINF = Namespace("https://schema.org/"), Namespace("http://www.ics.forth.gr/isl/CRMinf/")
 CREDIT = "Source: ontology/brec.ttl and the notes of the repository; Research Squirrel Engineers at LEIZA."

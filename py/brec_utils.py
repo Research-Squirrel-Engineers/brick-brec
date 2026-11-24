@@ -24,8 +24,8 @@ DOCS = ROOT / "docs"
 IMG = DOCS / "visuals" / "img"
 
 NS = {
-    "brec": "https://example.org/brick-reconstruction#",
-    "ex": "https://example.org/brick-reconstruction/id/",
+    "brec": "https://w3id.org/brec/ontology#",
+    "ex": "https://w3id.org/brec/id/",
 }
 
 

@@ -1,7 +1,7 @@
 # PRIMER: brick-brec
 
 Arbeitsplan für die BREC-Ontologie und ihre Pipeline. Wird zu Beginn jedes Chats hochgeladen, am Ende zurückgeschrieben.
-Intern und deutsch; alles andere im Repo ist britisches Englisch. Stand: 2026-11-23.
+Intern und deutsch; alles andere im Repo ist britisches Englisch. Stand: 2026-11-24.
 
 ---
 
@@ -89,7 +89,8 @@ Eigenschaften des Ergebnisses (jeweils prüfbar):
 | Figuren | SVG ist das Produkt; PNG optional (`--png`, resvg_py oder Playwright) | Vorschlag |
 | Figuren: Sprache und Aufbau | nur englisch, ohne Kopf- und Fußzeile (Titel, Quelle und Erläuterungen stehen auf der Seite bzw. der Folie, nicht im Bild); Beschriftungen der Pfeile als gelbe Chips (`#fbbf24`) mittig auf dem Pfeil, nie daneben; `check`/`figures` melden Überlappungen von Chips mit Kästen, Chips und fremden Linien | 2026-11-17 |
 | `dist/`, `docs/` | werden committet, nicht ignoriert | 2026-11-17 |
-| Markenneutralität | Name BREC (Brick Reconstruction Ontology) statt LREC; Präfix `brec:`, Klassen `BrickModel`/`BrickModelTwin`, Namespace `https://example.org/brick-reconstruction#` (Platzhalter bis w3id), Repo `brick-brec`; Markenhinweis in Ontologie, README und jeder Doku-Seite. Beschreibende Nennung bleibt in den Titeln der veröffentlichten Sketchfab-/Zenodo-Records, in den FDOx-Bundles, in `ex:lego_pyramid_*` und in den Skriptnamen `build_lego*.py`. Die Rohantworten unter `interpretations/fresh_*` bleiben unverändert mit dem alten Präfix `lrec:`; beim Merge (S5) wird das Präfix abgebildet | 2026-11-23 |
+| Markenneutralität | Name BREC (Brick Reconstruction Ontology) statt LREC; Präfix `brec:`, Klassen `BrickModel`/`BrickModelTwin`, Namespace `https://w3id.org/brec/ontology#` (Platzhalter bis w3id), Repo `brick-brec`; Markenhinweis in Ontologie, README und jeder Doku-Seite. Beschreibende Nennung bleibt in den Titeln der veröffentlichten Sketchfab-/Zenodo-Records, in den FDOx-Bundles, in `ex:lego_pyramid_*` und in den Skriptnamen `build_lego*.py`. Die Rohantworten unter `interpretations/fresh_*` bleiben unverändert mit dem alten Präfix `lrec:`; beim Merge (S5) wird das Präfix abgebildet | 2026-11-23 |
+| w3id-Namespace | `https://w3id.org/brec/` (Ontologie `…/ontology#` mit Präfix `brec:`, Instanzen `…/id/` mit Präfix `ex:`), gleiche Form wie `w3id.org/mbo/`; steht ab sofort im Code, die IRIs lösen erst auf, wenn der Pull Request an perma-id/w3id.org (Anleitung `w3id/README.md`) gemerged ist. Vor dem Pull Request prüfen, dass `brec` dort frei ist | 2026-11-24 |
 
 ## A5 Was in welchem Chat hochgeladen wird
 
@@ -106,8 +107,8 @@ Nicht hochladen: `.git/`, `.venv/`, `dist/`, `docs/` (alles erzeugt), die Scanda
 | Pfad | Inhalt | Ziel des Redirects | Status |
 |---|---|---|---|
 | `https://doi.org/10.5281/zenodo.<concept>` | die vier FDOx | Zenodo | aktiv |
-| `https://example.org/brick-reconstruction#` | BREC-Klassen und -Properties | Platzhalter | geplant (w3id oder Zenodo, S0) |
-| `https://example.org/brick-reconstruction/id/` | Beispielindividuen | Platzhalter | geplant |
+| `https://w3id.org/brec/ontology#` | BREC-Klassen und -Properties | `docs/brec.ttl` (Turtle) bzw. `docs/ontology.html` | im Code gesetzt 2026-11-24; Redirects vorbereitet in `w3id/brec/`, Pull Request offen |
+| `https://w3id.org/brec/id/` | Beispielindividuen | `docs/brec.ttl` (Turtle) bzw. `docs/instances.html` | im Code gesetzt 2026-11-24; Pull Request offen |
 | `https://example.org/placeholder/hdt#` | HDT-Klassen | Platzhalter, durch den offiziellen Namespace ersetzen | geplant |
 
 ---

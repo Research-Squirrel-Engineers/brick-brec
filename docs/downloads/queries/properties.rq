@@ -1,5 +1,5 @@
-PREFIX brec: <https://example.org/brick-reconstruction#>
-PREFIX ex: <https://example.org/brick-reconstruction/id/>
+PREFIX brec: <https://w3id.org/brec/ontology#>
+PREFIX ex: <https://w3id.org/brec/id/>
 PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX crmdig: <http://www.cidoc-crm.org/extensions/crmdig/>
 PREFIX crminf: <http://www.ics.forth.gr/isl/CRMinf/>
@@ -12,7 +12,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
 SELECT ?property ?domain ?range WHERE {
   { ?property a owl:ObjectProperty } UNION { ?property a owl:DatatypeProperty }
-  FILTER(STRSTARTS(STR(?property), "https://example.org/brick-reconstruction#"))
+  FILTER(STRSTARTS(STR(?property), "https://w3id.org/brec/ontology#"))
   OPTIONAL { ?property rdfs:domain ?domain }
   OPTIONAL { ?property rdfs:range ?range }
 }

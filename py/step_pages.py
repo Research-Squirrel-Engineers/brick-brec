@@ -18,7 +18,7 @@ import pages_more  # noqa: E402
 import pages_web  # noqa: E402
 from brec_utils import DOCS, IMG, ONTOLOGY, PY, RELEASE, ROOT, Report, ensure_dirs, load_graph, write_text  # noqa: E402
 
-BREC = Namespace("https://example.org/brick-reconstruction#")
+BREC = Namespace("https://w3id.org/brec/ontology#")
 DCT = Namespace("http://purl.org/dc/terms/")
 PROV = Namespace("http://www.w3.org/ns/prov#")
 DCAT = Namespace("http://www.w3.org/ns/dcat#")

@@ -1,6 +1,6 @@
 # BREC: Mini-Ontologie für Scan-Rekonstruktionen (Stand v0.1, 2026-11-13)
 
-Namespace: `https://example.org/brick-reconstruction#` (Präfix `brec:`, Platzhalter). Instanzen: `https://example.org/brick-reconstruction/id/` (`ex:`).
+Namespace: `https://w3id.org/brec/ontology#` (Präfix `brec:`; w3id-Pfad `https://w3id.org/brec/`, Registrierung offen). Instanzen: `https://w3id.org/brec/id/` (`ex:`).
 Dateien: `brec_v0.1.ttl` (Ontologie plus Beispiel Modell 2), `ontologie_planar.svg/png` (Zeichnung), `ontologie.mmd` (ältere Mermaid-Fassung).
 
 ## Klassen (12)

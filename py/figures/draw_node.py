@@ -14,7 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from svgkit import GREY, ORANGE, PURPLE, Svg, WHITE, INK, MUTED  # noqa: E402
 from shapes import stepped  # noqa: E402
 
-L, EX = Namespace("https://example.org/brick-reconstruction#"), Namespace("https://example.org/brick-reconstruction/id/")
+L, EX = Namespace("https://w3id.org/brec/ontology#"), Namespace("https://w3id.org/brec/id/")
 CRM, CRMDIG = Namespace("http://www.cidoc-crm.org/cidoc-crm/"), Namespace("http://www.cidoc-crm.org/extensions/crmdig/")
 SK = Namespace("http://www.w3.org/2004/02/skos/core#")
 g = rdflib.Graph()

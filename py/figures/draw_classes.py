@@ -6,7 +6,7 @@ TX={'de':dict(title='BREC v0.4: Klassendiagramm',sub='Pfeile mit hohlem Dreieck 
 'en':dict(title='BREC v0.4: class diagram',sub='Hollow-triangle arrows = rdfs:subClassOf (parent classes are listed per class so that no lines cross)',brec='BREC class',crm='CRM / CRMdig / CRMinf / Time / GeoSPARQL',hdt='Heritage Digital Twin (hdt)',prov='PROV-O',par='BREC parent class',dcat='DCAT / DQV / SKOS / schema.org',foot='Yellow = attribute (datatype property); solid arrowhead = object property. Source: ontology/brec.ttl',inh='(inherits confidence)')}[LANG]
 from rdflib import RDF,RDFS,OWL,Namespace
 g=rdflib.Graph(); g.parse(sys.argv[2] if len(sys.argv)>2 else 'ontology/brec.ttl',format='turtle')
-L=Namespace('https://example.org/brick-reconstruction#')
+L=Namespace('https://w3id.org/brec/ontology#')
 order=['BrickModel','BrickModelTwin','ScanDigitization','RawScan','ReferencePhoto','AlignmentAndMeasurement','StructureInference','Assumption','ProceduralReconstruction','ReconstructionModel','QualityMeasurement','ReconstructionScript','ProcessInterval','ScanLocation','ReconstructionDataset','FDOx','Identification','IdentityHypothesis','Evidence','CandidateReferent','ChangeDocumentation','BrickType','AIAssistant']
 def short(u):
     s=g.namespace_manager.normalizeUri(u).strip('<>')

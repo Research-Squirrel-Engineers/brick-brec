@@ -1,6 +1,6 @@
 # BREC: mini ontology for scan reconstructions (state v0.3, 2026-11-13)
 
-Namespace: `https://example.org/brick-reconstruction#` (prefix `brec:`, placeholder). Instances: `https://example.org/brick-reconstruction/id/` (`ex:`).
+Namespace: `https://w3id.org/brec/ontology#` (prefix `brec:`; w3id path `https://w3id.org/brec/`, registration pending). Instances: `https://w3id.org/brec/id/` (`ex:`).
 Files: `brec_v0.3.ttl` (= `mini_ontology.ttl`; ontology plus example for model 2 and identification hypotheses, labels in German and English), `ontologie_planar_en.svg/png` (overview drawing), `brec_klassen_en.svg/png` (class diagram), `identifikation_en.svg/png` (identification), `check_diagram.py` (drawing ↔ Turtle check), `wikidata_match.py`.
 Language: the Turtle file carries `@de` and `@en` labels (`translate_en.py` adds the English ones); the drawing scripts take a language argument (`python draw_classes.py en`, `python draw_ident.py en`).
 

@@ -1,0 +1,19 @@
+Header set Access-Control-Allow-Origin "*"
+Options +FollowSymLinks
+RewriteEngine on
+
+# Target: GitHub Pages of the repository
+# https://research-squirrel-engineers.github.io/brick-brec/
+
+# Home
+RewriteRule ^$ https://research-squirrel-engineers.github.io/brick-brec/index.html [R=302,L]
+
+# Ontology (classes and properties are fragments: /ontology#BrickModel)
+RewriteCond %{HTTP_ACCEPT} text/turtle
+RewriteRule ^ontology$ https://research-squirrel-engineers.github.io/brick-brec/brec.ttl [R=302,L]
+RewriteRule ^ontology$ https://research-squirrel-engineers.github.io/brick-brec/ontology.html [R=302,L]
+
+# Example individuals (the pyramids, scans, FDOx, hypotheses): they live in the same Turtle file as the ontology
+RewriteCond %{HTTP_ACCEPT} text/turtle
+RewriteRule ^id(/.*)?$ https://research-squirrel-engineers.github.io/brick-brec/brec.ttl [R=302,L]
+RewriteRule ^id(/.*)?$ https://research-squirrel-engineers.github.io/brick-brec/instances.html [R=302,L]

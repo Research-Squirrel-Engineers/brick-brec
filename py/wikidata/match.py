@@ -20,11 +20,11 @@ import rdflib
 
 ROOT = Path(__file__).resolve().parents[2]
 ONT, OUT, CAND = ROOT / "ontology" / "brec.ttl", ROOT / "data" / "wikidata_mapping.ttl", ROOT / "dist" / "wikidata_candidates.md"
-L = rdflib.Namespace("https://example.org/brick-reconstruction#")
-EX = "https://example.org/brick-reconstruction/id/"
+L = rdflib.Namespace("https://w3id.org/brec/ontology#")
+EX = "https://w3id.org/brec/id/"
 HEAD = ("# Curated Wikidata mappings (written by py/wikidata/match.py, checked by hand). Each line: node, skos:closeMatch, label | description from Wikidata.\n"
         "@prefix skos: <http://www.w3.org/2004/02/skos/core#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n"
-        "@prefix wd: <http://www.wikidata.org/entity/> .\n@prefix ex: <https://example.org/brick-reconstruction/id/> .\n\n")
+        "@prefix wd: <http://www.wikidata.org/entity/> .\n@prefix ex: <https://w3id.org/brec/id/> .\n\n")
 LINE = re.compile(r'^(ex:\S+) skos:closeMatch (wd:Q\d+) \.\s*# (.*)$')
 
 

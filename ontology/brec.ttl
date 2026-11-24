@@ -21,10 +21,10 @@
 @prefix wd:     <http://www.wikidata.org/entity/> .
 @prefix mbo:    <https://w3id.org/mbo/ontology#> .   # Minimal Brick Ontology (w3id registration pending)
 @prefix mbot:   <https://w3id.org/mbo/thesaurus/> .
-@prefix brec:   <https://example.org/brick-reconstruction#> .
-@prefix ex:     <https://example.org/brick-reconstruction/id/> .
+@prefix brec:   <https://w3id.org/brec/ontology#> .
+@prefix ex:     <https://w3id.org/brec/id/> .
 
-<https://example.org/brick-reconstruction> a owl:Ontology ;
+<https://w3id.org/brec/ontology> a owl:Ontology ;
     dct:title "Mini-Ontologie: vom SfM-Scan zur Rekonstruktion"@de ;
     dct:description "Verbindet CIDOC CRM (+ CRMdig, CRMinf), PROV-O, DCAT/DCAT-AP, DQV, CodeMeta, OWL-Time, GeoSPARQL, SKOS und Wikidata für die Dokumentation von Scan-Rekonstruktionen."@de ;
     owl:versionInfo "0.4" ;
@@ -356,8 +356,8 @@ brec:hypothesisAbout rdfs:comment "The brick object the hypothesis refers to."@e
 brec:knownDeviation rdfs:comment "Documented deviation from the photo or the original."@en .
 brec:proposesReferent rdfs:comment "Proposed original; analogous to crm:P62_depicts, but explicitly only a hypothesis."@en .
 brec:wikidataSearchTerm rdfs:comment "Search term for wikidata_match.py; the QID is entered as skos:closeMatch only after checking."@en .
-<https://example.org/brick-reconstruction> dct:description "Connects CIDOC CRM (+ CRMdig, CRMinf), PROV-O, DCAT/DCAT-AP, DQV, CodeMeta, OWL-Time, GeoSPARQL, SKOS and Wikidata for documenting scan reconstructions."@en .
-<https://example.org/brick-reconstruction> dct:title "Mini ontology: from SfM scan to reconstruction"@en .
+<https://w3id.org/brec/ontology> dct:description "Connects CIDOC CRM (+ CRMdig, CRMinf), PROV-O, DCAT/DCAT-AP, DQV, CodeMeta, OWL-Time, GeoSPARQL, SKOS and Wikidata for documenting scan reconstructions."@en .
+<https://w3id.org/brec/ontology> dct:title "Mini ontology: from SfM scan to reconstruction"@en .
 ex:assume_7_levels rdfs:label "7 levels according to the photo; the scan suggests 8"@en .
 ex:brick_1x1 skos:prefLabel "1x1"@en .
 ex:brick_2x2 skos:prefLabel "2x2"@en .

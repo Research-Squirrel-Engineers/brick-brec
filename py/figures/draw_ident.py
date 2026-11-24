@@ -9,7 +9,7 @@ TX = {'de': dict(t='BREC v0.3: Was stellt das Objekt dar? (Beobachtung → Ident
  'en': dict(t='BREC v0.3: What does the object represent? (observation → identification → hypothesis → candidate)', st='Confidence = subjective estimate by the AI assistant (0 to 1), not a measurement; hypotheses overlap and do not sum to 1', j1='J1 premise', j2='J2 concluded that', sup='supports', wk='weakens', main='main assumption', spec='special case of', alt='alternative to', id='id', status='Status', search='search', pr='proposesReferent', l1='Observation (crminf:I4)', l2='Identification (E17 + I5)', l3='Hypothesis (crminf:I2)', l4='Candidate / Wikidata', s1='Model 1: stepped pyramid with column and figure', s2='Figure on model 1', s3='Model 2: stepped pyramid with grey stairs and temple', open='open'), }[LANG]
 g = rdflib.Graph(); g.parse(ttl, format='turtle')
 for _m in [a for a in sys.argv[1:] if a.endswith('.ttl')][1:]: g.parse(_m, format='turtle')   # optional 2nd TTL: data/wikidata_mapping.ttl
-L = Namespace('https://example.org/brick-reconstruction#'); EX = Namespace('https://example.org/brick-reconstruction/id/')
+L = Namespace('https://w3id.org/brec/ontology#'); EX = Namespace('https://w3id.org/brec/id/')
 CI = Namespace('http://www.ics.forth.gr/isl/CRMinf/'); SK = Namespace('http://www.w3.org/2004/02/skos/core#')
 def lab(u): return next((str(l) for l in g.objects(u, RDFS.label) if l.language == LANG), next((str(l) for l in g.objects(u, RDFS.label)), ''))
 def val(u, p): return next((str(l) for l in g.objects(u, p) if getattr(l, 'language', None) == LANG), next((str(l) for l in g.objects(u, p)), ''))
