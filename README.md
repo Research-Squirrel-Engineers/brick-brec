@@ -60,6 +60,7 @@ Every BREC class is anchored in the CRM family; `check` fails if one is not, or 
 
 - Repository: <https://github.com/Research-Squirrel-Engineers/brick-brec>
 - Documentation site (GitHub Pages, from `docs/`): <https://research-squirrel-engineers.github.io/brick-brec/>
+- Archive (Zenodo): concept DOI <https://doi.org/10.5281/zenodo.24504763> (all versions), version 0.5.0 <https://doi.org/10.5281/zenodo.24504764>
 - Namespace: `https://w3id.org/brec/` (ontology `https://w3id.org/brec/ontology#`, individuals `https://w3id.org/brec/id/`). The redirects are prepared in `w3id/`; the IRIs resolve once the pull request to perma-id/w3id.org is merged.
 
 ## Trademark notice

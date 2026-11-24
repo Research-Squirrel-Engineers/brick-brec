@@ -14,7 +14,11 @@ license: MIT
 version: "0.5.0"
 date-released: "2026-11-24"
 repository-code: "https://github.com/Research-Squirrel-Engineers/brick-brec"
-# doi: "10.5281/zenodo.XXXXXXX"  # TODO: add Zenodo DOI once minted
+doi: "10.5281/zenodo.24504763"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24504764"
+    description: "Version 0.5.0 on Zenodo"
 keywords:
   - CIDOC CRM
   - FDOx

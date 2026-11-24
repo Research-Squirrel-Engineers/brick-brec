@@ -91,7 +91,7 @@ Eigenschaften des Ergebnisses (jeweils prüfbar):
 | `dist/`, `docs/` | werden committet, nicht ignoriert | 2026-11-17 |
 | Markenneutralität | Name BREC (Brick Reconstruction Ontology) statt LREC; Präfix `brec:`, Klassen `BrickModel`/`BrickModelTwin`, Namespace `https://w3id.org/brec/ontology#` (Platzhalter bis w3id), Repo `brick-brec`; Markenhinweis in Ontologie, README und jeder Doku-Seite. Beschreibende Nennung bleibt in den Titeln der veröffentlichten Sketchfab-/Zenodo-Records, in den FDOx-Bundles, in `ex:lego_pyramid_*` und in den Skriptnamen `build_lego*.py`. Die Rohantworten unter `interpretations/fresh_*` bleiben unverändert mit dem alten Präfix `lrec:`; beim Merge (S5) wird das Präfix abgebildet | 2026-11-23 |
 | w3id-Namespace | `https://w3id.org/brec/` (Ontologie `…/ontology#` mit Präfix `brec:`, Instanzen `…/id/` mit Präfix `ex:`), gleiche Form wie `w3id.org/mbo/`; steht ab sofort im Code, die IRIs lösen erst auf, wenn der Pull Request an perma-id/w3id.org (Anleitung `w3id/README.md`) gemerged ist. Vor dem Pull Request prüfen, dass `brec` dort frei ist | 2026-11-24 |
-| Release und DOI | Erstes Zenodo-Release `v0.5.0` (GitHub-Release löst die DOI aus, Concept-DOI danach in `CITATION.cff` und README eintragen); Schwesterrepo `minimal-brick-ontology` `v0.1.0`; Autor in der `CITATION.cff`: Florian Thiery | 2026-11-24 |
+| Release und DOI | `v0.5.0` ist auf Zenodo archiviert: Concept-DOI `10.5281/zenodo.24504763`, Versions-DOI `10.5281/zenodo.24504764` (in `CITATION.cff` und README); Schwesterrepo `minimal-brick-ontology` `v0.1.0`, Concept-DOI `10.5281/zenodo.24504822`; Autor in der `CITATION.cff`: Florian Thiery | 2026-11-24 |
 
 ## A5 Was in welchem Chat hochgeladen wird
 
