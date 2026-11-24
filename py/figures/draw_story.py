@@ -66,7 +66,7 @@ for i, chip in enumerate(["photographed", "reconstructed", "interpreted", "ancho
     a, b = (X[i] + SW / 2 + 6, 245), (X[i + 1] - SW / 2 - 6, 245)
     svg.arrow([a, b])
     svg.chip((a[0] + b[0]) / 2, 245, chip)
-caps = [(["Self-built LEGO pyramids,", "by Flo and Daria Stefan"], GREY),
+caps = [(["Self-built LEGO\u00ae pyramids,", "by Flo and Daria Stefan"], GREY),
         ([f"{n1} and {n2} photos,", "smartphone, KIRI Engine (SfM)"], GREY),
         (["Bricks only, seven levels,", "every change documented"], GREY),
         (["Evidence supports hypotheses;", "each proposes a candidate"], GREY),

@@ -56,7 +56,7 @@ CX, CY = 875, 480
 PW, PH = 240, 300
 svg.rect(CX - PW / 2, CY - PH / 2, PW, PH, "#ffffff", stroke="#ffffff", check=True, name="PYR")
 stepped(svg, CX, CY + PH / 2 - 4, 14, 38, "solid", ["#e2e8f0"] * 7)
-svg.text(CX, CY + PH / 2 + 34, "LEGO pyramid 2", 30, True, INK, "middle", maxw=300)
+svg.text(CX, CY + PH / 2 + 34, "LEGO\u00ae pyramid 2", 30, True, INK, "middle", maxw=300)
 svg.text(CX, CY + PH / 2 + 66, "one node, one IRI", 18, False, MUTED, "middle", maxw=300)
 
 
