@@ -27,7 +27,7 @@
 <https://w3id.org/brec/ontology> a owl:Ontology ;
     dct:title "Mini-Ontologie: vom SfM-Scan zur Rekonstruktion"@de ;
     dct:description "Verbindet CIDOC CRM (+ CRMdig, CRMinf), PROV-O, DCAT/DCAT-AP, DQV, CodeMeta, OWL-Time, GeoSPARQL, SKOS und Wikidata für die Dokumentation von Scan-Rekonstruktionen."@de ;
-    owl:versionInfo "0.4" ;
+    owl:versionInfo "0.5" ;
     rdfs:comment "Independent research vocabulary. Not affiliated with, authorised or endorsed by the LEGO Group. LEGO is a trademark of the LEGO Group."@en ;
     owl:imports <http://www.cidoc-crm.org/cidoc-crm/> , <http://www.w3.org/ns/prov-o#> .
 

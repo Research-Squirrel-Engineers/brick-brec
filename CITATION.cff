@@ -11,8 +11,8 @@ authors:
     orcid: "https://orcid.org/0000-0002-3246-3531"
     affiliation: "Research Squirrel Engineers Network / Leibniz-Zentrum für Archäologie (LEIZA)"
 license: MIT
-version: "0.4.0"
-date-released: "2026-11-17"
+version: "0.5.0"
+date-released: "2026-11-24"
 repository-code: "https://github.com/Research-Squirrel-Engineers/brick-brec"
 # doi: "10.5281/zenodo.XXXXXXX"  # TODO: add Zenodo DOI once minted
 keywords:

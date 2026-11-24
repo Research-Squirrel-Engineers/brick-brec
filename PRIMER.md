@@ -11,7 +11,7 @@ Intern und deutsch; alles andere im Repo ist britisches Englisch. Stand: 2026-11
 
 | Was | Wo | Rolle |
 |---|---|---|
-| Ontologie BREC v0.4 (23 Klassen, 16 eigene Properties, 711 Tripel; vor der Umstellung auf die Bundle-TTLs 832 Tripel) | `ontology/brec.ttl` | Quelle der Wahrheit |
+| Ontologie BREC v0.5 (23 Klassen, 16 eigene Properties, 711 Tripel; vor der Umstellung auf die Bundle-TTLs 832 Tripel) | `ontology/brec.ttl` | Quelle der Wahrheit |
 | Rekonstruktionsskripte P1, P2 | `py/reconstruct/` | seeded, lesen keine Scandateien |
 | Zeichnungen (Gesamtmodell, Klassen, Identifikation; nur englisch) | `py/figures/` | handgesetzt, kreuzungsfrei |
 | Interpretations-Toolkit (Schema 1.1) | `py/interpret/` | Messen → Prompt → frischer Chat → Konverter |
@@ -82,7 +82,7 @@ Eigenschaften des Ergebnisses (jeweils prüfbar):
 | Identifikation P2 | „Maya-Stufenpyramide" bestätigt durch die Erbauerin; „El Castillo" nicht bestätigt (nicht widerlegt) | 2026-11-17 |
 | Rekonstruktion | prozedural aus idealisierten Steinen; nur Maße und Struktur aus dem Scan, kein Mesh, keine Textur | 2026-11-12 |
 | KI-Beteiligung | im Beschreibungstext des FDOx und als Beitragende vermerkt | 2026-11-17 |
-| Quelle der Ontologie | `ontology/brec.ttl` (v0.4 ist die Quelle; die Hilfsskripte `translate_en.py`, `add_fdox.py` aus dem Chat sind abgelöst) | Vorschlag |
+| Quelle der Ontologie | `ontology/brec.ttl` (v0.5 ist die Quelle; die Hilfsskripte `translate_en.py`, `add_fdox.py` aus dem Chat sind abgelöst) | Vorschlag |
 | `brec:FDOx` und `brec:ReconstructionDataset` | `brec:FDOx` = veröffentlichtes Paket (Scan und Rekonstruktion), Unterklasse von `dcat:Dataset`; die beiden Rekonstruktions-FDOx tragen zusätzlich `brec:ReconstructionDataset`, die Scan-FDOx nicht; keine Unterklassenbeziehung zwischen beiden | 2026-11-17 |
 | Quelle für FDOx-Metadaten | die `fdo-metadata.ttl` der veröffentlichten Bundles (`data/fdox/bundles/`), unverändert abgelegt; `brec.ttl` führt die FDOx-Knoten unter derselben IRI und ergänzt nur BREC-eigene Aussagen (Typ, Scan-Aktivität, Modell, KI-Zuschreibung); die Versions-DOI steht nur in `data/fdox/registry_pins.csv`. Die Overrides `MD.cff`/`CITATION.cff` bleiben Eingabe des Packagers (S3) | 2026-11-17 |
 | Rolle von Daria Stefan | Beitragende (`dct:contributor`) bei den Maya-FDOx, Ersteller bleibt Flo; Daria allein als Erbauerin des Objekts (`brec:builtBy`) | 2026-11-17 |
@@ -91,6 +91,7 @@ Eigenschaften des Ergebnisses (jeweils prüfbar):
 | `dist/`, `docs/` | werden committet, nicht ignoriert | 2026-11-17 |
 | Markenneutralität | Name BREC (Brick Reconstruction Ontology) statt LREC; Präfix `brec:`, Klassen `BrickModel`/`BrickModelTwin`, Namespace `https://w3id.org/brec/ontology#` (Platzhalter bis w3id), Repo `brick-brec`; Markenhinweis in Ontologie, README und jeder Doku-Seite. Beschreibende Nennung bleibt in den Titeln der veröffentlichten Sketchfab-/Zenodo-Records, in den FDOx-Bundles, in `ex:lego_pyramid_*` und in den Skriptnamen `build_lego*.py`. Die Rohantworten unter `interpretations/fresh_*` bleiben unverändert mit dem alten Präfix `lrec:`; beim Merge (S5) wird das Präfix abgebildet | 2026-11-23 |
 | w3id-Namespace | `https://w3id.org/brec/` (Ontologie `…/ontology#` mit Präfix `brec:`, Instanzen `…/id/` mit Präfix `ex:`), gleiche Form wie `w3id.org/mbo/`; steht ab sofort im Code, die IRIs lösen erst auf, wenn der Pull Request an perma-id/w3id.org (Anleitung `w3id/README.md`) gemerged ist. Vor dem Pull Request prüfen, dass `brec` dort frei ist | 2026-11-24 |
+| Release und DOI | Erstes Zenodo-Release `v0.5.0` (GitHub-Release löst die DOI aus, Concept-DOI danach in `CITATION.cff` und README eintragen); Schwesterrepo `minimal-brick-ontology` `v0.1.0`; Autor in der `CITATION.cff`: Florian Thiery | 2026-11-24 |
 
 ## A5 Was in welchem Chat hochgeladen wird
 

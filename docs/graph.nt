@@ -1248,7 +1248,7 @@
 <https://w3id.org/brec/ontology> <http://www.w3.org/2000/01/rdf-schema#comment> "Independent research vocabulary. Not affiliated with, authorised or endorsed by the LEGO Group. LEGO is a trademark of the LEGO Group."@en .
 <https://w3id.org/brec/ontology> <http://www.w3.org/2002/07/owl#imports> <http://www.cidoc-crm.org/cidoc-crm/> .
 <https://w3id.org/brec/ontology> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/prov-o#> .
-<https://w3id.org/brec/ontology> <http://www.w3.org/2002/07/owl#versionInfo> "0.4" .
+<https://w3id.org/brec/ontology> <http://www.w3.org/2002/07/owl#versionInfo> "0.5" .
 <urn:fdo-squirrel:activity/build> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Activity> .
 <urn:fdo-squirrel:activity/build> <http://www.w3.org/ns/prov#wasAssociatedWith> <urn:fdo-squirrel:agent/fdo-squirrel> .
 <urn:fdo-squirrel:agent/fdo-squirrel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#SoftwareAgent> .

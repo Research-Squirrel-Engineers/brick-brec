@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 # No generator reads the clock. This constant is the only "date" a product may carry.
-RELEASE = "0.4.0"
+RELEASE = "0.5.0"
 
 ROOT = Path(__file__).resolve().parent.parent
 PY = ROOT / "py"
