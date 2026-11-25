@@ -3,8 +3,11 @@
 <http://qudt.org/vocab/unit/DEG> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E58_Measurement_Unit> .
 <http://qudt.org/vocab/unit/DEG> <http://www.w3.org/2000/01/rdf-schema#label> "Degree"@en .
 <http://qudt.org/vocab/unit/DEG> <http://www.w3.org/2000/01/rdf-schema#label> "Grad"@de .
+<http://www.wikidata.org/entity/Q10334103> <http://www.w3.org/2000/01/rdf-schema#label> "My Own Creation"@en .
+<http://www.wikidata.org/entity/Q1128327> <http://www.w3.org/2000/01/rdf-schema#label> "Temple of Kukulcan"@en .
 <http://www.wikidata.org/entity/Q131330> <http://www.w3.org/2000/01/rdf-schema#label> "Schönbrunn Palace, Apothekertrakt, Vienna" .
 <http://www.wikidata.org/entity/Q170153> <http://www.w3.org/2000/01/rdf-schema#label> "ziggurat"@en .
+<http://www.wikidata.org/entity/Q2270185> <http://www.w3.org/2000/01/rdf-schema#label> "Mesoamerican pyramid"@en .
 <http://www.wikidata.org/entity/Q4991371> <http://www.w3.org/2000/01/rdf-schema#label> "soldier"@en .
 <http://www.wikidata.org/entity/Q51845395> <http://www.w3.org/2000/01/rdf-schema#label> "memorial column"@en .
 <http://www.wikidata.org/entity/Q73901970> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Organization> .
@@ -599,11 +602,17 @@
 <https://w3id.org/brec/id/c_elcastillo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/brec/ontology#CandidateReferent> .
 <https://w3id.org/brec/id/c_elcastillo> <http://www.w3.org/2000/01/rdf-schema#label> "El Castillo (Pyramid of Kukulcán, Chichén Itzá)"@en .
 <https://w3id.org/brec/id/c_elcastillo> <http://www.w3.org/2000/01/rdf-schema#label> "El Castillo (Pyramide des Kukulcán, Chichen Itza)"@de .
+<https://w3id.org/brec/id/c_elcastillo> <http://www.w3.org/2004/02/skos/core#closeMatch> <http://www.wikidata.org/entity/Q1128327> .
 <https://w3id.org/brec/id/c_elcastillo> <https://w3id.org/brec/ontology#wikidataSearchTerm> "El Castillo Chichen Itza" .
 <https://w3id.org/brec/id/c_maya> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/brec/ontology#CandidateReferent> .
 <https://w3id.org/brec/id/c_maya> <http://www.w3.org/2000/01/rdf-schema#label> "Mesoamerican step pyramid with temple"@en .
 <https://w3id.org/brec/id/c_maya> <http://www.w3.org/2000/01/rdf-schema#label> "Mesoamerikanische Stufenpyramide mit Tempel"@de .
+<https://w3id.org/brec/id/c_maya> <http://www.w3.org/2004/02/skos/core#closeMatch> <http://www.wikidata.org/entity/Q2270185> .
 <https://w3id.org/brec/id/c_maya> <https://w3id.org/brec/ontology#wikidataSearchTerm> "Mesoamerican pyramids" .
+<https://w3id.org/brec/id/c_moc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/brec/ontology#CandidateReferent> .
+<https://w3id.org/brec/id/c_moc> <http://www.w3.org/2000/01/rdf-schema#label> "Eigenbau ohne Vorlage (MOC, My Own Creation)"@de .
+<https://w3id.org/brec/id/c_moc> <http://www.w3.org/2004/02/skos/core#closeMatch> <http://www.wikidata.org/entity/Q10334103> .
+<https://w3id.org/brec/id/c_moc> <https://w3id.org/brec/ontology#wikidataSearchTerm> "My Own Creation" .
 <https://w3id.org/brec/id/c_soldier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/brec/ontology#CandidateReferent> .
 <https://w3id.org/brec/id/c_soldier> <http://www.w3.org/2000/01/rdf-schema#label> "Soldat / Krieger"@de .
 <https://w3id.org/brec/id/c_soldier> <http://www.w3.org/2000/01/rdf-schema#label> "Soldier / warrior"@en .
@@ -857,6 +866,7 @@
 <https://w3id.org/brec/id/hyp_m2_e> <https://w3id.org/brec/ontology#confidenceBasis> "subjective estimate by the AI assistant after inspecting photos and scan, not a measurement"@en .
 <https://w3id.org/brec/id/hyp_m2_e> <https://w3id.org/brec/ontology#confidenceBasis> "subjektive Einschätzung des KI-Assistenten nach Sichtung von Fotos und Scan, keine Messung" .
 <https://w3id.org/brec/id/hyp_m2_e> <https://w3id.org/brec/ontology#hypothesisAbout> <https://w3id.org/brec/id/lego_pyramid_2> .
+<https://w3id.org/brec/id/hyp_m2_e> <https://w3id.org/brec/ontology#proposesReferent> <https://w3id.org/brec/id/c_moc> .
 <https://w3id.org/brec/id/hyp_m2_e> <https://w3id.org/brec/ontology#verificationStatus> "offen: Bestätigung durch Flo nötig" .
 <https://w3id.org/brec/id/hyp_m2_e> <https://w3id.org/brec/ontology#verificationStatus> "open: confirmation by Flo needed"@en .
 <https://w3id.org/brec/id/ident_fig> <http://www.cidoc-crm.org/cidoc-crm/P41_classified> <https://w3id.org/brec/id/figure_1> .

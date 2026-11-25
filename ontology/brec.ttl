@@ -246,6 +246,7 @@ ex:c_ziggurat a brec:CandidateReferent ; rdfs:label "Zikkurat"@de ; brec:wikidat
 ex:c_denkmal a brec:CandidateReferent ; rdfs:label "Denkmal / Gedenksäule"@de ; brec:wikidataSearchTerm "memorial column" .
 ex:c_wachturm a brec:CandidateReferent ; rdfs:label "Wachturm"@de ; brec:wikidataSearchTerm "watchtower" .
 ex:c_soldier a brec:CandidateReferent ; rdfs:label "Soldat / Krieger"@de ; brec:wikidataSearchTerm "soldier" .
+ex:c_moc a brec:CandidateReferent ; rdfs:label "Eigenbau ohne Vorlage (MOC, My Own Creation)"@de ; brec:wikidataSearchTerm "My Own Creation" .
 ex:c_cobi a brec:CandidateReferent ; rdfs:label "Cobi (Spielzeughersteller, historische Figuren)"@de ; brec:wikidataSearchTerm "Cobi" .
 ex:hyp_m2_a a brec:IdentityHypothesis ; rdfs:label "Mesoamerikanische (Maya) Stufenpyramide mit Tempelaufsatz, generisch"@de ; brec:hypothesisAbout ex:lego_pyramid_2 ; brec:confidence 0.7 ;
     brec:confidenceBasis "subjektive Einschätzung des KI-Assistenten nach Sichtung von Fotos und Scan, keine Messung" ; brec:verificationStatus "bestätigt durch den Erbauer (Daria Stefan, über Flo), 2026-11-17" ;
@@ -277,7 +278,7 @@ ex:ev_m2_2 brec:weakens ex:hyp_m2_d .
 ex:hyp_m2_e a brec:IdentityHypothesis ; rdfs:label "Freies Design ohne konkretes Vorbild"@de ; brec:hypothesisAbout ex:lego_pyramid_2 ; brec:confidence 0.15 ;
     brec:confidenceBasis "subjektive Einschätzung des KI-Assistenten nach Sichtung von Fotos und Scan, keine Messung" ; brec:verificationStatus "offen: Bestätigung durch Flo nötig" ;
     brec:alternativeTo ex:hyp_m2_a ;
-     prov:wasAttributedTo ex:claude_sonnet_5_5 ; prov:wasGeneratedBy ex:ident_m2 .
+    brec:proposesReferent ex:c_moc ; prov:wasAttributedTo ex:claude_sonnet_5_5 ; prov:wasGeneratedBy ex:ident_m2 .
 ex:ev_m2_5 brec:supports ex:hyp_m2_e .
 ex:hyp_m1_a a brec:IdentityHypothesis ; rdfs:label "Denkmal: Standbild eines Kriegers auf Säule über Stufenunterbau"@de ; brec:hypothesisAbout ex:lego_pyramid_1 ; brec:confidence 0.55 ;
     brec:confidenceBasis "subjektive Einschätzung des KI-Assistenten nach Sichtung von Fotos und Scan, keine Messung" ; brec:verificationStatus "offen: Bestätigung durch Flo nötig" ;

@@ -18,3 +18,5 @@ ex:c_wachturm skos:closeMatch wd:Q947103 .  # watchtower | tower used for the mi
 wd:Q947103 rdfs:label "watchtower"@en .
 ex:c_ziggurat skos:closeMatch wd:Q170153 .  # ziggurat | massive structure built in the ancient Mesopotamian valley and western Iranian plateau, having the form of a terraced step pyramid
 wd:Q170153 rdfs:label "ziggurat"@en .
+ex:c_moc skos:closeMatch wd:Q10334103 .  # My Own Creation | Lego models designed by third parties
+wd:Q10334103 rdfs:label "My Own Creation"@en .

@@ -21,7 +21,7 @@
 <path d="M730.0 598.0 L730.0 690.0" fill="none" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
 <rect x="40.0" y="40.0" width="330.0" height="100.0" rx="6" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/>
 <text x="205.0" y="64.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#1f1f1d">Ontology brec.ttl</text>
-<text x="205.0" y="85.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#1f1f1d">722 triples</text>
+<text x="205.0" y="85.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#1f1f1d">726 triples</text>
 <text x="205.0" y="106.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#1f1f1d">read by check, figures and pages</text>
 <rect x="40.0" y="190.0" width="330.0" height="100.0" rx="6" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/>
 <text x="205.0" y="214.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#1f1f1d">4 FDOx bundle TTLs and pins</text>
@@ -33,7 +33,7 @@
 <text x="205.0" y="406.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#1f1f1d">KIRI Engine SfM scans (not in the repo)</text>
 <rect x="40.0" y="490.0" width="330.0" height="100.0" rx="6" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/>
 <text x="205.0" y="514.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#1f1f1d">Wikidata mapping</text>
-<text x="205.0" y="535.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#1f1f1d">6 curated closeMatch items</text>
+<text x="205.0" y="535.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#1f1f1d">9 curated closeMatch items</text>
 <text x="205.0" y="556.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#1f1f1d">py/wikidata/match.py, run locally</text>
 <rect x="1170.0" y="290.0" width="340.0" height="108.0" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
 <text x="1340.0" y="314.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#fff">GLB reconstructions</text>

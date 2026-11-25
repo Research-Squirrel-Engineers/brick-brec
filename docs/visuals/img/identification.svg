@@ -175,7 +175,7 @@
 <path d="M1470 1070 L1650 1070" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>
 <rect x="1650" y="1038" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
 <text x="1660" y="1058" font-size="13" font-weight="500" fill="#fff">Mesoamerican step pyramid with temple</text>
-<text x="1660" y="1094" font-size="12" fill="#fff">Wikidata: open  (search: Mesoamerican pyramids)</text>
+<text x="1660" y="1094" font-size="12" fill="#fff">Wikidata: Q2270185  (Mesoamerican pyramid)</text>
 <rect x="1502" y="1059" width="116" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1560" y="1074" font-size="12" text-anchor="middle">proposesReferent</text>
 <path d="M970 1200 L1040 1200" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
 <rect x="1040" y="1142" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
@@ -189,7 +189,7 @@
 <rect x="1650" y="1168" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
 <text x="1660" y="1188" font-size="13" font-weight="500" fill="#fff">El Castillo (Pyramid of Kukulcán,</text>
 <text x="1660" y="1204" font-size="13" font-weight="500" fill="#fff">Chichén Itzá)</text>
-<text x="1660" y="1224" font-size="12" fill="#fff">Wikidata: open  (search: El Castillo Chichen Itza)</text>
+<text x="1660" y="1224" font-size="12" fill="#fff">Wikidata: Q1128327  (Temple of Kukulcan)</text>
 <rect x="1502" y="1189" width="116" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1560" y="1204" font-size="12" text-anchor="middle">proposesReferent</text>
 <path d="M970 1330 L1040 1330" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
 <rect x="1040" y="1272" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
@@ -199,6 +199,12 @@
 <text x="1050" y="1350" font-size="12">supports: E5    weakens: –</text>
 <text x="1050" y="1367" font-size="11.5" fill="#222">alternative to a · id m2_e</text>
 <text x="1050" y="1382" font-size="11" fill="#222">Status: open: confirmation by Flo needed</text>
+<path d="M1470 1330 L1650 1330" stroke="#111" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="1650" y="1298" width="330" height="64" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
+<text x="1660" y="1318" font-size="13" font-weight="500" fill="#fff">Eigenbau ohne Vorlage (MOC, My Own</text>
+<text x="1660" y="1334" font-size="13" font-weight="500" fill="#fff">Creation)</text>
+<text x="1660" y="1354" font-size="12" fill="#fff">Wikidata: Q10334103  (My Own Creation)</text>
+<rect x="1502" y="1319" width="116" height="22" rx="11" fill="#fbbf24" stroke="#000" stroke-width="1.2"/><text x="1560" y="1334" font-size="12" text-anchor="middle">proposesReferent</text>
 <path d="M970 1460 L1040 1460" stroke="#111" stroke-width="1.6" marker-end="url(#a)"/>
 <rect x="1040" y="1402" width="430" height="116" rx="7" fill="#fbbf24" stroke="#000" stroke-width="1.2"/>
 <text x="1050" y="1421" font-size="13.5" font-weight="500">Angkor temple mountain with sanctuary</text>
