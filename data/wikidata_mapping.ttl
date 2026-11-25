@@ -8,6 +8,10 @@ ex:c_angkor skos:closeMatch wd:Q788982 .  # Bakong | Temple mountain of sandston
 wd:Q788982 rdfs:label "Bakong"@en .
 ex:c_denkmal skos:closeMatch wd:Q51845395 .  # memorial column | freestanding column; erected as a memorial
 wd:Q51845395 rdfs:label "memorial column"@en .
+ex:c_elcastillo skos:closeMatch wd:Q1128327 .  # Temple of Kukulcan | pyramid in Chichén Itzá
+wd:Q1128327 rdfs:label "Temple of Kukulcan"@en .
+ex:c_maya skos:closeMatch wd:Q2270185 .  # Mesoamerican pyramid | pyramid-shaped structure in ancient Mesoamerica
+wd:Q2270185 rdfs:label "Mesoamerican pyramid"@en .
 ex:c_soldier skos:closeMatch wd:Q4991371 .  # soldier | member of an armed force
 wd:Q4991371 rdfs:label "soldier"@en .
 ex:c_wachturm skos:closeMatch wd:Q947103 .  # watchtower | tower used for the military surveillance of the surrounding area
