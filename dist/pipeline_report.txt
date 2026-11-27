@@ -1,4 +1,4 @@
-[check] OK    brec.ttl parses: 726 triples
+[check] OK    brec.ttl parses: 777 triples
 [check] OK    overview drawing agrees with the graph (Knoten 23 Kanten 29 Fehler 0)
 [check] OK    23 BREC classes checked for labels and for presence in the class diagram
 [check] OK    23 of 23 classes anchored in CIDOC CRM, CRMdig or CRMinf
@@ -24,5 +24,5 @@
 [figures] OK    architecture.svg
 [figures] OK    crosswalk.svg
 [figures] OK    PNG written with resvg_py
-[pages] OK    SPARQL queries (rows): classes-anchored 24, hypotheses-ranked 11, evidence 12, scans 2, fdox 4, models 4, properties 16
+[pages] OK    SPARQL queries (rows): classes-anchored 24, hypotheses-ranked 11, evidence 12, belief-adoptions 1, scans 2, fdox 4, models 4, properties 16
 [pages] OK    14 pages, 23 classes, 16 properties, 4 FDOx, docs/brec.ttl

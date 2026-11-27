@@ -479,6 +479,37 @@ ex:ev_m2_builder a brec:Evidence ; rdfs:label "Erbauerin bestätigt: Maya-Stufen
     brec:evidenceStrength "strong" ; prov:wasAttributedTo ex:daria ; brec:supports ex:hyp_m2_a .
 ex:ident_m2 crminf:J1_used_as_premise ex:ev_m2_builder .
 
+# v0.6: Belief values and belief adoption (CRMinf I6, I7, J5, J7). brec:confidence stays as the plain decimal; the I6 node carries the same number as the belief value of the hypothesis (a subjective degree set by the AI assistant, not a measured probability).
+ex:bv_f_a a crminf:I6_Belief_Value ; rdf:value "0.75"^^xsd:decimal ; rdfs:label "Belief value 0.75"@en .
+ex:hyp_f_a crminf:J5_holds_to_be ex:bv_f_a .
+ex:bv_f_b a crminf:I6_Belief_Value ; rdf:value "0.40"^^xsd:decimal ; rdfs:label "Belief value 0.40"@en .
+ex:hyp_f_b crminf:J5_holds_to_be ex:bv_f_b .
+ex:bv_m1_a a crminf:I6_Belief_Value ; rdf:value "0.55"^^xsd:decimal ; rdfs:label "Belief value 0.55"@en .
+ex:hyp_m1_a crminf:J5_holds_to_be ex:bv_m1_a .
+ex:bv_m1_b a crminf:I6_Belief_Value ; rdf:value "0.10"^^xsd:decimal ; rdfs:label "Belief value 0.10"@en .
+ex:hyp_m1_b crminf:J5_holds_to_be ex:bv_m1_b .
+ex:bv_m1_c a crminf:I6_Belief_Value ; rdf:value "0.20"^^xsd:decimal ; rdfs:label "Belief value 0.20"@en .
+ex:hyp_m1_c crminf:J5_holds_to_be ex:bv_m1_c .
+ex:bv_m1_d a crminf:I6_Belief_Value ; rdf:value "0.15"^^xsd:decimal ; rdfs:label "Belief value 0.15"@en .
+ex:hyp_m1_d crminf:J5_holds_to_be ex:bv_m1_d .
+ex:bv_m2_a a crminf:I6_Belief_Value ; rdf:value "0.70"^^xsd:decimal ; rdfs:label "Belief value 0.70"@en .
+ex:hyp_m2_a crminf:J5_holds_to_be ex:bv_m2_a .
+ex:bv_m2_b a crminf:I6_Belief_Value ; rdf:value "0.35"^^xsd:decimal ; rdfs:label "Belief value 0.35"@en .
+ex:hyp_m2_b crminf:J5_holds_to_be ex:bv_m2_b .
+ex:bv_m2_c a crminf:I6_Belief_Value ; rdf:value "0.10"^^xsd:decimal ; rdfs:label "Belief value 0.10"@en .
+ex:hyp_m2_c crminf:J5_holds_to_be ex:bv_m2_c .
+ex:bv_m2_d a crminf:I6_Belief_Value ; rdf:value "0.08"^^xsd:decimal ; rdfs:label "Belief value 0.08"@en .
+ex:hyp_m2_d crminf:J5_holds_to_be ex:bv_m2_d .
+ex:bv_m2_e a crminf:I6_Belief_Value ; rdf:value "0.15"^^xsd:decimal ; rdfs:label "Belief value 0.15"@en .
+ex:hyp_m2_e crminf:J5_holds_to_be ex:bv_m2_e .
+
+# The builder adopts one hypothesis of the AI assistant on the evidence of her own statement. For ex:hyp_m2_b there is no adoption: the builder did not confirm it, and did not refute it (see brec:verificationStatus).
+ex:adopt_m2_a a crminf:I7_Belief_Adoption ;
+    rdfs:label "Belief adoption: the builder adopts the Maya step pyramid hypothesis (2026-11-17)"@en , "Belief Adoption: die Erbauerin übernimmt die Maya-Stufenpyramiden-Hypothese (2026-11-17)"@de ;
+    crm:P14_carried_out_by ex:daria ; dct:date "2026-11-17"^^xsd:date ;
+    crminf:J7_is_based_on_evidence_from ex:ev_m2_builder ; crminf:J2_concluded_that ex:hyp_m2_a .
+
+
 # --- die vier FDOx: gleiche IRI wie in den Bundle-TTLs (data/fdox/bundles/), daher verschmelzen die Knoten beim Laden ohne owl:sameAs.
 # Hier steht nur, was die Bundles nicht kennen: BREC-Typ, Verbindung zu Scan-Aktivität, Modell und KI-Zuschreibung.
 <https://doi.org/10.5281/zenodo.24305240> a brec:FDOx ; prov:wasGeneratedBy ex:model1_scan_event ; hdt:has_3D_model ex:model1_scan .

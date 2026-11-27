@@ -1,0 +1,20 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX brec: <https://w3id.org/brec/ontology#>
+PREFIX ex: <https://w3id.org/brec/id/>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX crmdig: <http://www.cidoc-crm.org/extensions/crmdig/>
+PREFIX crminf: <http://www.ics.forth.gr/isl/CRMinf/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?hypothesis ?value ?adoptedBy ?date ?evidence WHERE {
+  ?a a crminf:I7_Belief_Adoption ; crminf:J2_concluded_that ?h ; crm:P14_carried_out_by ?p ; dct:date ?date ; crminf:J7_is_based_on_evidence_from ?e .
+  ?h rdfs:label ?hypothesis ; crminf:J5_holds_to_be/rdf:value ?value .
+  FILTER(LANG(?hypothesis) = "en")
+  ?p rdfs:label ?adoptedBy .
+  ?e rdfs:label ?evidence . FILTER(LANG(?evidence) = "en")
+}

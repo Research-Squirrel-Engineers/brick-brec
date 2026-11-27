@@ -558,6 +558,13 @@
 <https://sketchfab.com/3d-models/lego-pyramid-maya-kiri-original-1e9a188abf974999b7909e15323ded0a> <http://www.w3.org/2000/01/rdf-schema#label> "Source: Lego Pyramid Maya (KIRI Original)" .
 <https://sketchfab.com/3d-models/lego-pyramid-maya-reconstruction-claudeai-fe33b10adee4421fa3a06cc12f7d6c62> <http://www.w3.org/2000/01/rdf-schema#label> "Source: Lego Pyramid Maya (Reconstruction claude.ai)" .
 <https://sketchfab.com/3d-models/lego-pyramid-reconstruction-claudeai-e2fb31006245424e88033714af2c90f5> <http://www.w3.org/2000/01/rdf-schema#label> "Source: Lego Pyramid (Reconstruction claude.ai)" .
+<https://w3id.org/brec/id/adopt_m2_a> <http://purl.org/dc/terms/date> "2026-11-17"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/brec/id/adopt_m2_a> <http://www.cidoc-crm.org/cidoc-crm/P14_carried_out_by> <https://w3id.org/brec/id/daria> .
+<https://w3id.org/brec/id/adopt_m2_a> <http://www.ics.forth.gr/isl/CRMinf/J2_concluded_that> <https://w3id.org/brec/id/hyp_m2_a> .
+<https://w3id.org/brec/id/adopt_m2_a> <http://www.ics.forth.gr/isl/CRMinf/J7_is_based_on_evidence_from> <https://w3id.org/brec/id/ev_m2_builder> .
+<https://w3id.org/brec/id/adopt_m2_a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMinf/I7_Belief_Adoption> .
+<https://w3id.org/brec/id/adopt_m2_a> <http://www.w3.org/2000/01/rdf-schema#label> "Belief Adoption: die Erbauerin übernimmt die Maya-Stufenpyramiden-Hypothese (2026-11-17)"@de .
+<https://w3id.org/brec/id/adopt_m2_a> <http://www.w3.org/2000/01/rdf-schema#label> "Belief adoption: the builder adopts the Maya step pyramid hypothesis (2026-11-17)"@en .
 <https://w3id.org/brec/id/assume_7_levels> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/brec/ontology#Assumption> .
 <https://w3id.org/brec/id/assume_7_levels> <http://www.w3.org/2000/01/rdf-schema#label> "7 Stufen nach Foto, Scan deutet auf 8" .
 <https://w3id.org/brec/id/assume_7_levels> <http://www.w3.org/2000/01/rdf-schema#label> "7 levels according to the photo; the scan suggests 8"@en .
@@ -585,6 +592,39 @@
 <https://w3id.org/brec/id/build_m3> <https://schema.org/name> "build_m3.py" .
 <https://w3id.org/brec/id/build_m3> <https://schema.org/programmingLanguage> "Python" .
 <https://w3id.org/brec/id/build_m3> <https://w3id.org/codemeta/developmentStatus> "wip" .
+<https://w3id.org/brec/id/bv_f_a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMinf/I6_Belief_Value> .
+<https://w3id.org/brec/id/bv_f_a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "0.75"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/brec/id/bv_f_a> <http://www.w3.org/2000/01/rdf-schema#label> "Belief value 0.75"@en .
+<https://w3id.org/brec/id/bv_f_b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMinf/I6_Belief_Value> .
+<https://w3id.org/brec/id/bv_f_b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "0.40"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/brec/id/bv_f_b> <http://www.w3.org/2000/01/rdf-schema#label> "Belief value 0.40"@en .
+<https://w3id.org/brec/id/bv_m1_a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMinf/I6_Belief_Value> .
+<https://w3id.org/brec/id/bv_m1_a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "0.55"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/brec/id/bv_m1_a> <http://www.w3.org/2000/01/rdf-schema#label> "Belief value 0.55"@en .
+<https://w3id.org/brec/id/bv_m1_b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMinf/I6_Belief_Value> .
+<https://w3id.org/brec/id/bv_m1_b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "0.10"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/brec/id/bv_m1_b> <http://www.w3.org/2000/01/rdf-schema#label> "Belief value 0.10"@en .
+<https://w3id.org/brec/id/bv_m1_c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMinf/I6_Belief_Value> .
+<https://w3id.org/brec/id/bv_m1_c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "0.20"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/brec/id/bv_m1_c> <http://www.w3.org/2000/01/rdf-schema#label> "Belief value 0.20"@en .
+<https://w3id.org/brec/id/bv_m1_d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMinf/I6_Belief_Value> .
+<https://w3id.org/brec/id/bv_m1_d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "0.15"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/brec/id/bv_m1_d> <http://www.w3.org/2000/01/rdf-schema#label> "Belief value 0.15"@en .
+<https://w3id.org/brec/id/bv_m2_a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMinf/I6_Belief_Value> .
+<https://w3id.org/brec/id/bv_m2_a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "0.70"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/brec/id/bv_m2_a> <http://www.w3.org/2000/01/rdf-schema#label> "Belief value 0.70"@en .
+<https://w3id.org/brec/id/bv_m2_b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMinf/I6_Belief_Value> .
+<https://w3id.org/brec/id/bv_m2_b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "0.35"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/brec/id/bv_m2_b> <http://www.w3.org/2000/01/rdf-schema#label> "Belief value 0.35"@en .
+<https://w3id.org/brec/id/bv_m2_c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMinf/I6_Belief_Value> .
+<https://w3id.org/brec/id/bv_m2_c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "0.10"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/brec/id/bv_m2_c> <http://www.w3.org/2000/01/rdf-schema#label> "Belief value 0.10"@en .
+<https://w3id.org/brec/id/bv_m2_d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMinf/I6_Belief_Value> .
+<https://w3id.org/brec/id/bv_m2_d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "0.08"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/brec/id/bv_m2_d> <http://www.w3.org/2000/01/rdf-schema#label> "Belief value 0.08"@en .
+<https://w3id.org/brec/id/bv_m2_e> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMinf/I6_Belief_Value> .
+<https://w3id.org/brec/id/bv_m2_e> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "0.15"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/brec/id/bv_m2_e> <http://www.w3.org/2000/01/rdf-schema#label> "Belief value 0.15"@en .
 <https://w3id.org/brec/id/c_angkor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/brec/ontology#CandidateReferent> .
 <https://w3id.org/brec/id/c_angkor> <http://www.w3.org/2000/01/rdf-schema#label> "Angkor temple mountain (e.g. Bakong)"@en .
 <https://w3id.org/brec/id/c_angkor> <http://www.w3.org/2000/01/rdf-schema#label> "Angkor-Tempelberg (z. B. Bakong)"@de .
@@ -732,6 +772,7 @@
 <https://w3id.org/brec/id/flo> <http://www.w3.org/2002/07/owl#sameAs> <https://orcid.org/0000-0002-3246-3531> .
 <https://w3id.org/brec/id/flo> <https://schema.org/affiliation> "Research Squirrel Engineers Network / Leibniz-Zentrum für Archäologie (LEIZA)" .
 <https://w3id.org/brec/id/flo> <https://schema.org/identifier> <https://orcid.org/0000-0002-3246-3531> .
+<https://w3id.org/brec/id/hyp_f_a> <http://www.ics.forth.gr/isl/CRMinf/J5_holds_to_be> <https://w3id.org/brec/id/bv_f_a> .
 <https://w3id.org/brec/id/hyp_f_a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/brec/ontology#IdentityHypothesis> .
 <https://w3id.org/brec/id/hyp_f_a> <http://www.w3.org/2000/01/rdf-schema#label> "Medieval warrior / soldier"@en .
 <https://w3id.org/brec/id/hyp_f_a> <http://www.w3.org/2000/01/rdf-schema#label> "Mittelalterlicher Krieger / Soldat"@de .
@@ -744,6 +785,7 @@
 <https://w3id.org/brec/id/hyp_f_a> <https://w3id.org/brec/ontology#proposesReferent> <https://w3id.org/brec/id/c_soldier> .
 <https://w3id.org/brec/id/hyp_f_a> <https://w3id.org/brec/ontology#verificationStatus> "offen: Bestätigung durch Flo nötig" .
 <https://w3id.org/brec/id/hyp_f_a> <https://w3id.org/brec/ontology#verificationStatus> "open: confirmation by Flo needed"@en .
+<https://w3id.org/brec/id/hyp_f_b> <http://www.ics.forth.gr/isl/CRMinf/J5_holds_to_be> <https://w3id.org/brec/id/bv_f_b> .
 <https://w3id.org/brec/id/hyp_f_b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/brec/ontology#IdentityHypothesis> .
 <https://w3id.org/brec/id/hyp_f_b> <http://www.w3.org/2000/01/rdf-schema#label> "Figur stammt aus einer Cobi-Serie (nur Stilvermutung)"@de .
 <https://w3id.org/brec/id/hyp_f_b> <http://www.w3.org/2000/01/rdf-schema#label> "Figure comes from a Cobi series (style-based guess only)"@en .
@@ -756,6 +798,7 @@
 <https://w3id.org/brec/id/hyp_f_b> <https://w3id.org/brec/ontology#proposesReferent> <https://w3id.org/brec/id/c_cobi> .
 <https://w3id.org/brec/id/hyp_f_b> <https://w3id.org/brec/ontology#verificationStatus> "offen: Bestätigung durch Flo nötig" .
 <https://w3id.org/brec/id/hyp_f_b> <https://w3id.org/brec/ontology#verificationStatus> "open: confirmation by Flo needed"@en .
+<https://w3id.org/brec/id/hyp_m1_a> <http://www.ics.forth.gr/isl/CRMinf/J5_holds_to_be> <https://w3id.org/brec/id/bv_m1_a> .
 <https://w3id.org/brec/id/hyp_m1_a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/brec/ontology#IdentityHypothesis> .
 <https://w3id.org/brec/id/hyp_m1_a> <http://www.w3.org/2000/01/rdf-schema#label> "Denkmal: Standbild eines Kriegers auf Säule über Stufenunterbau"@de .
 <https://w3id.org/brec/id/hyp_m1_a> <http://www.w3.org/2000/01/rdf-schema#label> "Monument: statue of a warrior on a column above a stepped base"@en .
@@ -768,6 +811,7 @@
 <https://w3id.org/brec/id/hyp_m1_a> <https://w3id.org/brec/ontology#proposesReferent> <https://w3id.org/brec/id/c_denkmal> .
 <https://w3id.org/brec/id/hyp_m1_a> <https://w3id.org/brec/ontology#verificationStatus> "offen: Bestätigung durch Flo nötig" .
 <https://w3id.org/brec/id/hyp_m1_a> <https://w3id.org/brec/ontology#verificationStatus> "open: confirmation by Flo needed"@en .
+<https://w3id.org/brec/id/hyp_m1_b> <http://www.ics.forth.gr/isl/CRMinf/J5_holds_to_be> <https://w3id.org/brec/id/bv_m1_b> .
 <https://w3id.org/brec/id/hyp_m1_b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/brec/ontology#IdentityHypothesis> .
 <https://w3id.org/brec/id/hyp_m1_b> <http://www.w3.org/2000/01/rdf-schema#label> "Konkretes historisches Denkmal (Spezialfall von a, nicht bestimmbar)"@de .
 <https://w3id.org/brec/id/hyp_m1_b> <http://www.w3.org/2000/01/rdf-schema#label> "Specific historical monument (special case of a, cannot be determined)"@en .
@@ -780,6 +824,7 @@
 <https://w3id.org/brec/id/hyp_m1_b> <https://w3id.org/brec/ontology#specializes> <https://w3id.org/brec/id/hyp_m1_a> .
 <https://w3id.org/brec/id/hyp_m1_b> <https://w3id.org/brec/ontology#verificationStatus> "offen: Bestätigung durch Flo nötig" .
 <https://w3id.org/brec/id/hyp_m1_b> <https://w3id.org/brec/ontology#verificationStatus> "open: confirmation by Flo needed"@en .
+<https://w3id.org/brec/id/hyp_m1_c> <http://www.ics.forth.gr/isl/CRMinf/J5_holds_to_be> <https://w3id.org/brec/id/bv_m1_c> .
 <https://w3id.org/brec/id/hyp_m1_c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/brec/ontology#IdentityHypothesis> .
 <https://w3id.org/brec/id/hyp_m1_c> <http://www.w3.org/2000/01/rdf-schema#label> "Stepped pyramid with a figure as a free play or fantasy scene"@en .
 <https://w3id.org/brec/id/hyp_m1_c> <http://www.w3.org/2000/01/rdf-schema#label> "Stufenpyramide mit Figur als freie Spiel- oder Fantasieszene"@de .
@@ -792,6 +837,7 @@
 <https://w3id.org/brec/id/hyp_m1_c> <https://w3id.org/brec/ontology#hypothesisAbout> <https://w3id.org/brec/id/lego_pyramid_1> .
 <https://w3id.org/brec/id/hyp_m1_c> <https://w3id.org/brec/ontology#verificationStatus> "offen: Bestätigung durch Flo nötig" .
 <https://w3id.org/brec/id/hyp_m1_c> <https://w3id.org/brec/ontology#verificationStatus> "open: confirmation by Flo needed"@en .
+<https://w3id.org/brec/id/hyp_m1_d> <http://www.ics.forth.gr/isl/CRMinf/J5_holds_to_be> <https://w3id.org/brec/id/bv_m1_d> .
 <https://w3id.org/brec/id/hyp_m1_d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/brec/ontology#IdentityHypothesis> .
 <https://w3id.org/brec/id/hyp_m1_d> <http://www.w3.org/2000/01/rdf-schema#label> "Abstracted watchtower or lookout with a sentry"@en .
 <https://w3id.org/brec/id/hyp_m1_d> <http://www.w3.org/2000/01/rdf-schema#label> "Abstrahierter Wach- oder Aussichtsturm mit Posten"@de .
@@ -805,6 +851,7 @@
 <https://w3id.org/brec/id/hyp_m1_d> <https://w3id.org/brec/ontology#proposesReferent> <https://w3id.org/brec/id/c_wachturm> .
 <https://w3id.org/brec/id/hyp_m1_d> <https://w3id.org/brec/ontology#verificationStatus> "offen: Bestätigung durch Flo nötig" .
 <https://w3id.org/brec/id/hyp_m1_d> <https://w3id.org/brec/ontology#verificationStatus> "open: confirmation by Flo needed"@en .
+<https://w3id.org/brec/id/hyp_m2_a> <http://www.ics.forth.gr/isl/CRMinf/J5_holds_to_be> <https://w3id.org/brec/id/bv_m2_a> .
 <https://w3id.org/brec/id/hyp_m2_a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/brec/ontology#IdentityHypothesis> .
 <https://w3id.org/brec/id/hyp_m2_a> <http://www.w3.org/2000/01/rdf-schema#label> "Mesoamerican (Maya) step pyramid with a temple on top, generic"@en .
 <https://w3id.org/brec/id/hyp_m2_a> <http://www.w3.org/2000/01/rdf-schema#label> "Mesoamerikanische (Maya) Stufenpyramide mit Tempelaufsatz, generisch"@de .
@@ -817,6 +864,7 @@
 <https://w3id.org/brec/id/hyp_m2_a> <https://w3id.org/brec/ontology#proposesReferent> <https://w3id.org/brec/id/c_maya> .
 <https://w3id.org/brec/id/hyp_m2_a> <https://w3id.org/brec/ontology#verificationStatus> "bestätigt durch den Erbauer (Daria Stefan, über Flo), 2026-11-17" .
 <https://w3id.org/brec/id/hyp_m2_a> <https://w3id.org/brec/ontology#verificationStatus> "confirmed by the builder (Daria Stefan, via Flo), 2026-11-17"@en .
+<https://w3id.org/brec/id/hyp_m2_b> <http://www.ics.forth.gr/isl/CRMinf/J5_holds_to_be> <https://w3id.org/brec/id/bv_m2_b> .
 <https://w3id.org/brec/id/hyp_m2_b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/brec/ontology#IdentityHypothesis> .
 <https://w3id.org/brec/id/hyp_m2_b> <http://www.w3.org/2000/01/rdf-schema#label> "El Castillo at Chichén Itzá (special case of a)"@en .
 <https://w3id.org/brec/id/hyp_m2_b> <http://www.w3.org/2000/01/rdf-schema#label> "El Castillo in Chichen Itza (Spezialfall von a)"@de .
@@ -830,6 +878,7 @@
 <https://w3id.org/brec/id/hyp_m2_b> <https://w3id.org/brec/ontology#specializes> <https://w3id.org/brec/id/hyp_m2_a> .
 <https://w3id.org/brec/id/hyp_m2_b> <https://w3id.org/brec/ontology#verificationStatus> "not confirmed by the builder (not refuted), 2026-11-17"@en .
 <https://w3id.org/brec/id/hyp_m2_b> <https://w3id.org/brec/ontology#verificationStatus> "vom Erbauer nicht bestätigt (nicht widerlegt), 2026-11-17" .
+<https://w3id.org/brec/id/hyp_m2_c> <http://www.ics.forth.gr/isl/CRMinf/J5_holds_to_be> <https://w3id.org/brec/id/bv_m2_c> .
 <https://w3id.org/brec/id/hyp_m2_c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/brec/ontology#IdentityHypothesis> .
 <https://w3id.org/brec/id/hyp_m2_c> <http://www.w3.org/2000/01/rdf-schema#label> "Angkor temple mountain with sanctuary"@en .
 <https://w3id.org/brec/id/hyp_m2_c> <http://www.w3.org/2000/01/rdf-schema#label> "Angkor-Tempelberg mit Heiligtum"@de .
@@ -843,6 +892,7 @@
 <https://w3id.org/brec/id/hyp_m2_c> <https://w3id.org/brec/ontology#proposesReferent> <https://w3id.org/brec/id/c_angkor> .
 <https://w3id.org/brec/id/hyp_m2_c> <https://w3id.org/brec/ontology#verificationStatus> "offen: Bestätigung durch Flo nötig" .
 <https://w3id.org/brec/id/hyp_m2_c> <https://w3id.org/brec/ontology#verificationStatus> "open: confirmation by Flo needed"@en .
+<https://w3id.org/brec/id/hyp_m2_d> <http://www.ics.forth.gr/isl/CRMinf/J5_holds_to_be> <https://w3id.org/brec/id/bv_m2_d> .
 <https://w3id.org/brec/id/hyp_m2_d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/brec/ontology#IdentityHypothesis> .
 <https://w3id.org/brec/id/hyp_m2_d> <http://www.w3.org/2000/01/rdf-schema#label> "Ziggurat with temple"@en .
 <https://w3id.org/brec/id/hyp_m2_d> <http://www.w3.org/2000/01/rdf-schema#label> "Zikkurat mit Tempel"@de .
@@ -856,6 +906,7 @@
 <https://w3id.org/brec/id/hyp_m2_d> <https://w3id.org/brec/ontology#proposesReferent> <https://w3id.org/brec/id/c_ziggurat> .
 <https://w3id.org/brec/id/hyp_m2_d> <https://w3id.org/brec/ontology#verificationStatus> "offen: Bestätigung durch Flo nötig" .
 <https://w3id.org/brec/id/hyp_m2_d> <https://w3id.org/brec/ontology#verificationStatus> "open: confirmation by Flo needed"@en .
+<https://w3id.org/brec/id/hyp_m2_e> <http://www.ics.forth.gr/isl/CRMinf/J5_holds_to_be> <https://w3id.org/brec/id/bv_m2_e> .
 <https://w3id.org/brec/id/hyp_m2_e> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/brec/ontology#IdentityHypothesis> .
 <https://w3id.org/brec/id/hyp_m2_e> <http://www.w3.org/2000/01/rdf-schema#label> "Free design without a specific model"@en .
 <https://w3id.org/brec/id/hyp_m2_e> <http://www.w3.org/2000/01/rdf-schema#label> "Freies Design ohne konkretes Vorbild"@de .

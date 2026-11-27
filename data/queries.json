@@ -1,5 +1,5 @@
 {
- "prefixes": "PREFIX brec: <https://w3id.org/brec/ontology#>\nPREFIX ex: <https://w3id.org/brec/id/>\nPREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>\nPREFIX crmdig: <http://www.cidoc-crm.org/extensions/crmdig/>\nPREFIX crminf: <http://www.ics.forth.gr/isl/CRMinf/>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX dcat: <http://www.w3.org/ns/dcat#>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>",
+ "prefixes": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX brec: <https://w3id.org/brec/ontology#>\nPREFIX ex: <https://w3id.org/brec/id/>\nPREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>\nPREFIX crmdig: <http://www.cidoc-crm.org/extensions/crmdig/>\nPREFIX crminf: <http://www.ics.forth.gr/isl/CRMinf/>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX dcat: <http://www.w3.org/ns/dcat#>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>",
  "queries": [
   {
    "id": "classes-anchored",
@@ -18,6 +18,12 @@
    "title": "Which evidence was used for which identification?",
    "intro": "An identification (crminf:I5 Inference Making) uses evidence as a premise and concludes a hypothesis.",
    "sparql": "SELECT ?identification ?evidence WHERE {\n  ?i crminf:J1_used_as_premise ?e .\n  ?i rdfs:label ?identification . FILTER(LANG(?identification) = \"en\")\n  ?e rdfs:label ?evidence . FILTER(LANG(?evidence) = \"en\")\n}\nORDER BY ?identification ?evidence"
+  },
+  {
+   "id": "belief-adoptions",
+   "title": "Which beliefs of the AI assistant did a person adopt, and on what evidence?",
+   "intro": "A belief adoption (crminf:I7) is the act in which a person takes over a belief on the strength of evidence. The belief value (crminf:I6) is the confidence of the AI assistant. A hypothesis without an adoption is still a conjecture.",
+   "sparql": "SELECT ?hypothesis ?value ?adoptedBy ?date ?evidence WHERE {\n  ?a a crminf:I7_Belief_Adoption ; crminf:J2_concluded_that ?h ; crm:P14_carried_out_by ?p ; dct:date ?date ; crminf:J7_is_based_on_evidence_from ?e .\n  ?h rdfs:label ?hypothesis ; crminf:J5_holds_to_be/rdf:value ?value .\n  FILTER(LANG(?hypothesis) = \"en\")\n  ?p rdfs:label ?adoptedBy .\n  ?e rdfs:label ?evidence . FILTER(LANG(?evidence) = \"en\")\n}"
   },
   {
    "id": "scans",

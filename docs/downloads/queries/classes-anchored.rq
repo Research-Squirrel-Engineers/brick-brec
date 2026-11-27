@@ -1,3 +1,4 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX brec: <https://w3id.org/brec/ontology#>
 PREFIX ex: <https://w3id.org/brec/id/>
 PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
